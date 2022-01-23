@@ -171,3 +171,28 @@ $\sigma_4 = (1 3) = \left( \begin{array}{cccc}
 3 & 2 & 1 & 4
 \end{array}\right)=(1 3)$
 別解：$\sigma_2^{-1} \sigma_4 \sigma_2 = (1 3)(2 4)(1 3)(1 3)(2 4) = (1 3)$
+
+### 2.2.1
+
+$\mathbb{Z}/7\mathbb{Z}$
+
+1. $\overline{4}+\overline{5}=\overline{2}$
+2. $\overline{2}-\overline{5}=\overline{4}$
+3. $\overline{4} \times \overline{5}=\overline{6}$
+4. $\overline{5}^3=\overline{4} \times \overline{5}=\overline{6}$
+5. $\overline{4}^{32}$
+$\overline{4}^3=\overline{4} \times \overline{4} \times \overline{4} = \overline{2} \times \overline{4} = \overline{1}$ なので
+$\overline{4}^{32}=\overline{4}^{3 \times 10 + 2}=\left(\overline{4}^3\right)^{10} \times \overline{4}^2=\overline{1} \times \overline{2}=\overline{2}$
+
+### 2.2.2
+
+$\mathbb{Z}/39\mathbb{Z}$
+
+1. $\overline{34} \times \overline{21} \times \overline{33}=\overline{2} \times \overline{17} \times \overline{3} \times \overline{7} \times \overline{3} \times \overline{11}=\overline{2} \times \overline{2} \times \overline{3} \times \overline{3} \times \overline{11} = \overline{5} \times \overline{9}=\overline{6} \qquad (\because 17 \times 7 = 119 = 3 \times 39 + 2, 2 \times 2 \times 11 = 44 = 39 + 5)$
+2. $\overline{25} \times \overline{18} \times \overline{13}=\overline{25} \times \overline{6} \times \overline{3} \times \overline{13}=\overline{25} \times \overline{6} \times \overline{39}=\overline{0}$
+3. $\overline{16}^8$
+$\overline{16}^2=\overline{22}\qquad(\because 16 \times 16 = 256 = 6 \times 39 + 22$)
+$\overline{16}^4=\left(\overline{16}^2\right)^2=\overline{22}^2=\overline{16}\qquad(\because 22\times22=484=12\times39+16)$
+$\overline{16}^3=\overline{16}^2\times\overline{16}=\overline{22}\times\overline{16}=\overline{1}\qquad(\because 22\times16=352=9\times39+1)$
+$\overline{16}^8=\overline{16}^{3\times2+2}=\overline{16}^2=\overline{22}$
+4. $\overline{16}^{34}=\overline{16}^{3\times11+1}=\overline{16}$
