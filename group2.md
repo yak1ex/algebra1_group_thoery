@@ -203,3 +203,29 @@ $\overline{16}^4=\left(\overline{16}^2\right)^2=\overline{22}^2=\overline{16}\qq
 $\overline{16}^3=\overline{16}^2\times\overline{16}=\overline{22}\times\overline{16}=\overline{1}\qquad(\because 22\times16=352=9\times39+1)$
 $\overline{16}^8=\overline{16}^{3\times2+2}=\overline{16}^2=\overline{22}$
 4. $\overline{16}^{34}=\overline{16}^{3\times11+1}=\overline{16}$
+
+### 2.3.1
+
+($\Rightarrow$)
+$H$ が部分群であることを言うためには、1. 単位元$1_{G}$ が $H$ に含まれること、2. 逆元および 3. 積が $H$ に閉じていることを言えばよい。
+1. $H$ は空ではないので適当な $x \in H$ を採ることができる。このとき、$x^{-1} x = 1_{G} \in H$ となるため単位元 $1_{G}$ は $H$ に含まれる。
+2. 1.より単位元 $1_{G}$ が $H$ に含まれるため、任意の $x \in H$ について、$x^{-1} 1_{G} = x^{-1} \in H$。すなわち、$H$ は逆元について閉じている。
+3. $x,y \in H$ とする。このとき、2.より $x^{-1} \in H$。仮定より、$(x^{-1})^{-1} y = x y \in H$。すなわち $H$ は積について閉じている。
+i),ii),iii)より$H$は部分群である。
+
+($\Leftarrow$)
+$H$ が部分群であるとすると、任意の $x \in H$ について $x^{-1} \in H$。また任意の $x, y \in H$ について $x y \in H$。したがって任意の $x, y \in H$ について $x^{-1} y \in H$。
+
+### 2.3.2
+
+$J_n = \left( \begin{array}{cc}
+0 & I_n \\
+-I_n & 0
+\end{array} \right)$
+$G=GL_{2n}(\mathbb{R}), Sp(2n)=H=\{g \in G | {}^t g J_n g = J_n \}$とする。
+
+1. $I_{2n} \in G$ で、${}^t I_{2n} J_n I_{2n} = J_n$ であるため $I_{2n} \in G$。つまり単位元 $1_{G} = I_{2n} \in H$。
+2. $g \in H$ とすると $^t g J_n g = J_n$、左から $(^t g)^{-1} = {}^t (g^{-1})$、右から $g^{-1}$をかけると、$J_n = {}^t(g^{-1}) J_n g^{-1}$ となるため $g^{-1} \in H$。すなわち $H$ は逆元について閉じている。
+3. 任意の $x,y \in H$ について、${}^t (xy) J_n (xy) = {}^t y {}^t x J_n x y = {}^t y ({}^t x J_n x) y = {}^t y J_n y = J_n$ となるため $xy \in H$。すなわち $H$ は積について閉じている。
+
+1.2.3.より$H(=Sp(2n))$は部分群。
