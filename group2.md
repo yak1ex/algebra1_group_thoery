@@ -282,7 +282,11 @@ $\mathbb{R}$ を加法により群とみなす場合の単位元は $0$ であ�
 
 ### 2.3.7
 
-$H = \{ z \in \mathbb{C} | z^n = 1 \}$ 位数 $n$ の巡回部分群であることを証明せよ。
+$z^n=1$ とすると、
+$|z^n|=1 \Leftrightarrow |z|^n=1 \Leftrightarrow |z|=1$、また
+$\arg z^n = 0 \Leftrightarrow n \arg z = 2 \pi m \Leftrightarrow \arg z = 2 \pi \frac{m}{n} (m = 0, 1, \cdots, n-1)$
+よって、任意の $z \in H$ について $z = \cos 2 \pi \frac{m}{n} + i \sin 2 \pi \frac{m}{n} (m = 0, 1, \cdots, n-1)$
+すなわち、$H$ の元は $n$ 個であり、$\cos \frac{2 \pi}{n} + i \sin \frac{2 \pi}{n}$ を掛け合わせることで生成できるため、$H$ は位数 $n$ の巡回部分群である。
 
 ### 2.3.8
 
