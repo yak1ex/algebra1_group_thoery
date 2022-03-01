@@ -285,12 +285,26 @@ $\mathbb{R}$ を加法により群とみなす場合の単位元は $0$ であ�
 $z^n=1$ とすると、
 $|z^n|=1 \Leftrightarrow |z|^n=1 \Leftrightarrow |z|=1$、また
 $\arg z^n = 0 \Leftrightarrow n \arg z = 2 \pi m \Leftrightarrow \arg z = 2 \pi \frac{m}{n} (m = 0, 1, \cdots, n-1)$
-よって、任意の $z \in H$ について $z = \cos 2 \pi \frac{m}{n} + i \sin 2 \pi \frac{m}{n} (m = 0, 1, \cdots, n-1)$
-すなわち、$H$ の元は $n$ 個であり、$\cos \frac{2 \pi}{n} + i \sin \frac{2 \pi}{n}$ を掛け合わせることで生成できるため、$H$ は位数 $n$ の巡回部分群である。
+よって、任意の $z \in H$ について $z = \cos 2 \pi \frac{m}{n} + i \sin 2 \pi \frac{m}{n} (m = 0, 1, \cdots, n-1)$。
+ここで、
+1. $1 \in H (m = 0 のとき)$ のため単位元が $H$ に含まれる。
+2. $(\cos 2 \pi \frac{m}{n} + i \sin 2 \pi \frac{m}{n})(\cos 2 \pi \frac{n-m}{n} + i \sin 2 \pi \frac{n-m}{n})=\cos 2 \pi=1 (m = 0, 1, \cdots, n-1)$ のため、$H$ は逆元について閉じている。
+3. $(\cos 2 \pi \frac{m}{n} + i \sin 2 \pi \frac{m}{n})(\cos 2 \pi \frac{l}{n} + i \sin 2 \pi \frac{l}{n}) = \cos 2 \pi \frac{m+l}{n} + i \sin 2 \pi \frac{m+l}{n}$で、三角関数の周期が $2 \pi$ なので $H$ は積について閉じている。
+
+1.2.3.より $H$ は部分群となる。
+さらに、$H$ の元は $n$ 個であり、$\cos \frac{2 \pi}{n} + i \sin \frac{2 \pi}{n}$ を掛け合わせることで生成できるため、$H$ は位数 $n$ の巡回部分群である。
 
 ### 2.3.8
 
-1. $\mathfrak{S}_3$ が巡回群ではないことを証明せよ
+1. $\mathfrak{S}_3 = \{ 1_{\mathfrak{S}_3}, (1\;2), (2\;3), (3\;1), (1\;2\;3), (1\;3\;2) \}$ で、
+$\langle 1_{\mathfrak{S}_3} \rangle = \{ 1_{\mathfrak{S}_3} \},$
+$\langle (1\;2) \rangle = \{ 1_{\mathfrak{S}_3}, (1\;2) \},$
+$\langle (2\;3) \rangle = \{ 1_{\mathfrak{S}_3}, (2\;3) \},$
+$\langle (3\;1) \rangle = \{ 1_{\mathfrak{S}_3}, (3\;1) \},$
+$\langle (1\;2\;3) \rangle = \{ 1_{\mathfrak{S}_3}, (1\;2\;3), (1\;3\;2) \},$
+$\langle (1\;3\;2) \rangle = \{ 1_{\mathfrak{S}_3}, (1\;2\;3), (1\;3\;2) \}$
+となり、いずれの元によっても $\mathfrak{S}_3$ が生成されないため巡回群ではない。
+
 2. $\mathbb{Q}$ が加法に関して巡回群でないことを証明せよ
 3. $\mathbb{R}$ が加法に関して巡回群でないことを証明せよ
 4. $\mathbb{Q}^\times$ が乗法に関して巡回群でないことを証明せよ
