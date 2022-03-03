@@ -304,13 +304,35 @@ $\langle (3\;1) \rangle = \{ 1_{\mathfrak{S}_3}, (3\;1) \},$
 $\langle (1\;2\;3) \rangle = \{ 1_{\mathfrak{S}_3}, (1\;2\;3), (1\;3\;2) \},$
 $\langle (1\;3\;2) \rangle = \{ 1_{\mathfrak{S}_3}, (1\;2\;3), (1\;3\;2) \}$
 となり、いずれの元によっても $\mathfrak{S}_3$ が生成されないため巡回群ではない。
-
-2. $\mathbb{Q}$ が加法に関して巡回群でないことを証明せよ
-3. $\mathbb{R}$ が加法に関して巡回群でないことを証明せよ
-4. $\mathbb{Q}^\times$ が乗法に関して巡回群でないことを証明せよ
-5. $\mathbb{Z} \times \mathbb{Z}$ が巡回群でないことを証明せよ
+2. $\mathbb{Q}$ が加法に関して巡回群であると仮定する。このとき、巡回群の性質から、任意の $x,y \in \mathbb{Q}$ について、ある生成元 $g \in \mathbb{Q}$　と $m,n \in \mathbb{Z}$ によって $x = mg, y = ng$ と表せる。このとき、$m$ と互いに素で1より大きな整数 $p \in \mathbb{Z}(p \gt 1, \gcd(m,p)=1)$ をとり、$(n+\frac{1}{p})x-my \in \mathbb{Q}$ を考えると、$$(n+\frac{1}{p})x-my=(n+\frac{1}{p})mg-mng=\frac{m}{p}g$$
+巡回群の性質よりこれが生成元 $g$ の整数倍となるはずだが、これは $\gcd(m,p)=1$ に矛盾する。以上により、$\mathbb{Q}$ は加法に関して巡回群ではない。
+【別解】
+$\mathbb{Q}$ が加法に関して巡回群であると仮定する。このとき、巡回群の性質から、任意の $x \in \mathbb{Q}$ について、ある生成元 $g \in \mathbb{Q}$ と $m \in \mathbb{Z}$ によって $x = mg$ と表せる。このとき、$\frac{g}{2} \in \mathbb{Q}$ も巡回群の性質より生成元 $g$ の整数倍となるはずだが、これは矛盾である。以上により、$\mathbb{Q}$ は加法に関して巡回群ではない。
+3. $\mathbb{R}$ が加法に関して巡回群であると仮定する。このとき、巡回群の性質から、任意の $x,y \in \mathbb{R}$ について、ある生成元 $g \in \mathbb{R}$　と $m,n \in \mathbb{Z}$ によって $x = mg, y = ng$ と表せる。このとき、$m$ と互いに素で1より大きな整数 $p \in \mathbb{Z}(p \gt 1, \gcd(m,p)=1)$ をとり、$(n+\frac{1}{p})x-my \in \mathbb{R}$ を考えると、$$(n+\frac{1}{p})x-my=(n+\frac{1}{p})mg-mng=\frac{m}{p}g$$
+巡回群の性質よりこれが生成元 $g$ の整数倍となるはずだが、これは $\gcd(m,p)=1$ に矛盾する。以上により、$\mathbb{R}$ は加法に関して巡回群ではない。
+【別解】
+$\mathbb{R}$ が加法に関して巡回群であると仮定する。このとき、巡回群の性質から、任意の $x \in \mathbb{R}$ について、ある生成元 $g \in \mathbb{R}$ と $m \in \mathbb{Z}$ によって $x = mg$ と表せる。このとき、$\frac{g}{2} \in \mathbb{R}$ も巡回群の性質より生成元 $g$ の整数倍となるはずだが、これは矛盾である。以上により、$\mathbb{R}$ は加法に関して巡回群ではない。
+4. $\mathbb{Q}^\times$ が乗法に関して巡回群であると仮定する。このとき、生成元が $g \in \mathbb{Q}^\times$ だとすると、1) $|g| \lt 1$、 2) $|g| = 1$、 3) $|g| \gt 1$ のいずれかである。以下、$n \in \mathbb{Z}$ とする。1.2.3.いずれの場合でも、$g^n$ で生成できない元があるため矛盾である。すなわち、$\mathbb{Q}^\times$ は乗法に関して巡回群ではない。
+    1. $|g| \lt 1$ のとき、$n \le 0$ で $|g^n|=|g|^n \ge 1$、$n \ge 1$ で $|g^n|=|g|^n \le |g|$ のため、$|g| \lt |x| \lt 1$ となる $x \in \mathbb{Q}^\times$ を $g^n$ の形で生成できない。
+    2. $|g| = 1$ のときには、$|g^n|=|g|^n=1$ なので、$|x| \neq 1$ となる $x \in \mathbb{Q}^\times$ を $g^n$ の形で生成できない。
+    3. $|g| \gt 1$ のとき、$n \le 0$ で $|g^n|=|g|^n \le 1$、$n \ge 1$ で $|g^n|=|g|^n \ge |g|$ のため、$1 \lt |x| \lt |g|$ となる $x \in \mathbb{Q}^\times$ を $g^n$ の形で生成できない。
+5. $\mathbb{Z} \times \mathbb{Z}$ が巡回群であると仮定する。$g=(g_1,g_2) \in \mathbb{Z} \times \mathbb{Z}(g_1,g_2 \in \mathbb{Z})$ が生成元であるとすると $g_1 \neq 0$ かつ $g_2 \neq 0$。なぜなら、$g_1 = 0$ の場合は、$\langle g \rangle = \{0\} \times \langle g_2 \rangle$ であり、$g_2 = 0$ の場合は、$\langle g \rangle = \langle g_1 \rangle \times \{0\}$ であるため、いずれも $\mathbb{Z}\times\mathbb{Z}$ を生成しない。ここで、$(g_1, -g_2) \in \mathbb{Z} \times \mathbb{Z}$ を考えるとこれも巡回群の性質より、$n \in \mathbb{Z}$ として $ng = (ng_1, ng_2)$ の形で表せなければならない。すなわち
+$$\left\{ \begin{array}{rcc}
+g_1 & = & n g_1 \\
+-g_2 & = & n g_2
+\end{array}\right. $$ だが、$g_1 \neq 0$ かつ $g_2 \neq 0$ の時に、これらを満たす $n \in \mathbb{Z}$ は存在しないため矛盾である。すなわち、$\mathbb{Z} \times \mathbb{Z}$ は巡回群ではない。
 
 ### 2.3.9
 
-1. $\mathfrak{S}_n$ が $\sigma_1 = (1\;2),\cdots,\sigma_{n-1}=(n-1\;n)$ によって生成されることを証明せよ
-2. $\mathfrak{S}_n$ が $\sigma = (1\;2 \cdots n)$ と $\tau = (1\;2)$ によって生成されることを証明せよ
+1. 以降では、以下の形になる置換($m+1,\cdots,n$については自分自身に移す置換)を長さ $m (2 \le m)$ の置換と呼ぶことにし
+$$\left( \begin{array}{ccccc}
+1 & \cdots & m & m+1 & \cdots & n \\
+\sigma(1) & \cdots & \sigma(m) & m+1 & \cdots & n
+\end{array}\right)$$$m$ に関する帰納法で証明する。$S = \{ \sigma_m | m = 1,2,\cdots,n-1 \}$ として($n$ 以下の)任意の長さの置換が $\langle S \rangle$ に含まれることが言えれば良い。
+    1. 長さ $2$ の置換は恒等写像か $(1\;2) = \sigma_1$ のみなので $\langle S \rangle$ に含まれる。
+    2. 長さ$m$以下の置換が $\langle S \rangle$ に含まれるときに、長さ $m+1$ の置換も $\langle S \rangle$ に含まれることを言う。
+1. $\sigma_n$ を前問(1)の定義として、$\sigma^{m-1} \tau \sigma^{-(m-1)} = \sigma_m (m=1,2,\cdots,n-1)$。
+よって、$S = \{ \sigma_m | m = 1,2,\cdots,n-1 \} \subset \langle \sigma, \tau \rangle$ となるため、$\langle S \rangle \subset \langle \sigma, \tau \rangle$ ($\because$ 命題2.3.13(2))。
+前問より $\langle S \rangle = \mathfrak{S}_n$ なので、
+$\mathfrak{S}_n = \langle S \rangle \subset \langle \sigma, \tau \rangle \subset \mathfrak{S}_n$ ($\because \langle \sigma, \tau \rangle$ は $\mathfrak{S}_n$ の部分群であるため)
+従って $\langle \sigma, \tau \rangle = \mathfrak{S}_n$。
