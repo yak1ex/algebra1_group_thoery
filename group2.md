@@ -211,7 +211,7 @@ $H$ が部分群であることを言うためには、1. 単位元$1_{G}$ が $
 1. $H$ は空ではないので適当な $x \in H$ を採ることができる。このとき、$x^{-1} x = 1_{G} \in H$ となるため単位元 $1_{G}$ は $H$ に含まれる。
 2. 1.より単位元 $1_{G}$ が $H$ に含まれるため、任意の $x \in H$ について、$x^{-1} 1_{G} = x^{-1} \in H$。すなわち、$H$ は逆元について閉じている。
 3. $x,y \in H$ とする。このとき、2.より $x^{-1} \in H$。仮定より、$(x^{-1})^{-1} y = x y \in H$。すなわち $H$ は積について閉じている。
-1.2).3.より $H$ は部分群である。
+1.2.3.より $H$ は部分群である。
 
 ($\Leftarrow$)
 $H$ が部分群であるとすると、任意の $x \in H$ について $x^{-1} \in H$。また任意の $x, y \in H$ について $x y \in H$。したがって任意の $x, y \in H$ について $x^{-1} y \in H$。
@@ -312,7 +312,7 @@ $\mathbb{Q}$ が加法に関して巡回群であると仮定する。このと�
 巡回群の性質よりこれが生成元 $g$ の整数倍となるはずだが、これは $\gcd(m,p)=1$ に矛盾する。以上により、$\mathbb{R}$ は加法に関して巡回群ではない。
 【別解】
 $\mathbb{R}$ が加法に関して巡回群であると仮定する。このとき、巡回群の性質から、任意の $x \in \mathbb{R}$ について、ある生成元 $g \in \mathbb{R}$ と $m \in \mathbb{Z}$ によって $x = mg$ と表せる。このとき、$\frac{g}{2} \in \mathbb{R}$ も巡回群の性質より生成元 $g$ の整数倍となるはずだが、これは矛盾である。以上により、$\mathbb{R}$ は加法に関して巡回群ではない。
-4. $\mathbb{Q}^\times$ が乗法に関して巡回群であると仮定する。このとき、生成元が $g \in \mathbb{Q}^\times$ だとすると、1) $|g| \lt 1$、 2) $|g| = 1$、 3) $|g| \gt 1$ のいずれかである。以下、$n \in \mathbb{Z}$ とする。1.2.3.いずれの場合でも、$g^n$ で生成できない元があるため矛盾である。すなわち、$\mathbb{Q}^\times$ は乗法に関して巡回群ではない。
+4. $\mathbb{Q}^\times$ が乗法に関して巡回群であると仮定する。このとき、生成元が $g \in \mathbb{Q}^\times$ だとすると、1) $|g| \lt 1$、 2) $|g| = 1$、 3) $|g| \gt 1$ のいずれかである。以下、$n \in \mathbb{Z}$ とする。以下のように1.2.3.いずれの場合でも、$g^n$ で生成できない元があるため矛盾である。すなわち、$\mathbb{Q}^\times$ は乗法に関して巡回群ではない。
     1. $|g| \lt 1$ のとき、$n \le 0$ で $|g^n|=|g|^n \ge 1$、$n \ge 1$ で $|g^n|=|g|^n \le |g|$ のため、$|g| \lt |x| \lt 1$ となる $x \in \mathbb{Q}^\times$ を $g^n$ の形で生成できない。
     2. $|g| = 1$ のときには、$|g^n|=|g|^n=1$ なので、$|x| \neq 1$ となる $x \in \mathbb{Q}^\times$ を $g^n$ の形で生成できない。
     3. $|g| \gt 1$ のとき、$n \le 0$ で $|g^n|=|g|^n \le 1$、$n \ge 1$ で $|g^n|=|g|^n \ge |g|$ のため、$1 \lt |x| \lt |g|$ となる $x \in \mathbb{Q}^\times$ を $g^n$ の形で生成できない。
@@ -324,14 +324,31 @@ g_1 & = & n g_1 \\
 
 ### 2.3.9
 
-1. 以降では、以下の形になる置換($m+1,\cdots,n$については自分自身に移す置換)を長さ $m (2 \le m)$ の置換と呼ぶことにし
+1. $S = \{ \sigma_m | m = 1,2,\cdots,n-1 \}$ とする。まず、任意の互換 $(i\;j)(1\le i\lt j\le n)$ が $\langle S \rangle$ に含まれる$(*)$ことを帰納法で示す。
+a. $(1\;2)=\sigma_1 \in S$ なので $j \le 2$ で $(i\;j) \in \langle S \rangle$
+b. $j \le m$ で $(*)$ が成立する場合に、$j = m+1$ でも成立することを示す。$(i\;m+1)=(i\;m)(m\;m+1)(i\;m)=(i\;m)\sigma_m(i\;m)$。仮定より $(i\;m) \in \langle S \rangle$ で $\langle S \rangle$ が積について閉じているので、$(i\;m+1) \in \langle S \rangle$。すなわち、$j = m+1$ で $(*)$ が成立する。
+a.b.より $(*)$ が証明された。
+以降では、以下の形になる置換($m+1,\cdots,n$については自分自身に移す置換)を長さ $m (1 \le m \le n)$ の置換と呼ぶことにする。
 $$\left( \begin{array}{ccccc}
 1 & \cdots & m & m+1 & \cdots & n \\
 \sigma(1) & \cdots & \sigma(m) & m+1 & \cdots & n
-\end{array}\right)$$$m$ に関する帰納法で証明する。$S = \{ \sigma_m | m = 1,2,\cdots,n-1 \}$ として($n$ 以下の)任意の長さの置換が $\langle S \rangle$ に含まれることが言えれば良い。
-    1. 長さ $2$ の置換は恒等写像か $(1\;2) = \sigma_1$ のみなので $\langle S \rangle$ に含まれる。
-    2. 長さ$m$以下の置換が $\langle S \rangle$ に含まれるときに、長さ $m+1$ の置換も $\langle S \rangle$ に含まれることを言う。
-1. $\sigma_n$ を前問(1)の定義として、$\sigma^{m-1} \tau \sigma^{-(m-1)} = \sigma_m (m=1,2,\cdots,n-1)$。
+\end{array}\right)$$$\langle S \rangle \subset \mathfrak{S}_n$ なので、($n$ 以下の)任意の長さの置換が $\langle S \rangle$ に含まれる$(**)$ことが言えれば、$\forall \sigma \in \mathfrak{S}_n, \sigma \in \langle S \rangle$、つまり $\mathfrak{S}_n \subset \langle S \rangle$ となって $\mathfrak{S}_n = \langle S \rangle$ である。$(**)$ を帰納法で証明する。
+    a. 長さ $1$ の置換は恒等置換すなわち単位元のみなので $\langle S \rangle$ に含まれる。
+    b. 長さ $m$ 以下の置換が $\langle S \rangle$ に含まれるときに、長さ $m+1$ の置換も $\langle S \rangle$ に含まれることを言う。長さ $m+1$ の置換は以下のようになる。
+$$\left( \begin{array}{ccccc}
+1 & \cdots & m+1 & m+2 & \cdots & n \\
+\sigma(1) & \cdots & \sigma(m+1) & m+2 & \cdots & n
+\end{array}\right)$$このとき、$\sigma(i)=m+1$ となる $i \in \mathbb{Z}, 1 \le i \le m+1$ が存在し、$$\left( \begin{array}{ccccc}
+1 & \cdots & i & \cdots & m & m+1 & m+2 & \cdots & n \\
+\sigma(1) & \cdots & m+1 & \cdots & \sigma(m) & \sigma(m+1) & m+2 & \cdots & n
+\end{array}\right)
+\\=(i\;m+1)
+\left( \begin{array}{ccccc}
+1 & \cdots & i & \cdots & m & m+1 & \cdots & n \\
+\sigma(1) & \cdots & \sigma(m+1) & \cdots & \sigma(m) & m+1 & \cdots & n
+\end{array}\right)$$と表せる。$(*)$ より $(i\;m+1) \in \langle S \rangle$。残りは長さ $m$ の置換であるため仮定より $\langle S \rangle$ に含まれる。$\langle S \rangle$ は積について閉じているので、これで長さ $m+1$ の置換も $\langle S \rangle$ に含まれることが言えた。
+a.b.より $(**)$ が証明された。
+2. $\sigma_n$ を前問(1)の定義として、$\sigma^{-(m-1)} \tau \sigma^{m-1} = \sigma_m (m=1,2,\cdots,n-1)$。
 よって、$S = \{ \sigma_m | m = 1,2,\cdots,n-1 \} \subset \langle \sigma, \tau \rangle$ となるため、$\langle S \rangle \subset \langle \sigma, \tau \rangle$ ($\because$ 命題2.3.13(2))。
 前問より $\langle S \rangle = \mathfrak{S}_n$ なので、
 $\mathfrak{S}_n = \langle S \rangle \subset \langle \sigma, \tau \rangle \subset \mathfrak{S}_n$ ($\because \langle \sigma, \tau \rangle$ は $\mathfrak{S}_n$ の部分群であるため)
