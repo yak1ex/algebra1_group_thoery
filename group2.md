@@ -375,3 +375,46 @@ a.b.より $(**)$ が証明された。
 前問より $\langle S \rangle = \mathfrak{S}_n$ なので、
 $\mathfrak{S}_n = \langle S \rangle \subset \langle \sigma, \tau \rangle \subset \mathfrak{S}_n$ ($\because \langle \sigma, \tau \rangle$ は $\mathfrak{S}_n$ の部分群であるため)
 従って $\langle \sigma, \tau \rangle = \mathfrak{S}_n$。
+
+### 2.4 元の位数
+
+#### 2.4.1
+
+1.
+2.
+
+#### 2.4.2
+
+1.
+2.
+
+#### 2.4.3
+
+1.
+2.
+
+#### 2.4.4
+
+#### 2.4.5
+
+#### 2.4.6
+
+#### 2.4.7
+
+1.
+2.
+3.
+4.
+5.　←担当
+
+#### 2.4.8 ←担当
+
+#### 2.4.9
+
+1.
+2.
+
+#### 2.4.10
+
+1.
+2.
