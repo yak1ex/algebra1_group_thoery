@@ -380,26 +380,52 @@ $\mathfrak{S}_n = \langle S \rangle \subset \langle \sigma, \tau \rangle \subset
 
 #### 2.4.1
 
-1. 36と-48の最大公約数と最小公倍数
-2. 35と24は互いに素か？
+1. $$ |-48| = 1 \cdot 36 + 12 \\
+12 = 0 \cdot 24 + 12 \\
+24 = 2 \cdot 12 + 0$$ より $\gcd(36,-48)=12, \operatorname{lcm}(36,-48)=144$
+1. $$ 35 = 24 \cdot 1 + 11 \\
+24 = 2 \cdot 11 + 2 \\
+11 = 2 \cdot 5 + 1 \\
+5 = 5 \cdot 1 + 0$$ より $\gcd(35,24)=1$ のため $35$ と $24$ は互いに素
 
 #### 2.4.2
 
-1. 395と265の最大公約数dを互除法で
-2. 395x+265y=dとなる整数x,yを一組
+1. $$ 395 = 1 \cdot 265 + 130 \\
+265 = 2 \cdot 130 + 5 \\
+130 = 26 \cdot 5 + 0$$ より $\gcd(395,265)=5$
+2. $$d = 5 = 265 - 2 \cdot 130 \\
+= 265 - 2 \cdot (395 - 1 \cdot 265) = -2 \cdot 395 + 3 \cdot 265$$ より $x = -2, y = 3$ は $395x+265y=d$ を満たす。
 
 #### 2.4.3
 
-1. Z/7Zで2～6の乗法逆元
-2. Z/284Z 3の乗法逆元
+以下乗法逆元を${}^{-1}$で表す
+
+1. $\mathbb{Z}/7\mathbb{Z}$ で
+$\overline{2}^{-1}=\overline{4}$
+$\overline{3}^{-1}=\overline{5}$
+$\overline{4}^{-1}=\overline{2}$
+$\overline{5}^{-1}=\overline{3}$
+$\overline{6}^{-1}=\overline{6}$
+2. $$284 = 94 \cdot 3 + 2 \\
+3 = 1 \cdot 2 + 1 \\
+2 = 2 \cdot 1 + 0$$ より $\gcd(284,3)=1$。
+よって、$$ 1 = \gcd(284,3) = 3 - 1 \cdot 2 \\
+= 3 - 1 (284 - 94 \cdot 3) = -1 \cdot 284 + 95 \cdot 3$$
+従って、$\overline{3}^{-1}=\overline{95}$
 
 #### 2.4.4
 
-pが素数でn>0整数なら |(Z/p^nZ)^\times| = (p-1)p^{n-1}を証明
+p.38 系2.4.14 より $(\mathbb{Z}/p^n\mathbb{Z})^\times = \{ \overline{m} | 0<m<p^n,m,p^nは互いに素\}$
+$p$ は素数なので $1\le m\le p^n-1$ の下で $m$ と $p^n$ が互いに素とは、$m$ が $p$ を約数にもたないことと同値。これはまた $m$ が $p$ の倍数ではないことと同値。$1\le m\le p^n-1$ で $p$ の倍数は $1 \cdot p,
+2\cdot p,\cdots,(p^{n-1} - 1) \cdot p$ の $p^{n-1}-1$ 個。
+従って、$|(\mathbb{Z}/p^n\mathbb{Z})^\times| = (p^n - 1) - (p^{n-1} - 1) = p^n - p^{n-1} = (p-1)p^{n-1}$
 
 #### 2.4.5
 
-x \in G 位数60 x^35 の位数
+$x^{35}$ の位数を $c$ とすると $(x^{35})^c = x^{35c} = 1$ を満たす最小の正の整数となる。$x$ の位数は 60 なのでp.39 命題2.4.18から $35c$ が $60$ の倍数となる最小の整数が $c$ となる。$$ 60 = 1 \cdot 35 + 25 \\
+35 = 1 \cdot 25 + 10 \\
+25 = 2 \cdot 10 + 5 \\
+10 = 2 \cdot 5 + 0$$ より $\gcd(60,35)=5,\operatorname{lcm}(60,35)=420$ なので $c = \frac{\operatorname{lcm}(60,35)}{35}=\frac{420}{35}=12$ となる。
 
 #### 2.4.6
 
@@ -444,14 +470,40 @@ $\overline{12}→\overline{9}→\overline{6}→\overline{3}→\overline{0}→$
 
 #### 2.4.9
 
-G=GL_2(R) g=(0 -1 \\ 1 0) h = (1 1 \\ -1 0)
-
-1. g,hの位数
-2. ghを計算、ghの位数が無限を証明
+1. $g^2=\left(\begin{array}{cc} 0 & -1 \\ 1 & 0 \end{array}\right)
+\left( \begin{array}{cc} 0 & -1 \\ 1 & 0 \end{array}\right)
+=
+\left( \begin{array}{cc} -1 & 0 \\ 0 & -1 \end{array}\right) = -I_2$
+$g^3 = -I_2 g = -g$
+$g^4 = -g g = - g^2 = I_2$ より $g$ の位数は $4$。
+$h^2=\left(\begin{array}{cc} 1 & 1 \\ -1 & 0 \end{array}\right)
+\left( \begin{array}{cc} 1 & 1 \\ -1 & 0 \end{array}\right)
+=
+\left( \begin{array}{cc} 0 & 1 \\ -1 & -1 \end{array}\right)$
+$h^3=\left(\begin{array}{cc} 0 & 1 \\ -1 & -1 \end{array}\right)
+\left( \begin{array}{cc} 1 & 1 \\ -1 & 0 \end{array}\right)
+=
+\left( \begin{array}{cc} -1 & 0 \\ 0 & -1 \end{array}\right) = -I_2$
+$h^4=-I_2 h=-h$
+$h^5=-h h = -h^2 = \left( \begin{array}{cc} 0 & -1 \\ 1 & 1 \end{array}\right)$
+$h^6=-h^2 h = -h^3 = I_2$ より $h$ の位数は $6$。
+2. $gh = \left(\begin{array}{cc} 0 & -1 \\ 1 & 0 \end{array}\right)
+\left( \begin{array}{cc} 1 & 1 \\ -1 & 0 \end{array}\right)
+=
+\left( \begin{array}{cc} 1 & 0 \\ 1 & 1 \end{array}\right)$
+$(gh)^n = \left(\begin{array}{cc} 1 & 0 \\ n & 1 \end{array}\right)$ であることを $n>0$ について帰納法で証明する。
+$n=1$ については計算結果より正しい。
+$n=k$ のとき正しい、すなわち $(gh)^k=\left( \begin{array}{cc} 1 & 0 \\ k & 1 \end{array}\right)$ と仮定すると、
+$(gh)^{k+1}=\left( \begin{array}{cc} 1 & 0 \\ k & 1 \end{array}\right)
+\left( \begin{array}{cc} 1 & 0 \\ 1 & 1 \end{array}\right)
+=
+\left( \begin{array}{cc} 1 & 0 \\ k+1 & 1 \end{array}\right)$ となるため $n=k+1$ について正しい。
+以上により、帰納法から $n>0$ で $(gh)^n = \left(\begin{array}{cc} 1 & 0 \\ n & 1 \end{array}\right)$。よって、正の整数 $n$ で $(gh)^n=1$ となる $n$ は存在しないため、$gh$ の位数は無限である。
 
 #### 2.4.10
 
-G可換群
-
-1. a,bの位数有限 abの位数も有限を証明
-2. HをGの有限位数の元の集合 HはGの部分群を証明
+1. $a$ の位数を $m(<\infty)$、$b$ の位数を $n(<\infty)$ とすると、可換群なので $(ab)^{mn}=(a^m)^n (b^n)^m = 1$ となるため $ab$ の位数は(少なくとも)有限である($\because x$ の位数が無限である$\Leftrightarrow x^n=1$ となる正の整数 $n$ が存在しない、の対偶)。
+2. $H$ を $G$ の有限位数の元の集合とすると以下により $H$ は部分群となる。
+   1. $1_G$ は位数 $1$ のため $1_G \in H$
+   2. 任意の $x \in H$ について、位数を $d(<\infty)$ とすると $x^d = 1$。$(x^{-1})^d$ を両辺にかけると、$1 = (x^{-1})^d$ となるため、$x^{-1}$ の位数は(少なくとも)有限である。つまり $x^{-1} \in H$ のため $H$ は逆元について閉じている。
+   3. 前小問より、任意の $x,y \in H$ について $xy \in H (\because xy $ の位数が有限 $)$ となるため $H$ は積について閉じている
