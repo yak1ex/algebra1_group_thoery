@@ -335,8 +335,7 @@ $\mathbb{Q}^\times$ が乗法に関して巡回群であると仮定する。こ
     1. $|g| \lt 1$ のとき、$n \le 0$ で $|g^n|=|g|^n \ge 1$、$n \ge 1$ で $|g^n|=|g|^n \le |g|$ のため、$|g| \lt |x| \lt 1$ となる $x \in \mathbb{Q}^\times$ を $g^n$ の形で生成できない。
     2. $|g| = 1$ のときには、$|g^n|=|g|^n=1$ なので、$|x| \neq 1$ となる $x \in \mathbb{Q}^\times$ を $g^n$ の形で生成できない。
     3. $|g| \gt 1$ のとき、$n \le 0$ で $|g^n|=|g|^n \le 1$、$n \ge 1$ で $|g^n|=|g|^n \ge |g|$ のため、$1 \lt |x| \lt |g|$ となる $x \in \mathbb{Q}^\times$ を $g^n$ の形で生成できない。
-5. $\mathbb{Z} \times \mathbb{Z}$ が巡回群であると仮定する。$g=(g_1,g_2) \in \mathbb{Z} \times \mathbb{Z}(g_1,g_2 \in \mathbb{Z})$ が生成元であるとすると $g_1 \neq 0$ かつ $g_2 \neq 0$。なぜなら、$g_1 = 0$ の場合は、$\langle g \rangle = \{0\} \times \langle g_2 \rangle$ であり、$g_2 = 0$ の場合は、$\langle g \rangle = \langle g_1 \rangle \times \{0\}$ であるため、いずれも $\mathbb{Z}\times\mathbb{Z}$ を生成しない。ここで、$(g_1, -g_2) \in \mathbb{Z} \times \mathbb{Z}$ を考えるとこれも巡回群の性質より、$n \in \mathbb{Z}$ として $ng = (ng_1, ng_2)$ の形で表せなければならない。すなわち
-$$\left\{ \begin{array}{rcc}
+5. $\mathbb{Z} \times \mathbb{Z}$ が巡回群であると仮定する。$g=(g_1,g_2) \in \mathbb{Z} \times \mathbb{Z}(g_1,g_2 \in \mathbb{Z})$ が生成元であるとすると $g_1 \neq 0$ かつ $g_2 \neq 0$。なぜなら、$g_1 = 0$ の場合は、$\langle g \rangle = \{0\} \times \langle g_2 \rangle$ であり、$g_2 = 0$ の場合は、$\langle g \rangle = \langle g_1 \rangle \times \{0\}$ であるため、いずれも $\mathbb{Z}\times\mathbb{Z}$ を生成しない。ここで、$(g_1, -g_2) \in \mathbb{Z} \times \mathbb{Z}$ を考えるとこれも巡回群の性質より、$n \in \mathbb{Z}$ として $ng = (ng_1, ng_2)$ の形で表せなければならない。すなわち$$\left\{ \begin{array}{rcc}
 g_1 & = & n g_1 \\
 -g_2 & = & n g_2
 \end{array}\right. $$ だが、$g_1 \neq 0$ かつ $g_2 \neq 0$ の時に、これらを満たす $n \in \mathbb{Z}$ は存在しないため矛盾である。すなわち、$\mathbb{Z} \times \mathbb{Z}$ は巡回群ではない。
@@ -347,14 +346,12 @@ g_1 & = & n g_1 \\
 a. $(1\;2)=\sigma_1 \in S$ なので $j \le 2$ で $(i\;j) \in \langle S \rangle$
 b. $j \le m$ で $(*)$ が成立する場合に、$j = m+1$ でも成立することを示す。$(i\;m+1)=(i\;m)(m\;m+1)(i\;m)=(i\;m)\sigma_m(i\;m)$。仮定より $(i\;m) \in \langle S \rangle$ で $\langle S \rangle$ が積について閉じているので、$(i\;m+1) \in \langle S \rangle$。すなわち、$j = m+1$ で $(*)$ が成立する。
 a.b.より $(*)$ が証明された。
-以降では、以下の形になる置換($m+1,\cdots,n$については自分自身に移す置換)を長さ $m (1 \le m \le n)$ の置換と呼ぶことにする。
-$$\left( \begin{array}{ccccc}
+以降では、以下の形になる置換($m+1,\cdots,n$については自分自身に移す置換)を長さ $m (1 \le m \le n)$ の置換と呼ぶことにする。$$\left( \begin{array}{ccccc}
 1 & \cdots & m & m+1 & \cdots & n \\
 \sigma(1) & \cdots & \sigma(m) & m+1 & \cdots & n
 \end{array}\right)$$$\langle S \rangle \subset \mathfrak{S}_n$ なので、($n$ 以下の)任意の長さの置換が $\langle S \rangle$ に含まれる$(**)$ことが言えれば、$\forall \sigma \in \mathfrak{S}_n, \sigma \in \langle S \rangle$、つまり $\mathfrak{S}_n \subset \langle S \rangle$ となって $\mathfrak{S}_n = \langle S \rangle$ である。$(**)$ を帰納法で証明する。
     a. 長さ $1$ の置換は恒等置換すなわち単位元のみなので $\langle S \rangle$ に含まれる。
-    b. 長さ $m$ 以下の置換が $\langle S \rangle$ に含まれるときに、長さ $m+1$ の置換も $\langle S \rangle$ に含まれることを言う。長さ $m+1$ の置換は以下のようになる。
-$$\left( \begin{array}{ccccc}
+    b. 長さ $m$ 以下の置換が $\langle S \rangle$ に含まれるときに、長さ $m+1$ の置換も $\langle S \rangle$ に含まれることを言う。長さ $m+1$ の置換は以下のようになる。$$\left( \begin{array}{ccccc}
 1 & \cdots & m+1 & m+2 & \cdots & n \\
 \sigma(1) & \cdots & \sigma(m+1) & m+2 & \cdots & n
 \end{array}\right)$$このとき、$\sigma(i)=m+1$ となる $i \in \mathbb{Z}, 1 \le i \le m+1$ が存在し、$$\left( \begin{array}{ccccc}
@@ -412,6 +409,9 @@ $\overline{6}^{-1}=\overline{6}$
 よって、$$ 1 = \gcd(284,3) = 3 - 1 \cdot 2 \\
 = 3 - 1 (284 - 94 \cdot 3) = -1 \cdot 284 + 95 \cdot 3$$
 従って、$\overline{3}^{-1}=\overline{95}$
+
+※p.38 系2.4.14から $3$ は $284$ と素になっていないと問題が成立しない
+※$ax+by=1 \Rightarrow a,b$互いに素は対偶とって$a=a'\gcd(a,b),b=b'\gcd(a,b)$で$ax+by$が$\gcd(a,b)\ge2$ の倍数になることから言える
 
 #### 2.4.4
 
