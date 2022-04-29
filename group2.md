@@ -429,16 +429,24 @@ $x^{35}$ の位数を $c$ とすると $(x^{35})^c = x^{35c} = 1$ を満たす�
 
 #### 2.4.6
 
-求める $x^n$ の位数を $c$ とすると、$(x^n)^c = x ^{nc} = 1$ を満たす最小の正の整数となる。$x$ の位数は $d (< \infty)$ なのでp.39 命題2.4.18から、これは $c$ が「$nc$ が $d$ の倍数となる最小の正の整数である」ことと同値である。$k \in \mathbb{Z}$ として
-$$ nc = dk \\
+求める $x^n$ の位数を $c$ とすると、$(x^n)^c = x ^{nc} = 1$ を満たす最小の正の整数となる。$x$ の位数は $d (< \infty)$ なのでp.39 命題2.4.18から、これは $c$ が「$nc$ が $d$ の倍数となる最小の正の整数である」ことと同値である。$k \in \mathbb{Z}$ として$$ nc = dk \\
 \Leftrightarrow \gcd(n, d) \frac{n}{\gcd(n, d)} c = \gcd(n,d) \frac{d}{\gcd(n,d)} k \\
 \Leftrightarrow \frac{n}{\gcd(n,d)} c = \frac{d}{\gcd(n,d)} k $$ $\frac{n}{\gcd(n,d)}$ と $\frac{d}{\gcd(n,d)}$ は互いに素な整数で $\frac{d}{\gcd(n,d)} \gt 0$ なので $c = \frac{d}{\gcd(n,d)}$
 
 #### 2.4.7
 
-$x \in \mathbb{Z}/n\mathbb{Z}$ で $k$ を $x$ の位数とする($\mathbb{Z}/n\mathbb{Z}$ は有限群なので $k$ は有限である)。p.40 命題2.4.19より$|\langle x\rangle| = k$。$\langle x\rangle \subset \mathbb{Z}/n\mathbb{Z}$ なので $k=|\mathbb{Z}/n\mathbb{Z}|=n$ の時かつその時に限り $\langle x \rangle = \mathbb{Z}/n\mathbb{Z}$。つまり $\mathbb{Z}/n\mathbb{Z}$ は $x$ で生成される。
-(以下、加法での表現であることに注意)
-ここで、$\overline{m} = m \overline{1}$ でかつ $\overline{1}$ の位数は $n$ なので演習問題2.4.6から $\overline{m}$ の位数は $\frac{n}{\gcd(m,n)}$ である。つまり $\mathbb{Z}/n\mathbb{Z}$ が $\overline{m}$ で生成されることと、$n = \frac{n}{\gcd(m,n)}$ が同値となる。これは $\gcd(m,n) = 1$、つまり $m$ と $n$ が互いに素の場合かつその場合に限り、$\overline{m}$ によって $\mathbb{Z}/n\mathbb{Z}$ が生成されるということである。
+$x \in \mathbb{Z}/n\mathbb{Z}$ で $k$ を $x$ の位数とする($\mathbb{Z}/n\mathbb{Z}$ は有限群なので $k$ は有限である)。p.40 命題2.4.19より$|\langle x\rangle| = k$。$\langle x\rangle \subset \mathbb{Z}/n\mathbb{Z}$ なので$$
+k=|\mathbb{Z}/n\mathbb{Z}|=n \\
+\Leftrightarrow \langle x \rangle = \mathbb{Z}/n\mathbb{Z} \quad(※) \\
+\Leftrightarrow \mathbb{Z}/n\mathbb{Z} は x で生成される$$(以下、加法での表現であることに注意)
+ここで、$\overline{m} = m \overline{1}$ でかつ $\overline{1}$ の位数は $n$ なので演習問題2.4.6から $\overline{m}$ の位数は $\frac{n}{\gcd(m,n)}$ である($x$ が $\overline{1}$、$x$ の位数 $d$ が $n$、位数を求めたい対象 $x^n$ が $\overline{m} = m \overline{1}$ にあたる)。つまり $$
+\mathbb{Z}/n\mathbb{Z} が \overline{m} で生成される \\
+\Leftrightarrow \overline{m} の位数が n である \\
+\Leftrightarrow \frac{n}{\gcd(m,n)} = n \\
+\Leftrightarrow \gcd(m,n) = 1 \\
+\Leftrightarrow m と n が互いに素$$
+
+(※)$(\Rightarrow) k=|\langle x\rangle|=n$ かつ $y \in \mathbb{Z}/n\mathbb{Z}$ のときに、$y \notin \langle x \rangle$ と仮定する。$\langle x \rangle \subset \mathbb{Z}/n\mathbb{Z}$ なので $\langle x \rangle$ の $n$ 個の元に加えてそれらと異なる元 $y$ が $\mathbb{Z}/n\mathbb{Z}$ に含まれることになる。これは $\mathbb{Z}/n\mathbb{Z}$ の位数が $n$ であることに矛盾する。よって、$y \in \langle x \rangle$ となるため、$\langle x \rangle \supset \mathbb{Z}/n\mathbb{Z}$。従って、$\langle x \rangle = \mathbb{Z}/n\mathbb{Z}$。$(\Leftarrow)$ は明らか。
 
 1. $\overline{1},\overline{2},\overline{3},\overline{4}$
 2. $\overline{1},\overline{2},\overline{3},\overline{4},\overline{5},\overline{6}$
