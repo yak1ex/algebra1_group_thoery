@@ -435,7 +435,7 @@ $x^{35}$ の位数を $c$ とすると $(x^{35})^c = x^{35c} = 1$ を満たす�
 
 #### 2.4.7
 
-$x \in \mathbb{Z}/n\mathbb{Z}$ で $k$ を $x$ の位数とする($\mathbb{Z}/n\mathbb{Z}$ は有限群なので $k$ は有限である)。p.40 命題2.4.19より$|\langle x\rangle| = k$。$\langle x\rangle \subset \mathbb{Z}/n\mathbb{Z}$ なので$$
+$x \in \mathbb{Z}/n\mathbb{Z}$ で $k$ を $x$ の位数とする($\mathbb{Z}/n\mathbb{Z}$ は有限群なので $k$ は有限である(p.35 命題2.4.5))。p.40 命題2.4.19より$|\langle x\rangle| = k$。$\langle x\rangle \subset \mathbb{Z}/n\mathbb{Z}$ なので$$
 k=|\mathbb{Z}/n\mathbb{Z}|=n \\
 \Leftrightarrow \langle x \rangle = \mathbb{Z}/n\mathbb{Z} \quad(※) \\
 \Leftrightarrow \mathbb{Z}/n\mathbb{Z} は x で生成される$$(以下、加法での表現であることに注意)
@@ -447,6 +447,9 @@ k=|\mathbb{Z}/n\mathbb{Z}|=n \\
 \Leftrightarrow m と n が互いに素$$
 
 (※)$(\Rightarrow) k=|\langle x\rangle|=n$ かつ $y \in \mathbb{Z}/n\mathbb{Z}$ のときに、$y \notin \langle x \rangle$ と仮定する。$\langle x \rangle \subset \mathbb{Z}/n\mathbb{Z}$ なので $\langle x \rangle$ の $n$ 個の元に加えてそれらと異なる元 $y$ が $\mathbb{Z}/n\mathbb{Z}$ に含まれることになる。これは $\mathbb{Z}/n\mathbb{Z}$ の位数が $n$ であることに矛盾する。よって、$y \in \langle x \rangle$ となるため、$\langle x \rangle \supset \mathbb{Z}/n\mathbb{Z}$。従って、$\langle x \rangle = \mathbb{Z}/n\mathbb{Z}$。$(\Leftarrow)$ は明らか。
+※$(\Rightarrow)$ は p.7 命題1.1.6 で OK
+
+※系2.4.14との関連：生成元であるということは何回か足す(何倍かする)ことで $\overline{1}$ を作れる、つまり乗法逆元がある。逆に乗法逆元があるなら何倍かする(何回か足す)ことで $\overline{1}$ を作れる。あとは繰り返せばすべての元を生成できるので生成元になる。
 
 1. $\overline{1},\overline{2},\overline{3},\overline{4}$
 2. $\overline{1},\overline{2},\overline{3},\overline{4},\overline{5},\overline{6}$
@@ -495,6 +498,7 @@ $h^3=\left(\begin{array}{cc} 0 & 1 \\ -1 & -1 \end{array}\right)
 $h^4=-I_2 h=-h$
 $h^5=-h h = -h^2 = \left( \begin{array}{cc} 0 & -1 \\ 1 & 1 \end{array}\right)$
 $h^6=-h^2 h = -h^3 = I_2$ より $h$ の位数は $6$。
+※n乗して1になるものをなんか見つけてp.39 命題2.4.18使うのもあり
 2. $gh = \left(\begin{array}{cc} 0 & -1 \\ 1 & 0 \end{array}\right)
 \left( \begin{array}{cc} 1 & 1 \\ -1 & 0 \end{array}\right)
 =
@@ -507,6 +511,8 @@ $(gh)^{k+1}=\left( \begin{array}{cc} 1 & 0 \\ k & 1 \end{array}\right)
 =
 \left( \begin{array}{cc} 1 & 0 \\ k+1 & 1 \end{array}\right)$ となるため $n=k+1$ について正しい。
 以上により、帰納法から $n>0$ で $(gh)^n = \left(\begin{array}{cc} 1 & 0 \\ n & 1 \end{array}\right)$。よって、正の整数 $n$ で $(gh)^n=1$ となる $n$ は存在しないため、$gh$ の位数は無限である。
+
+※$\left\{ I_2 + k \left( \begin{array}{cc} 0 & 0 \\ 1 & 0 \end{array}\right) \right\}^n = \sum_{i=0}^n {}_n C_r (I_2)^i k^{n-i} \left( \begin{array}{cc} 0 & 0 \\ 1 & 0 \end{array}\right)^{n-i}$ これで $n-i \ge 2$ の項は消えるので帰納法使わなくとも証明可能6
 
 #### 2.4.10
 
