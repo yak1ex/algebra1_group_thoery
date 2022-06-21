@@ -22,8 +22,14 @@ $$ \phi_n(xy) = (xy)^n = x^n y^n (\because G は可換群) = \phi(x) \phi(n)$$
 
 #### 2.5.3 not yet
 
-1. $\phi:G \rightarrow H$ 群の準同型、$g \in G$ が有限位数 $\Rightarrow \phi(g)$ の位数は $g$ の位数の約数
-2. ↑で $\phi$ 単射なら位数が等しい
+1. $g \in G$ の位数を $d < \infty$ とすると、
+$$1_H = \phi(1_G) (\because p.x x.x.x) \\
+= \phi(g^d) = \phi(g)^d$$
+p.x x.x.x より $\phi(g)$ の位数は $d$ の約数となる。
+2. $\phi(g)$ の位数を $c$ とすると、$\phi(g^d) = 1_H = \phi(g)^c = \phi(g^c)$ で、$\phi$ が単射なので
+$$g^c = g^d\\
+\Leftrightarrow g^{c-d} = 1_G$$
+よって、p.x x.x.x より、$c-d$ は $d$ の約数。
 
 #### 2.5.4
 
@@ -39,21 +45,44 @@ $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}
 
 $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ が同型だと仮定すると定義より群の同型となる写像 $\phi:\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \rightarrow \mathbb{Z}/4\mathbb{Z}$ が存在するが、このとき $\phi$ は準同型かつ単射で各元が有限位数なので、演習問題2.5.3(2)より $\forall g \in \mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ について $g$ の位数と $\phi(g)$ の位数は等しい。しかし $\phi(g) = \overline{1}$ となる位数 $3$ の $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の元が存在しないため矛盾する。よって、$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ は同型ではない。
 
-#### 2.5.5 not yet
+#### 2.5.5
 
-$G$ 群  $x,y \in G$  $n \in \mathbb{Z} \Rightarrow (xyx^{-1})^n = xy^nx^{-1}$
+以下、式 $(xyx^{-1})^n = xy^nx^{-1}$ を(※)と表記する。
 
-#### 2.5.6 not yet
+$n=0$ のとき、$(xyx^{-1})^n = (xyx^{-1})^0 = 1_G$、$xy^nx^{-1} = xy^0x^{-1} = xx^{-1} = 1_G$ のため、(※)は成立する。
 
-$$A = \begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix}, B = \begin{pmatrix}1 & 0 \\ 1 & 1\end{pmatrix} \in \mathrm{SL}_2(\mathbb{R}) \subset \mathrm{GL}_2(\mathbb{R})$$
+$n=k$ のとき、(※)が成立すると仮定すると、
+$$(xyx^{-1})^{k+1} = (xyx^{-1})^k (xyx^{-1}) = xy^kx^{-1} xyx^{-1} = xy^{k+1}x^{-1}$$
+のため、$n=k+1$ でも(※)は成立する。
 
-1. $A,B$ は $\mathrm{GL}_2(\mathbb{R})$ では共役
-2. $A,B$ は $\mathrm{SL}_2(\mathbb{R})$ では共役ではない
-3. $A,B$ は $\mathrm{SL}_2(\mathbb{C})$ では共役
+以上より、$n\ge 0$ で(※)は成立する。
+
+ここで、$n<0$ のとき、$n\ge 0$ では(※)が成立するため、
+$$(xyx^{-1})^{-n} = xy^{-n}x^{-1}\\
+\Leftrightarrow (xy^{-n}x^{-1})^{-1} = (xyx^{-1})^n(\because 両辺それぞれの逆元をかける)\\
+\Leftrightarrow (x^{-1})^{-1} (y^{-n})^{-1} x^{-1} = (xyx^{-1})^n\\
+\Leftrightarrow x y^n x^{-1} = (xyx^{-1})^n$$
+すなわち、$n < 0$ でも(※)が成立する。
+
+以上により、$n \in \mathbb{Z}$ で(※)は成立する。
+#### 2.5.6
+
+$$A = \begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix}, B = \begin{pmatrix}1 & 0 \\ 1 & 1\end{pmatrix}$$
+
+$X = \begin{pmatrix}a & b\\c & d\end{pmatrix} (a,b,c,d \in \mathbb{C})$ として、
+$$B=XAX^{-1}\\
+\Leftrightarrow BX = XA\\
+\Leftrightarrow \begin{pmatrix} a & b \\ a+c & b + d\end{pmatrix} = \begin{pmatrix} a & a+b \\ c & c+d\end{pmatrix}\\
+\Leftrightarrow \left\{\begin{matrix} b = a + b \\ a+c = c \\ b+d = c+d \end{matrix}\right.\\
+\Leftrightarrow \left\{\begin{matrix} a = 0 \\ b= c \end{matrix}\right.$$
+
+1. $X \in \mathrm{GL}_2(\mathbb{R}) \Leftrightarrow ad - bc \neq 0$ なので $X = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = X^{-1}$ のときに、$B = XAX^{-1}$ となり $A,B$ は共役。
+2. $X \in \mathrm{SL}_2(\mathbb{R}) \Leftrightarrow ad - bc = 1 \Leftrightarrow -b^2 = 1$ でこれを満たす $b \in \mathbb{R}$ が存在しないため $A,B$ は $\mathrm{SL}_2(\mathbb{R})$ では共役ではない。
+3. $X \in \mathrm{SL}_2(\mathbb{C}) \Leftrightarrow ad - bc = 1 \Leftrightarrow -b^2 = 1$ なので $X = \begin{pmatrix}0 & i \\ i & 0\end{pmatrix} = -X^{-1}$ のときに、$B = XAX^{-1}$ となり $A,B$ は共役。
 
 #### 2.5.7 not yet
 
-$\mathbb{Z}/n\mathbb{Z}$ について自己同型写像の定義域は $\mathbb{Z}/n\mathbb{Z}$ つまり $\overline{1}$ を生成元とする巡回群なのでその対応先だけ決めれば写像は決まる(ref....)。演習問題2.5.3より同型な写像の場合、位数が等しい元に写す必要がある。演習問題2.4.6の結果を使って元の位数が $\overline{1}$ (位数は$n$)と等しい元を求めると $n$ と素な$m$ に対する $\overline{m}$ となる。**$n,m$ 素 $\Leftrightarrow \phi_{\overline{m}}$ が自己同型、をいう必要あり。** 以下 $\overline{1}$ を $\overline{m}$ に写す写像を $\phi_{\overline{m}}$ と表記する。このとき $xy$ を $n$ で割った余りを $r$ とする($xy = nq + r, q \in \mathbb{Z}, r \in \mathbb{Z}, 0 \le r \lt n$) と、$(\phi_{\overline{x}} \circ \phi_{\overline{y}}) (\overline{1}) = \phi_{\overline{x}} (\phi_{\overline{y}} (\overline{1})) = \phi_{\overline{x}}(\overline{y}) = \phi_{\overline{x}}(\overline{1}^y) = (\phi_{\overline{x}}(\overline{1}))^y = \overline{x}^y = \overline{1}^{xy} = \overline{r} = \phi_{\overline{r}}(\overline{1})$ となるため、自己同型群としては $(\mathbb{Z}/n\mathbb{Z})^\times$ と同型になる
+(※) $\mathbb{Z}/n\mathbb{Z}$ について自己同型写像の定義域は $\mathbb{Z}/n\mathbb{Z}$ つまり $\overline{1}$ を生成元とする巡回群なのでその対応先だけ決めれば写像は決まる(ref....)。演習問題2.5.3より同型な写像の場合、位数が等しい元に写す必要がある。演習問題2.4.6の結果を使って元の位数が $\overline{1}$ (位数は$n$)と等しい元を求めると $n$ と素な$m$ に対する $\overline{m}$ となる。**$n,m$ 素 $\Leftrightarrow \phi_{\overline{m}}$ が自己同型、をいう必要あり。** 以下 $\overline{1}$ を $\overline{m}$ に写す写像を $\phi_{\overline{m}}$ と表記する。このとき $xy$ を $n$ で割った余りを $r$ とする($xy = nq + r, q \in \mathbb{Z}, r \in \mathbb{Z}, 0 \le r \lt n$) と、$(\phi_{\overline{x}} \circ \phi_{\overline{y}}) (\overline{1}) = \phi_{\overline{x}} (\phi_{\overline{y}} (\overline{1})) = \phi_{\overline{x}}(\overline{y}) = \phi_{\overline{x}}(\overline{1}^y) = (\phi_{\overline{x}}(\overline{1}))^y = \overline{x}^y = \overline{1}^{xy} = \overline{r} = \phi_{\overline{r}}(\overline{1})$ となるため、$\mathbb{Z}/n\mathbb{Z}$ の自己同型群は $(\mathbb{Z}/n\mathbb{Z})^\times$ と同型になる
 ※$\overline{1}$ の写像先を定めれば写像全体が決まることに注意
 
 1. $\mathbb{Z}/5\mathbb{Z}$
@@ -75,7 +104,21 @@ $\mathbb{Z}/n\mathbb{Z}$ について自己同型写像の定義域は $\mathbb{
 |$\phi_{\overline{3}}$|$\phi_{\overline{3}}$|$\phi_{\overline{1}}$|$\phi_{\overline{4}}$|$\phi_{\overline{2}}$|
 |$\phi_{\overline{4}}$|$\phi_{\overline{4}}$|$\phi_{\overline{3}}$|$\phi_{\overline{2}}$|$\phi_{\overline{1}}$|
 
-これは $(\mathbb{Z}/5\mathbb{Z})^\times$ と同型である($\phi_{\overline{m}}$ の $\overline{m}$ 部分だけを見た場合)。
+これは $(\mathbb{Z}/5\mathbb{Z})^\times$ と同型である($\phi_{\overline{m}}$ の $\overline{m}$ 部分だけを見た場合)。さらに、以下のように $\mathbb{Z}/4\mathbb{Z}$ と同型である。
+
+||$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{3}}$|
+|-|-|-|-|-|
+|$\phi_{\overline{1}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{3}}$|
+|$\phi_{\overline{2}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{3}}$|$\phi_{\overline{1}}$|
+|$\phi_{\overline{4}}$|$\phi_{\overline{4}}$|$\phi_{\overline{3}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|
+|$\phi_{\overline{3}}$|$\phi_{\overline{3}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|
+
+||$\overline{0}$|$\overline{1}$|$\overline{2}$|$\overline{3}$|
+|-|-|-|-|-|
+|$\overline{0}$|$\overline{0}$|$\overline{1}$|$\overline{2}$|$\overline{3}$|
+|$\overline{1}$|$\overline{1}$|$\overline{2}$|$\overline{3}$|$\overline{0}$|
+|$\overline{2}$|$\overline{2}$|$\overline{3}$|$\overline{0}$|$\overline{1}$|
+|$\overline{3}$|$\overline{3}$|$\overline{0}$|$\overline{1}$|$\overline{2}$|
 
 2. $\mathbb{Z}/7\mathbb{Z}$
 
@@ -100,27 +143,163 @@ $\mathbb{Z}/n\mathbb{Z}$ について自己同型写像の定義域は $\mathbb{
 |$\phi_{\overline{5}}$|$\phi_{\overline{5}}$|$\phi_{\overline{3}}$|$\phi_{\overline{1}}$|$\phi_{\overline{6}}$|$\phi_{\overline{4}}$|$\phi_{\overline{2}}$|
 |$\phi_{\overline{6}}$|$\phi_{\overline{6}}$|$\phi_{\overline{5}}$|$\phi_{\overline{4}}$|$\phi_{\overline{3}}$|$\phi_{\overline{2}}$|$\phi_{\overline{1}}$|
 
-これは $(\mathbb{Z}/7\mathbb{Z})^\times$ と同型である($\phi_{\overline{m}}$ の $\overline{m}$ 部分だけを見た場合)。
+これは $(\mathbb{Z}/7\mathbb{Z})^\times$ と同型である($\phi_{\overline{m}}$ の $\overline{m}$ 部分だけを見た場合)。さらに以下のように、$\mathbb{Z}/6\mathbb{Z}$、$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$ と同型である。
+
+行・列並び替え
+||$\phi_{\overline{1}}$|$\phi_{\overline{3}}$|$\phi_{\overline{2}}$|$\phi_{\overline{6}}$|$\phi_{\overline{4}}$|$\phi_{\overline{5}}$|
+|-|-|-|-|-|-|-|
+|$\phi_{\overline{1}}$|$\phi_{\overline{1}}$|$\phi_{\overline{3}}$|$\phi_{\overline{2}}$|$\phi_{\overline{6}}$|$\phi_{\overline{4}}$|$\phi_{\overline{5}}$|
+|$\phi_{\overline{3}}$|$\phi_{\overline{3}}$|$\phi_{\overline{2}}$|$\phi_{\overline{6}}$|$\phi_{\overline{4}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|
+|$\phi_{\overline{2}}$|$\phi_{\overline{2}}$|$\phi_{\overline{6}}$|$\phi_{\overline{4}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{3}}$|
+|$\phi_{\overline{6}}$|$\phi_{\overline{6}}$|$\phi_{\overline{4}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{3}}$|$\phi_{\overline{2}}$|
+|$\phi_{\overline{4}}$|$\phi_{\overline{4}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{3}}$|$\phi_{\overline{2}}$|$\phi_{\overline{6}}$|
+|$\phi_{\overline{5}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{3}}$|$\phi_{\overline{2}}$|$\phi_{\overline{6}}$|$\phi_{\overline{4}}$|
+
+行・列並び替え、マイナス表記はイメージ
+||$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{6}}\mapsto\overline{-1}$|$\phi_{\overline{5}}\mapsto\overline{-2}$|$\phi_{\overline{3}}\mapsto\overline{-4}$|
+|-|-|-|-|-|-|-|
+|$\phi_{\overline{1}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{6}}$|$\phi_{\overline{5}}$|$\phi_{\overline{3}}$|
+|$\phi_{\overline{2}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{1}}$|$\phi_{\overline{5}}$|$\phi_{\overline{3}}$|$\phi_{\overline{6}}$|
+|$\phi_{\overline{4}}$|$\phi_{\overline{4}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{3}}$|$\phi_{\overline{6}}$|$\phi_{\overline{5}}$|
+|$\phi_{\overline{6}}\mapsto\overline{-1}$|$\phi_{\overline{6}}$|$\phi_{\overline{5}}$|$\phi_{\overline{3}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|
+|$\phi_{\overline{5}}\mapsto\overline{-2}$|$\phi_{\overline{5}}$|$\phi_{\overline{3}}$|$\phi_{\overline{6}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{1}}$|
+|$\phi_{\overline{3}}\mapsto\overline{-4}$|$\phi_{\overline{3}}$|$\phi_{\overline{6}}$|$\phi_{\overline{5}}$|$\phi_{\overline{4}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|
+
+$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$
+||$(\overline{0},\overline{0})$|$(\overline{0},\overline{1})$|$(\overline{0},\overline{2})$|$(\overline{1},\overline{0})$|$(\overline{1},\overline{1})$|$(\overline{1},\overline{2})$|
+|-|-|-|-|-|-|-|
+|$(\overline{0},\overline{0})$|$(\overline{0},\overline{0})$|$(\overline{0},\overline{1})$|$(\overline{0},\overline{2})$|$(\overline{1},\overline{0})$|$(\overline{1},\overline{1})$|$(\overline{1},\overline{2})$|
+|$(\overline{0},\overline{1})$|$(\overline{0},\overline{1})$|$(\overline{0},\overline{2})$|$(\overline{0},\overline{0})$|$(\overline{1},\overline{1})$|$(\overline{1},\overline{2})$|$(\overline{1},\overline{0})$|
+|$(\overline{0},\overline{2})$|$(\overline{0},\overline{2})$|$(\overline{0},\overline{0})$|$(\overline{0},\overline{1})$|$(\overline{1},\overline{2})$|$(\overline{1},\overline{0})$|$(\overline{1},\overline{1})$|
+|$(\overline{1},\overline{0})$|$(\overline{1},\overline{0})$|$(\overline{1},\overline{1})$|$(\overline{1},\overline{2})$|$(\overline{0},\overline{0})$|$(\overline{0},\overline{1})$|$(\overline{0},\overline{2})$|
+|$(\overline{1},\overline{1})$|$(\overline{1},\overline{1})$|$(\overline{1},\overline{2})$|$(\overline{1},\overline{0})$|$(\overline{0},\overline{1})$|$(\overline{0},\overline{2})$|$(\overline{0},\overline{0})$|
+|$(\overline{1},\overline{2})$|$(\overline{1},\overline{2})$|$(\overline{1},\overline{0})$|$(\overline{1},\overline{1})$|$(\overline{0},\overline{2})$|$(\overline{0},\overline{0})$|$(\overline{0},\overline{1})$|
 
 3. $\mathbb{Z}/8\mathbb{Z}$
 
-$(\mathbb{Z}/8\mathbb{Z})^\times$ と同型
+(※)より $(\mathbb{Z}/8\mathbb{Z})^\times$ と同型
+
+行$\circ$列で列が先
+
+||$\phi_{\overline{1}}$|$\phi_{\overline{3}}$|$\phi_{\overline{5}}$|$\phi_{\overline{7}}$|
+|-|-|-|-|-|
+|$\phi_{\overline{1}}$|$\phi_{\overline{1}}$|$\phi_{\overline{3}}$|$\phi_{\overline{5}}$|$\phi_{\overline{7}}$|
+|$\phi_{\overline{3}}$|$\phi_{\overline{3}}$|$\phi_{\overline{1}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|
+|$\phi_{\overline{5}}$|$\phi_{\overline{5}}$|$\phi_{\overline{7}}$|$\phi_{\overline{1}}$|$\phi_{\overline{3}}$|
+|$\phi_{\overline{7}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|$\phi_{\overline{3}}$|$\phi_{\overline{1}}$|
+
+これは以下のように、$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$と同型である。
+
+||$(\overline{0},\overline{0})$|$(\overline{0},\overline{1})$|$(\overline{1},\overline{0})$|$(\overline{1},\overline{1})$|
+|-|-|-|-|-|
+|$(\overline{0},\overline{0})$|$(\overline{0},\overline{0})$|$(\overline{0},\overline{1})$|$(\overline{1},\overline{0})$|$(\overline{1},\overline{1})$|
+|$(\overline{0},\overline{1})$|$(\overline{0},\overline{1})$|$(\overline{0},\overline{0})$|$(\overline{1},\overline{1})$|$(\overline{1},\overline{0})$|
+|$(\overline{1},\overline{0})$|$(\overline{1},\overline{0})$|$(\overline{1},\overline{1})$|$(\overline{0},\overline{0})$|$(\overline{0},\overline{1})$|
+|$(\overline{1},\overline{1})$|$(\overline{1},\overline{1})$|$(\overline{1},\overline{0})$|$(\overline{0},\overline{1})$|$(\overline{0},\overline{0})$|
 
 4. $\mathbb{Z}/9\mathbb{Z}$
 
-$(\mathbb{Z}/9\mathbb{Z})^\times$ と同型
+(※)より $(\mathbb{Z}/9\mathbb{Z})^\times$ と同型。また、$\mathbb{Z}/6\mathbb{Z}$、$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$ とも同型。
+
+行$\circ$列で列が先
+
+||$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{5}}$|$\phi_{\overline{7}}$|$\phi_{\overline{8}}$|
+|-|-|-|-|-|-|-|
+|$\phi_{\overline{1}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{5}}$|$\phi_{\overline{7}}$|$\phi_{\overline{8}}$|
+|$\phi_{\overline{2}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{1}}$|$\phi_{\overline{5}}$|$\phi_{\overline{7}}$|
+|$\phi_{\overline{4}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{7}}$|$\phi_{\overline{2}}$|$\phi_{\overline{1}}$|$\phi_{\overline{5}}$|
+|$\phi_{\overline{5}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{7}}$|$\phi_{\overline{8}}$|$\phi_{\overline{4}}$|
+|$\phi_{\overline{7}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{8}}$|$\phi_{\overline{4}}$|$\phi_{\overline{2}}$|
+|$\phi_{\overline{8}}$|$\phi_{\overline{8}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|$\phi_{\overline{4}}$|$\phi_{\overline{2}}$|$\phi_{\overline{1}}$|
+
+行・列並び替え
+||$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|
+|-|-|-|-|-|-|-|
+|$\phi_{\overline{1}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|
+|$\phi_{\overline{2}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|
+|$\phi_{\overline{4}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|
+|$\phi_{\overline{8}}$|$\phi_{\overline{8}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|
+|$\phi_{\overline{7}}$|$\phi_{\overline{7}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|
+|$\phi_{\overline{5}}$|$\phi_{\overline{5}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{7}}$|
+
+行・列並び替え
+||$\phi_{\overline{1}}$|$\phi_{\overline{4}}$|$\phi_{\overline{7}}$|$\phi_{\overline{8}}$|$\phi_{\overline{5}}$|$\phi_{\overline{2}}$|
+|-|-|-|-|-|-|-|
+|$\phi_{\overline{1}}$|$\phi_{\overline{1}}$|$\phi_{\overline{4}}$|$\phi_{\overline{7}}$|$\phi_{\overline{8}}$|$\phi_{\overline{5}}$|$\phi_{\overline{2}}$|
+|$\phi_{\overline{4}}$|$\phi_{\overline{4}}$|$\phi_{\overline{7}}$|$\phi_{\overline{1}}$|$\phi_{\overline{5}}$|$\phi_{\overline{2}}$|$\phi_{\overline{8}}$|
+|$\phi_{\overline{7}}$|$\phi_{\overline{7}}$|$\phi_{\overline{1}}$|$\phi_{\overline{4}}$|$\phi_{\overline{2}}$|$\phi_{\overline{8}}$|$\phi_{\overline{5}}$|
+|$\phi_{\overline{8}}$|$\phi_{\overline{8}}$|$\phi_{\overline{5}}$|$\phi_{\overline{2}}$|$\phi_{\overline{1}}$|$\phi_{\overline{4}}$|$\phi_{\overline{7}}$|
+|$\phi_{\overline{5}}$|$\phi_{\overline{5}}$|$\phi_{\overline{2}}$|$\phi_{\overline{8}}$|$\phi_{\overline{4}}$|$\phi_{\overline{7}}$|$\phi_{\overline{1}}$|
+|$\phi_{\overline{2}}$|$\phi_{\overline{2}}$|$\phi_{\overline{8}}$|$\phi_{\overline{5}}$|$\phi_{\overline{7}}$|$\phi_{\overline{1}}$|$\phi_{\overline{4}}$|
 
 5. $\mathbb{Z}/15\mathbb{Z}$
 
-$(\mathbb{Z}/15\mathbb{Z})^\times$ と同型
+(※)より $(\mathbb{Z}/15\mathbb{Z})^\times$ と同型。これはまた、$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/4\mathbb{Z}$ と同型。
 
-#### 2.5.8 not yet
+行$\circ$列で列が先
+
+||$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{7}}$|$\phi_{\overline{8}}$|$\phi_{\overline{11}}$|$\phi_{\overline{13}}$|$\phi_{\overline{14}}$|
+|-|-|-|-|-|-|-|-|-|
+|$\phi_{\overline{1}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{7}}$|$\phi_{\overline{8}}$|$\phi_{\overline{11}}$|$\phi_{\overline{13}}$|$\phi_{\overline{14}}$|
+|$\phi_{\overline{2}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{14}}$|$\phi_{\overline{1}}$|$\phi_{\overline{7}}$|$\phi_{\overline{11}}$|$\phi_{\overline{13}}$|
+|$\phi_{\overline{4}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{1}}$|$\phi_{\overline{13}}$|$\phi_{\overline{2}}$|$\phi_{\overline{14}}$|$\phi_{\overline{7}}$|$\phi_{\overline{11}}$|
+|$\phi_{\overline{7}}$|$\phi_{\overline{7}}$|$\phi_{\overline{14}}$|$\phi_{\overline{13}}$|$\phi_{\overline{4}}$|$\phi_{\overline{11}}$|$\phi_{\overline{2}}$|$\phi_{\overline{1}}$|$\phi_{\overline{8}}$|
+|$\phi_{\overline{8}}$|$\phi_{\overline{8}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{11}}$|$\phi_{\overline{4}}$|$\phi_{\overline{13}}$|$\phi_{\overline{14}}$|$\phi_{\overline{7}}$|
+|$\phi_{\overline{11}}$|$\phi_{\overline{11}}$|$\phi_{\overline{7}}$|$\phi_{\overline{14}}$|$\phi_{\overline{2}}$|$\phi_{\overline{13}}$|$\phi_{\overline{1}}$|$\phi_{\overline{8}}$|$\phi_{\overline{4}}$|
+|$\phi_{\overline{13}}$|$\phi_{\overline{13}}$|$\phi_{\overline{11}}$|$\phi_{\overline{7}}$|$\phi_{\overline{1}}$|$\phi_{\overline{14}}$|$\phi_{\overline{8}}$|$\phi_{\overline{4}}$|$\phi_{\overline{2}}$|
+|$\phi_{\overline{14}}$|$\phi_{\overline{14}}$|$\phi_{\overline{13}}$|$\phi_{\overline{11}}$|$\phi_{\overline{8}}$|$\phi_{\overline{7}}$|$\phi_{\overline{4}}$|$\phi_{\overline{2}}$|$\phi_{\overline{1}}$|
+
+行・列並び替え
+||$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{14}}$|$\phi_{\overline{13}}$|$\phi_{\overline{11}}$|$\phi_{\overline{7}}$|
+|-|-|-|-|-|-|-|-|-|
+|$\phi_{\overline{1}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{14}}$|$\phi_{\overline{13}}$|$\phi_{\overline{11}}$|$\phi_{\overline{7}}$|
+|$\phi_{\overline{2}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{1}}$|$\phi_{\overline{13}}$|$\phi_{\overline{11}}$|$\phi_{\overline{7}}$|$\phi_{\overline{14}}$|
+|$\phi_{\overline{4}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{11}}$|$\phi_{\overline{7}}$|$\phi_{\overline{14}}$|$\phi_{\overline{13}}$|
+|$\phi_{\overline{8}}$|$\phi_{\overline{8}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{7}}$|$\phi_{\overline{14}}$|$\phi_{\overline{13}}$|$\phi_{\overline{11}}$|
+|$\phi_{\overline{14}}$|$\phi_{\overline{14}}$|$\phi_{\overline{13}}$|$\phi_{\overline{11}}$|$\phi_{\overline{7}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|
+|$\phi_{\overline{13}}$|$\phi_{\overline{13}}$|$\phi_{\overline{11}}$|$\phi_{\overline{7}}$|$\phi_{\overline{14}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{1}}$|
+|$\phi_{\overline{11}}$|$\phi_{\overline{11}}$|$\phi_{\overline{7}}$|$\phi_{\overline{14}}$|$\phi_{\overline{13}}$|$\phi_{\overline{4}}$|$\phi_{\overline{8}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|
+|$\phi_{\overline{7}}$|$\phi_{\overline{7}}$|$\phi_{\overline{14}}$|$\phi_{\overline{13}}$|$\phi_{\overline{11}}$|$\phi_{\overline{8}}$|$\phi_{\overline{1}}$|$\phi_{\overline{2}}$|$\phi_{\overline{4}}$|
+
+#### 2.5.8
 
 $a,b \in G$
 
 1. $a^{-1},b \in G$ で、$i_{b}(ab)=b(ab)b^{-1}=ba$ となるため、$ab,ba$ は共役である。
-2. $ab,ba$ 位数が等しい
+2. $n \in Z, 1 \le n$ として、
+$$(ab)^n=1_G \\
+\Leftrightarrow a(ba)^{n-1}b = 1_G (\because 結合則) \\
+\Leftrightarrow (ba)^{n-1} = a^{-1} b^{-1} \\
+\Leftrightarrow (ba)^{n-1} = (ba)^{-1} \\
+\Leftrightarrow (ba)^n = 1_G
+$$
+よって、$(ab)^n=1_G$ となる $n$ の集合と、$(ba)^n=1_G$ となる $n$ の集合は一致するため、$ab$ と $ba$ の位数は等しい。
 
 #### 2.5.9 not yet
 
-$G = \mathfrak{S}_3$、$\phi:G \ni g \mapsto i_g \in \mathrm{Aut}G$、$\phi$ は同型写像
+$g,h,x \in G$ として、
+$$i_{gh}(x) = (gh)x(gh)^{-1} = ghxh^{-1}g^{-1} \\
+= g i_h(x) g^{-1} = i_g(i_h(x)) = (i_g \circ i_h)(x)$$
+なので、$i_{gh} = (i_g \circ i_h)$。したがって、
+$$\phi(gh) =i_{gh} = (i_g \circ i_h) = \phi(g) \circ \phi(h)$$
+となるため、$\phi$ は準同型。
+
+$g \in \mathrm{Ker}(\phi)$ とすると $\phi(g)$ が恒等写像になるため、$\forall x \in G$ に対して
+$$\phi(g)(x)=i_g(x)=gxg^{-1} = x\\
+\Leftrightarrow gx = xg$$
+
+$\mathfrak{S}_3$ の乗積表は下表となり、
+$$(1\;2)(1\;3) \neq (1\;3)(1\;2)\\
+(1\;2\;3)(2\;3) \neq (2\;3)(1\;2\;3)\\
+(1\;3\;2)(2\;3) \neq (2\;3)(1\;2\;3)$$
+となるため、$\forall x \in G$ に対して $gx = xg$ となる $g \in G$ は $1_G$ のみ。したがって、$\mathrm{Ker}(\phi) = \{1_G\}$ となるため、p.x x.x.x より $\phi$ は単射。よって、p.x x.x.x より $\phi$ は同型である。
+
+行$\circ$列
+||$1_G$|$(1\;2)$|$(1\;3)$|$(2\;3)$|$(1\;2\;3)$|$(1\;3\;2)$|
+|-|-|-|-|-|-|-|
+|$1_G$|$1_G$|$(1\;2)$|$(1\;3)$|$(2\;3)$|$(1\;2\;3)$|$(1\;3\;2)$|
+|$(1\;2)$|$(1\;2)$|$1_G$|$(1\;3\;2)$|$(1\;2\;3)$|$(2\;3)$|$(1\;3)$|
+|$(1\;3)$|$(1\;3)$|$(1\;2\;3)$|$1_G$|$(1\;3\;2)$|$(1\;2)$|$(2\;3)$|
+|$(2\;3)$|$(2\;3)$|$(1\;3\;2)$|$(1\;2\;3)$|$1_G$|$(1\;3)$|$(1\;2)$|
+|$(1\;2\;3)$|$(1\;2\;3)$|$(1\;3)$|$(2\;3)$|$(1\;2)$|$(1\;3\;2)$|$1_G$|
+|$(1\;3\;2)$|$(1\;3\;2)$|$(2\;3)$|$(1\;2)$|$(1\;3)$|$1_G$|$(1\;2\;3)$|
