@@ -20,16 +20,16 @@ $$ \phi_n(xy) = (xy)^n = x^n y^n (\because G は可換群) = \phi(x) \phi(n)$$
 
 となるため $\phi_n$ は準同型である。
 
-#### 2.5.3 not yet
+#### 2.5.3
 
 1. $g \in G$ の位数を $d < \infty$ とすると、
-$$1_H = \phi(1_G) (\because p.x x.x.x) \\
+$$1_H = \phi(1_G) (\because p.41 命題2.5.3(1))\\
 = \phi(g^d) = \phi(g)^d$$
-p.x x.x.x より $\phi(g)$ の位数は $d$ の約数となる。
+p.39 命題2.4.18より $d$ は $\phi(g)$ の位数の倍数。つまり $\phi(g)$ の位数は $d$ ($g$ の位数)の約数となる。
 2. $\phi(g)$ の位数を $c$ とすると、$\phi(g^d) = 1_H = \phi(g)^c = \phi(g^c)$ で、$\phi$ が単射なので
 $$g^c = g^d\\
 \Leftrightarrow g^{c-d} = 1_G$$
-よって、p.x x.x.x より、$c-d$ は $d$ の約数。
+よって、p.39 命題2.4.18より、$c-d$ は $d$ の倍数。つまり $c$ が $d$ の倍数($\because k \in \mathbb{Z}, c - d = kd \Rightarrow c = (k+1)d $)。位数の定義より $d > 0$ なので $c \ge d$。前問より $d$ が $c$ の倍数で、位数の定義より $c > 0$ でもあるので、$d \ge c$。よって $c = d$。つまり $g$ の位数と $\phi(g)$ の位数は等しい。
 
 #### 2.5.4
 
@@ -43,7 +43,7 @@ $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}
 |-|-|-|-|-|
 |元の位数|1|3|2|3|
 
-$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ が同型だと仮定すると定義より群の同型となる写像 $\phi:\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \rightarrow \mathbb{Z}/4\mathbb{Z}$ が存在するが、このとき $\phi$ は準同型かつ単射で各元が有限位数なので、演習問題2.5.3(2)より $\forall g \in \mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ について $g$ の位数と $\phi(g)$ の位数は等しい。しかし $\phi(g) = \overline{1}$ となる位数 $3$ の $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の元が存在しないため矛盾する。よって、$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ は同型ではない。
+$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ が同型だと仮定すると定義より群の同型となる写像 $\phi:\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \rightarrow \mathbb{Z}/4\mathbb{Z}$ が存在するが、このとき $\phi$ は準同型かつ単射で各元が有限位数なので、演習問題2.5.3(2)より $\forall g \in \mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ について $g$ の位数と $\phi(g)$ の位数は等しい。しかし $\phi(g) = \overline{1}$ となる位数 $3$ の $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の元が存在しないため $\phi$ が同型(全単射)であることと矛盾する。よって、$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ は同型ではない。
 
 #### 2.5.5
 
@@ -82,8 +82,7 @@ $$B=XAX^{-1}\\
 
 #### 2.5.7 not yet
 
-(※) $\mathbb{Z}/n\mathbb{Z}$ について自己同型写像の定義域は $\mathbb{Z}/n\mathbb{Z}$ つまり $\overline{1}$ を生成元とする巡回群なのでその対応先だけ決めれば写像は決まる(ref....)。演習問題2.5.3より同型な写像の場合、位数が等しい元に写す必要がある。演習問題2.4.6の結果を使って元の位数が $\overline{1}$ (位数は$n$)と等しい元を求めると $n$ と素な$m$ に対する $\overline{m}$ となる。**$n,m$ 素 $\Leftrightarrow \phi_{\overline{m}}$ が自己同型、をいう必要あり。** 以下 $\overline{1}$ を $\overline{m}$ に写す写像を $\phi_{\overline{m}}$ と表記する。このとき $xy$ を $n$ で割った余りを $r$ とする($xy = nq + r, q \in \mathbb{Z}, r \in \mathbb{Z}, 0 \le r \lt n$) と、$(\phi_{\overline{x}} \circ \phi_{\overline{y}}) (\overline{1}) = \phi_{\overline{x}} (\phi_{\overline{y}} (\overline{1})) = \phi_{\overline{x}}(\overline{y}) = \phi_{\overline{x}}(\overline{1}^y) = (\phi_{\overline{x}}(\overline{1}))^y = \overline{x}^y = \overline{1}^{xy} = \overline{r} = \phi_{\overline{r}}(\overline{1})$ となるため、$\mathbb{Z}/n\mathbb{Z}$ の自己同型群は $(\mathbb{Z}/n\mathbb{Z})^\times$ と同型になる
-※$\overline{1}$ の写像先を定めれば写像全体が決まることに注意
+(※) $\mathbb{Z}/n\mathbb{Z}$ について自己同型写像の定義域は $\mathbb{Z}/n\mathbb{Z}$ つまり $\overline{1}$ を生成元とする巡回群なのでその対応先だけ決めれば写像は決まる(ref p.44 命題2.5.12)。演習問題2.5.3より同型な写像の場合、位数が等しい元に写す必要がある。演習問題2.4.6の結果を使って元の位数が $\overline{1}$ (位数は$n$)と等しい元を求めると $n$ と素な$m$ に対する $\overline{m}$ となる。以下 $\overline{1}$ を $\overline{m}$ に写す写像を $\phi_{\overline{m}}$ と表記する。**$n,m$ 素な $\phi_{\overline{m}} \Leftrightarrow $ $\mathbb{Z}/n\mathbb{Z}$ の自己同型、をいう必要あり。** このとき $xy$ を $n$ で割った余りを $r$ とする($xy = nq + r, q \in \mathbb{Z}, r \in \mathbb{Z}, 0 \le r \lt n$) と、$(\phi_{\overline{x}} \circ \phi_{\overline{y}}) (\overline{1}) = \phi_{\overline{x}} (\phi_{\overline{y}} (\overline{1})) = \phi_{\overline{x}}(\overline{y}) = \phi_{\overline{x}}(\overline{1}^y) = (\phi_{\overline{x}}(\overline{1}))^y = \overline{x}^y = \overline{1}^{xy} = \overline{r} = \phi_{\overline{r}}(\overline{1})$ となるため、$(\phi_{\overline{x}} \circ \phi_{\overline{y}}) = \phi_{\overline{r}}$(p.44 命題2.5.12より生成元 $\overline{1}$ の写像先を定めれば写像全体が決まるため)。 これは $\mathbb{Z}/n\mathbb{Z}$ の自己同型群 $\{ \phi_{\overline{m}} \}$ が $(\mathbb{Z}/n\mathbb{Z})^\times$ と同型であるということである。
 
 1. $\mathbb{Z}/5\mathbb{Z}$
 
@@ -277,13 +276,6 @@ $$
 
 #### 2.5.9 not yet
 
-$g,h,x \in G$ として、
-$$i_{gh}(x) = (gh)x(gh)^{-1} = ghxh^{-1}g^{-1} \\
-= g i_h(x) g^{-1} = i_g(i_h(x)) = (i_g \circ i_h)(x)$$
-なので、$i_{gh} = (i_g \circ i_h)$。したがって、
-$$\phi(gh) =i_{gh} = (i_g \circ i_h) = \phi(g) \circ \phi(h)$$
-となるため、$\phi$ は準同型。
-
 $g \in \mathrm{Ker}(\phi)$ とすると $\phi(g)$ が恒等写像になるため、$\forall x \in G$ に対して
 $$\phi(g)(x)=i_g(x)=gxg^{-1} = x\\
 \Leftrightarrow gx = xg$$
@@ -292,7 +284,9 @@ $\mathfrak{S}_3$ の乗積表は下表となり、
 $$(1\;2)(1\;3) \neq (1\;3)(1\;2)\\
 (1\;2\;3)(2\;3) \neq (2\;3)(1\;2\;3)\\
 (1\;3\;2)(2\;3) \neq (2\;3)(1\;2\;3)$$
-となるため、$\forall x \in G$ に対して $gx = xg$ となる $g \in G$ は $1_G$ のみ。したがって、$\mathrm{Ker}(\phi) = \{1_G\}$ となるため、p.x x.x.x より $\phi$ は単射。よって、p.x x.x.x より $\phi$ は同型である。
+となるため、$\forall x \in G$ に対して $gx = xg$ となる $g \in G$ は $1_G$ のみ。したがって、$\mathrm{Ker}(\phi) = \{1_G\}$ となるため、p.44 命題1.5.3より $\phi$ は単射。
+
+以下の乗積表より、$\mathfrak{S}_3$ の位数$2$の元の集合 $S = \{ (1\;2),(2\;3),(1\;3) \}$ でかつ $\mathfrak{S}_3 = \langle S \rangle$ である。p.44 命題2.5.12 より $x \in S$ に対して $\psi(x)$ を定めれば写像 $\psi \in \mathrm{Aut}G$ は一意に定まる。**これで同型写像になることをいう必要あり** $\psi$ は自己同型なので準同型かつ単射、また $x \in S$ の位数は $2$ で有限なので、演習問題2.5.3(2)より $\psi(x)$ の位数は $x$ の位数と等しく $2$。全単射となるように
 
 行$\circ$列
 ||$1_G$|$(1\;2)$|$(1\;3)$|$(2\;3)$|$(1\;2\;3)$|$(1\;3\;2)$|
