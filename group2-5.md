@@ -4,19 +4,26 @@
 
 ### 2.5 準同型と同型
 
-#### 2.5.1 not yet
+#### 2.5.1
 
-$G,H$ 元の個数が $m,n$ の巡回群 $x,y$ 生成元
-
-1. $\forall i1,i2 \in \mathbb{Z}, x^{i1}=x^{i2} \Rightarrow y^{i1}=y^{i2}$ となる $m,n$ の必要十分条件
-
-2. 1. を満たす $m,n$ に対し $\exists \phi : 準同型, \forall i \in \mathbb{Z}, \phi(x^{i}) = y^i$ を証明
+1. $x^{i_1}=x^{i_2} \Leftrightarrow x^{i_1-i_2} = 1_G \Leftrightarrow i_1-i_2$が$m$の倍数(p.39 命題2.4.18)。同様に$y^{i_1}=y^{i_2} \Leftrightarrow y^{i_1-i_2} = 1_H \Leftrightarrow i_1-i_2$が$n$の倍数。従って、
+$$\forall i_1,i_2 \in \mathbb{Z}, (x^{i_1}=x^{i_2} \Rightarrow y^{i_1}=y^{i_2}) \\
+\Leftrightarrow \forall i_1,i_2 \in \mathbb{Z}, (m \mid (i_1-i_2) \Rightarrow n \mid (i_1-i_2)) \\
+\Leftrightarrow \forall i \in \mathbb{Z}, (m \mid i \Rightarrow n \mid i) \\
+\Leftrightarrow n \mid m$$
+最後の段を証明する。
+($\Rightarrow$) $i=m$ とすると $m \mid m \Rightarrow n \mid m$ なので $n \mid m$。
+($\Leftarrow$) $n \mid m$ のとき $m = jn (j \in \mathbb{Z})$ と表せ、また、$m \mid i$ のとき $i = km (k \in \mathbb{Z})$ と表せる。よって、$i = kjn$ と表せるので $n \mid i$。
+以上より、求める必要十分条件は $n \mid m$($m$ が $n$ の倍数)。
+2. 写像 $\phi$ を $\phi(x^{i}) = y^i$ で定める。このとき、1.より $x^{i_1} = x^{i_2} \Rightarrow y^{i_1} = y^{i_2}$ なので $x^{i_1} = x^{i_2} \Rightarrow \phi(x^{i_1}) = y^{i_1} = y^{i_2} = \phi(x^{i_2})$ となりこの定義は well-defined である。また $G$ の任意の元は $x^i(i \in \mathbb{Z})$ と表せるので、$G$ の任意の2元 $x^{i_1}, x^{i_2}$ について、
+$$\phi(x^{i_1} x^{i_2}) = \phi(x^{i_1+i_2}) = y^{i_1+i_2} = y^{i_1} y^{i_2} = \phi(x^{i_1}) \phi(x^{i_2})$$
+となり、$\phi$ が題意を満たす準同型となる。
 
 #### 2.5.2
 
 $x,y \in G$ とする。
 
-$$ \phi_n(xy) = (xy)^n = x^n y^n (\because G は可換群) = \phi(x) \phi(n)$$
+$$ \phi_n(xy) = (xy)^n = x^n y^n (\because G は可換群) = \phi_n(x) \phi_n(y)$$
 
 となるため $\phi_n$ は準同型である。
 
