@@ -7,10 +7,7 @@
 #### 2.5.1
 
 1. $x^{i_1}=x^{i_2} \Leftrightarrow x^{i_1-i_2} = 1_G \Leftrightarrow i_1-i_2$が$m$の倍数(p.39 命題2.4.18)。同様に$y^{i_1}=y^{i_2} \Leftrightarrow y^{i_1-i_2} = 1_H \Leftrightarrow i_1-i_2$が$n$の倍数。従って、
-$$\forall i_1,i_2 \in \mathbb{Z}, (x^{i_1}=x^{i_2} \Rightarrow y^{i_1}=y^{i_2}) \\
-\Leftrightarrow \forall i_1,i_2 \in \mathbb{Z}, (m \mid (i_1-i_2) \Rightarrow n \mid (i_1-i_2)) \\
-\Leftrightarrow \forall i \in \mathbb{Z}, (m \mid i \Rightarrow n \mid i) \\
-\Leftrightarrow n \mid m$$
+$$\forall i_1,i_2 \in \mathbb{Z}, (x^{i_1}=x^{i_2} \Rightarrow y^{i_1}=y^{i_2}) \\ \Leftrightarrow \forall i_1,i_2 \in \mathbb{Z}, (m \mid (i_1-i_2) \Rightarrow n \mid (i_1-i_2)) \\ \Leftrightarrow \forall i \in \mathbb{Z}, (m \mid i \Rightarrow n \mid i) \\ \Leftrightarrow n \mid m$$
 最後の段を証明する。
 ($\Rightarrow$) $i=m$ とすると $m \mid m \Rightarrow n \mid m$ なので $n \mid m$。
 ($\Leftarrow$) $n \mid m$ のとき $m = jn (j \in \mathbb{Z})$ と表せ、また、$m \mid i$ のとき $i = km (k \in \mathbb{Z})$ と表せる。よって、$i = kjn$ と表せるので $n \mid i$。
@@ -30,8 +27,7 @@ $$ \phi_n(xy) = (xy)^n = x^n y^n (\because G は可換群) = \phi_n(x) \phi_n(y)
 #### 2.5.3 担当
 
 1. $g \in G$ の位数を $d < \infty$ とすると、
-$$1_H = \phi(1_G) (\because p.41 命題2.5.3(1))\\
-= \phi(g^d) = \phi(g)^d$$
+$$1_H = \phi(1_G) (\because p.41 命題2.5.3(1))\\ = \phi(g^d) = \phi(g)^d$$
 p.39 命題2.4.18より $d$ は $\phi(g)$ の位数の倍数。つまり $\phi(g)$ の位数は $d$ ($g$ の位数)の約数となる。
 2. $\phi(g)$ の位数を $c$ とすると、$\phi(g^d) = 1_H = \phi(g)^c = \phi(g^c)$ で、$\phi$ が単射なので
 $$g^c = g^d\\
