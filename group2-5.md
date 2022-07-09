@@ -28,10 +28,9 @@ $$ \phi_n(xy) = (xy)^n = x^n y^n (\because G は可換群) = \phi_n(x) \phi_n(y)
 
 1. $g \in G$の位数を$d < \infty$とすると、
 $$1_H = \phi(1_G) (\because p.41 命題2.5.3(1))\\ = \phi(g^d) = \phi(g)^d$$
-p.39 命題2.4.18より$d$は$\phi(g)$の位数の倍数。つまり$\phi(g)$の位数は$d$($g$の位数)の約数となる。
-2. $\phi(g)$の位数を$c$とすると、$\phi(g^d) = 1_H = \phi(g)^c = \phi(g^c)$で、$\phi$が単射なので
-$$g^c = g^d\\
-\Leftrightarrow g^{c-d} = 1_G$$
+p.39 命題2.4.18より $d$は$\phi(g)$の位数の倍数。つまり$\phi(g)$の位数は$d$($g$の位数)の約数となる。
+2. $\phi(g)$の位数を$c$とすると、$\phi(g^d)=1_H=\phi(g)^c=\phi(g^c)$で、 $\phi$が単射なので
+$$g^c = g^d\\ \Leftrightarrow g^{c-d} = 1_G$$
 よって、p.39 命題2.4.18より、$c-d$は$d$の倍数。つまり$c$が$d$の倍数($\because k \in \mathbb{Z}, c - d = kd \Rightarrow c = (k+1)d $)。位数の定義より$d > 0$ ので$c \ge d$。前問より $d$が$c$の倍数で、位数の定義より$c > 0$でもあるので、$d \ge c$。よって$c = d$。つまり$g$の位数と$\phi(g)$の位数は等しい。
 
 #### 2.5.4 担当
