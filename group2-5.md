@@ -71,7 +71,7 @@ $$(xyx^{-1})^{-n} = xy^{-n}x^{-1}\\
 
 $$A = \begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix}, B = \begin{pmatrix}1 & 0 \\ 1 & 1\end{pmatrix}$$
 
-$X = \begin{pmatrix}a & b\\c & d\end{pmatrix} (a,b,c,d \in \mathbb{C})$として、
+$X = \begin{pmatrix}a & b \\ c & d\end{pmatrix} (a,b,c,d \in \mathbb{C})$として、
 $$B=XAX^{-1}\\
 \Leftrightarrow BX = XA\\
 \Leftrightarrow \begin{pmatrix} a & b \\ a+c & b + d\end{pmatrix} = \begin{pmatrix} a & a+b \\ c & c+d\end{pmatrix}\\
