@@ -12,7 +12,7 @@ $$\forall i_1,i_2 \in \mathbb{Z}, (x^{i_1}=x^{i_2} \Rightarrow y^{i_1}=y^{i_2}) 
 ($\Rightarrow$) $i=m$ とすると $m \mid m \Rightarrow n \mid m$ なので $n \mid m$。
 ($\Leftarrow$) $n \mid m$ のとき $m = jn (j \in \mathbb{Z})$ と表せ、また、$m \mid i$ のとき $i = km (k \in \mathbb{Z})$ と表せる。よって、$i = kjn$ と表せるので $n \mid i$。
 以上より、求める必要十分条件は $n \mid m$($m$ が $n$ の倍数)。
-2. 写像 $\phi$ を $\phi(x^{i}) = y^i$ で定める。このとき、1.より $x^{i_1} = x^{i_2} \Rightarrow y^{i_1} = y^{i_2}$ なので $x^{i_1} = x^{i_2} \Rightarrow \phi(x^{i_1}) = y^{i_1} = y^{i_2} = \phi(x^{i_2})$ となりこの定義は well-defined である。また $G$ の任意の元は $x^i(i \in \mathbb{Z})$ と表せるので、$G$ の任意の2元 $x^{i_1}, x^{i_2}$ について、
+2. 写像 $\phi $ を $\phi(x^{i}) = y^i$ で定める。このとき、1.より $x^{i_1} = x^{i_2} \Rightarrow y^{i_1} = y^{i_2}$ なので $x^{i_1} = x^{i_2} \Rightarrow \phi(x^{i_1}) = y^{i_1} = y^{i_2} = \phi(x^{i_2})$ となりこの定義は well-defined である。また $G$ の任意の元は $x^i(i \in \mathbb{Z})$ と表せるので、$G$ の任意の2元 $x^{i_1}, x^{i_2}$ について、
 $$\phi(x^{i_1} x^{i_2}) = \phi(x^{i_1+i_2}) = y^{i_1+i_2} = y^{i_1} y^{i_2} = \phi(x^{i_1}) \phi(x^{i_2})$$
 となり、$\phi$ が題意を満たす準同型となる。
 
@@ -44,9 +44,9 @@ $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}
 
 |$\mathbb{Z}/4\mathbb{Z}$の元|$\overline{0}$|$\overline{1}$|$\overline{2}$|$\overline{3}$|
 |-|-|-|-|-|
-|元の位数|1|3|2|3|
+|元の位数|1|4|2|4|
 
-$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ が同型だと仮定すると定義より群の同型となる写像 $\phi:\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \rightarrow \mathbb{Z}/4\mathbb{Z}$ が存在するが、このとき $\phi$ は準同型かつ単射で各元が有限位数なので、演習問題2.5.3(2)より $\forall g \in \mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ について $g$ の位数と $\phi(g)$ の位数は等しい。しかし $\phi(g) = \overline{1}$ となる位数 $3$ の $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の元が存在しないため $\phi$ が同型(全単射)であることと矛盾する。よって、$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ は同型ではない。
+$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ が同型だと仮定すると定義より群の同型となる写像 $\phi:\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \rightarrow \mathbb{Z}/4\mathbb{Z}$ が存在するが、このとき $\phi$ は準同型かつ単射で各元が有限位数なので、演習問題2.5.3(2)より $\forall g \in \mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ について $g$ の位数と $\phi(g)$ の位数は等しい。しかし $\phi(g) = \overline{1}$ となる位数 $4$ の $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の元が存在しないため $\phi$ が同型(全単射)であることと矛盾する。よって、$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}$ は同型ではない。
 
 #### 2.5.5
 
