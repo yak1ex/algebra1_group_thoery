@@ -24,6 +24,8 @@ $$ \phi_n(xy) = (xy)^n = x^n y^n (\because G は可換群) = \phi_n(x) \phi_n(y)
 
 となるため$\phi_n$は準同型である。
 
+※写像の終域が群になることを言う必要あり？Gなのでは？
+
 #### 2.5.3 担当
 
 1. $g \in G$の位数を$d < \infty$とすると、
@@ -31,7 +33,7 @@ $$1_H = \phi(1_G) (\because p.41 命題2.5.3(1))\\ = \phi(g^d) = \phi(g)^d$$
 p.39 命題2.4.18より $d$は$\phi(g)$の位数の倍数。つまり$\phi(g)$の位数は$d$($g$の位数)の約数となる。
 2. $\phi(g)$の位数を$c$とすると、$\phi(g^d)=1_H=\phi(g)^c=\phi(g^c)$で、 $\phi$が単射なので
 $$g^c = g^d\\ \Leftrightarrow g^{c-d} = 1_G$$
-よって、p.39 命題2.4.18より、$c-d$は$d$の倍数。つまり$c$が$d$の倍数($\because k \in \mathbb{Z}, c - d = kd \Rightarrow c = (k+1)d $)。位数の定義より$d > 0$ ので$c \ge d$。前問より $d$が$c$の倍数で、位数の定義より$c > 0$でもあるので、$d \ge c$。よって$c = d$。つまり$g$の位数と$\phi(g)$の位数は等しい。
+よって、p.39 命題2.4.18より、$c-d$は$d$の倍数。つまり$c$が$d$の倍数($\because k \in \mathbb{Z}, c - d = kd \Rightarrow c = (k+1)d $)。位数の定義より$c,d > 0$なので$c \ge d$。前問より $d$が$c$の倍数で、位数の定義より$c,d > 0$なので、$d \ge c$。よって$c = d$。つまり$g$の位数と$\phi(g)$の位数は等しい。
 
 #### 2.5.4 担当
 
@@ -131,6 +133,15 @@ $$(\phi_{\overline{x}} \circ \phi_{\overline{y}}) (\overline{1}) = \phi_{\overli
 |$\overline{1}$|$\overline{1}$|$\overline{2}$|$\overline{3}$|$\overline{0}$|
 |$\overline{2}$|$\overline{2}$|$\overline{3}$|$\overline{0}$|$\overline{1}$|
 |$\overline{3}$|$\overline{3}$|$\overline{0}$|$\overline{1}$|$\overline{2}$|
+
+入れ替えても $\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}$ とは一致しない
+
+||$\overline{0}$|$\overline{2}$|$\overline{1}$|$\overline{3}$|
+|-|-|-|-|-|
+|$\overline{0}$|$\overline{0}$|$\overline{2}$|$\overline{1}$|$\overline{3}$|
+|$\overline{2}$|$\overline{2}$|$\overline{0}$|$\overline{3}$|$\overline{1}$|
+|$\overline{1}$|$\overline{1}$|$\overline{3}$|$\overline{2}$|$\overline{0}$|
+|$\overline{3}$|$\overline{3}$|$\overline{1}$|$\overline{0}$|$\overline{2}$|
 
 2. $\mathbb{Z}/7\mathbb{Z}$
 
@@ -279,6 +290,8 @@ $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$
 2. $n \in Z, 1 \le n$として、
 $$(ab)^n=1_G \\ \Leftrightarrow a(ba)^{n-1}b = 1_G (\because 結合則) \\ \Leftrightarrow (ba)^{n-1} = a^{-1} b^{-1} \\ \Leftrightarrow (ba)^{n-1} = (ba)^{-1} \\ \Leftrightarrow (ba)^n = 1_G $$
 よって、$(ab)^n=1_G$となる$n$ の集合と、 $(ba)^n=1_G$となる$n$の集合は一致するため、$ab$と$ba$の位数は等しい。
+
+※無限位数の場合も言う必要あり
 
 #### 2.5.9
 
