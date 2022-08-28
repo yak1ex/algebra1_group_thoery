@@ -35,5 +35,11 @@
 
 ### 2.4 元の位数
 
-* p.36 $a = qb (a,b,q \in \mathbb{Z})：b \mid a$、$b$ は $a$ の約数、$a$ は $b$ の倍数
+* p.36 $a = qb (a,b,q \in \mathbb{Z}, b \neq 0): b \mid a$、$b$ は $a$ の約数、$a$ は $b$ の倍数
 * p.39 命題2.4.18 $x \in G$, $x$ の位数は $d (<\infty)$ として、$x^n = 1_G \Leftrightarrow d \mid n$
+
+### 2.5 準同型と同型
+
+* p.44 命題2.5.12 $G_1,G_2$ 群、$\phi_1, \phi_2: G_1 \rightarrow G_2$ 準同型、($G_1 = \langle S\rangle \land \forall x \in S, \phi_1(x) = \phi_2(x)) \Rightarrow \phi_1 = \phi_2$
+* p.44 命題2.5.13 $\phi:G_1 \rightarrow G_2$ 準同型ならば、$\phi$ が単射 $\Leftrightarrow \mathrm{Ker}(\phi)=\{1_G\}$
+* p.45 (2.5.17) $i_g : G \rightarrow G, i_g(h) = ghg^{-1}$ とすると $i_g$ は同型(内部自己同型)
