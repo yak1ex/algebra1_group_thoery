@@ -11,7 +11,7 @@
 2) $g \in G\prime$とすると$g(4)\neq4$。また$h_i \in H(i=1,2)$で$h_i(j)\neq4(j=1,2,3)$。このとき$h_1(g(h_2(4))=h_1(g(4)))\neq4$なので$h_1 g h_2 \notin H$。すなわち$g$は$H$の元と別の両側剰余類に属する。
 $e_i,f_i \in G\prime_i$とする。このとき、$e_i^{-1} (f_i(4))=e_i^{-1}(i)=4$なので、$e_i^{-1} f_i \in H$である。よって、$f_i = 1_G \; e_i \; (e_i^{-1} f_i)$で$1_G, e_i^{-1}f_i \in H$なので$e_i$と$f_i$、すなわち$G\prime_i$の元はそれぞれ同じ両側剰余類に属する。ここで、
 $$\begin{pmatrix}1 & 4\end{pmatrix}=\begin{pmatrix}1& i\end{pmatrix}\begin{pmatrix}i& 4\end{pmatrix}\begin{pmatrix}1& i\end{pmatrix}$$
-で、$\begin{pmatrix}1 & i\end{pmatrix} \in H$なので、$\begin{pmatrix}1 & 4\end{pmatrix}\in G\prime_1,\begin{pmatrix}2 & 4\end{pmatrix}\in G\prime_2,\begin{pmatrix}3 & 4\end{pmatrix}\in G\prime_3$は同じ両側剰余類に属する。従って$G\prime$の元は同じ両側剰余類に属する。
+で、$\begin{pmatrix}1 & i\end{pmatrix} \in H$なので、$\begin{pmatrix}1 & 4\end{pmatrix}\in G\prime_1,\begin{pmatrix}2 & 4\end{pmatrix}\in G\prime_2,\begin{pmatrix}3 & 4\end{pmatrix}\in G\prime_3$はすべて同じ両側剰余類に属する。従って$G\prime$の元は同じ両側剰余類に属する。
 
 1.2.より両側剰余類$H\backslash G/H$は$H$の元が属する両側剰余類と$G\prime$が属する両側剰余類の2つで構成されるため、$\{1_G, \begin{pmatrix}1 4\end{pmatrix}\}$などが完全代表系となる。
 
