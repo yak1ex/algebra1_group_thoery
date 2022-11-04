@@ -33,6 +33,10 @@
 
 ## 第2章 群の基本
 
+### 2.3 部分群と生成元
+
+* p.32 命題2.3.13 $S\subset G$のとき、(1) $\langle S\rangle$は$G$の部分群 (2) $S \subset H$で$H$が$G$の部分群ならば$\langle S\rangle\subset H$ (つまり$\langle S\rangle$が$S$を含む最小の部分群)
+
 ### 2.4 元の位数
 
 * p.36 $a = qb (a,b,q \in \mathbb{Z}, b \neq 0): b \mid a$、$b$ は $a$ の約数、$a$ は $b$ の倍数
@@ -49,3 +53,8 @@
 * p.53 定理2.6.20(ラグランジュの定理) $|G|=(G:H)|H|$
 * p.53 系2.6.21 $G$が有限群なら(1)$H$が$G$の部分群なら$|H| \mid |G|$ (2) $g \in G$の位数 $\mid |G|$
 * p.53 命題2.6.22 $|G|=p, p$は素数 $\Rightarrow G = \langle x \rangle (G \ni x \neq 1_G)$
+
+### 2.8 正規部分群と剰余群
+
+* p.57 命題2.8.7 $N$が$G$の部分群、$G=\langle S\rangle,N =\langle T\rangle,\forall x\in S,\forall y\in T,xyx^{-1}\in N\land x^{-1}yx\in N \Rightarrow N$ は正規部分群。$G$が有限群なら$xyx^{-1}$のときだけで十分
+* p.57 系2.8.8 $G$が群、$S \subset G$のとき、$N=\langle\{xyx^{-1}|x\in G, y\in S\}\rangle$は$S$を含む最小の正規部分群
