@@ -7,7 +7,22 @@
 #### 2.8.1
 
 1. $(1\;2) \in H = \mathfrak{S}_3, (1\;4) \in G = \mathfrak{S}_4, (1\;4)(1\;2)(1\;4)^{-1}=(2\;4)\notin H$なので$H$は$G$の正規部分群ではない。
-2. $h \in H=\mathrm{SO}(2), g \in G=\mathrm{GL}_2(\mathbb{R})$で、$\det(ghg^{-1})=\det(g)\det(h)\det(g)^{-1}=1$なので$ghg^{-1}\in H$。すなわち$H$は$G$の正規部分群。
+2. 【誤り：$\mathrm{SL}_2(\mathbb{R})$ p.56 命題2.8.4 の場合で書いてた】~~$h \in H=\mathrm{SO}(2), g \in G=\mathrm{GL}_2(\mathbb{R})$で、$\det(ghg^{-1})=\det(g)\det(h)\det(g)^{-1}=1$なので$ghg^{-1}\in H$。すなわち$H$は$G$の正規部分群。~~
+
+※$$h = \begin{pmatrix} 0 & -1\\
+ 1 & 0
+\end{pmatrix} \in H=\mathrm{SO}(2) \\
+g = \begin{pmatrix} 1 & 1 \\
+ 0 & 1
+ \end{pmatrix} \in G=\mathrm{GL}_2(\mathbb{R}) \\
+g h g^{-1} = \begin{pmatrix} 1 & -2 \\
+1 & -1 \end{pmatrix} \notin H$$
+
+$$\begin{pmatrix} 1 & 1\\
+-2 & -1 \end{pmatrix}\begin{pmatrix} 1 & -2\\
+1 & -1 \end{pmatrix}=\begin{pmatrix} 2 & -3 \\
+-3 & 5 \end{pmatrix} \neq I_2$$
+
 3. $$h = \begin{pmatrix} 0 & 1\\
  1 & 0
 \end{pmatrix} \in H=\mathrm{GL}_2(\mathbb{R}) \\
@@ -32,6 +47,17 @@ $$
 |$(1\;3)(2\;4)$|$(1\;3)(2\;4)$|$(1\;4)(2\;3)$|$1_G$|$(1\;2)(3\;4)$|
 |$(1\;4)(2\;3)$|$(1\;4)(2\;3)$|$(1\;3)(2\;4)$|$(1\;2)(3\;4)$|$1_G$|
 
+※↑はクラインの4元群↓と同型
+
+| |$1$|$i$|$j$|$k$|
+|-|-|-|-|-|
+|$1$|$1$|$i$|$j$|$k$|
+|$i$|$i$|$1_G$|$k$|$j$|
+|$j$|$j$|$k$|$1$|$i$|
+|$k$|$k$|$j$|$i$|$1$|
+
+※$H$の$1,2,3,4$のラベルを置き換えても$H$のままなので対称性があると考えると、$(1\;2),(2\;3),(3\;4)$を持ってきた方が楽
+
 5. $$g = \begin{pmatrix}a & 0 \\ c & d \end{pmatrix} \in G(a\neq 0\land d\neq 0), h=\begin{pmatrix}e & 0 \\ g & e \end{pmatrix} \in H(e\neq 0)$$ として、
 $$g h g^{-1} = \begin{pmatrix}a & 0 \\ c & d\end{pmatrix}\begin{pmatrix}e & 0 \\ g & e\\ \end{pmatrix}\begin{pmatrix}\frac{1}{a} & 0 \\ -\frac{c}{ad} & \frac{1}{d} \end{pmatrix} \\
 = \begin{pmatrix}ae & 0\\ ce+dg & de\end{pmatrix}\begin{pmatrix}\frac{1}{a} & 0 \\ -\frac{c}{ad} & \frac{1}{d} \end{pmatrix}\\
@@ -51,9 +77,22 @@ $k^{-1} \in 1_G H = H$と仮定すると$H$が逆元で閉じているため$k \
 
 任意の$g \in G$について、$g \in 1_G H = H$ または $g \in k H$ である。任意の $h \in H$について、$g h g^{-1} \in H$であることを示せば $H$ が正規部分群であることを言える。$g \in H$ の場合は、$H$ が逆元、積で閉じているため明らかに $g h g^{-1} \in H$。$g \in k H$の場合、$h^\prime \in H$によって$g = k h^\prime$と表せるため、$g h g^{-1} = k h^\prime h (k h^\prime)^{-1} = k h^\prime h h^{\prime -1} k^{-1}=(k(h^\prime h h^{\prime -1}))(k^{-1}) \in 1_G H = H(\because$補題より$)$。以上により、$g h g^{-1} \in H$なので$H$は正規部分群となる。
 
+※直和で考えると$G = H + x H = H + H x$ なので $x H = H x$ これが正規部分群の定義と同値
+
 #### 2.8.3 担当
 
-任意の $x \in N_1 N_2$ は $n_1 \in N_1, n_2 \in N_2$によって$x = n_1 n_2$と表せる。$N_1,N_2$が正規部分群なので、任意の$g \in G$について$g n_1 g^{-1} \in N_1$かつ$g n_2 g^{-1} \in N_2$。従って任意の$g \in G$について、$g x g^{-1} = g n_1 n_2 g^{-1} = g n_1 (g^{-1} g) n_2 g^{-1} = (g n_1 g^{-1}) (g n_2 g^{-1}) \in N_1 N_2$となるため、定義に従い$N_1 N_2$は正規部分群である。
+まず$N_1 N_2$が部分群であることを示す。
+
+1. $N_1, N_2$、それぞれが$G$の部分群なので、$1_G \in N_1$ かつ $1_G \in N_2$。よって$N_1 N_2 \ni 1_G 1_G = 1_G$。
+2. 任意の $x_1, x_2 \in N_1 N_2$に対して$a_1, a_2 \in N_1$、$b_1, b_2 \in N_2$を用いsて$x_1 = a_1 b_1, x_2 = a_2 b_2$と表せる。このとき$x_1 x_2 = a_1 b_1 a_2 b_2 = a_1 (a_2 a_2^{-1}) b_1 a_2 b_2 = (a_1 a_2)((a_2^{-1} b_1 a_2) b_2) = (a_1 a_2)((a_2^{-1} b_1 (a_2^{-1})^{-1}) b_2) \in N_1 N_2(\because a_1 a_2 \in N_1$ (部分群なので)、$(a_2^{-1} b_1 (a_2^{-1})^{-1}) \in N_2(b \in N_2$で$N_2$が正規部分群なので)、$((a_2^{-1} b_1 (a_2^{-1})^{-1}) b_2) \in N_2(N_2$が部分群で積について閉じているので))
+3. 任意のの$x \in N_1 N_2$について$a \in N_1, b \in N_2$を使って$x = a b$と表せる。このとき、$x^{-1} = (ab)^{-1} = b^{-1} a^{-1} = (a^{-1} a) b^{-1} a^{-1} = a^{-1} (a b^{-1} a^{-1}) \in N_1 N_2 (\because a^{-1} \in N_1$($N_1$が逆元について閉じている), $(a b^{-1} a^{-1}) \in N_2(b^{-1} \in N_2$で$N_2$が正規部分群))
+
+1(単位元を含む)、2(積について閉じている)、3(逆元について閉じている)ため、$N_1 N_2$は$G$の部分群である。
+
+任意の $x \in N_1 N_2$ は $a \in N_1, b \in N_2$によって$x = a b$と表せる。$N_1,N_2$が正規部分群なので、任意の$g \in G$について$g a g^{-1} \in N_1$かつ$g b g^{-1} \in N_2$。従って任意の$g \in G$について、$g x g^{-1} = g a b g^{-1} = g a (g^{-1} g) b g^{-1} = (g a g^{-1}) (g b g^{-1}) \in N_1 N_2$となるため、定義に従い$N_1 N_2$は正規部分群である。
+
+※探索ネタ：$ghg^{-1} \in H$ だけだと$H$が部分群であることは言えないか？反例は？
+※探索ネタ：$H_1,H_2$が部分群で$H_1 H_2$が正規部分群であるとき$H_1,H_2$はそれぞれ正規部分群になるか？
 
 #### 2.8.4
 
@@ -82,6 +121,8 @@ graph TD;
     A --"(1 3 2)"-->C;
     C--any--> B;
 ```
+
+※位数で分けて書き下すべき？素数位数であれば巡回群
 
 #### 2.8.5
 
@@ -127,3 +168,6 @@ graph TD;
     D --any--> F;
     E --any--> F;
 ```
+
+※正規部分群であることは生成元について確かめればよい(p.57 命題2.8.7)
+※指数2の部分群が正規部分群も使える
