@@ -10,7 +10,7 @@
 * p.7 命題1.1.6 $A,B$ 有限集合、$|A|=|B|$
     1. $A \subset B \Rightarrow A = B$
     2. $f:A\rightarrow B$ が単射 $\Leftrightarrow f:A\rightarrow B$ が全射
-* p.13 公理1.3.1 選択公理 $\forall \lambda \in \Lambda, A_\lambda \neq \empty \Rightarrow \Pi_{\lambda \in \Lambda} A_\lambda \neq \empty $
+* p.13 公理1.3.1 選択公理 $\forall \lambda \in \Lambda, A_\lambda \neq \emptyset \Rightarrow \Pi_{\lambda \in \Lambda} A_\lambda \neq \emptyset $
 * p.14 定義1.3.2 $S$ 上の関係：$S\times S$ の部分集合
 * p.14 定義1.3.5 1-3で半順序、1-4で全順序
     1. $x \leqq x$
