@@ -58,3 +58,7 @@
 
 * p.57 命題2.8.7 $N$が$G$の部分群、$G=\langle S\rangle,N =\langle T\rangle,\forall x\in S,\forall y\in T,xyx^{-1}\in N\land x^{-1}yx\in N \Rightarrow N$ は正規部分群。$G$が有限群なら$xyx^{-1}$のときだけで十分
 * p.57 系2.8.8 $G$が群、$S \subset G$のとき、$N=\langle\{xyx^{-1}|x\in G, y\in S\}\rangle$は$S$を含む最小の正規部分群
+
+### 2.9 群の直積
+
+* p.60 定理2.9.3 中国式剰余定理 $n,m\in\mathbb{Z}\land\gcd(n,m)=1\Rightarrow\mathbb{Z}/nm\mathbb{Z}\cong\mathbb{Z}/n\mathbb{Z}\times\mathbb{Z}/m\mathbb{Z}$
