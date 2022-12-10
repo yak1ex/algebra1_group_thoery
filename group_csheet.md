@@ -47,6 +47,7 @@
 * p.44 命題2.5.12 $G_1,G_2$ 群、$\phi_1, \phi_2: G_1 \rightarrow G_2$ 準同型、($G_1 = \langle S\rangle \land \forall x \in S, \phi_1(x) = \phi_2(x)) \Rightarrow \phi_1 = \phi_2$
 * p.44 命題2.5.13 $\phi:G_1 \rightarrow G_2$ 準同型ならば、$\phi$ が単射 $\Leftrightarrow \mathrm{Ker}(\phi)=\{1_G\}$
 * p.45 (2.5.17) $i_g : G \rightarrow G, i_g(h) = ghg^{-1}$ とすると $i_g$ は同型(内部自己同型)
+* p.71 演習問題2.5.3(1)：$\phi:G\rightarrow H$：群の準同型、$g\in G, \mathrm{ord}(g)<\infty\Rightarrow\mathrm{ord}(\phi(g))\mid \mathrm{ord}(g)$
 
 ### 2.6 同値関係と剰余類
 
