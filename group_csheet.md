@@ -31,6 +31,11 @@
     3. $B \subset A \land |A| > |B| \Rightarrow |A| = |A \setminus B|$
 * p.17 定理1.4.4 $|2^A| > |A|$
 
+$f:A\rightarrow B$で
+
+* $\forall X\subset A, f^{-1}(f(X))\supset X$
+* $\forall Y\subset B, f(f^{-1}(Y))\subset Y$
+
 ## 第2章 群の基本
 
 ### 2.3 部分群と生成元
