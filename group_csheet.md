@@ -49,6 +49,7 @@ $f:A\rightarrow B$で
 
 ### 2.5 準同型と同型
 
+* p.41 命題2.5.3 $\phi:G_1\rightarrow G_2$：群の準同型 (1)$\phi(1_{G_1})=1_{G_2}$(2)$\forall x\in G_1, \phi(x^{-1})=\phi(x)^{-1}$(3)$\mathrm{Ker}(\phi),\mathrm{Im}(\phi)$はそれぞれ$G_1,G_2$の部分群
 * p.44 命題2.5.12 $G_1,G_2$：群、$\phi_1, \phi_2: G_1 \rightarrow G_2$：準同型、($G_1 = \langle S\rangle \land \forall x \in S, \phi_1(x) = \phi_2(x)) \Rightarrow \phi_1 = \phi_2$
 * p.44 命題2.5.13 $\phi:G_1 \rightarrow G_2$：準同型ならば、$\phi$ が単射 $\Leftrightarrow \mathrm{Ker}(\phi)=\{1_G\}$
 * p.45 (2.5.17) $i_g : G \rightarrow G, i_g(h) = ghg^{-1}$ とすると $i_g$ は同型(内部自己同型)
