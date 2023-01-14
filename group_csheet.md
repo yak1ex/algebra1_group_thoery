@@ -63,6 +63,7 @@ $f:A\rightarrow B$で
 
 ### 2.8 正規部分群と剰余群
 
+* p.56 命題2.8.3 $G_1,G_2:$群、$\phi:G_1\rightarrow G_2$が準同型$\Rightarrow \mathrm{Ker}(\phi)\triangleleft G_1$
 * p.57 命題2.8.7 $N\le G$、$G=\langle S\rangle,N =\langle T\rangle,\forall x\in S,\forall y\in T,xyx^{-1}\in N\land x^{-1}yx\in N \Rightarrow N$ は正規部分群。$G$が有限群なら$xyx^{-1}$のときだけで十分
 * p.57 系2.8.8 $G$が群、$S \subset G$のとき、$N=\langle\{xyx^{-1}|x\in G, y\in S\}\rangle$は$S$を含む最小の正規部分群
 
