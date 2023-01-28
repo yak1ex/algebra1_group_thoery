@@ -66,6 +66,8 @@ $f:A\rightarrow B$で
 * p.56 命題2.8.3 $G_1,G_2:$群、$\phi:G_1\rightarrow G_2$が準同型$\Rightarrow \mathrm{Ker}(\phi)\triangleleft G_1$
 * p.57 命題2.8.7 $N\le G$、$G=\langle S\rangle,N =\langle T\rangle,\forall x\in S,\forall y\in T,xyx^{-1}\in N\land x^{-1}yx\in N \Rightarrow N$ は正規部分群。$G$が有限群なら$xyx^{-1}$のときだけで十分
 * p.57 系2.8.8 $G$が群、$S \subset G$のとき、$N=\langle\{xyx^{-1}|x\in G, y\in S\}\rangle$は$S$を含む最小の正規部分群
+* p.58 補題2.8.10 $N\triangleleft G, g\in G\Rightarrow gN=Ng$
+* p.59 命題2.8.13 自然な写像 $\pi:G\rightarrow G/N$ は群の全射準同型で$\mathrm{Ker}(\pi)=N$
 
 ### 2.9 群の直積
 
@@ -74,3 +76,7 @@ $f:A\rightarrow B$で
 ### 2.10 準同型定理
 
 * p.63 定理 2.10.1 準同型定理(第一同型定理) $\phi:G\rightarrow H$が群の準同型、$\pi:G\rightarrow G/\mathrm{Ker}(\phi)$が自然な準同型$\Rightarrow (\exists!\psi:G/\mathrm{Ker}(\phi)\rightarrow H,((\phi=\psi\circ\pi)\land(\psi:G/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)))$
+* p.64 定理 2.10.2 準同型定理(部分群の対応) $N\triangleleft G, \pi:G\rightarrow G/N$が自然な準同型、$\mathbb{X}=\{X|X\le G/N\}, \mathbb{Y}=\{Y|N\subset Y\land Y\le G\}\Rightarrow\exists\phi:\mathbb{X}\ni H\mapsto\pi^{-1}(H)\in\mathbb{Y},\psi:\mathbb{Y}\ni K\mapsto\pi(K)\in\mathbb{X},\phi\circ\psi=\mathrm{id}_\mathbb{Y}\land\psi\circ\phi=\mathrm{id}_\mathbb{X}$
+* p.65 命題2.10.3 第二同型定理 $H\le G, N\triangleleft G$ (1) $HN \le G\land HN=NH$ (2) $H\cap N\triangleleft H\land HN/N\cong H/H\cap N$
+* p.66 命題2.10.4 第三同型定理 $N\subset N^\prime,N\triangleleft G,N^\prime\triangleleft G$ (1) $\exists \phi:G/N\rightarrow G/N^\prime,\phi(xN)=xN^\prime\land\phi$が準同型 (2) $(G/N)/(N^\prime/N)\cong G/N^\prime$
+* p.66 命題2.10.5 準同型の分解 $\phi:G\rightarrow H$が群の準同型、$N\triangleleft G,\pi:G\rightarrow G/N$が自然な準同型 $\exists \psi \in \mathrm{homo}(G/N\rightarrow H)\land\phi=\psi\circ\pi\Leftrightarrow N\subset\mathrm{Ker}(\phi)$
