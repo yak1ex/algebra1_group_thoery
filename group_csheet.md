@@ -70,3 +70,7 @@ $f:A\rightarrow B$で
 ### 2.9 群の直積
 
 * p.60 定理2.9.3 中国式剰余定理 $n,m\in\mathbb{Z}\land\gcd(n,m)=1\Rightarrow\mathbb{Z}/nm\mathbb{Z}\cong\mathbb{Z}/n\mathbb{Z}\times\mathbb{Z}/m\mathbb{Z}$
+
+### 2.10 準同型定理
+
+* p.63 定理 2.10.1 準同型定理(第一同型定理) $\phi:G\rightarrow H$が群の準同型、$\pi:G\rightarrow G/\mathrm{Ker}(\phi)$が自然な準同型$\Rightarrow (\exists!\psi:G/\mathrm{Ker}(\phi)\rightarrow H,((\phi=\psi\circ\pi)\land(\psi:G/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)))$
