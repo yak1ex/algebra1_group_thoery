@@ -8,9 +8,9 @@
 
 $G=\mathbb{C}^\times, H_1=\mathbb{C}^1\stackrel{\mathrm{def}}{=}\{z\in\mathbb{C} \mid |z|=1\},H_2=\{x\in\mathbb{R}\mid x\gt 0\}$
 
-$\phi:G\ni z\rightarrow |z|\in H_2$とする。このとき$\phi(z_1 z_2)=|z_1 z_2|=|z_1||z_2|=\phi(z_1)\phi(z_2)$なので$\phi$は準同型であり、また明らかに全射である。また、$\mathrm{Ker}(\phi)=H_1$なので準同型定理(p.63 定理2.10.1)より$G/H_1\cong H_2$。
+$\phi:G\ni z\mapsto |z|\in H_2$とする。このとき$\phi(z_1 z_2)=|z_1 z_2|=|z_1||z_2|=\phi(z_1)\phi(z_2)$なので$\phi$は準同型であり、また明らかに全射である。また、$\mathrm{Ker}(\phi)=H_1$なので準同型定理(p.63 定理2.10.1)より$G/H_1\cong H_2$。
 
-$\psi:G\ni z\rightarrow \frac{z}{|z|}\in H_1$とする。このとき$\psi(z_1 z_2)=\frac{z_1 z_2}{|z_1 z_2|}=\frac{z_1}{|z_1|}\frac{z_2}{|z_2|}=\psi(z_1)\psi(z_2)$なので$\psi$は準同型であり、また明らかに全射である。また、$\mathrm{Ker}(\psi)=H_2$なので($\because \frac{z}{|z|}=1\Rightarrow z=|z|\Rightarrow z\in H_2$)準同型定理(p.63 定理2.10.1)より$G/H_2\cong H_1$。
+$\psi:G\ni z\mapsto \frac{z}{|z|}\in H_1$とする。このとき$\psi(z_1 z_2)=\frac{z_1 z_2}{|z_1 z_2|}=\frac{z_1}{|z_1|}\frac{z_2}{|z_2|}=\psi(z_1)\psi(z_2)$なので$\psi$は準同型であり、また明らかに全射である。また、$\mathrm{Ker}(\psi)=H_2$なので($\because \frac{z}{|z|}=1\Rightarrow z=|z|\Rightarrow z\in H_2$)準同型定理(p.63 定理2.10.1)より$G/H_2\cong H_1$。
 
 #### 2.10.2
 
