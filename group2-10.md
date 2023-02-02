@@ -14,8 +14,7 @@ $\psi:G\ni z\mapsto \frac{z}{|z|}\in H_1$とする。このとき$\psi(z_1 z_2)=
 
 #### 2.10.2
 
-For $a\neq0\in\mathbb{R}$,　　
-\ prove $\mathbb{R}/\mathbb{Z}\cong\mathbb{R}/a\mathbb{Z}$ by using fundamental theorem on homomorphism
+$\mathbb{R}/\mathbb{Z}$とは実数の小数展開で整数部の差異を無視して小数部で類にまとめるということを意味する。以下、$x\in\mathbb{R}$に対して$x$の小数部を$\{x\}=x-\lfloor x\rfloor$と表記することにすると$\phi:\mathbb{R}\ni x\mapsto \{x\}\in\mathbb{R}/\mathbb{Z}$と定められて$\mathrm{Ker}(\phi)=\mathbb{Z}$である。このとき$\psi(x)=\phi(\frac{x}{a})$とすると、$\psi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$で$\psi(x_1+x_2)=\phi(\frac{x_1+x_2}{a})=\{\frac{x_1+x_2}{a}\}=\{\frac{x_1}{a}\}+\{\frac{x_2}{a}\}$(※ここでの加算は$\mathbb{R}/\mathbb{Z}$のものである)$=\phi(\frac{x_1}{a})+\phi(\frac{x_2}{a})=\psi(x_1)+\psi(x_2)$となり、$\psi$は準同型でありまた、明らかに全射である。$\mathrm{Ker}(\psi)=a\mathbb{Z}$なので、準同型定理(p.63 定理2.10.1)より、$\mathbb{R}/a\mathbb{Z}\cong\mathbb{R}/\mathbb{Z}$である。
 
 #### 2.10.3
 
