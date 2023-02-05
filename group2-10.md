@@ -12,15 +12,15 @@ $1_\mathbb{C}\in H_1$、$z\in H_1$として$z\ne0$なので$|z^{-1}|=|\frac{1}{z
 
 $1_\mathbb{C}\in H_2$、$z \in H_2$として$z\ne0$なので$z^{-1}=\frac{1}{z}\gt0$。$z_1,z_2\in H_2$として、$z_1 z_2\gt0$なので$z_1 z_2\in H_2$。よって、$H_2$は$G$の(正規)部分群となる。
 
-$\phi:G\ni z\mapsto |z|\in H_2$とする。このとき$\phi(z_1 z_2)=|z_1 z_2|=|z_1||z_2|=\phi(z_1)\phi(z_2)$なので$\phi$は準同型であり、また明らかに全射である。また、$\mathrm{Ker}(\phi)=H_1$なので準同型定理(p.63 定理2.10.1)より$G/H_1\cong H_2$。
+$\phi:G\ni z\mapsto |z|\in H_2$とする。このとき$\phi(z_1 z_2)=|z_1 z_2|=|z_1||z_2|=\phi(z_1)\phi(z_2)$なので$\phi$は準同型写像であり、また明らかに全射である。また、$\mathrm{Ker}(\phi)=H_1$なので準同型定理(p.63 定理2.10.1)より$G/H_1\cong H_2$。
 
-$\psi:G\ni z\mapsto \frac{z}{|z|}\in H_1$とする。このとき$\psi(z_1 z_2)=\frac{z_1 z_2}{|z_1 z_2|}=\frac{z_1}{|z_1|}\frac{z_2}{|z_2|}=\psi(z_1)\psi(z_2)$なので$\psi$は準同型であり、また明らかに全射である。また、$\mathrm{Ker}(\psi)=H_2$なので($\because \frac{z}{|z|}=1\Rightarrow z=|z|\Rightarrow z\in H_2$)準同型定理(p.63 定理2.10.1)より$G/H_2\cong H_1$。
+$\psi:G\ni z\mapsto \frac{z}{|z|}\in H_1$とする。このとき$\psi(z_1 z_2)=\frac{z_1 z_2}{|z_1 z_2|}=\frac{z_1}{|z_1|}\frac{z_2}{|z_2|}=\psi(z_1)\psi(z_2)$なので$\psi$は準同型写像であり、また明らかに全射である。また、$\mathrm{Ker}(\psi)=H_2$なので($\because \frac{z}{|z|}=1\Rightarrow z=|z|\Rightarrow z\in H_2$)準同型定理(p.63 定理2.10.1)より$G/H_2\cong H_1$。
 
 #### 2.10.2
 
 $\mathbb{R}$は可換群なので$\mathbb{Z}$はその正規部分群となる。
 
-$\phi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$を自然な写像とする(※)と$\mathrm{Ker}(\phi)=\mathbb{Z}$である。このとき$\psi(x)=\phi(\frac{x}{a})$とすると、$\psi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$で$\psi(x_1+x_2)=\phi(\frac{x_1+x_2}{a})=\{\frac{x_1+x_2}{a}\}=\{\frac{x_1}{a}\}+\{\frac{x_2}{a}\}$(※ここでの加算は$\mathbb{R}/\mathbb{Z}$のものである)$=\phi(\frac{x_1}{a})+\phi(\frac{x_2}{a})=\psi(x_1)+\psi(x_2)$となり、$\psi$は準同型でありまた、明らかに全射である。$\mathrm{Ker}(\psi)=a\mathbb{Z}$なので、準同型定理(p.63 定理2.10.1)より、$\mathbb{R}/a\mathbb{Z}\cong\mathbb{R}/\mathbb{Z}$である。
+$\phi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$を自然な写像とする(※)と$\mathrm{Ker}(\phi)=\mathbb{Z}$である。このとき$\psi(x)=\phi(\frac{x}{a})$とすると、$\psi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$で$\psi(x_1+x_2)=\phi(\frac{x_1+x_2}{a})=\{\frac{x_1+x_2}{a}\}=\{\frac{x_1}{a}\}+\{\frac{x_2}{a}\}$(※ここでの加算は$\mathbb{R}/\mathbb{Z}$のものである)$=\phi(\frac{x_1}{a})+\phi(\frac{x_2}{a})=\psi(x_1)+\psi(x_2)$となり、$\psi$は準同型写像でありまた、明らかに全射である。$\mathrm{Ker}(\psi)=a\mathbb{Z}$なので、準同型定理(p.63 定理2.10.1)より、$\mathbb{R}/a\mathbb{Z}\cong\mathbb{R}/\mathbb{Z}$である。
 
 ※$\mathbb{R}/\mathbb{Z}$とは実数の小数展開で整数部の差異を無視して小数部で類にまとめるということを意味する。$x\in\mathbb{R}$に対して$x$の小数部を$\{x\}=x-\lfloor x\rfloor$と表記することにすると$\phi:\mathbb{R}\ni x\mapsto \{x\}+\mathbb{Z}\in\mathbb{R}/\mathbb{Z}$になる。
 
