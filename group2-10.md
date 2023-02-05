@@ -26,7 +26,27 @@ $\phi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$を自然な写像とする(※
 
 #### 2.10.3
 
-$G\le\mathrm{GL}_2(\mathbb{R}),G:$下三角行列、$H\le G$、$H$の対角成分が等しい、$G/H\cong\mathbb{R}^\times$を準同型定理を使って証明
+演習問題2.8.5(1)より$H$は$G$の正規部分群である。
+
+$\forall g \in G$に対して$g\in\mathrm{GL}_2(\mathbb{R})$が下三角行列であることから$g = \begin{pmatrix}a &0\\
+c & d
+\end{pmatrix}$と表せて、$g\in\mathrm{GL}_2(\mathbb{R})$であることから$\det(g)=ad\ne0$。すなわち$a\ne0\land d\ne0$である。従って、$\phi:G\ni\begin{pmatrix}a &0\\
+c & d
+\end{pmatrix}\mapsto\frac{a}{d}\in\mathbb{R}^\times$と定義することができる。このとき$\phi\left(\begin{pmatrix}a & 0\\
+c & d
+\end{pmatrix}\begin{pmatrix}
+e & 0\\
+g & h
+\end{pmatrix}\right)=\phi\left(\begin{pmatrix}
+ae & 0\\
+ce+dg & dh
+\end{pmatrix}\right)=\frac{ae}{dh}=\frac{a}{d}\frac{e}{h}=\phi\left(\begin{pmatrix}
+a & 0\\
+c & d
+\end{pmatrix}\right)\phi\left(\begin{pmatrix}
+e & 0\\
+g & h
+\end{pmatrix}\right)$なので$\phi$は準同型写像で、かつ明らかに全射である。また$\mathrm{Ker}(\phi)=H$であることから、準同型定理(p.63 定理2.10.1)より、$G/H\cong\mathbb{R}^\times$である。
 
 #### 2.10.4
 
