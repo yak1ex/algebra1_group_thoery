@@ -50,7 +50,7 @@ $$G/2G\cong(\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3
 
 $G$は可換群なのでその部分群は常に正規部分群である。まず、$H_1,H_2$が$G$の(正規)部分群であることを確かめておく。
 
-$1_\mathbb{C}\in H_1$、$z\in H_1$として$z\ne0$なので$|z^{-1}|=|\frac{1}{z}|=\frac{1}{|z|}=1$なので$z^{-1}\in H_1$、$z_1,z_2\in H_1$として、$|z_1 z_2|=|z_1||z_2|=1$なので$z_1 z_2\in H_1$。よって、$H_1$は$G$の(正規)部分群となる。
+$1_\mathbb{C}\in H_1$、$z\in H_1$として$z\ne0$なので$|z^{-1}|=|\frac{1}{z}|=\frac{1}{|z|}=1$より$z^{-1}\in H_1$、$z_1,z_2\in H_1$として、$|z_1 z_2|=|z_1||z_2|=1$なので$z_1 z_2\in H_1$。よって、$H_1$は$G$の(正規)部分群となる。
 
 $1_\mathbb{C}\in H_2$、$z \in H_2$として$z\ne0$なので$z^{-1}=\frac{1}{z}\gt0$。$z_1,z_2\in H_2$として、$z_1 z_2\gt0$なので$z_1 z_2\in H_2$。よって、$H_2$は$G$の(正規)部分群となる。
 
@@ -88,7 +88,7 @@ c & d
 \end{pmatrix}\right)\phi\left(\begin{pmatrix}
 e & 0\\
 g & h
-\end{pmatrix}\right)$なので$\phi$は準同型写像で、かつ明らかに全射である。また$\mathrm{Ker}(\phi)=H$であることから、準同型定理(p.63 定理2.10.1)より、$G/H\cong\mathbb{R}^\times$である。
+\end{pmatrix}\right)$なので$\phi$は準同型写像で、かつ明らかに全射である。また$\mathrm{Ker}(\phi)=H(\because g\in\mathrm{Ker}(\phi)\Leftrightarrow\frac{a}{d}=1\Leftrightarrow a=d\Leftrightarrow g\in H)$であることから、準同型定理(p.63 定理2.10.1)より、$G/H\cong\mathbb{R}^\times$である。
 
 #### 2.10.4
 
