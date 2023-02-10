@@ -1,8 +1,50 @@
 # 代数学1 群論入門
 
-## 2章の演習問題
+## 2.10 準同型定理
 
-### 2.10 準同型定理
+### メモ
+
+#### 例題2.10.12
+
+##### 「$G/H$は位数$2$の群なので$\mathbb{Z}/2\mathbb{Z}$と同型である」
+
+p.53 命題2.6.22より$G/H$は位数$2$の巡回群。p.67 例2.10.6より位数$2$の巡回群は$\mathbb{Z}/2\mathbb{Z}$と同型である。
+
+##### 定理2.10.2より、$H$は$G/2G$の指数$2$の部分群に対応する
+
+定理2.10.2は同型とまでは言っていないがなぜ指数$2$と言えるのか？
+
+$G$は有限群である。また$G$は可換群なので任意の部分群は正規部分群である。
+$N\subset X\subset G$な正規部分群$X$を考える。
+このときp.65 命題2.10.3 第二同型定理(2)を使うと$X\cap N\triangleleft X$、すなわち$N\triangleleft X$なので$X/N$は剰余群となる。
+p.64 定理2.10.2 準同型定理(部分群の対応)での対応は、$G\rightarrow G/N$の自然な写像とその逆写像なので$X$と$X/N$が対応することになる。※ここ厳密とは言えないかも
+p.53 定理2.6.20 ラグランジェの定理より$G$における$X$の指数は$\frac{|G|}{|X|}$である。
+同様に$G/N$における$X/N$の指数は$\frac{|G/N|}{|X/N|}=\frac{|G|}{|N|}/\frac{|X|}{|N|}=\frac{|G|}{|X|}$となる。
+すなわち、定理2.10.2によって対応する部分群の指数は等しい。
+
+##### 「$G\cong\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$である。(略)$\mathbb{Z}/3\mathbb{Z}$において2倍写像は全単射である。よって、$G/2G\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$である」
+
+##### 補題1 群$G=G_1\times G_2$で群$H=H_1\times H_2$かつ$G_1\triangleright H_1$かつ$G_2\triangleright H_2$とすると、$G\triangleright H$かつ$G/H=G_1/H_1\times G_2/H_2$
+
+$\forall g\in G=G_1\times G_2$は$g_1\in G_1, g_2\in G_2$によって$g=(g_1,g_2)$と表せる。また$\forall h \in H=H_1\times H_2$は$h_1\in H_1, h_2\in H_2$によって$h=(h_1,h_2)$と表せる。このとき、正規部分群の定義から$g_1 h_1 g_1^{-1} \in H_1$かつ$g_2 h_2 g_2^{-1} \in H_2$である。従って、$ghg^{-1}=(g_1,g_2)(h_1,h_2)(g_1,g_2)^{-1}=(g_1,g_2)(h_1,h_2)(g_1^{-1},g_2^{-1})=(g_1 h_1 g_1^{-1},g_2 h_2 g_2^{-1})\in H_1\times H_2=H$となるため、正規部分群の定義から$G\triangleright H$である。
+
+$G\triangleright H$なので$G/H$は剰余群となる。$\phi_1:G_1\ni g_1\mapsto g_1 H_1\in G_1/H_1, \phi_2:G_2\ni g_2\mapsto g_2 H_2\in G_2/H_2$はそれぞれ自然な写像でありp.59 命題2.8.13より全射準同型写像、また$\mathrm{Ker}(\phi_1)=H_1$かつ$\mathrm{Ker}(\phi_2)=H_2$である。よって、$\phi:G=G_1\times G_2\ni (g_1,g_2)\mapsto (\phi_1(g_1),\phi_2(g_2))=(g_1 H_1, g_2 H_2)\in G_1/H_1\times G_2/H_2$は(成分ごとに考えれば明らかにwell-definedな)1全射準同型写像となり、$\mathrm{Ker}(\phi)=H_1\times H_2$である。よって、準同型定理(p.63 定理2.10.1)より$G/H=G/(H_1\times H_2)\cong G_1/H_1\times G_2/H_2$である。
+
+##### 説明
+
+補題1を再帰的に適用すれば3つ以上の群の直積についても同様のことが言える。
+
+「$\mathbb{Z}/3\mathbb{Z}$において2倍写像は全単射である」ため、$2(\mathbb{Z}/3\mathbb{Z})\cong\mathbb{Z}/3\mathbb{Z}$である。なぜなら、$\phi(g)=2g$とすると可換群上なので$\phi(g+h)=2(g+h)=2g+2h=\phi(g)+\phi(h)$となり2倍写像は準同型、つまり全単射準同型なので同型だからである。
+
+よって$G\cong\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$であれば、$2G\cong2(\mathbb{Z}/8\mathbb{Z})\times2(\mathbb{Z}/8\mathbb{Z})\times2(\mathbb{Z}/3\mathbb{Z})\cong2\mathbb{Z}/8\mathbb{Z}\times2\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$である。
+
+$2G$は明らかに部分群で、$G$は可換群だから正規部分群となるため
+$$G/2G\cong(\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z}\times2\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z})\\
+=(\mathbb{Z}/8\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z})\times(\mathbb{Z}/8\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z})\times(\mathbb{Z}/3\mathbb{Z})/(\mathbb{Z}/3\mathbb{Z})\quad(\because 補題1より)\\
+\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\times\{0\}\quad(\because p.66\;命題2.10.4\;第三同型定理より))\\
+\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$$
+
+### 演習問題
 
 #### 2.10.1
 
