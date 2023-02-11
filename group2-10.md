@@ -99,10 +99,40 @@ $\forall k\in nG$は$g\in G$によって$k=ng$と表せる。$\phi(ng)=n\phi(g)=
 
 #### 2.10.5
 
-$G=\mathbb{Z}^2$
+$G$は可換群なので任意の部分群は正規部分群である。
 
-1.$G$の指数$2$の部分群の数を求めよ
-2.$G$の指数$13$の部分群の数を求めよ 
+1. $G$の指数$2$の部分群を$H$とすると$G/H$は位数$2$の部分群となるため$\mathbb{Z}/2\mathbb{Z}$と同型である。よって、$g\in G$とすると$2g\in H$。したがって、$2G=\{2g\;|\;g\in G\}\subset H$。p.64 定理2.10.2 準同型定理(部分群の対応)より、$H$は指数$2$の$G/2G$の部分群と1対1対応する。$G=\mathbb{Z}\times\mathbb{Z}$より$2G=2\mathbb{Z}\times2\mathbb{Z}$なので、補題1より$G/2G\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$。すなわち$H$は$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の指数$2$の部分群と1対1対応する。$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の位数は$4$なので指数$2$の部分群は位数$2$の部分群と同じことである。位数$2$の部分群は単位元以外に$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の位数$2$の元を1つだけ持つ。逆に$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の元を$1$つ定めると位数$2$の部分群を生成する。つまり位数$2$の元と位数$2$の部分群は1対1である。$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の位数$2$の元は$3$つあるので位数$2$の部分群も$3$つである。これが$H$と1対1対応するので$G$の指数$2$の部分群$H$の数は$3$となる。
+
+
+<table>
+<caption>$2\mathbb{Z}\times\mathbb{Z}$</caption>
+<colgroup>
+<col style="background: #80ffff"><col style="background: #ff80ff">
+<col style="background: #80ffff"><col style="background: #ff80ff">
+</colgroup>
+<tr><td>(0,3)</td><td>(1,3)</td><td>(2,3)</td><td>(3,3)</td></tr>
+<tr><td>(0,2)</td><td>(1,2)</td><td>(2,2)</td><td>(3,2)</td></tr>
+<tr><td>(0,1)</td><td>(1,1)</td><td>(2,1)</td><td>(3,1)</td></tr>
+<tr><td>(0,0)</td><td>(1,0)</td><td>(2,0)</td><td>(3,0)</td></tr>
+</table>
+
+<table>
+<caption>$\mathbb{Z}\times2\mathbb{Z}$</caption>
+<tr style="background: #ff80ff"><td>(0,3)</td><td>(1,3)</td><td>(2,3)</td><td>(3,3)</td></tr>
+<tr style="background: #80ffff"><td>(0,2)</td><td>(1,2)</td><td>(2,2)</td><td>(3,2)</td></tr>
+<tr style="background: #ff80ff"><td>(0,1)</td><td>(1,1)</td><td>(2,1)</td><td>(3,1)</td></tr>
+<tr style="background: #80ffff"><td>(0,0)</td><td>(1,0)</td><td>(2,0)</td><td>(3,0)</td></tr>
+</table>
+
+<table>
+<caption>$(2\mathbb{Z}\times2\mathbb{Z})\cup((1+2\mathbb{Z})\times(1+2\mathbb{Z}))$</caption>
+<tr><td style="background: #ff80ff">(0,3)</td><td style="background: #80ffff">(1,3)</td><td style="background: #ff80ff">(2,3)</td><td style="background: #80ffff">(3,3)</td></tr>
+<tr><td style="background: #80ffff">(0,2)</td><td style="background: #ff80ff">(1,2)</td><td style="background: #80ffff">(2,2)</td><td style="background: #ff80ff">(3,2)</td></tr>
+<tr><td style="background: #ff80ff">(0,1)</td><td style="background: #80ffff">(1,1)</td><td style="background: #ff80ff">(2,1)</td><td style="background: #80ffff">(3,1)</td></tr>
+<tr><td style="background: #80ffff">(0,0)</td><td style="background: #ff80ff">(1,0)</td><td style="background: #80ffff">(2,0)</td><td style="background: #ff80ff">(3,0)</td></tr>
+</table>
+
+2. $G$の指数$13$の部分群を$H$とすると$G/H$は位数$13$の部分群となるため$\mathbb{Z}/13\mathbb{Z}$と同型である。よって、$g\in G$とすると$13g\in H$。したがって、$13G=\{13g\;|\;g\in G\}\subset H$。p.64 定理2.10.2 準同型定理(部分群の対応)より、$H$は指数$13$の$G/2G$の部分群と1対1対応する。$G=\mathbb{Z}\times\mathbb{Z}$より$13G=13\mathbb{Z}\times13\mathbb{Z}$なので、補題1より$G/2G\cong\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$。すなわち$H$は$\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$の指数$13$の部分群と1対1対応する。$\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$の位数は$169$なので指数$13$の部分群は位数$13$の部分群と同じことである。$13$は素数なのでp.53 命題2.6.22より位数$13$の部分群は単位元以外の元によって生成される巡回群である。$g=(\bar{a},\bar{b})$を$\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$の元とする。$\bar{a}=0$とすると、$\bar{b}\ne\bar{0}$の位数は$13$でどの元によっても生成される群は等しい。$\bar{b}=\bar{0}$の場合も同様に$\bar{a}\ne\bar{0}$の位数は$13$でどの元によっても生成される群は等しい。$\bar{a}\ne\bar{0}$かつ$\bar{b}\ne\bar{0}$の場合、その元によって生成される群のなかに$\bar{a}=\bar{1}$となる元が必ず存在し、かつその元自体も(単位元ではないので命題2.6.22より)生成元となる。この生成元について$\bar{b}=\bar{0}$とすると$\bar{b}\ne\bar{0}$な元が生成されないので$\bar{b}\ne\bar{0}$である。同じ生成元からは同じ群が生成され、$\bar{b}$が異なれば異なる群が生成されるので$(\bar{1},\bar{b})(\bar{b}\ne\bar{0})$の取り方だけ異なる群が存在する。以上により、位数$13$の$\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$の部分群は$\langle(\bar{0},\bar{1})\rangle,\langle(\bar{1},\bar{b})\rangle(\bar{b}\in\mathbb{Z}/13\mathbb{Z})$の14通り存在する。これが$H$と1対1対応するので$G$の指数13の部分群$H$の数は14である。
 
 #### 2.10.6
 
