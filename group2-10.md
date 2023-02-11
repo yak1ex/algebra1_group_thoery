@@ -92,7 +92,10 @@ g & h
 
 #### 2.10.4
 
-$G:$可換群(演算は$+$)、$n\gt0\in\mathbb{Z},nG=\{nx\mid x\in G\}$、$H$が指数$n$の部分群$\Rightarrow nG\subset H$を証明
+以下、加法での表記を使用する。
+
+$\phi$を$G\rightarrow G/H$の自然な写像とする。p.59 命題2.8.13より$\phi$は全射準同型写像で$\mathrm{Ker}(\phi)=H$である。また$G/H$の位数は$n$なので有限群であり、p.53 系2.6.21(2)から$f\in G/H$の位数は$n$の約数となるため$nf=0$である。
+$\forall k\in nG$は$g\in G$によって$k=ng$と表せる。$\phi(ng)=n\phi(g)=0(\because \phi(g)\in G/H)$。これは$ng=k\in\mathrm{Ker}(\phi)$ということである。すなわち$nG\subset \mathrm{Ker}(\phi)=H$。
 
 #### 2.10.5
 
