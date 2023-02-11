@@ -136,7 +136,12 @@ $G$は可換群なので任意の部分群は正規部分群である。
 
 #### 2.10.6
 
-$G=\mathbb{Z}/45\mathbb{Z}\times\mathbb{Z}/24\mathbb{Z}\times\mathbb{Z}/14\mathbb{Z}$の指数$2$の部分群の数を求めよ
+$G$の指数$2$の部分群を$H$とすると$G/H$は位数2の部分群となるため$\mathbb{Z}/2\mathbb{Z}$と同型である。よって、$g\in G$とすると$2g\in H$。したがって、$2G=\{2g\;|\;g\in G\}\subset H$。p.64 定理2.10.2 準同型定理(部分群の対応)より、$H$は指数$2$の$G/2G$の部分群と1対1対応する。$G=\mathbb{Z}/45\mathbb{Z}\times\mathbb{Z}/24\mathbb{Z}\times\mathbb{Z}/14\mathbb{Z}$より$2G=\mathbb{Z}/45\mathbb{Z}\times2\mathbb{Z}/24\mathbb{Z}\times2\mathbb{Z}/14\mathbb{Z}$なので($\because2$倍写像は$\mathbb{Z}/45\mathbb{Z}$で全単射)、
+$$G/2G\cong(\mathbb{Z}/45\mathbb{Z}\times\mathbb{Z}/24\mathbb{Z}\times\mathbb{Z}/14\mathbb{Z})/(\mathbb{Z}/45\mathbb{Z}\times2\mathbb{Z}/24\mathbb{Z}\times2\mathbb{Z}/14\mathbb{Z})\\
+=(\mathbb{Z}/45\mathbb{Z})/(\mathbb{Z}/45\mathbb{Z})\times(\mathbb{Z}/24\mathbb{Z})/(2\mathbb{Z}/24\mathbb{Z})\times(\mathbb{Z}/14\mathbb{Z})/(2\mathbb{Z}/14\mathbb{Z})\quad(\because補題1)\\
+\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \quad(\because p.66\;命題2.10.4\;第三同型定理)
+$$
+p.64 定理2.10.2 準同型定理(部分群の対応)より$H$は$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の指数$2$の部分群と1対1対応する。$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の位数は$4$なので指数$2$の部分群は位数$2$の部分群と同じことである。位数$2$の部分群は単位元以外に$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の位数$2$の元を1つだけ持つ。逆に$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の元を$1$つ定めると位数$2$の部分群を生成する。つまり位数$2$の元と位数$2$の部分群は1対1である。$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$の位数$2$の元は$3$つあるので位数$2$の部分群も$3$つである。これが$H$と1対1対応するので$G$の指数$2$の部分群$H$の数は$3$となる。
 
 #### 2.10.7
 
