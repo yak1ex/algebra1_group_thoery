@@ -145,8 +145,25 @@ p.64 定理2.10.2 準同型定理(部分群の対応)より$H$は$\mathbb{Z}/2\m
 
 #### 2.10.7
 
-1.$\mathbb{Z}/12\mathbb{Z}$の部分群をすべて求めよ
-2.$\mathbb{Z}/18\mathbb{Z}$の部分群をすべて求めよ
+p.67 例2.10.6より巡回群の部分群は巡回群なので各元が生成する群を確認すれば良い。
+
+1. 以下の6個である。
+    * $\langle\bar{0}\rangle=\{\bar{0}\}$
+    * $\langle\bar{1}\rangle=\langle\bar{5}\rangle=\langle\bar{7}\rangle=\langle\bar{11}\rangle=\mathbb{Z}/12\mathbb{Z}$
+    * $\langle\bar{2}\rangle=\langle\bar{10}\rangle=\{\bar{0},\bar{2},\bar{4},\bar{6},\bar{8},\bar{10}\}$
+    * $\langle\bar{3}\rangle=\langle\bar{9}\rangle=\{\bar{0},\bar{3},\bar{6},\bar{9}\}$
+    * $\langle\bar{4}\rangle=\langle\bar{8}\rangle=\{\bar{0},\bar{4},\bar{8}\}$
+    * $\langle\bar{6}\rangle=\{\bar{0},\bar{6}\}$
+2. 以下の6個である。
+    * $\langle\bar{0}\rangle=\{\bar{0}\}$
+    * $\langle\bar{1}\rangle=\langle\bar{5}\rangle=\langle\bar{7}\rangle=\langle\bar{11}\rangle=\langle\bar{13}\rangle=\langle\bar{17}\rangle=\mathbb{Z}/18\mathbb{Z}$
+    * $\langle\bar{2}\rangle=\langle\bar{4}\rangle=\langle\bar{8}\rangle=\langle\bar{14}\rangle=\langle\bar{16}\rangle=\{\bar{0},\bar{2},\bar{4},\bar{6},\bar{8},\bar{10},\bar{12},\bar{14},\bar{16}\}$
+    * $\langle\bar{3}\rangle=\langle\bar{15}\rangle=\{\bar{0},\bar{3},\bar{6},\bar{9},\bar{12},\bar{15}\}$
+    * $\langle\bar{6}\rangle=\langle\bar{12}\rangle=\{\bar{0},\bar{6},\bar{12}\}$
+    * $\langle\bar{9}\rangle=\{\bar{0},\bar{9}\}$
+
+※p.67 例2.10.6より$\mathbb{Z}/n\mathbb{Z}$の部分群は$n$の約数と1対1対応する。
+従って$n=\Pi_{i=1}^N p_i^{n_i}$と素因数分解できていたとすると部分群の数は$\Pi_{i=1}^N (n_i+1)$
 
 #### 2.10.8
 
