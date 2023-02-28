@@ -32,7 +32,7 @@ $\phi$は全単射なので$x_i$と$G^\prime$の要素が1対1に対応する。
 
 つまり$\phi(1_G)=1_{G^\prime}$の条件なしに、$\phi(x+y)=\phi(x)+\phi(y),\phi(xy)=\phi(x)\phi(y),\phi$が逆写像を持つこと、だけから加法、乗法の両方で演算が保存されることについては言えることになる。しかし、$\phi(xy)=\phi(x)\phi(y)$と$\phi$が逆写像を持つことから、$x_1$を$G$の単位元として$x^\prime_i=\phi(x_i)=\phi(x_i x_1)=\phi(x_i)\phi(x_1)=x^\prime_i x^\prime_1$かつ$x^\prime_i=\phi(x_i)=\phi(x_1 x_i)=\phi(x_1)\phi(x_i)=x^\prime_1 x^\prime_i$となるので(p.26 定義2.2.1(4)乗法単位元の定義から)$x^\prime_1$が$G^\prime$での(乗法)単位元であることが言える。つまり$\phi(1_G)=\phi(x_1)=x^\prime_1=1_{G^\prime}$となり、(乗法)単位元が(乗法)単位元に移ることは逆写像があること(全単射であること)という条件があれば不要となる(そちらから導出できることになる)。
 
-任意の$x^\prime_i$に対して$x^\prime_1$が単位元の性質を満たすことを示すところで$\phi$の全射性を(暗黙的に)用いている。一方、$\phi$が単射であるだけであれば、
+↑では任意の$x^\prime_i$に対して$x^\prime_1$が単位元の性質を満たすことを示すところで$\phi$の全射性を(暗黙的に)用いている。一方、$\phi$が単射であるだけであれば、
 
 ||$1_G$|$a$|
 |-|-|-|
@@ -54,7 +54,7 @@ $\phi(1_G)=b^\prime,\phi(a)=a^\prime$とすることで
 
 となるから、$\phi(xy)=\phi(x)\phi(y)$だが$\phi(1_G)\ne 1_{G^\prime}$な構成を作ることができる。
 
-#### 例題2.10.12
+#### 例題2.10.12 メモ
 
 ##### 「$G/H$は位数$2$の群なので$\mathbb{Z}/2\mathbb{Z}$と同型である」
 
@@ -155,7 +155,7 @@ $G$は可換群なので任意の部分群は正規部分群である。
 
 
 <table>
-<caption>$2\mathbb{Z}\times\mathbb{Z}$</caption>
+<caption>$2\mathbb{Z}\times\mathbb{Z}$ ($(\bar{0},\bar{1})\in\mathbb{Z}/2\mathbb{Z}$を選んだ時)</caption>
 <colgroup>
 <col style="background: #80ffff"><col style="background: #ff80ff">
 <col style="background: #80ffff"><col style="background: #ff80ff">
@@ -167,7 +167,7 @@ $G$は可換群なので任意の部分群は正規部分群である。
 </table>
 
 <table>
-<caption>$\mathbb{Z}\times2\mathbb{Z}$</caption>
+<caption>$\mathbb{Z}\times2\mathbb{Z}$ ($(\bar{1},\bar{0})\in\mathbb{Z}/2\mathbb{Z}$を選んだ時)</caption>
 <tr style="background: #ff80ff"><td>(0,3)</td><td>(1,3)</td><td>(2,3)</td><td>(3,3)</td></tr>
 <tr style="background: #80ffff"><td>(0,2)</td><td>(1,2)</td><td>(2,2)</td><td>(3,2)</td></tr>
 <tr style="background: #ff80ff"><td>(0,1)</td><td>(1,1)</td><td>(2,1)</td><td>(3,1)</td></tr>
@@ -175,7 +175,7 @@ $G$は可換群なので任意の部分群は正規部分群である。
 </table>
 
 <table>
-<caption>$(2\mathbb{Z}\times2\mathbb{Z})\cup((1+2\mathbb{Z})\times(1+2\mathbb{Z}))$</caption>
+<caption>$(2\mathbb{Z}\times2\mathbb{Z})\cup((1+2\mathbb{Z})\times(1+2\mathbb{Z}))$ ($(\bar{1},\bar{1})\in\mathbb{Z}/2\mathbb{Z}$を選んだ時)</caption>
 <tr><td style="background: #ff80ff">(0,3)</td><td style="background: #80ffff">(1,3)</td><td style="background: #ff80ff">(2,3)</td><td style="background: #80ffff">(3,3)</td></tr>
 <tr><td style="background: #80ffff">(0,2)</td><td style="background: #ff80ff">(1,2)</td><td style="background: #80ffff">(2,2)</td><td style="background: #ff80ff">(3,2)</td></tr>
 <tr><td style="background: #ff80ff">(0,1)</td><td style="background: #80ffff">(1,1)</td><td style="background: #ff80ff">(2,1)</td><td style="background: #80ffff">(3,1)</td></tr>
