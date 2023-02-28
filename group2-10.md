@@ -76,7 +76,7 @@ p.53 定理2.6.20 ラグランジュの定理より$G$における$K$の指数�
 
 ###### 改訂版
 
-$N\subset K\subset G$な部分群$K$を考える。$N\triangleleft G$なので定義より$\forall g\in G$について$
+$N\subset K\subset G$な正規部分群$K$を考える。$N\triangleleft G$なので定義より$\forall g\in G$について$
 gNg^{-1}\subset N$であるが、$K\subset G$なのでこれは$\forall k\in K$についても成立する。よって$N\triangleleft K$なので$K/N$は剰余群となる。
 p.64 定理2.10.2 準同型定理(部分群の対応)での対応は、$G\rightarrow G/N$の自然な写像とその逆写像なので$K$と$K/N$が対応することになる。
 p.66 命題2.10.4 第三同型定理より$(G/N)/(K/N)\cong G/K$なので、$G$における$K$の指数、すなわち$G/K$の位数は、$G/N$における$K/N$の指数、すなわち$(G/N)/(K/N)$の位数に等しい。
