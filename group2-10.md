@@ -74,12 +74,31 @@ p.53 定理2.6.20 ラグランジュの定理より$G$における$K$の指数�
 同様に$G/N$における$K/N$の指数は$\frac{|G/N|}{|K/N|}=\frac{|G|}{|N|}/\frac{|K|}{|N|}=\frac{|G|}{|K|}$となる。
 すなわち、定理2.10.2によって対応する部分群の指数は等しい。
 
-###### 改訂版
+###### 改訂版($G$に対する有限群かつ可換群であるという前提を外す)
 
 $N\subset K\subset G$な正規部分群$K$を考える。$N\triangleleft G$なので定義より$\forall g\in G$について$
 gNg^{-1}\subset N$であるが、$K\subset G$なのでこれは$\forall k\in K$についても成立する。よって$N\triangleleft K$なので$K/N$は剰余群となる。
 p.64 定理2.10.2 準同型定理(部分群の対応)での対応は、$G\rightarrow G/N$の自然な写像とその逆写像なので$K$と$K/N$が対応することになる。
 p.66 命題2.10.4 第三同型定理より$(G/N)/(K/N)\cong G/K$なので、$G$における$K$の指数、すなわち$G/K$の位数は、$G/N$における$K/N$の指数、すなわち$(G/N)/(K/N)$の位数に等しい。
+すなわち、定理2.10.2によって対応する部分群の指数は等しい。
+
+###### 改訂版2($K$に対する正規性の前提を外す)
+
+$N\subset K\subset G$な部分群$K$を考える。$N\triangleleft G$なので定義より$\forall g\in G$について$
+gNg^{-1}\subset N$であるが、$K\subset G$なのでこれは$\forall k\in K$についても成立する。よって$N\triangleleft K$なので$K/N$は剰余群となる。
+p.64 定理2.10.2 準同型定理(部分群の対応)での対応は、$G\rightarrow G/N$の自然な写像$\pi$とその逆写像$\pi^{-1}$なので$K$と$K/N$が対応することになる。
+
+ここで、$G/K$の元である$gK$と$(G/N)/(K/N)$の元である$(gN)\{kN|k\in K\}$が1対1対応であることが言えればそれぞれの位数が等しい、つまり$G$における$K$の指数と$G/N$における$K/N$の指数が等しいことが言える。
+$\phi:(G/N)/(K/N)\ni(gN)\{kN|k\in K\}\mapsto gK\in G/K$と定めたとする。
+$(gN)\{kN|k\in K\}$の任意の元の任意の元は$k\in K,n_1,n_2\in N$を用いて$gn_1kn_2$と表せる。
+このとき$gn_1kn_2K=gn_1kK(\because n_2\in N\subset K)=gn_1K=gK(\because n_1\in N\subset K)$となるので$\phi$はwell-definedである。
+$g$は任意にとれるので$\phi$の全射性は明らかである。$g^\prime K=gK$になるとき$k^\prime\in K$を用いて$g^\prime=gk^\prime$と表せる。このとき
+$$(g^\prime N)\{kN|k\in K\}=(gk^\prime N)\{kN|k\in K\}=\{gk^\prime NkN|k\in K\}\\
+=\{gNk^\prime kN|k\in K\}(\because k\prime \in K\triangleright N\Rightarrow k^\prime N=Nk^\prime)\\
+=\{gNkN|k\in K\}=(gN)\{kN|k\in K\}$$
+となるので$\phi$は単射である。よって$\phi$は1対1対応となる。　　　　　　　　　
+
+以上により、$G$における$K$の指数と$G/N$における$K/N$の指数は等しい。
 すなわち、定理2.10.2によって対応する部分群の指数は等しい。
 
 ##### 「$G\cong\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$である。(略)$\mathbb{Z}/3\mathbb{Z}$において2倍写像は全単射である。よって、$G/2G\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$である」
