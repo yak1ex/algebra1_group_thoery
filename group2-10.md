@@ -101,6 +101,8 @@ $$(g^\prime N)\{kN|k\in K\}=(gk^\prime N)\{kN|k\in K\}=\{gk^\prime NkN|k\in K\}\
 以上により、$G$における$K$の指数と$G/N$における$K/N$の指数は等しい。
 すなわち、定理2.10.2によって対応する部分群の指数は等しい。
 
+※$\phi$は単射性を示すのに多少楽かもと思って自然な方向と逆向きに定義したが、単射であることを示すために$f(a)=f(b)\Rightarrow a=b$を言い、well-definedであることを示すために$a=b\Rightarrow f(a)=f(b)$を言う必要があるのでどちらで定義しても大して変わらなかった。
+
 ##### 「$G\cong\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$である。(略)$\mathbb{Z}/3\mathbb{Z}$において2倍写像は全単射である。よって、$G/2G\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$である」
 
 ##### 補題1 群$G=G_1\times G_2$で群$H=H_1\times H_2$かつ$G_1\triangleright H_1$かつ$G_2\triangleright H_2$とすると、$G\triangleright H$かつ$G/H=G_1/H_1\times G_2/H_2$
