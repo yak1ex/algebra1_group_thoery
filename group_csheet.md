@@ -38,6 +38,10 @@ $f:A\rightarrow B$で
 
 ## 第2章 群の基本
 
+### 2.1 群の定義
+
+*  p.23 命題2.1.10 (1)単位元は一つしかない(2)逆元は一意的に定まる
+
 ### 2.3 部分群と生成元
 
 * p.32 命題2.3.13 $S\subset G$のとき、(1) $\langle S\rangle\le G$ (2) $S \subset H, H \le G \Rightarrow \langle S\rangle\subset H$ (つまり$\langle S\rangle$が$S$を含む最小の部分群)
@@ -46,6 +50,8 @@ $f:A\rightarrow B$で
 
 * p.36 $a = qb (a,b,q \in \mathbb{Z}, b \neq 0): b \mid a$、$b$ は $a$ の約数、$a$ は $b$ の倍数
 * p.39 命題2.4.18 $x \in G$, $\mathrm{ord}(x)=d (<\infty)\Rightarrow x^n = 1_G \Leftrightarrow d \mid n$
+* p.40 命題2.4.19 $x\in G, d=\mathrm{ord}(g)\lt\infty,H=\langle g\rangle\Rightarrow|H|=d$
+* p.70 演習問題2.4.8 $(\forall g\in G, g^2=1)\Rightarrow gは可換群$
 
 ### 2.5 準同型と同型
 
@@ -68,6 +74,7 @@ $f:A\rightarrow B$で
 * p.57 系2.8.8 $G$が群、$S \subset G$のとき、$N=\langle\{xyx^{-1}|x\in G, y\in S\}\rangle$は$S$を含む最小の正規部分群
 * p.58 補題2.8.10 $N\triangleleft G, g\in G\Rightarrow gN=Ng$
 * p.59 命題2.8.13 自然な写像 $\pi:G\rightarrow G/N$ は群の全射準同型で$\mathrm{Ker}(\pi)=N$
+* p.73 演習問題2.8.2 $G\ge H\land|G:H|=2\Rightarrow G\triangleright H$
 
 ### 2.9 群の直積
 
