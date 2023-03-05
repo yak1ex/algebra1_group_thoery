@@ -297,7 +297,7 @@ $g_2,g_2g_3,g_3g_2$の位数は$2$なので、$g_2^{-1}=g_2,(g_2g_3)^{-1}=g_2g_3
 |-|-|-|-|-|-|-|
 |位数|1|6|3|2|3|6|
 
-5. $x_1=g_2,x_2=g_2g_3,x_3=g_3g_2$とすると以下の表となる。$x_j x_i x_j^{-1}$で$i=j$なら$x_i$のまま、$i\ne j$なら$k\ne i, k\ne j$である$x_k$になるので$x_1,x_2,x_3$をどのように入れ替えても$x_1,x_2,x_3$の行は変わらず、それ以外($1_G,g_3,g_3^2$)は行の入れ替えになるだけである。どの行も$x_1,x_2,x_3$の並び替えなので$\rho(g)\in\mathfrak{S}_3$である。$\rho:G\rightarrow\mathfrak{S}_3$を考えると全射で$\mathrm{Ker}(\phi)=\{1_G\}$である。また$\rho(gg^\prime)(i)=(gg^\prime)x_i(gg\prime)^{-1}=g(g^\prime x_i g^{\prime-1})g^{-1}=g x_{\rho(g^\prime)(i)} g^{-1}=\rho(g)(\rho(g^\prime)(i))=\rho(g)\circ\rho(g^\prime)(i)$となるので$\rho$は準同型写像であるから準同型定理(p.63 定理2.10.1)より$G\cong\mathfrak{S}_3$である。
+5. $x_1=g_2,x_2=g_2g_3,x_3=g_3g_2$とすると以下の表となる。$x_j x_i x_j^{-1}$で$i=j$なら$x_i$のまま、$i\ne j$なら$k\ne i, k\ne j$である$x_k$になるので$x_1,x_2,x_3$をどのように入れ替えても$x_1,x_2,x_3$の行は変わらず、それ以外($1_G,g_3,g_3^2$)は行の入れ替えになるだけである。どの行も$x_1,x_2,x_3$の並び替えなので$\rho(g)\in\mathfrak{S}_3$である。$\rho:G\rightarrow\mathfrak{S}_3$を考えると全射で$\mathrm{Ker}(\rho)=\{1_G\}$である。また$\rho(gg^\prime)(i)=(gg^\prime)x_i(gg\prime)^{-1}=g(g^\prime x_i g^{\prime-1})g^{-1}=g x_{\rho(g^\prime)(i)} g^{-1}=\rho(g)(\rho(g^\prime)(i))=\rho(g)\circ\rho(g^\prime)(i)$となるので$\rho$は準同型写像であるから準同型定理(p.63 定理2.10.1)より$G\cong\mathfrak{S}_3$である。
 
 |g|$gx_1g^{-1}:\rho(g)(1)$|$gx_2g^{-1}:\rho(g)(2)$|$gx_3g^{-1}:\rho(g)(3)$|
 |-|-|-|-|
