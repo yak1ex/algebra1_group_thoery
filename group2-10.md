@@ -141,13 +141,19 @@ $\psi:G\ni z\mapsto \frac{z}{|z|}\in H_1$とする。このとき$\psi(z_1 z_2)=
 
 #### 2.10.2
 
+##### 自前版
+
 $\mathbb{R}$は可換群なので$\mathbb{Z}$はその正規部分群となる。
 
-$\phi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$を自然な写像とする(※)と$\mathrm{Ker}(\phi)=\mathbb{Z}$である。このとき$\psi(x)=\phi(\frac{x}{a})$とすると、$\psi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$で$\psi(x_1+x_2)=\phi(\frac{x_1+x_2}{a})=\{\frac{x_1+x_2}{a}\}=\{\frac{x_1}{a}\}+\{\frac{x_2}{a}\}$(※ここでの加算は$\mathbb{R}/\mathbb{Z}$のものである)$=\phi(\frac{x_1}{a})+\phi(\frac{x_2}{a})=\psi(x_1)+\psi(x_2)$となり、$\psi$は準同型写像でありまた、明らかに全射である。$\mathrm{Ker}(\psi)=a\mathbb{Z}$なので、準同型定理(p.63 定理2.10.1)より、$\mathbb{R}/a\mathbb{Z}\cong\mathbb{R}/\mathbb{Z}$である。
+$\phi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$を自然な写像とする(※)と$\mathrm{Ker}(\phi)=\mathbb{Z}$である。このとき$\psi(x)=\phi(\frac{x}{a})$とすると、$\psi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$で$\psi(x_1+x_2)=\phi(\frac{x_1+x_2}{a})=\{\frac{x_1+x_2}{a}\}+\mathbb{Z}=(\{\frac{x_1}{a}\}+\mathbb{Z})+(\{\frac{x_2}{a}\}+\mathbb{Z})$(※ここでの加算は$\mathbb{R}/\mathbb{Z}$のものである)$=\phi(\frac{x_1}{a})+\phi(\frac{x_2}{a})=\psi(x_1)+\psi(x_2)$となり、$\psi$は準同型写像でありまた、明らかに全射である。$\mathrm{Ker}(\psi)=a\mathbb{Z}$なので、準同型定理(p.63 定理2.10.1)より、$\mathbb{R}/a\mathbb{Z}\cong\mathbb{R}/\mathbb{Z}$である。
 
-※$\mathbb{R}/\mathbb{Z}$とは実数の小数展開で整数部の差異を無視して小数部で類にまとめるということを意味する。$x\in\mathbb{R}$に対して$x$の小数部を$\{x\}=x-\lfloor x\rfloor$と表記することにすると$\phi:\mathbb{R}\ni x\mapsto \{x\}+\mathbb{Z}\in\mathbb{R}/\mathbb{Z}$になる。
+※$\mathbb{R}/\mathbb{Z}$とは実数の小数展開で整数部の差異を無視して小数部で類にまとめるということを意味する。$x\in\mathbb{R}$に対して$x$の小数部を$\{x\}=x-\lfloor x\rfloor$と表記することにすると$\phi:\mathbb{R}\ni x\mapsto \{x\}+\mathbb{Z}\in\mathbb{R}/\mathbb{Z}$になる。↓と同様に単純に準同型であることを使ったほうが明快か。
 
-※$\phi:\mathbb{R}\rightarrow\mathbb{R}/a\mathbb{Z}$でも可
+##### ヒントに基づく別版
+
+$\mathbb{R}$は可換群なので$a\mathbb{Z}$はその正規部分群となる(単位元$0$を含み、$\forall n,m\in\mathbb{Z}, na+ma=(n+m)a$で演算について閉じており、$\forall n\in\mathbb{Z}, na+(-n)a=0$で逆元について閉じているため$a\mathbb{Z}$が$\mathbb{R}$の部分群となる)。
+
+$\phi:\mathbb{R}\rightarrow\mathbb{R}/a\mathbb{Z}$を自然な写像とするとp.59 命題2.8.13より$\phi$は全射準同型写像で$\mathrm{Ker}(\phi)=a\mathbb{Z}$である。このとき$\psi(x)=\phi(ax)$と定めると、$\psi:\mathbb{R}\rightarrow\mathbb{R}/a\mathbb{Z}$で$\psi(x_1+x_2)=\phi(a(x_1+x_2))=\phi(ax_1+ax_2)=\phi(ax_1)+\phi(ax_2)=\psi(x_1)+\psi(x_2)$となり、$\psi$は準同型写像でありまた、明らかに全射である。$\mathrm{Ker}(\psi)=\mathbb{Z}$なので、準同型定理(p.63 定理2.10.1)より、$\mathbb{R}/a\mathbb{Z}\cong\mathbb{R}/\mathbb{Z}$である。
 
 #### 2.10.3
 
