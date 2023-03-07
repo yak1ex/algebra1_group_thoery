@@ -92,11 +92,11 @@ $(gN)\{kN|k\in K\}$ の任意の元の任意の元は $k\in K,n_1,n_2\in N$ を�
 このとき $gn_1kn_2K=gn_1kK(\because n_2\in N\subset K)=gn_1K=gK(\because n_1\in N\subset K)$ となるので $\phi$ はwell-definedである。
 $g$ は任意にとれるので $\phi$ の全射性は明らかである。 $g^\prime K=gK$ になるとき $k^\prime\in K$ を用いて $g^\prime=gk^\prime$ と表せる。このとき
 
-```math
+$$
 (g^\prime N)\{kN|k\in K\}=(gk^\prime N)\{kN|k\in K\}=\{gk^\prime NkN|k\in K\}\\
 =\{gNk^\prime kN|k\in K\}(\because k\prime \in K\triangleright N\Rightarrow k^\prime N=Nk^\prime)\\
 =\{gNkN|k\in K\}=(gN)\{kN|k\in K\}
-```
+$$
 
 となるので $\phi$ は単射である。よって $\phi$ は1対1対応となる。　　　　　　　　　
 
@@ -122,12 +122,13 @@ $G\triangleright H$ なので $G/H$ は剰余群となる。 $\phi_1:G_1\ni g_1\
 よって $G\cong\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$ であれば、 $2G\cong2(\mathbb{Z}/8\mathbb{Z})\times2(\mathbb{Z}/8\mathbb{Z})\times2(\mathbb{Z}/3\mathbb{Z})\cong2\mathbb{Z}/8\mathbb{Z}\times2\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}$ である。
 
 $2G$ は明らかに部分群で、 $G$ は可換群だから正規部分群となるため
-```math
+
+$$
 G/2G\cong(\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z}\times2\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z})\\
 =(\mathbb{Z}/8\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z})\times(\mathbb{Z}/8\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z})\times(\mathbb{Z}/3\mathbb{Z})/(\mathbb{Z}/3\mathbb{Z})\quad(\because 補題1より)\\
-\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\times\{0\}\quad(\because p.66\;命題2.10.4\;第三同型定理より))\\
+\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\times\{0\}\quad(\because \text{p.66 命題2.10.4 第三同型定理より})\\
 \cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}
-```
+$$
 
 ### 演習問題
 
@@ -164,19 +165,24 @@ $\phi:\mathbb{R}\rightarrow\mathbb{R}/a\mathbb{Z}$ を自然な写像とする�
 演習問題2.8.5(1)より $H$ は $G$ の正規部分群である。
 
 $\forall g \in G$ に対して $g\in\mathrm{GL}_2(\mathbb{R})$ が下三角行列であることから
-```math
+
+$$
 g = \begin{pmatrix}a &0\\
 c & d
 \end{pmatrix}
-```
+$$
+
 と表せて、 $g\in\mathrm{GL}_2(\mathbb{R})$ であることから $\det(g)=ad\ne0$ 。すなわち $a\ne0\land d\ne0$ である。従って、 
-```math
+
+$$
 \phi:G\ni\begin{pmatrix}a &0\\
 c & d
 \end{pmatrix}\mapsto\frac{a}{d}\in\mathbb{R}^\times
-```
+$$
+
 と定義することができる。このとき
-```math
+
+$$
 \phi\left(\begin{pmatrix}a & 0\\
 c & d
 \end{pmatrix}\begin{pmatrix}
@@ -192,7 +198,8 @@ c & d
 e & 0\\
 g & h
 \end{pmatrix}\right)
-```
+$$
+
 なので $\phi$ は準同型写像で、かつ明らかに全射である。また $\mathrm{Ker}(\phi)=H(\because g\in\mathrm{Ker}(\phi)\Leftrightarrow\frac{a}{d}=1\Leftrightarrow a=d\Leftrightarrow g\in H)$ であることから、準同型定理(p.63 定理2.10.1)より、 $G/H\cong\mathbb{R}^\times$ である。
 
 #### 2.10.4
@@ -242,11 +249,13 @@ $G$ は可換群なので任意の部分群は正規部分群である。
 #### 2.10.6
 
 $G$ の指数 $2$ の部分群を $H$ とすると $G/H$ は位数 $2$ の部分群となるため $\mathbb{Z}/2\mathbb{Z}$ と同型である。よって、 $g\in G$ とすると $2g\in H$ 。したがって、 $2G=\{ 2g \; | \; g\in G \}\subset H$ 。p.64 定理2.10.2 準同型定理(部分群の対応)より、 $H$ は指数 $2$ の $G/2G$ の部分群と1対1対応する。 $G=\mathbb{Z}/45\mathbb{Z}\times\mathbb{Z}/24\mathbb{Z}\times\mathbb{Z}/14\mathbb{Z}$ より $2G=\mathbb{Z}/45\mathbb{Z}\times2\mathbb{Z}/24\mathbb{Z}\times2\mathbb{Z}/14\mathbb{Z}$ なので( $\because2$ 倍写像は $\mathbb{Z}/45\mathbb{Z}$ で全単射)、
-```math
+
+$$
 G/2G\cong(\mathbb{Z}/45\mathbb{Z}\times\mathbb{Z}/24\mathbb{Z}\times\mathbb{Z}/14\mathbb{Z})/(\mathbb{Z}/45\mathbb{Z}\times2\mathbb{Z}/24\mathbb{Z}\times2\mathbb{Z}/14\mathbb{Z})\\
 =(\mathbb{Z}/45\mathbb{Z})/(\mathbb{Z}/45\mathbb{Z})\times(\mathbb{Z}/24\mathbb{Z})/(2\mathbb{Z}/24\mathbb{Z})\times(\mathbb{Z}/14\mathbb{Z})/(2\mathbb{Z}/14\mathbb{Z})\quad(\because補題1)\\
-\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \quad(\because p.66\;命題2.10.4\;第三同型定理)
-```
+\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \quad(\because \text{p.66 命題2.10.4 第三同型定理})
+$$
+
 p.64 定理2.10.2 準同型定理(部分群の対応)より $H$ は $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の指数 $2$ の部分群と1対1対応する。 $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の位数は $4$ なので指数 $2$ の部分群は位数 $2$ の部分群と同じことである。位数 $2$ の部分群は単位元以外に $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の位数 $2$ の元を1つだけ持つ。逆に $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の元を $1$ つ定めると位数 $2$ の部分群を生成する。つまり位数 $2$ の元と位数 $2$ の部分群は1対1である。 $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の位数 $2$ の元は $3$ つあるので位数 $2$ の部分群も $3$ つである。これが $H$ と1対1対応するので $G$ の指数 $2$ の部分群 $H$ の数は $3$ となる。
 
 #### 2.10.7
@@ -283,18 +292,22 @@ p.67 例2.10.6より巡回群の部分群は巡回群なので各元が生成す
 2. $x\in G$が位数 $3$ の元なのでp.40 命題2.4.19より $H=\langle x\rangle$ は $\{ 1_G,x,x^2 \}$ からなる位数 $3$ の巡回部分群である。p.53 定理2.6.20 ラグランジュの定理より $|G/H|=|G|/|H|=2$ 。p.73 演習問題2.8.2より指数 $2$ の部分群は正規部分群なので $H$ は $G$ の正規部分群となる。よって $\phi:G\rightarrow G/H$ を自然な写像とすると、p.59命題 2.8.13よりこれは準同型写像となり、p.71演習問題2.5.3(1)を用いると、 $G/H$ の元の位数は $G$ の元の位数の約数となる。 $|G/H|=2$ なのでp.53 命題2.6.22より $G/H$ は巡回群。つまり $G/H$ には生成元となる位数 $2$ の元が存在する。従って $G$ の元に $2$ の倍数を位数とする元が存在する。一方、p.53 系2.6.21(2)より $G$ の元の位数は $6$ の約数なので、その位数は $2$ か $6$ である。 $2$ の場合はそれが位数 $2$ の元である。一方、 $6$ の場合、位数 $6$ の元を $g$ とすると $g^6=(g^3)^2=1_G$ 。 $g$ の位数は $6$ なので $g^3\ne1_G$ 。よって、 $g^3$ の位数は $2$ となる。以上によりいずれの場合でも $G$ に位数 $2$ の元が存在する。
 3. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とする。2.での議論より $H=\langle g_3\rangle=\{1,g_3,g_3^2\}$ は $G$ の正規部分群である。 $|G/H|=2, g_2\notin H$ なzので、 $H$ ではない方の剰余類は $g_2H=\{g_2,g_2g_3,g_2g_3^2\}$ となる。よって、 $G=H\cup g_2H=\{1_G,g_3,g_3^2,g_2,g_2g_3,g_2g_3^2\}$ 。 $g_2,g_3$ が可換なので $G=\langle g_2,g_3\rangle\cong\langle g_2\rangle\times\langle g_3\rangle\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}\cong\mathbb{Z}/6\mathbb{Z}$ である。
 4. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とする。2.での議論より $H=\langle g_3\rangle=\{1,g_3,g_3^2\}$ は $G$ の正規部分群である。p.58 補題2.8.10より $g_2H=H g_2\Leftrightarrow\{g_2,g_2g_3,g_2g_3^2\}=\{g_2,g_3g_2,g_3^2g_2\}$ 。 $G$ の任意の元は $g_2^ig_3^j$ の形で表せるので $g_2g_3=g_3g_2$ とすると $G$ が可換群となり前提に矛盾。よって $g_2g_3\ne g_3g_2$ なので $g_2g_3=g_3^2g_2$ かつ $g_2g_3^2=g_3g_2$ である。 $g_2^2=1_G, (g_2g_3)^2=(g_2g_3)(g_3^2g_2)=1_G,(g_2g_3^2)^2=(g_2g_3^2)(g_3g_2)=1_G$ でいずれも単位元ではないので $g_2H$ の $3$ つの元は位数 $2$ である。 $H$ の元の位数は $2$ ではないのでちょうど $3$ つの元が位数 $2$ となる。また、位数 $2$ の元は自分自身が逆元なので
-```math
-(g_2)(g_2g_3)(g_2)^{-1}=g_3g_2=g_2g_3^2\\
-(g_2g_3)(g_2)(g_2g_3)^{-1}=g_2g_3^2\\
+
+$$
+(g_2)(g_2g_3)(g_2)^{-1}=g_3g_2=g_2g_3^2 \\
+(g_2g_3)(g_2)(g_2g_3)^{-1}=g_2g_3^2 \\
 (g_2g_3^2)(g_2)(g_2g_3^2)^{-1}=g_2g_3
-```
+$$
+
 となり、位数 $2$ の元、 $g_2,g_2g_3,g_2g_3^2$ はすべて共役である。
 5. $I=\{1,2,3\}$ と表記する。 $\rho(g):I\rightarrow I$ が全単射であれば $|I|=3$ なので $\rho(g)\in\mathfrak{S}_3$ である。 $i,j\in I$ として $\rho(g)(i)=\rho(g)(j)\Leftrightarrow gx_ig^{-1}=gx_jg^{-1}\Leftrightarrow x_i=x_j\Leftrightarrow i=j$ なので $\rho(g)$ は単射である。よってp.7 命題1.1.6(3)より $\rho(g)$ は全単射である。従って $\rho(g)\in\mathfrak{S}_3$ 。ここで $\rho:G\rightarrow\mathfrak{S} _3$ を考えると、 $i\in I,g,g^\prime\in G$ で $\rho(gg^\prime)(i)=(gg^\prime)x_i(gg\prime)^{-1}=g(g^\prime x_i g^{\prime-1})g^{-1}=g x _{\rho(g^\prime)(i)} g^{-1}=\rho(g)(\rho(g^\prime)(i))=\rho(g)\circ\rho(g^\prime)(i) $となるので $\rho$ は準同型写像である。次に $\rho$ が単射であることを示す。4.の表記を用いると、 $\{x_i|i\in I\}=g_2H$ であり、 $1_G=g_2g_2,g_3=g_2(g_2g_3),g_3^2=g_2(g_2g_3^2)$ なので、 $H$ の元は $\{x_i|i\in I\}$ の $2$ 元の積で表せる。 $g,g^\prime\in G, i,j\in I$ として
-```math
+
+$$
 gx_ig^{-1}=g^\prime x_ig^{\prime-1} \\
 \Rightarrow(gx_ig^{-1})(gx_jg^{-1})=(g^\prime x_ig^{\prime-1})(g^\prime x_jg^{\prime-1}) \\
 \Rightarrow g(x_ix_j)g^{-1}=g^\prime(x_ix_j)g^{\prime-1}
-```
+$$
+
 となるので、 $gx_ig^{-1}=g^\prime x_ig^{\prime-1}$ ならば、 $\forall k\in G$ に対して $gkg^{-1}=g^\prime kg^{\prime-1}\Leftrightarrow k(g^{-1}g^\prime)=(g^{-1}g^\prime)k$ となる。 $x_i,x_j(i\ne j)$ は共役なので $lx_il^{-1}=x_j\Leftrightarrow lx_i=x_jl\ne x_il(\because x_jl=x_il\Rightarrow x_j=x_i$ で矛盾)となる $l\in G$ が存在するため $g^{-1}g^\prime\notin g_2H$ 。また $g_2g_3g_2^{-1}=g_3^2g_2g_2=g_3^2$ となり $g_3,g_3^2$ も共役なので同様に $g^{-1}g^\prime\notin\{g_3,g_3^2\}$ 。よって $g^{\prime-1}g=1_G\Leftrightarrow g=g^\prime$ 。すなわち $\rho$ は単射となる。 $|G|=|\mathfrak{S}_3|=6$ なのでp.7 命題1.1.6(3)より $\rho$ は全射である。またp.44 命題2.5.13より $\mathrm{Ker}(\rho)=\{1_G\}$ である。以上により準同型定理(p.63 定理2.10.1)から $G\cong\mathfrak{S}_3$ である。
 
 ##### 初版
@@ -306,7 +319,7 @@ gx_ig^{-1}=g^\prime x_ig^{\prime-1} \\
     1. $y^2=1$の場合、 $y$ は単位元ではないので $y$ の位数が $2$ となる。
     2. $y^2=x$の場合、 $yH=\{y,y^3,y^5\}$ となる。 $G$ の位数は $6$ なので元の位数は $6$ の約数。従って $G$ の任意の元を $6$ 乗すると必ず $1_G$ となる。よって、 $(y^3)^2=y^6=1_G$ となるため $y^3$ の位数が $2$ となる。
     3. $y^2=x^2$の場合、 $yH\ni yx^2=y^3$ で、 $(y^3)^2=y^6=1_G$ となるため $y^3$ の位数が $2$ となる。
-3. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とすると、p.32命題2.3.13(1)より $S=\{1_G,g_2,g_3,g_3^2\}\subset\langle g_2,g_3\rangle\subset G$ 。 $(g_2g_3)^i=g_2^i g_3^i=1_G$ となる $i$ を考えることにより $g_2g_3\in\langle g_2,g_3\rangle$ の位数は $6$ であることがわかるので $g_2g_3\notin S$ 。同様に $(g_2g_3^2)^i=g_2^i g_3^{2i}=1_G$ となる $i$ を考えることで、 $g_2g_3^2\in\langle g_2,g_3\rangle$ の位数が $6$ であることがわかるので $g_2g_3^2\notin S$ 。また $g_2g_3\ne g_2g_3^2$ なので( $\because$ 等しい場合 $g_3$ が単位元になって矛盾)、 $S\cup\{g_2g_3,g_2g_3^2\}\subset\langle g_2,g_3\rangle\subset G$ で、 $|S\cup\{g_2g_3,g_2g_3^2\}|=6=|G|$ なので $S\cup\{g_2g_3,g_2g_3^2\}=G$ である。このとき $G=\langle g_2,g_3\rangle\cong\langle g_2\rangle\times\langle g_3\rangle\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}\cong\mathbb{Z}/6\mathbb{Z}$ である。
+3. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とすると、p.32命題2.3.13(1)より $S=\{1_G,g_2,g_3,g_3^2\}\subset\langle g_2,g_3\rangle\subset G$ 。 $(g_2g_3)^i=g_2^i g_3^i=1_G$ となる $i$ を考えることにより $g_2g_3\in\langle g_2,g_3\rangle$ の位数は $6$ であることがわかるので $g_2g_3\notin S$ 。同様に $(g_2g_3^2)^i=g_2^i g_3^{2i}=1_G$ となる $i$ を考えることで、 $g_2g_3^2\in\langle g_2,g_3\rangle$ の位数が $6$ であることがわかるので $g_2g_3^2\notin S$ 。また $g_2g_3\ne g_2g_3^2$ なので( $\because$ 等しい場合 $g_3$ が単位元になって矛盾)、 $S\cup\{g_2g_3,g_2g_3^2\}\subset\langle g_2,g_3\rangle\subset G$ で、 $|S\cup\left\{g_2g_3,g_2g_3^2\right\}|=6=|G|$ なので $S\cup\{g_2g_3,g_2g_3^2\}=G$ である。このとき $G=\langle g_2,g_3\rangle\cong\langle g_2\rangle\times\langle g_3\rangle\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}\cong\mathbb{Z}/6\mathbb{Z}$ である。
 4. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とすると、p.32命題2.3.13(1)より $S=\{1_G,g_2,g_3,g_3^2\}\subset\langle g_2,g_3\rangle\subset G$ 。ここで $g_2g_3=g_3g_2$ とすると3.と同じ議論が成立し $G$ が可換群となるため、 $g_2g_3\ne g_3g_2$ 。ここで $g_2g_3\notin S$ である。なぜなら $g_2g_3=1_G$ とすると両辺に左から $g_2$ をかけ $g_3=g_2$ となり矛盾。 $g_2g_3=g_2$ とすると両辺に左から $g_2$ をかけ $g_3=1_G$ となり矛盾。 $g_2g_3=g_3$ とすると、両辺に右から $g_3^2$ をかけ $g_2=1_G$ となり矛盾。 $g_2g_3=g_3^2$ とすると、両辺に右から $g_3^2$ をかけると $g_2=g_3$ となり矛盾。従って $g_2g_3\notin S$ である。同様に $g_3g_2\notin S$ 。 $S\cup\{g_2g_3,g_3g_2\}\subset\langle g_2,g_3 \rangle\subset G$ で $|S\cup\{g_2g_3,g_3g_2\}|=6$ なので $G=S\cup\{g_2g_3,g_3g_2\}$ 。
 位数が $1$ となる元は単位元だけなので、 $g_2g_3$ の位数は $2,3,6$ のいずれかである。
 $g_2g_3$ の位数が $3$ であると仮定する。このとき $(g_2g_3)^3=1_G$ となるが、 $g_2^{-1}$ を左から $g_2$ を右から両辺にかけることで $(g_3g_2)^3=1_G$ となり $g_3g_2$ は単位元ではないため $g_3g_2$ の位数も $3$ となる。 $g_2g_3,g_3g_2\notin S$ で位数 $3$ の元であることから $(g_2g_3)^2=g_3g_2$ であり、また $(g_2g_3)^2=(g_2g_3)^{-1}=g_3^{-1}g_2^{-1}$ となる。よって $g_3g_2=g_3^{-1}g_2^{-1}$ となるが、左から $g_3$ 、右から $g_2$ をかけることで $g_3^2=1_G$ となり矛盾する。よって $g_2g_3$ の位数は $3$ ではない。
@@ -318,7 +331,7 @@ $g_2,g_2g_3,g_3g_2$ の位数は $2$ なので、 $g_2^{-1}=g_2,(g_2g_3)^{-1}=g_
 |-|-|-|-|-|-|-|
 |位数|1|6|3|2|3|6|
 
-5. $x_1=g_2,x_2=g_2g_3,x_3=g_3g_2$とすると以下の表となる。 $x_j x_i x_j^{-1}$ で $i=j$ なら $x_i$ のまま、 $i\ne j$ なら $k\ne i, k\ne j$ である $x_k$ になるので $x_1,x_2,x_3$ をどのように入れ替えても $x_1,x_2,x_3$ の行は変わらず、それ以外( $1_G,g_3,g_3^2$ )は行の入れ替えになるだけである。どの行も $x_1,x_2,x_3$ の並び替えなので $\rho(g)\in\mathfrak{S}_3$ である。 $\rho:G\rightarrow\mathfrak{S}_ 3$ を考えると全射で $\mathrm{Ker}(\rho)=\{1_G\}$ である。また $\rho(gg^\prime)(i)=(gg^\prime)x_i(gg\prime)^{-1}=g(g^\prime x_i g^{\prime-1})g^{-1}=g x_ {\rho(g^\prime)(i)} g^{-1}=\rho(g)(\rho(g^\prime)(i))=\rho(g)\circ\rho(g^\prime)(i)$ となるので $\rho$ は準同型写像であるから準同型定理(p.63 定理2.10.1)より $G\cong\mathfrak{S}_3$ である。
+5. $x_1=g_2,x_2=g_2g_3,x_3=g_3g_2$とすると以下の表となる。 $x_j x_i x_j^{-1}$ で $i=j$ なら $x_i$ のまま、 $i\ne j$ なら $k\ne i, k\ne j$ である $x_k$ になるので $x_1,x_2,x_3$ をどのように入れ替えても $x_1,x_2,x_3$ の行は変わらず、それ以外( $1_G,g_3,g_3^2$ )は行の入れ替えになるだけである。どの行も $x_1,x_2,x_3$ の並び替えなので $\rho(g)\in\mathfrak{S}_ 3$ である。 $\rho:G\rightarrow\mathfrak{S}_ 3$ を考えると全射で $\mathrm{Ker}(\rho)=\{1_G\}$ である。また $\rho(gg^\prime)(i)=(gg^\prime)x_i(gg\prime)^{-1}=g(g^\prime x_i g^{\prime-1})g^{-1}=g x_ {\rho(g^\prime)(i)} g^{-1}=\rho(g)(\rho(g^\prime)(i))=\rho(g)\circ\rho(g^\prime)(i)$ となるので $\rho$ は準同型写像であるから準同型定理(p.63 定理2.10.1)より $G\cong\mathfrak{S}_3$ である。
 
 |g|$gx_1g^{-1}:\rho(g)(1)$|$gx_2g^{-1}:\rho(g)(2)$|$gx_3g^{-1}:\rho(g)(3)$|
 |-|-|-|-|
