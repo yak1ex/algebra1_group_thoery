@@ -128,8 +128,8 @@ $2G$ は明らかに部分群で、 $G$ は可換群だから正規部分群と�
 ```math
 \begin{align}
 G/2G&\cong(\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z}\times2\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z})\\
-&=(\mathbb{Z}/8\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z})\times(\mathbb{Z}/8\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z})\times(\mathbb{Z}/3\mathbb{Z})/(\mathbb{Z}/3\mathbb{Z})\quad(\because 補題1より)\\
-&\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\times\lbrace0\rbrace \quad(\because \text{p.66 命題2.10.4 第三同型定理より})\\
+&=(\mathbb{Z}/8\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z})\times(\mathbb{Z}/8\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z})\times(\mathbb{Z}/3\mathbb{Z})/(\mathbb{Z}/3\mathbb{Z})\quad(\because\text{補題1より})\\
+&\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\times\lbrace0\rbrace \quad(\because\text{p.66 命題2.10.4 第三同型定理より})\\
 &\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}
 \end{align}
 ```
@@ -257,8 +257,8 @@ $G$ の指数 $2$ の部分群を $H$ とすると $G/H$ は位数 $2$ の部分
 ```math
 \begin{align}
 G/2G&\cong(\mathbb{Z}/45\mathbb{Z}\times\mathbb{Z}/24\mathbb{Z}\times\mathbb{Z}/14\mathbb{Z})/(\mathbb{Z}/45\mathbb{Z}\times2\mathbb{Z}/24\mathbb{Z}\times2\mathbb{Z}/14\mathbb{Z})\\
-&=(\mathbb{Z}/45\mathbb{Z})/(\mathbb{Z}/45\mathbb{Z})\times(\mathbb{Z}/24\mathbb{Z})/(2\mathbb{Z}/24\mathbb{Z})\times(\mathbb{Z}/14\mathbb{Z})/(2\mathbb{Z}/14\mathbb{Z})\quad(\because補題1)\\
-&\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \quad(\because \text{p.66 命題2.10.4 第三同型定理})
+&=(\mathbb{Z}/45\mathbb{Z})/(\mathbb{Z}/45\mathbb{Z})\times(\mathbb{Z}/24\mathbb{Z})/(2\mathbb{Z}/24\mathbb{Z})\times(\mathbb{Z}/14\mathbb{Z})/(2\mathbb{Z}/14\mathbb{Z})\quad(\because\text{補題1})\\
+&\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z} \quad(\because\text{p.66 命題2.10.4 第三同型定理})
 \end{align}
 ```
 
