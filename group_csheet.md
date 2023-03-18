@@ -78,6 +78,8 @@ $f:A\rightarrow B$で
 
 ### 2.9 群の直積
 
+* p.60 命題2.9.1 (1)$\forall g_1\in G_1\subset G_1\times G_2, \forall g_2\in G_2\subset G_1\times G_2, g_1g_2=g_2g_1$ (2)$G_1,G_2\triangleleft G_1\times G_2$
+* p.60 命題2.9.2 $H,K\triangleleft G\land H\cap K=\lbrace1_G\rbrace\land HK=G\rightarrow G\cong H\times K$
 * p.60 定理2.9.3 中国式剰余定理 $n,m\in\mathbb{Z}\land\gcd(n,m)=1\Rightarrow\mathbb{Z}/nm\mathbb{Z}\cong\mathbb{Z}/n\mathbb{Z}\times\mathbb{Z}/m\mathbb{Z}$
 
 ### 2.10 準同型定理
