@@ -20,10 +20,10 @@ p.60 定理2.9.3より
 わざわざ位数が素という条件があるので、位数関係(特に約数)の定理、命題を使いそう。
 
 * p.53 系2.6.21(2)： $G$ が有限群なら $g \in G$ の位数は$|G|$の約数
-* p.71 演習問題2.5.3(1)：$\phi:G\rightarrow H$が群の準同型で $g\in G$ が有限位数の元なら $\phi(g)$ の位数は $g$ の位数の約数
+* p.71 演習問題2.5.3(1)： $\phi:G\rightarrow H$ が群の準同型で $g\in G$ が有限位数の元なら $\phi(g)$ の位数は $g$ の位数の約数
 * p.39 命題2.4.18： $G$ が群、 $x\in G$ 、 $x$ の位数は $d\lt\infty$ のとき $n\in\mathbb{Z}$ に対して、 $x^n=1_G\Leftrightarrow n$ は $d$ の倍数
 
-$\phi_1:G_1\rightarrow G_1,\phi_2:G_2\rightarrow G_2$が存在し任意の $(g_1,g_2)\in G_1\times G_2$ について $\phi(g_1,g_2)=\phi_1(g_1)\phi_2(g_2)$ ということは、 $\phi(g_1,g_2)$ の $G_1$ 因子が $g_2$ によって変わらず、 $G_2$ 因子が $g_1$ によって変わらないということ。
+ $\phi_1:G_1\rightarrow G_1,\phi_2:G_2\rightarrow G_2$ が存在し任意の $(g_1,g_2)\in G_1\times G_2$ について $\phi(g_1,g_2)=\phi_1(g_1)\phi_2(g_2)$ ということは、 $\phi(g_1,g_2)$ の $G_1$ 因子が $g_2$ によって変わらず、 $G_2$ 因子が $g_1$ によって変わらないということ。
 
 ##### 解答
 ###### 補題. $G_1,G_2$が有限群、 $g_1\in G_1, g_2\in G_2$ として、 $(g_1,g_2)\in G_1\times G_2$ の位数は $g_1$ の位数と $g_2$ の位数の最小公倍数である。特に$n_1=|G_1|,n_2=|G_2|$が互いに素である場合は、 $g_1$ の位数、 $g_2$ の位数の積となる
@@ -39,14 +39,14 @@ p.53 系2.6.21(2)から $g_1$ の位数は $n_1$ の約数、 $g_2$ の位数は
 
 1. $\phi(g_1,g_2)=\phi_1(g_1)\phi_2(g_2)$と表せること
 2. $\phi_1,\phi_2$が準同型であること
-3. $\phi_1(g_1)\in G_1, \phi_2(g_2)\in G_2$であること($\Leftrightarrow\phi_1:G_1\rightarrow G_1,\phi_2:G_2\rightarrow G_2$であること)
+3. $\phi_1(g_1)\in G_1, \phi_2(g_2)\in G_2$であること( $\Leftrightarrow\phi_1:G_1\rightarrow G_1,\phi_2:G_2\rightarrow G_2$ であること)
 
 を順に示すことで証明する。
 
 1. $\phi(g_1,g_2)=\phi_1(g_1)\phi_2(g_2)$と表せること：
 $\phi_1(g_1)=\phi(g_1,1_{G_2}),\phi_2(g_2)=\phi(1_{G_1},g_2)$ と置くと、
 $\phi(g_1,g_2)=\phi((g_1,1_{G_2})(1_{G_1},g_2))=\phi(g_1,1_{G_2})\phi(1_{G_1},g_2)=\phi_1(g_1)\phi_2(g_2)$
-2. $\phi_1,\phi_2$が準同型であること：※この時点では$\phi_1:G_1\rightarrow G_1\times G_2, \phi_2:G_2\rightarrow G_1\times G_2$
+2. $\phi_1,\phi_2$が準同型であること：※この時点では $\phi_1:G_1\rightarrow G_1\times G_2, \phi_2:G_2\rightarrow G_1\times G_2$ 
 $\phi_1(g_1 g_1^\prime)=\phi(g_1 g_1^\prime,1_{G_2})=\phi((g_1,1_{G_2})(g_1^\prime,1_{G_2}))=\phi(g_1,1_{G_2})\phi(g_1^\prime,1_{G_2})=\phi_1(g_1)\phi_1(g_1^\prime)$
 定義より $\phi_1$ は準同型である。 $\phi_2$ についても同様である。
 3. $\phi_1(g_1)\in G_1, \phi_2(g_2)\in G_2$であること：
