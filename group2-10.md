@@ -148,6 +148,8 @@ $\phi:G\ni z\mapsto |z|\in H_2$ とする。このとき $\phi(z_1 z_2)=|z_1 z_2
 
 $\psi:G\ni z\mapsto \frac{z}{|z|}\in H_1$ とする。このとき $\psi(z_1 z_2)=\frac{z_1 z_2}{|z_1 z_2|}=\frac{z_1}{|z_1|}\frac{z_2}{|z_2|}=\psi(z_1)\psi(z_2)$ なので $\psi$ は準同型写像であり、また明らかに全射である。また、 $\mathrm{Ker}(\psi)=H_2$ なので( $\because \frac{z}{|z|}=1\Rightarrow z=|z|\Rightarrow z\in H_2$ )準同型定理(p.63 定理2.10.1)より $G/H_2\cong H_1$ 。
 
+※ $G/H_1\cong H_2, G/H_2\cong H_1$ が成立する条件は？ 命題2.9.2は十分条件になりそうだが……
+
 #### 2.10.2
 
 ##### 自前版
@@ -163,6 +165,8 @@ $\phi:\mathbb{R}\rightarrow\mathbb{R}/\mathbb{Z}$ を自然な写像とする(�
 $\mathbb{R}$ は可換群なので $a\mathbb{Z}$ はその正規部分群となる(単位元 $0$ を含み、 $\forall n,m\in\mathbb{Z}, na+ma=(n+m)a$ で演算について閉じており、 $\forall n\in\mathbb{Z}, na+(-n)a=0$ で逆元について閉じているため $a\mathbb{Z}$ が $\mathbb{R}$ の部分群となる)。
 
 $\phi:\mathbb{R}\rightarrow\mathbb{R}/a\mathbb{Z}$ を自然な写像とするとp.59 命題2.8.13より $\phi$ は全射準同型写像で $\mathrm{Ker}(\phi)=a\mathbb{Z}$ である。このとき $\psi(x)=\phi(ax)$ と定めると、 $\psi:\mathbb{R}\rightarrow\mathbb{R}/a\mathbb{Z}$ で $\psi(x_1+x_2)=\phi(a(x_1+x_2))=\phi(ax_1+ax_2)=\phi(ax_1)+\phi(ax_2)=\psi(x_1)+\psi(x_2)$ となり、 $\psi$ は準同型写像でありまた、明らかに全射である。 $\mathrm{Ker}(\psi)=\mathbb{Z}$ なので、準同型定理(p.63 定理2.10.1)より、 $\mathbb{R}/a\mathbb{Z}\cong\mathbb{R}/\mathbb{Z}$ である。
+
+※全射を言うなら $ax+a\mathbb{Z}$ に対して $\frac{y}{a}$ を入れれば任意の実数 $y$ にできるので、でよい
 
 #### 2.10.3
 
@@ -213,6 +217,10 @@ g & h
 $\phi$ を $G\rightarrow G/H$ の自然な写像とする。p.59 命題2.8.13より $\phi$ は全射準同型写像で $\mathrm{Ker}(\phi)=H$ である。また $G/H$ の位数は $n$ なので有限群であり、p.53 系2.6.21(2)から $\forall f\in G/H$ の位数は $n$ の約数となるため $nf=0$ である。
 $\forall k\in nG$ は $g\in G$ によって $k=ng$ と表せる。 $\phi(ng)=n\phi(g)=0(\because \phi(g)\in G/H)$ 。これは $ng=k\in\mathrm{Ker}(\phi)$ ということである。すなわち $nG\subset \mathrm{Ker}(\phi)=H$ 。
 
+※ $G/H$ が群であることを使っているので $G$ が可換だから $H$ が正規部分群であることを言っておく必要あり
+※一致しない例としては $G=\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ を考えると $2G=\lbrace1_G \rbrace$
+※p.68 例題2.10.12で $n=2$ の場合をやっている
+
 #### 2.10.5
 
 $G$ は可換群なので任意の部分群は正規部分群である。
@@ -248,7 +256,10 @@ $G$ は可換群なので任意の部分群は正規部分群である。
 <tr><td style="background: #80ffff">(0,0)</td><td style="background: #ff80ff">(1,0)</td><td style="background: #80ffff">(2,0)</td><td style="background: #ff80ff">(3,0)</td></tr>
 </table>
 
-2. $G$ の指数 $13$ の部分群を $H$ とすると $G/H$ は位数 $13$ の部分群となるため $\mathbb{Z}/13\mathbb{Z}$ と同型である。よって、 $g\in G$ とすると $13g\in H$ 。したがって、 $13G=\lbrace13g\hspace{.3em}|\hspace{.3em}g\in G\rbrace\subset H$ 。p.64 定理2.10.2 準同型定理(部分群の対応)より、 $H$ は指数 $13$ の $G/2G$ の部分群と1対1対応する。 $G=\mathbb{Z}\times\mathbb{Z}$ より $13G=13\mathbb{Z}\times13\mathbb{Z}$ なので、補題1より $G/2G\cong\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ 。すなわち $H$ は $\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ の指数 $13$ の部分群と1対1対応する。 $\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ の位数は $169$ なので指数 $13$ の部分群は位数 $13$ の部分群と同じことである。 $13$ は素数なのでp.53 命題2.6.22より位数 $13$ の部分群は単位元以外の元によって生成される巡回群である。 $g=(\bar{a},\bar{b})$ を $\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ の元とする。 $\bar{a}=0$ とすると、 $\bar{b}\ne\bar{0}$ の位数は $13$ でどの元によっても生成される群は等しい。 $\bar{b}=\bar{0}$ の場合も同様に $\bar{a}\ne\bar{0}$ の位数は $13$ でどの元によっても生成される群は等しい。 $\bar{a}\ne\bar{0}$ かつ $\bar{b}\ne\bar{0}$ の場合、その元によって生成される群のなかに $\bar{a}=\bar{1}$ となる元が必ず存在し、かつその元自体も(単位元ではないので命題2.6.22より)生成元となる。この生成元について $\bar{b}=\bar{0}$ とすると $\bar{b}\ne\bar{0}$ な元が生成されないので $\bar{b}\ne\bar{0}$ である。同じ生成元からは同じ群が生成され、 $\bar{b}$ が異なれば異なる群が生成されるので $(\bar{1},\bar{b})(\bar{b}\ne\bar{0})$ の取り方だけ異なる群が存在する。以上により、位数 $13$ の $\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ の部分群は $\langle(\bar{0},\bar{1})\rangle,\langle(\bar{1},\bar{b})\rangle(\bar{b}\in\mathbb{Z}/13\mathbb{Z})$ の $14$ 通り存在する。これが $H$ と1対1対応するので $G$ の指数 $13$ の部分群 $H$ の数は $14$ である。
+2. $G$ の指数 $13$ の部分群を $H$ とすると $G/H$ は位数 $13$ の部分群となるため $\mathbb{Z}/13\mathbb{Z}$ と同型である。よって、 $g\in G$ とすると $13g\in H$ 。したがって、 $13G=\lbrace13g\hspace{.3em}|\hspace{.3em}g\in G\rbrace\subset H$ 。p.64 定理2.10.2 準同型定理(部分群の対応)より、 $H$ は指数 $13$ の $G/13G$ の部分群と1対1対応する。 $G=\mathbb{Z}\times\mathbb{Z}$ より $13G=13\mathbb{Z}\times13\mathbb{Z}$ なので、補題1より $G/13G\cong\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ 。すなわち $H$ は $\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ の指数 $13$ の部分群と1対1対応する。 $\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ の位数は $169$ なので指数 $13$ の部分群は位数 $13$ の部分群と同じことである。 $13$ は素数なのでp.53 命題2.6.22より位数 $13$ の部分群は単位元以外の元によって生成される巡回群である。 $g=(\bar{a},\bar{b})$ を $\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ の元とする。 $\bar{a}=0$ とすると、 $\bar{b}\ne\bar{0}$ の位数は $13$ でどの元 $(\bar{a},\bar{b})$ によっても生成される群は等しい。 $\bar{b}=\bar{0}$ の場合も同様に $\bar{a}\ne\bar{0}$ の位数は $13$ でどの元 $(\bar{a},\bar{b})$ によっても生成される群は等しい。 $\bar{a}\ne\bar{0}$ かつ $\bar{b}\ne\bar{0}$ の場合、その元によって生成される群のなかに $\bar{a}=\bar{1}$ となる元が必ず存在し、かつその元自体も(単位元ではないので命題2.6.22より)生成元となる。この生成元について $\bar{b}=\bar{0}$ とすると $\bar{b}\ne\bar{0}$ な元が生成されないので $\bar{b}\ne\bar{0}$ である。同じ生成元からは同じ群が生成され、 $\bar{b}$ が異なれば異なる群が生成されるので $(\bar{1},\bar{b})(\bar{b}\ne\bar{0})$ の取り方だけ異なる群が存在する。以上により、位数 $13$ の $\mathbb{Z}/13\mathbb{Z}\times\mathbb{Z}/13\mathbb{Z}$ の部分群は $\langle(\bar{0},\bar{1})\rangle,\langle(\bar{1},\bar{b})\rangle(\bar{b}\in\mathbb{Z}/13\mathbb{Z})$ の $14$ 通り存在する。これが $H$ と1対1対応するので $G$ の指数 $13$ の部分群 $H$ の数は $14$ である。
+
+※演習問題2.10.4を使えば $13G\subset H$ が言える
+※ 単位元以外( $x^2-1$ )で生成されるが、同一の巡回群を生成する元が $x-1$ 通りあるので $(x^2-1)/(x-1)=x+1$
 
 #### 2.10.6
 
@@ -287,8 +298,14 @@ p.67 例2.10.6より巡回群の部分群は巡回群なので各元が生成す
 従って $n=\Pi_{i=1}^N p_i^{n_i}$ と素因数分解できていたとすると部分群の数は $\Pi_{i=1}^N (n_i+1)$
 
 ※ $n\mathbb{Z}/12\mathbb{Z} \quad(n\mid 12), n\mathbb{Z}/18\mathbb{Z}\quad(n\mid18)$ と表記できる
+※p.67 例2.10.6で $d\mathbb{Z},d\mid n$ から↑は直接的に言えそう
+※特定の位数の部分群は $1$ つだけになっているがそうなる条件は？
 
 #### 2.10.8
+
+※証明と証明につかう定理等を並べるのは良さそう
+※3.でp.60 命題2.9.2を使うためには正規部分群であることを言う必要がある
+※3. $G$ が $g_2,g_3$ で生成されることを言うには重複してないことを言う必要ある？位数 $6$ であることから？剰余類で重複ないことから？
 
 ##### 改訂版
 
@@ -296,8 +313,8 @@ p.67 例2.10.6より巡回群の部分群は巡回群なので各元が生成す
 さらに位数 $6$ の元が存在しないと仮定すると、単位元以外は全て位数 $2$ の元である。このとき $\forall g\in G$ について $g^2=1$ となるため(※単位元もこの条件を満たす)、演習問題2.4.8から $G$ は可換群となる。可換群の任意の部分群は正規部分群である。 $G$ の単位元以外の元を $g$ とすると、 $g^2=1_G$なので $H=\langle g\rangle=\lbrace  1_G,g \rbrace$ は $G$ の正規部分群となる。従って、 $G/H$ は剰余群で $|G/H|=|G|/|H|=3$ なのでp.53 系2.6.21(2)より $G/H$ の元の位数は $3$ の約数。一方、自然な写像 $\phi:G\rightarrow G/H$ を考えるとp.59 命題2.8.13よりこれは準同型写像なのでp.71 演習問題2.5.3(1)を用いると、 $G/H$ の元の位数は( $G$ の元の位数である) $1$ あるいは $2$ の約数となる。すなわち $G/H$ の $3$ つの元の位数がすべて $1$ となり単位元が唯一であることに矛盾する。従って、位数 $6$ の元が存在する。
 位数 $6$ の元を $g$ とおくと $g^6=(g^2)^3=1_G$ 。p.39 命題2.4.18より $g^2$ の位数は $3$ の約数となり $1$ または $3$ である。 $g^2$ の位数が $1$ とすると $g^2=1_G$ となって $g$ の位数が $6$ であることに矛盾するため $g^2$ の位数は $3$ 。これは位数 $3$ の元が存在しないという仮定に矛盾する。従って位数 $3$ の元が存在する。
 2. $x\in G$が位数 $3$ の元なのでp.40 命題2.4.19より $H=\langle x\rangle$ は $\lbrace  1_G,x,x^2 \rbrace$ からなる位数 $3$ の巡回部分群である。p.53 定理2.6.20 ラグランジュの定理より $|G/H|=|G|/|H|=2$ 。p.73 演習問題2.8.2より指数 $2$ の部分群は正規部分群なので $H$ は $G$ の正規部分群となる。よって $\phi:G\rightarrow G/H$ を自然な写像とすると、p.59命題 2.8.13よりこれは準同型写像となり、p.71演習問題2.5.3(1)を用いると、 $G/H$ の元の位数は $G$ の元の位数の約数となる。 $|G/H|=2$ なのでp.53 命題2.6.22より $G/H$ は巡回群。つまり $G/H$ には生成元となる位数 $2$ の元が存在する。従って $G$ の元に $2$ の倍数を位数とする元が存在する。一方、p.53 系2.6.21(2)より $G$ の元の位数は $6$ の約数なので、その位数は $2$ か $6$ である。 $2$ の場合はそれが位数 $2$ の元である。一方、 $6$ の場合、位数 $6$ の元を $g$ とすると $g^6=(g^3)^2=1_G$ 。 $g$ の位数は $6$ なので $g^3\ne1_G$ 。よって、 $g^3$ の位数は $2$ となる。以上によりいずれの場合でも $G$ に位数 $2$ の元が存在する。
-3. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とする。2.での議論より $H=\langle g_3\rangle=\lbrace1_G,g_3,g_3^2\rbrace$ は $G$ の正規部分群である。 $|G/H|=2, g_2\notin H$ なので、 $H$ ではない方の剰余類は $g_2H=\lbrace g_2,g_2g_3,g_2g_3^2\rbrace$ となる。よって、 $G=H\cup g_2H=\lbrace1_G,g_3,g_3^2,g_2,g_2g_3,g_2g_3^2\rbrace$ 。 $g_2,g_3$ が可換なので $G=\langle g_2,g_3\rangle\cong\langle g_2\rangle\times\langle g_3\rangle(\because\text{p.60 命題2.9.2})\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}\cong\mathbb{Z}/6\mathbb{Z}$ である。
-4. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とする。2.での議論より $H=\langle g_3\rangle=\lbrace1,g_3,g_3^2\rbrace$ は $G$ の正規部分群である。p.58 補題2.8.10より $g_2H=H g_2\Leftrightarrow\lbrace g_2,g_2g_3,g_2g_3^2\rbrace =\lbrace g_2,g_3g_2,g_3^2g_2\rbrace$ 。 $G$ の任意の元は $g_2^ig_3^j$ の形で表せるので $g_2g_3=g_3g_2$ とすると $G$ が可換群となり前提に矛盾。よって $g_2g_3\ne g_3g_2$ なので $g_2g_3=g_3^2g_2$ かつ $g_2g_3^2=g_3g_2$ である。 $g_2^2=1_G, (g_2g_3)^2=(g_2g_3)(g_3^2g_2)=1_G,(g_2g_3^2)^2=(g_2g_3^2)(g_3g_2)=1_G$ でいずれも単位元ではないので $g_2H$ の $3$ つの元は位数 $2$ である。 $H$ の元の位数は $2$ ではないのでちょうど $3$ つの元が位数 $2$ となる。また、位数 $2$ の元は自分自身が逆元なので以下のように位数 $2$ の元、 $g_2,g_2g_3,g_2g_3^2$ はすべて共役である。
+3. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とする。2.での議論より $H=\langle g_3\rangle=\lbrace1_G,g_3,g_3^2\rbrace$ は $G$ の正規部分群である。 $|G/H|=2, g_2\notin H$ なので、 $H$ ではない方の剰余類は $g_2H=\lbrace g_2,g_2g_3,g_2g_3^2\rbrace$ となる。よって、 $G=H\cup g_2H=\lbrace1_G,g_3,g_3^2,g_2,g_2g_3,g_2g_3^2\rbrace$ 。 $g_2,g_3$ が可換なので $\langle g_2,g_3\rangle=\lbrace g_2^i g_3^j \mid i,j\in\mathbb{Z} \rbrace=\lbrace1_G,g_3,g_3^2,g_2,g_2g_3,g_2g_3^2\rbrace=G$ となり、 $\langle g_2\rangle\cap\langle g_3\rangle=\lbrace1_G \rbrace$ かつ $\langle g_2\rangle\langle g_3\rangle=\langle g_2,g_3\rangle$ また $\langle g_2\rangle$ も $G$ が可換群なので正規部分群であるから、 $G=\langle g_2,g_3\rangle\cong\langle g_2\rangle\times\langle g_3\rangle(\because\text{p.60 命題2.9.2})\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}(\because\text{p.53 命題2.6.22})\cong\mathbb{Z}/6\mathbb{Z}(\because\text{p.60 定理2.9.3 中国式剰余定理})$ である。
+4. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とする。2.での議論より $H=\langle g_3\rangle=\lbrace1,g_3,g_3^2\rbrace$ は $G$ の正規部分群である。p.58 補題2.8.10より $g_2H=H g_2\Leftrightarrow\lbrace g_2,g_2g_3,g_2g_3^2\rbrace =\lbrace g_2,g_3g_2,g_3^2g_2\rbrace$ 。 $G$ の任意の元は $g_2^ig_3^j$ の形で表せるので $g_2g_3=g_3g_2$ とすると $G$ が可換群となり前提に矛盾。よって $g_2g_3\ne g_3g_2$ なので $g_2g_3=g_3^2g_2$ かつ $g_2g_3^2=g_3g_2$ である。 $g_2^2=1_G, (g_2g_3)^2=(g_2g_3)(g_3^2g_2)=1_G,(g_2g_3^2)^2=(g_2g_3^2)(g_3g_2)=1_G$ でいずれも単位元ではないので $g_2H$ の $3$ つの元は位数 $2$ である。 $H$ の元の位数は $2$ ではないのでちょうど $3$ つの元が位数 $2$ となる。また、位数 $2$ の元は自分自身が逆元であることを使うと以下のように位数 $2$ の元 $g_2,g_2g_3,g_2g_3^2$ はすべて共役となる。
 
 ```math
 \begin{align}
