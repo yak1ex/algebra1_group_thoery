@@ -313,7 +313,19 @@ p.67 例2.10.6より巡回群の部分群は巡回群なので各元が生成す
 さらに位数 $6$ の元が存在しないと仮定すると、単位元以外は全て位数 $2$ の元である。このとき $\forall g\in G$ について $g^2=1$ となるため(※単位元もこの条件を満たす)、演習問題2.4.8から $G$ は可換群となる。可換群の任意の部分群は正規部分群である。 $G$ の単位元以外の元を $g$ とすると、 $g^2=1_G$なので $H=\langle g\rangle=\lbrace  1_G,g \rbrace$ は $G$ の正規部分群となる。従って、 $G/H$ は剰余群で $|G/H|=|G|/|H|=3$ なのでp.53 系2.6.21(2)より $G/H$ の元の位数は $3$ の約数。一方、自然な写像 $\phi:G\rightarrow G/H$ を考えるとp.59 命題2.8.13よりこれは準同型写像なのでp.71 演習問題2.5.3(1)を用いると、 $G/H$ の元の位数は( $G$ の元の位数である) $1$ あるいは $2$ の約数となる。すなわち $G/H$ の $3$ つの元の位数がすべて $1$ となり単位元が唯一であることに矛盾する。従って、位数 $6$ の元が存在する。
 位数 $6$ の元を $g$ とおくと $g^6=(g^2)^3=1_G$ 。p.39 命題2.4.18より $g^2$ の位数は $3$ の約数となり $1$ または $3$ である。 $g^2$ の位数が $1$ とすると $g^2=1_G$ となって $g$ の位数が $6$ であることに矛盾するため $g^2$ の位数は $3$ 。これは位数 $3$ の元が存在しないという仮定に矛盾する。従って位数 $3$ の元が存在する。
 2. $x\in G$が位数 $3$ の元なのでp.40 命題2.4.19より $H=\langle x\rangle$ は $\lbrace  1_G,x,x^2 \rbrace$ からなる位数 $3$ の巡回部分群である。p.53 定理2.6.20 ラグランジュの定理より $|G/H|=|G|/|H|=2$ 。p.73 演習問題2.8.2より指数 $2$ の部分群は正規部分群なので $H$ は $G$ の正規部分群となる。よって $\phi:G\rightarrow G/H$ を自然な写像とすると、p.59命題 2.8.13よりこれは準同型写像となり、p.71演習問題2.5.3(1)を用いると、 $G/H$ の元の位数は $G$ の元の位数の約数となる。 $|G/H|=2$ なのでp.53 命題2.6.22より $G/H$ は巡回群。つまり $G/H$ には生成元となる位数 $2$ の元が存在する。従って $G$ の元に $2$ の倍数を位数とする元が存在する。一方、p.53 系2.6.21(2)より $G$ の元の位数は $6$ の約数なので、その位数は $2$ か $6$ である。 $2$ の場合はそれが位数 $2$ の元である。一方、 $6$ の場合、位数 $6$ の元を $g$ とすると $g^6=(g^3)^2=1_G$ 。 $g$ の位数は $6$ なので $g^3\ne1_G$ 。よって、 $g^3$ の位数は $2$ となる。以上によりいずれの場合でも $G$ に位数 $2$ の元が存在する。
-3. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とする。2.での議論より $H=\langle g_3\rangle=\lbrace1_G,g_3,g_3^2\rbrace$ は $G$ の正規部分群である。 $|G/H|=2, g_2\notin H$ なので、 $H$ ではない方の剰余類は $g_2H=\lbrace g_2,g_2g_3,g_2g_3^2\rbrace$ となる。よって、 $G=H\cup g_2H=\lbrace1_G,g_3,g_3^2,g_2,g_2g_3,g_2g_3^2\rbrace$ 。 $g_2,g_3$ が可換なので $\langle g_2,g_3\rangle=\lbrace g_2^i g_3^j \mid i,j\in\mathbb{Z} \rbrace=\lbrace1_G,g_3,g_3^2,g_2,g_2g_3,g_2g_3^2\rbrace=G$ となり、 $\langle g_2\rangle\cap\langle g_3\rangle=\lbrace1_G \rbrace$ かつ $\langle g_2\rangle\langle g_3\rangle=\langle g_2,g_3\rangle$ また $\langle g_2\rangle$ も $G$ が可換群なので正規部分群であるから、 $G=\langle g_2,g_3\rangle\cong\langle g_2\rangle\times\langle g_3\rangle(\because\text{p.60 命題2.9.2})\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}(\because\text{p.53 命題2.6.22})\cong\mathbb{Z}/6\mathbb{Z}(\because\text{p.60 定理2.9.3 中国式剰余定理})$ である。
+3. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とする。2.での議論より $H=\langle g_3\rangle=\lbrace1_G,g_3,g_3^2\rbrace$ は $G$ の正規部分群である。 $|G/H|=2, g_2\notin H$ なので、 $H$ ではない方の剰余類は $g_2H=\lbrace g_2,g_2g_3,g_2g_3^2\rbrace$ となる。よって、 $G=H\sqcup g_2H=\lbrace1_G,g_3,g_3^2,g_2,g_2g_3,g_2g_3^2\rbrace$ 。 $g_2,g_3$ が可換なので $\langle g_2,g_3\rangle=\lbrace g_2^i g_3^j \mid i,j\in\mathbb{Z} \rbrace=\lbrace1_G,g_3,g_3^2,g_2,g_2g_3,g_2g_3^2\rbrace=G$ となり、 $\langle g_2\rangle\cap\langle g_3\rangle=\lbrace1_G \rbrace$ かつ $\langle g_2\rangle\langle g_3\rangle=\langle g_2,g_3\rangle$ また $\langle g_2\rangle$ も $G$ が可換群なので正規部分群であるから、
+
+```math
+\begin{align}
+G&=\langle g_2,g_3\rangle\\
+&\cong\langle g_2\rangle\times\langle g_3\rangle(\because\text{p.60 命題2.9.2})\\
+&\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}(\because\text{p.53 命題2.6.22})\\
+&\cong\mathbb{Z}/6\mathbb{Z}(\because\text{p.60 定理2.9.3 中国式剰余定理})
+\end{align}
+```
+
+である。
+
 4. 1.2.より $G$ には位数 $2$ の元と位数 $3$ の元が存在する。位数 $2$ の元を $g_2$ 、位数 $3$ の元を $g_3$ とする。2.での議論より $H=\langle g_3\rangle=\lbrace1,g_3,g_3^2\rbrace$ は $G$ の正規部分群である。p.58 補題2.8.10より $g_2H=H g_2\Leftrightarrow\lbrace g_2,g_2g_3,g_2g_3^2\rbrace =\lbrace g_2,g_3g_2,g_3^2g_2\rbrace$ 。 $G$ の任意の元は $g_2^ig_3^j$ の形で表せるので $g_2g_3=g_3g_2$ とすると $G$ が可換群となり前提に矛盾。よって $g_2g_3\ne g_3g_2$ なので $g_2g_3=g_3^2g_2$ かつ $g_2g_3^2=g_3g_2$ である。 $g_2^2=1_G, (g_2g_3)^2=(g_2g_3)(g_3^2g_2)=1_G,(g_2g_3^2)^2=(g_2g_3^2)(g_3g_2)=1_G$ でいずれも単位元ではないので $g_2H$ の $3$ つの元は位数 $2$ である。 $H$ の元の位数は $2$ ではないのでちょうど $3$ つの元が位数 $2$ となる。また、位数 $2$ の元は自分自身が逆元であることを使うと以下のように位数 $2$ の元 $g_2,g_2g_3,g_2g_3^2$ はすべて共役となる。
 
 ```math
