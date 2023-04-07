@@ -148,7 +148,17 @@ $\phi:G\ni z\mapsto |z|\in H_2$ とする。このとき $\phi(z_1 z_2)=|z_1 z_2
 
 $\psi:G\ni z\mapsto \frac{z}{|z|}\in H_1$ とする。このとき $\psi(z_1 z_2)=\frac{z_1 z_2}{|z_1 z_2|}=\frac{z_1}{|z_1|}\frac{z_2}{|z_2|}=\psi(z_1)\psi(z_2)$ なので $\psi$ は準同型写像であり、また明らかに全射である。また、 $\mathrm{Ker}(\psi)=H_2$ なので( $\because \frac{z}{|z|}=1\Rightarrow z=|z|\Rightarrow z\in H_2$ )準同型定理(p.63 定理2.10.1)より $G/H_2\cong H_1$ 。
 
-※ $G/H_1\cong H_2, G/H_2\cong H_1$ が成立する条件は？ 命題2.9.2は十分条件になりそうだが……
+##### ※ $G/H_1\cong H_2\land G/H_2\cong H_1$ が成立する条件は？ 命題2.9.2は十分条件になりそうだが……
+
+$G=H_1\times H_2$ とすると、p.60 命題2.9.1(2)より $H_1,H_2\triangleleft G$ である。このとき、 $\phi:G\ni g=(h_1,h_2)\mapsto(h_1,1_G)\in H_1$ とすると、 $\phi$ は明らかに全射準同型写像で、 $\mathrm{Ker}(\phi)=H_2$ だから準同型定理(p.63 定理2.10.1)より、 $G/H_2=G/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)=H_1$ となり、また $H_1,H_2$ を入れ替えても同様の議論が成立するので $G/H_1\cong H_2$　である。
+
+すなわち、$G=H_1\times H_2\Rightarrow G/H_1\cong H_2\land G/H_2\cong H_1$ である。 ほぼ同様の議論で、$G\triangleright H_1,H_2\land G\cong H_1\times H_2\Rightarrow G/H_1\cong H_2\land G/H_2\cong H_1$ が言える。また、p.60 命題2.9.2より、$H_1,H_2\triangleleft G\land H_1\cap H_2=\lbrace1_G\rbrace\land H_1H_2=G$ であれば $G\cong H_1\times H_2$ となるのでこの場合も条件を満たす(十分条件となる)。演習問題2.10.1の例はこの条件を満たしている( $H_1,H_2\triangleleft G, H_1\cap H_2=\lbrace1\rbrace, H_1H_2=\mathbb{C}^\times$ )。
+
+逆側は、同型による条件が $H_1,H_2$ の間の関係を縛るには緩いので意味のあることを言うのは難しい。
+
+例えば↑の逆が成り立たない例として $G=H\times I\times J, H\cong I\cong J$ のとき、 $G/H\cong I\times J\cong H\times I$ かつ、 $G/(H\times I)\cong J\cong H$ なので $G/H\cong H\times I, G/(H\times I)\cong H$ だが、$H(H\times I)=(H\times\lbrace1_G\rbrace)(H\times I)=H\times I\ne G$ である。
+
+$G$ が有限群で、 $G\triangleright H_1,H_2$ かつ $H_1\cap H_2=\lbrace1_G\rbrace$ という条件のもとでなら、 $G/H_1\cong H_2\land G/H_2\cong H_1\Leftrightarrow G\cong H_1\times H_2$ は言える。左向きは↑で言っているので、右向きを示す。 $\phi: G\ni g\mapsto(gH_2,gH_1)\in G/H_2\times G/H_1\cong H_1\times H_2$ とすると、p.59 命題2.8.13より成分ごとに準同型写像であることが言えるから $\phi$ 自体も準同型写像である。 $g \in \mathrm{Ker}(\phi)\Leftrightarrow g\in H_2\land g\in H_1\Leftrightarrow g\in H_1\cap H_2$ なので $\mathrm{Ker}(\phi)=H_1\cap H_2=\lbrace1_G\rbrace$ である。従って準同型定理(p.63 定理2.10.1)より、 $G\cong G/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)\subset G/H_2\times G/H_1\cong H_1\times H_2$ だが、p.53 定理2.6.20(ラグランジュの定理)より $|G|=|G/H_1||H_1|=|H_2||H_1|=|H_1\times H_2|$ なので $G\cong\mathrm{Im}(\phi)$ となるためには $\mathrm{Im}(\phi)=G/H_2\times G/H_1\cong H_1\times H_2$ でなければならない。すなわち $G\cong H_1\times H_2$ である。これで右向きが示せた。
 
 #### 2.10.2
 
@@ -299,7 +309,14 @@ p.67 例2.10.6より巡回群の部分群は巡回群なので各元が生成す
 
 ※ $n\mathbb{Z}/12\mathbb{Z} \quad(n\mid 12), n\mathbb{Z}/18\mathbb{Z}\quad(n\mid18)$ と表記できる
 ※p.67 例2.10.6で $d\mathbb{Z},d\mid n$ から↑は直接的に言えそう
-※特定の位数の部分群は $1$ つだけになっているがそうなる条件は？
+
+##### ※巡回群の部分群について特定の位数の部分群は $1$ つだけになっているがそうなる条件は？
+
+巡回群の部分群はある位数について高々 $1$ つである(つまり特定の位数の部分群は(存在すれば) $1$ つだけ、は常に成立する)。
+
+p.67 例2.10.6より位数 $n$ の巡回群は $\mathbb{Z}/n\mathbb{Z}$ と同型である。また、 $\mathbb{Z}/n\mathbb{Z}$ の部分群は $\mathbb{Z}$ の $n\mathbb{Z}$ を含む部分群、すなわち $d$ を $n$ の約数としたときの $d\mathbb{Z}$ と1対1対応する。よって $x$ を巡回群の生成元として位数 $n$ の巡回群の部分群は $d\mathbb{Z}/n\mathbb{Z}\cong\langle x^d\rangle$ と1対1対応する。p.70 演習問題2.4.6から $x^d$ の位数は $\frac{n}{\gcd(n,d)}=\frac{n}{d}$ なので、p.40 命題2.4.19から $|\langle x^d\rangle|=\frac{n}{d}$ である。つまり $n$ の約数 $d$ に対して部分群が1対1対応し異なる $d$ に対応する部分群の位数( $=\frac{n}{d}$ )はすべて異なる。よって、巡回群の部分群はある位数について高々 $1$ つである。
+
+なお、榎本直也, 群論, 日評ベーシック・シリーズ, 日本評論社, 2022 p.36 命題3.5が教科書の流れが違うので証明の仕方等が少々異なるが概ね本件の内容(※)にあたる。
 
 #### 2.10.8
 
