@@ -84,8 +84,14 @@ $f:A\rightarrow B$で
 
 ### 2.10 準同型定理
 
-* p.63 定理 2.10.1 準同型定理(第一同型定理) $\phi:G\rightarrow H$が群の準同型、$\pi:G\rightarrow G/\mathrm{Ker}(\phi)$が自然な準同型$\Rightarrow (\exists!\psi:G/\mathrm{Ker}(\phi)\rightarrow H,((\phi=\psi\circ\pi)\land(\psi:G/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)))$
-* p.64 定理 2.10.2 準同型定理(部分群の対応) $N\triangleleft G, \pi:G\rightarrow G/N$が自然な準同型、$\mathbb{X}=\{X|X\le G/N\}, \mathbb{Y}=\{Y|N\subset Y\land Y\le G\}\Rightarrow\exists\phi:\mathbb{X}\ni H\mapsto\pi^{-1}(H)\in\mathbb{Y},\psi:\mathbb{Y}\ni K\mapsto\pi(K)\in\mathbb{X},\phi\circ\psi=\mathrm{id}_\mathbb{Y}\land\psi\circ\phi=\mathrm{id}_\mathbb{X}$
+* p.63 定理2.10.1 準同型定理(第一同型定理) $\phi:G\rightarrow H$ が群の準同型、 $\pi:G\rightarrow G/\mathrm{Ker}(\phi)$ が自然な準同型 $\Rightarrow (\exists!\psi:G/\mathrm{Ker}(\phi)\rightarrow H,((\phi=\psi\circ\pi)\land(\psi:G/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)))$
+* p.64 定理2.10.2 準同型定理(部分群の対応) $N\triangleleft G, \pi:G\rightarrow G/N$が自然な準同型、$\mathbb{X}=\{X|X\le G/N\}, \mathbb{Y}=\{Y|N\subset Y\land Y\le G\}\Rightarrow\exists\phi:\mathbb{X}\ni H\mapsto\pi^{-1}(H)\in\mathbb{Y},\psi:\mathbb{Y}\ni K\mapsto\pi(K)\in\mathbb{X},\phi\circ\psi=\mathrm{id}_\mathbb{Y}\land\psi\circ\phi=\mathrm{id}_\mathbb{X}$
 * p.65 命題2.10.3 第二同型定理 $H\le G, N\triangleleft G$ (1) $HN \le G\land HN=NH$ (2) $H\cap N\triangleleft H\land HN/N\cong H/H\cap N$
 * p.66 命題2.10.4 第三同型定理 $N\subset N^\prime,N\triangleleft G,N^\prime\triangleleft G$ (1) $\exists \phi:G/N\rightarrow G/N^\prime,\phi(xN)=xN^\prime\land\phi$が準同型 (2) $(G/N)/(N^\prime/N)\cong G/N^\prime$
 * p.66 命題2.10.5 準同型の分解 $\phi:G\rightarrow H$が群の準同型、$N\triangleleft G,\pi:G\rightarrow G/N$が自然な準同型 $\exists \psi \in \mathrm{homo}(G/N\rightarrow H)\land\phi=\psi\circ\pi\Leftrightarrow N\subset\mathrm{Ker}(\phi)$
+
+## 第4章 群の作用とシローの定理
+
+### 4.1 群の作用
+
+* p.93 命題4.1.23 $G$ が $X$ に作用、$x\in X$ のとき、 $G/G_x\ni gG_x\mapsto gx\in G\cdot x$ は全単射。従って $|G\cdot x|=(G:G_x)$ 、 $|G|\lt\infty$ であれば $|G\cdot x|=|G|/|G_x|$
