@@ -30,9 +30,9 @@ $x$ の同値類は $\{y\in G|y\sim x\}(\text{p.48 定義2.6.7})$ 。↑より $
 
 ### p.94 定義4.1.26
 
-1. $N_G(H)=\{g\in G|gHg^{-1}=H\}$
-2. $Z_G(H)=\{g\in G|\forall h\in H, gh=hg\}$
-3. $Z(G)=Z_G(G)$
+1. $N_G(H)=\{g\in G|gHg^{-1}=H\}$ ：正規化群：共役による作用が $H$ 内に閉じる
+2. $Z_G(H)=\{g\in G|\forall h\in H, gh=hg\}$ ：中心化群： $H$ の元と可換な $G$ の元
+3. $Z(G)=Z_G(G)$ ： $G$ の中心： $G$ の任意の元と可換な元
 
 $G\supset N_G(H)\supset H \land N_G(H)\triangleright H$ であり、 $N_G(H)$ は $H$ を正規部分群としてもつ $G$ の部分群のうち最大のものになるはず。
 
@@ -45,6 +45,25 @@ $Z(G)$ は可換群だが、 $G$ の最大の可換部分群とは異なる。�
 ### p.94 定義4.1.26の下の例
 
 $u\in\mathbb{Z}$ が重要。 $\mathbb{Q}$ でも議論は成立しないから連続かどうかとは違う。相手を固定した乗法(スカラー倍)が全射じゃない、除法が定義できない、体ではない、くらい？
+
+### p.95 定理4.1.28(1)
+
+$\mathrm{Ad}(g)(x)=x\Leftrightarrow gxg^{-1}=x\Leftrightarrow gx=xg$ なので、安定化群 $G_x=Z_G(x)$ ※
+また軌道 $G\cdot x=\{gxg^{-1}|g\in G\}=C(x)$ ←共役類
+命題4.1.23 $|G\cdot x|=\frac{|G|}{|G_x|}$ に当てはめて、 $|C(x)|=\frac{|G|}{|Z_G(x)|}$
+
+※p.94 定義4.1.27の前の記載から $Z_G(x)=Z_G(\langle x\rangle)=\{g\in G|gxg^{-1}=x\}$ なので $\langle x\rangle$ ではなく $x$ だけ考えてよい。
+
+### p.95 類等式の制約
+
+(3)は $Z(G)=Z_G(G)$ が $G$ の部分群であることからp.53系2.6.21(1)を使って言える
+
+$\forall x\in G(C(x)=1)$ ならば $G$ は可換群。なぜなら常に $x \in C(x)$ なので $|C(x)|=1\Leftrightarrow C(x)=\{x\}\Leftrightarrow\forall g\in G(gxg^{-1}=x)=\Leftrightarrow\forall g\in G(gx=xg)$
+$\forall x\in G$ についてこれが成立することになるので $G$ は可換群。
+
+### p.96 例4.1.30
+
+「なので、 $C(x)=\{(1\;2),(1\;3),(2\;3)\}$ 」は上2つの具体的な計算結果と $|C(x)|=3$ から来ている。そもそも「可換でない」について共役で計算してるのが流れ的に素直じゃないかも。
 
 ### 演習問題
 
