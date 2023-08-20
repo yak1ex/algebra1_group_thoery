@@ -88,13 +88,13 @@ $\rho(x_4)=\begin{pmatrix}1\;2\;3\;4\\4\;3\;2\;1\end{pmatrix}=(1\;4)(2\;3)=x_4$
 $x_1=1_{\mathfrak{S}_3}=1, x_2=(1\;2), x_3=(1\;3), x_4=(2\;3), x_5=(1\;2\;3), x_6=(1\;3\;2)$
 
 $x_4x_1=x_4$
-$x_4x_2=x_5$
-$x_4x_3=x_6$
+$x_4x_2=x_6$
+$x_4x_3=x_5$
 $x_4x_4=x_1$
-$x_4x_5=x_2$
-$x_4x_6=x_3$
+$x_4x_5=x_3$
+$x_4x_6=x_2$
 
-以上より $\rho((2\;3))=\rho(x_4)=(1\;4)(2\;5)(3\;6)$
+以上より $\rho((2\;3))=\rho(x_4)=(1\;4)(2\;6)(3\;5)$
 
 #### 4.1.3
 
@@ -108,15 +108,13 @@ $(1\;3\;2)x_3=(1\;2\;3)\in x_2H$
 
 $x_1=1,x_2=(1\;2),x_3=(1\;3),x_4=(2\;3),x_5=(1\;2\;3),x_6=(1\;3\;2)$ として、
 $x_5x_1x_5^{-1}=1=x_1$
-$x_5x_2x_5^{-1}=(1\;2)=x_2$
-$x_5x_3x_5^{-1}=(1\;3)=x_3$
-$x_5x_4x_5^{-1}=(2\;3)=x_4$
+$x_5x_2x_5^{-1}=(2\;3)=x_4$
+$x_5x_3x_5^{-1}=(1\;3)=x_2$
+$x_5x_4x_5^{-1}=(2\;3)=x_3$
 $x_5x_5x_5^{-1}=(1\;2\;3)=x_5$
 $x_5x_6x_5^{-1}=(1\;3\;2)=x_6$
 なので
-$\rho((1\;2\;3))=\rho(x_5)=1$
-
-※正規部分群の元であることと関係しているだろうか？
+$\rho((1\;2\;3))=\rho(x_5)=(2\;4\;3)$
 
 #### 4.1.5
 
@@ -171,12 +169,12 @@ $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ で�
 #### 4.1.8 担当
 
 1. $\sigma((2,4))=(\sigma(2),\sigma(4))=(1,4)$
-2. 以下 $i,j\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),(3,3),(4,4)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
-$i=j$ の場合を考えると、$\sigma$ として $(i\;1),(i\;2),(i\;3),(i\;4)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace=Z$
-$i\neq j$ の場合を考えると、$\sigma$ として $(i\;k)(j\;l)$ ($k\neq l$) を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace=Y\setminus Z$
+2. 以下 $i,j\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),\cdots,(n,n)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
+$i=j$ の場合を考えると、$\sigma$ として $(i\;1),(i\;2),\cdots,(i\;n)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace=Z$
+$i\neq j$ の場合を考えると、$\sigma$ として $(i\;k)(j\;l)$ ($k\neq l\in X$) を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace=Y\setminus Z$
 以上により軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は例えば $(1,1), (1,2)$ ととれる。
-3. $(1,1)$ に対する安定化群は、$1$ を固定した置換($\mathfrak{S}_3$ と同型)で、$(1,2)$ に対する安定化群は、$1,2$ を固定した置換($\mathfrak{S}_2$ と同型)である。
-※$|G|=24,|G_{(1,1)}|=6,|G\cdot(1,1)|=|Z|=4,|G_{(1,2)}|=2,|G\cdot(1,2)|=|Y\setminus Z|=12$
+3. $(1,1)$ に対する安定化群は、$1$ を固定した置換($\mathfrak{S}_{n-1}$ と同型)で、$(1,2)$ に対する安定化群は、$1,2$ を固定した置換($\mathfrak{S}_{n-2}$ と同型)である。
+※$|G|=n!,|G_{(1,1)}|=(n-1)!,|G\cdot(1,1)|=|Z|=n,|G_{(1,2)}|=(n-2)!,|G\cdot(1,2)|=|Y\setminus Z|=n^2-n=n(n-1)$
 
 #### 4.1.9
 
