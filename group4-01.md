@@ -69,40 +69,114 @@ $\forall x\in G$ についてこれが成立することになるので $G$ は�
 
 #### 4.1.1
 
-$G=\{x_1=1,x_2=(1\;2)(3\;4),x_3=(1\;3)(2\;4),x_3=(1\;4)(2\;3)\}, \rho:G\rightarrow \mathfrak{S}_4, \rho(x_2),\rho(x_3),\rho(x_4)$
+| ↓ $\circ$ → | $x_1$ <br> $=1$ <br> $=\begin{pmatrix}1\;2\;3\;4\\1\;2\;3\;4\end{pmatrix}$ | $x_2$ <br> $(1\;2)(3\;4)$ <br> $=\begin{pmatrix}1\;2\;3\;4\\2\;1\;4\;3\end{pmatrix}$ | $x_3$ <br> $=(1\;3)(2\;4)$ <br> $=\begin{pmatrix}1\;2\;3\;4\\3\;4\;1\;2\end{pmatrix}$ | $x_4$ <br> $=(1\;4)(2\;3)$ <br> $=\begin{pmatrix}1\;2\;3\;4\\4\;3\;2\;1\end{pmatrix}$ |
+| -           |   -   |   -   |   -   |   -   |
+| $x_1$       | $x_1$ | $x_2$ | $x_3$ | $x_4$ |
+| $x_2$       | $x_2$ | $x_1$ | $x_4$ | $x_3$ |
+| $x_3$       | $x_3$ | $x_4$ | $x_1$ | $x_2$ |
+| $x_4$       | $x_4$ | $x_3$ | $x_2$ | $x_1$ |
+
+上表より $G$ は可換群である。よって左からの積でも右からの積でも作用の結果は変わらない。
+
+$\rho(x_1)=1$
+$\rho(x_2)=\begin{pmatrix}1\;2\;3\;4\\2\;1\;4\;3\end{pmatrix}=(1\;2)(3\;4)=x_2$
+$\rho(x_3)=\begin{pmatrix}1\;2\;3\;4\\3\;4\;1\;2\end{pmatrix}=(1\;3)(2\;4)=x_3$
+$\rho(x_4)=\begin{pmatrix}1\;2\;3\;4\\4\;3\;2\;1\end{pmatrix}=(1\;4)(2\;3)=x_4$
 
 #### 4.1.2 担当
 
-$G=\mathfrak{S}_3, x_1=1_{\mathfrak{S}_3}=1, x_2=(1\;2), x_3=(1\;3), x_4=(2\;3), x_5=(1\;2\;3), x_6=(1\;3\;2), g=(1\;2), h=(1\;2\;3), \rho((2\;3))$
+$x_1=1_{\mathfrak{S}_3}=1, x_2=(1\;2), x_3=(1\;3), x_4=(2\;3), x_5=(1\;2\;3), x_6=(1\;3\;2)$
+
+$x_4x_1=x_4$
+$x_4x_2=x_5$
+$x_4x_3=x_6$
+$x_4x_4=x_1$
+$x_4x_5=x_2$
+$x_4x_6=x_3$
+
+以上より $\rho((2\;3))=\rho(x_4)=(1\;4)(2\;5)(3\;6)$
 
 #### 4.1.3
 
-$G=\mathfrak{S}_3,H=\langle(1\;2)\rangle,G/H=\{x_1=1,x_2=(1\;2\;3),x_3=(1\;3\;2)\},\rho((1\;3\;2))$
+$x_1=1,x_2=(1\;2\;3),x_3=(1\;3\;2)$
+$(1\;3\;2)x_1=(1\;3\;2)\in x_3H$
+$(1\;3\;2)x_2=1\in x_1H$
+$(1\;3\;2)x_3=(1\;2\;3)\in x_2H$
+よって $\rho((1\;3\;2))=(1\;3\;2)$
 
 #### 4.1.4
 
-$G=\mathfrak{S}_3$ 共役による作用で置換表現 $\rho$
-$1,(1\;2),(1\;3),(2\;3),(1\;2\;3),(1\;3\;2)$ の順序で番号
-$\rho((1\;2\;3))$
+$x_1=1,x_2=(1\;2),x_3=(1\;3),x_4=(2\;3),x_5=(1\;2\;3),x_6=(1\;3\;2)$ として、
+$x_5x_1x_5^{-1}=1=x_1$
+$x_5x_2x_5^{-1}=(1\;2)=x_2$
+$x_5x_3x_5^{-1}=(1\;3)=x_3$
+$x_5x_4x_5^{-1}=(2\;3)=x_4$
+$x_5x_5x_5^{-1}=(1\;2\;3)=x_5$
+$x_5x_6x_5^{-1}=(1\;3\;2)=x_6$
+なので
+$\rho((1\;2\;3))=\rho(x_5)=1$
+
+※正規部分群の元であることと関係しているだろうか？
 
 #### 4.1.5
 
-$G$ 四元数群 $x_1=1, x_2=-1, x_3=i, x_4=-i, x_5=j, x_6=-j, x_7=k, x_8=-k$
-$G$ に $G$ に左からの積で作用させ、 $\rho:G\rightarrow\mathfrak{S}_8$ を置換表現
+p.32の乗積表より抜粋して
+| | $x_1=1$ | $x_2=-1$ | $x_3=i$ | $x_4=-i$ | $x_5=j$ | $x_6=-j$ | $x_7=k$ | $x_8=-k$ |
+|-|-|-|-|-|-|-|-|-|
+|$x_3=i$|$x_3=i$|$x_4=-i$|$x_2=-1$|$x_1=1$|$x_7=k$|$x_8=-k$|$x_6=-j$|$x_5=j$|
+|$x_7=k$|$x_7=k$|$x_8=-k$|$x_5=j$|$x_6=-j$|$x_4=-i$|$x_3=i$|$x_2=-1$|$x_1=1$|
 
-1. $\rho(i)$
-2. $\rho(k)$
+
+1. $\rho(i)=(1\;3\;2\;4)(5\;7\;6\;8)$
+2. $\rho(k)=(1\;7\;2\;8)(3\;5\;4\;6)$
 
 #### 4.1.6
 
-$x,y\in G, \mathrm{ord}(x)=7$
+$yxy^{-1}=x^k$ とすると、
+$yx^ny^{-1}=(yxy^{-1})^n=x^{kn}$ であり、
+$y^mx^ny^{-m}=y^{m-1}(yxy^{-1})^ny^{-(m-1)}=y^{m-1}x^{kn}y^{-(m-1)}=y^{m-2}x^{k^2n}y^{-(m-2)}=\ldots=x^{k^mn}$
 
-1. $yxy^{-1}=x^3\Rightarrow y^{100}xy^{-100}$
-2. $yxy^{-1}=x^5\Rightarrow y^{1000}xy^{-1000}$
+$n=1$ で $x$ の位数が $7$ の場合となるので $k^m$ を $7$ で割った余りを求めればよい。
+ここで $7$ は素数で、 $3,5$ は $7$ で割り切れないため p.53 定理2.6.23より $3^6\equiv1\mod7$ であり $5^6\equiv1\mod7$ である。
+
+1. $k=3, m=100$ の場合である。 $3^{100}=3^{6\cdot16+4}=(3^6)^{16}\cdot3^4\equiv3^4\equiv4\mod7$ なので $y^{100}xy^{-100}=x^4$
+2. $k=5, m=1000$ の場合である。 $5^{1000}=5^{6\cdot166+4}=(5^6)^{166}\cdot5^4\equiv5^4\equiv2\mod7$ なので $y^{1000}xy^{-1000}=x^2$
 
 #### 4.1.7
 
+$R_i(\theta)$ を 第 $1$ 軸－第 $i$ 軸平面上での回転行列とする $(i\neq1)$ 。すなわち
+
+$r_i(\theta)_{1,1}=r_i(\theta)_{i,i}=\cos\theta$
+$r_i(\theta)_{1,i}=-\sin\theta$
+$r_i(\theta)_{i,1}=\sin\theta$
+$r_i(\theta)_{j,k}=\delta_{j,k} (j\neq1\lor j\neq i\lor k\neq1 \lor k\neq i)$
+
+$$
+R_i(\theta) = \begin{pmatrix}
+\cos\theta & \cdots & -\sin\theta & \cdots \\
+0 & 1 & 0 & \cdots \\
+\cdots \\
+\sin\theta & \cdots & \cos\theta & \cdots \\
+\cdots
+\end{pmatrix}
+$$
+
+このとき、 $\det R_i(\theta)=1$(※)かつ ${}^t R_i(\theta) R_i(\theta) = I_n$ なので $R_i(\theta)\in\mathrm{SO}_n=G$ である。
+※ $2$ 行 $i$ 行、 $2$ 列 $i$ 列をそれぞれ入れ替えると行列式は不変(符号が $2$ 回反転)、 結果は $2$ 次元の回転行列と単位行列のブロック対角行列になりそれぞれの行列式の値は $1$ のため)
+また、 $\lVert R_i(\theta)\boldsymbol{x}\rVert=\sqrt{{}^t\lbrace R_i(\theta)\boldsymbol{x}\rbrace\lbrace R_i(\theta)\boldsymbol{x}\rbrace}=\sqrt{{}^t\boldsymbol{x}{}^t R_i(\theta)R_i(\theta)\boldsymbol{x}}=\sqrt{{}^t\boldsymbol{x}I_n\boldsymbol{x}}=\sqrt{{}^t\boldsymbol{x}\boldsymbol{x}}=\lVert\boldsymbol{x}\rVert$ なので $R_i(\theta)$ の作用で長さは不変である。
+
+$\boldsymbol{x}=\boldsymbol{0}$ ならば $\boldsymbol{y}=\boldsymbol{0}$ となるので、 $G\boldsymbol{x}=\lbrace\boldsymbol{0}\rbrace=G\boldsymbol{y}$ のため、 $\boldsymbol{x},\boldsymbol{y}$ は同じ軌道に属する。
+$\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ ではない。第 $i(\neq2)$ 成分が $0$ でないとすると、 第 $1$ 軸－第 $i$ 軸平面上での回転、すなわち適当な $\theta$ をとって $R_i(\theta)$ を作用させることで第 $1$ 成分が正、第 $i$ 成分が $0$ とできる。この作用で長さは不変なのでこれを繰り返すことで $R_{i_n}(\theta_n)\cdots R_{i_1}(\theta_1)\boldsymbol{x}=\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack$ とできる。 $R_{i_n}(\theta_n)\cdots R_{i_1}(\theta_1)\in G$ なので、$\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack\in G\boldsymbol{x}$ 。 $\boldsymbol{x}\neq\boldsymbol{0}$ ならば $\boldsymbol{y}\neq\boldsymbol{0}$ となので同様の議論によって、$\lbrack\lVert\boldsymbol{y}\rVert,0,\cdots,0\rbrack=\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack\in G\boldsymbol{y}$ 。 従って、 $G\boldsymbol{x}\cap G\boldsymbol{y}\neq\emptyset$ なので、p.92 系4.1.21より $G\boldsymbol{x}=G\boldsymbol{y}$ となり、 $\boldsymbol{x},\boldsymbol{y}$ は同じ軌道に属する。
+
 #### 4.1.8 担当
+
+1. $\sigma((2,4))=(\sigma(2),\sigma(4))=(1,4)$
+2. 以下 $i,j\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),(3,3),(4,4)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
+$i=j$ の場合を考えると、$\sigma$ として $(i\;1),(i\;2),(i\;3),(i\;4)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace=Z$
+$i\neq j$ の場合を考えると、$\sigma$ として $(i\;k)(j\;l)$ ($k\neq l$) を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace=Y\setminus Z$
+以上により軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は例えば $(1,1), (1,2)$ ととれる。
+3. $(1,1)$ に対する安定化群は、$1$ を固定した置換($\mathfrak{S}_3$ と同型)で、$(1,2)$ に対する安定化群は、$1,2$ を固定した置換($\mathfrak{S}_2$ と同型)である。
+※$|G|=24,|G_{(1,1)}|=6,|G\cdot(1,1)|=|Z|=4,|G_{(1,2)}|=2,|G\cdot(1,2)|=|Y\setminus Z|=12$
 
 #### 4.1.9
 
@@ -118,8 +192,17 @@ $x,y\in G, \mathrm{ord}(x)=7$
 
 #### 4.1.15 (2)担当
 
+2. $\forall h\in G$ について $(\rho(1_G)f)(h)=f(h1_G^{-1})=f(h1_G)=f(h)$ なので $(\rho(1_G)f)=f$
+また、 $\forall h\in G$ について、 $e\in G$ として $(\rho(e)(\rho(g)f))(h)=(\rho(g)f))(he^{-1})=f(he^{-1}g^{-1})=f(h(ge)^{-1})=(\rho(ge)f)(h)$ なので $\rho(e)(\rho(g)f)=\rho(ge)f$
+以上により $\rho(g)f$ は $G$ の $X$ への右作用である。
+
+※ $X\ni f\mapsto\rho(g)f\in X$ は厳密な表記ではなくて、 $G\times X\ni (g,f)\mapsto\rho(g)f\in X$ なのでは
+
 #### 4.1.16
 
 #### 4.1.17
 
 #### 4.1.18
+
+* (1): $3$ が $8$ の約数ではない
+* (4): $1$ の現れる回数 $6$ が $8$ の約数ではない

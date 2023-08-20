@@ -94,4 +94,5 @@ $f:A\rightarrow B$で
 
 ### 4.1 群の作用
 
+* p.92 系4.1.21 $G$ が $X$ に作用、 $x,y\in X, (G\cdot x)\cap(G\cdot y)\neq\emptyset\Rightarrow G\cdot y=G\cdot x\land G_y \cong G_x$
 * p.93 命題4.1.23 $G$ が $X$ に作用、$x\in X$ のとき、 $G/G_x\ni gG_x\mapsto gx\in G\cdot x$ は全単射。従って $|G\cdot x|=(G:G_x)$ 、 $|G|\lt\infty$ であれば $|G\cdot x|=|G|/|G_x|$
