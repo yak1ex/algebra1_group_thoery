@@ -85,6 +85,8 @@ $\rho(x_4)=\begin{pmatrix}1&2&3&4\\4&3&2&1\end{pmatrix}=\begin{pmatrix}1&4\end{p
 
 #### 4.1.2 担当
 
+ref. p.90 例4.1.14(2)
+
 $x_1=1_{\mathfrak{S}_3}=1, x_2=(1\;2), x_3=(1\;3), x_4=(2\;3), x_5=(1\;2\;3), x_6=(1\;3\;2)$
 
 $x_4x_1=x_4$
@@ -98,13 +100,21 @@ $x_4x_6=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{
 
 #### 4.1.3
 
+ref. p.90 例4.1.15
+
 $x_1=1,x_2=\begin{pmatrix}1&2&3\end{pmatrix},x_3=\begin{pmatrix}1&3&2\end{pmatrix}$
 $\begin{pmatrix}1&3&2\end{pmatrix}x_1=\begin{pmatrix}1&3&2\end{pmatrix}\in x_3H$
 $\begin{pmatrix}1&3&2\end{pmatrix}x_2=1\in x_1H$
 $\begin{pmatrix}1&3&2\end{pmatrix}x_3=\begin{pmatrix}1&2&3\end{pmatrix}\in x_2H$
 よって $\rho(\begin{pmatrix}1&3&2\end{pmatrix})=\begin{pmatrix}1&3&2\end{pmatrix}$
 
+$x_1H=H=\langle\begin{pmatrix}1&2\end{pmatrix}\rangle$
+$x_2H=\lbrace\begin{pmatrix}1&2&3\end{pmatrix},\begin{pmatrix}1&3\end{pmatrix}\rbrace$
+$x_3H=\lbrace\begin{pmatrix}1&3&2\end{pmatrix},\begin{pmatrix}2&3\end{pmatrix}\rbrace$
+
 #### 4.1.4
+
+ref. p.91 例4.1.16
 
 $x_1=1,x_2=\begin{pmatrix}1&2\end{pmatrix},x_3=\begin{pmatrix}1&3\end{pmatrix},x_4=\begin{pmatrix}2&3\end{pmatrix},x_5=\begin{pmatrix}1&2&3\end{pmatrix},x_6=\begin{pmatrix}1&3&2\end{pmatrix}$ として、
 $x_5x_1x_5^{-1}=1=x_1$
@@ -140,6 +150,8 @@ $n=1$ で $x$ の位数が $7$ の場合となるので $k^m$ を $7$ で割っ�
 1. $k=3, m=100$ の場合である。 $3^{100}=3^{6\cdot16+4}=(3^6)^{16}\cdot3^4\equiv3^4\equiv4\mod7$ なので $y^{100}xy^{-100}=x^4$
 2. $k=5, m=1000$ の場合である。 $5^{1000}=5^{6\cdot166+4}=(5^6)^{166}\cdot5^4\equiv5^4\equiv2\mod7$ なので $y^{1000}xy^{-1000}=x^2$
 
+※解答の通り、 $y^2xy^{-2},y^3xy^{-3},\cdots$ で計算するほうが明快
+
 #### 4.1.7
 
 $R_i(\theta)$ を 第 $1$ 軸－第 $i$ 軸平面上での回転行列とする $(i\neq1)$ 。すなわち
@@ -165,6 +177,8 @@ $$
 
 $\boldsymbol{x}=\boldsymbol{0}$ ならば $\boldsymbol{y}=\boldsymbol{0}$ となるので、 $G\boldsymbol{x}=\lbrace\boldsymbol{0}\rbrace=G\boldsymbol{y}$ のため、 $\boldsymbol{x},\boldsymbol{y}$ は同じ軌道に属する。
 $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ ではない。第 $i(\neq2)$ 成分が $0$ でないとすると、 第 $1$ 軸－第 $i$ 軸平面上での回転、すなわち適当な $\theta$ をとって $R_i(\theta)$ を作用させることで第 $1$ 成分が正、第 $i$ 成分が $0$ とできる。この作用で長さは不変なのでこれを繰り返すことで $R_{i_n}(\theta_n)\cdots R_{i_1}(\theta_1)\boldsymbol{x}=\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack$ とできる。 $R_{i_n}(\theta_n)\cdots R_{i_1}(\theta_1)\in G$ なので、$\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack\in G\boldsymbol{x}$ 。 $\boldsymbol{x}\neq\boldsymbol{0}$ ならば $\boldsymbol{y}\neq\boldsymbol{0}$ となので同様の議論によって、$\lbrack\lVert\boldsymbol{y}\rVert,0,\cdots,0\rbrack=\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack\in G\boldsymbol{y}$ 。 従って、 $G\boldsymbol{x}\cap G\boldsymbol{y}\neq\emptyset$ なので、p.92 系4.1.21より $G\boldsymbol{x}=G\boldsymbol{y}$ となり、 $\boldsymbol{x},\boldsymbol{y}$ は同じ軌道に属する。
+
+※ $n=2$ の場合は注釈入れたほうがいいかも
 
 #### 4.1.8 担当
 
