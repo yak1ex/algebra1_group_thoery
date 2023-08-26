@@ -178,6 +178,11 @@ $i\neq j$ の場合を考えると、$\sigma$ として $\sigma(i)=k, \sigma(j)=
 
 #### 4.1.9
 
+$G=GL_2(\mathbb{R}),\boldsymbol{x}=\lbrack1,0\rbrack$
+
+1. $g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G(ad-bc\neq0)$ とすると、 $g\boldsymbol{x}=\lbrack a,c\rbrack$ となる。 $g\in G_x$ ならば $g\boldsymbol{x}=\lbrack a,c\rbrack=\lbrack 1,0\rbrack=\boldsymbol{x}$ なので、 $a=1,c=0$ である。よって、 $G_x=\left\lbrace\begin{pmatrix}1&b\\0&d\end{pmatrix}\mid b,d\in\mathbb{R}, d\neq0\right\rbrace$
+2. $G\cdot x=\lbrace\lbrack a,c\rbrack\mid a,c\in\mathbb{R}, a\neq0\lor c\neq0\rbrace$
+
 #### 4.1.10
 
 #### 4.1.11
