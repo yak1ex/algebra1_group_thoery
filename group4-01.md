@@ -170,8 +170,9 @@ $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ で�
 
 1. $\sigma((2,4))=(\sigma(2),\sigma(4))=(1,4)$
 2. 以下 $i,j\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),\cdots,(n,n)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
-$i=j$ の場合を考えると、$\sigma$ として $\begin{pmatrix}i&1\end{pmatrix},\begin{pmatrix}i&2\end{pmatrix},\cdots,\begin{pmatrix}i&n\end{pmatrix}$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace=Z$
-$i\neq j$ の場合を考えると、$\sigma$ として $\sigma(i)=k, \sigma(j)=l(k,l\in X, k\neq l)$ となる $\sigma$ を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace=Y\setminus Z$
+以下 $i\in X$ を固定する。
+$i=j$ の場合を考えると、$\sigma$ として $\begin{pmatrix}i&1\end{pmatrix},\begin{pmatrix}i&2\end{pmatrix},\cdots,\begin{pmatrix}i&n\end{pmatrix}$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace=Z$
+次に $j\in X$ も固定して $i\neq j$ の場合を考えると、$\sigma$ として $\sigma(i)=k, \sigma(j)=l(k,l\in X, k\neq l)$ となる $\sigma$ を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace=Y\setminus Z$
 以上により軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は例えば $(1,1), (1,2)$ ととれる。
 3. $(1,1)$ に対する安定化群は、$1$ を固定した置換($\mathfrak{S}_{n-1}$ と同型)で、$(1,2)$ に対する安定化群は、$1,2$ を固定した置換($\mathfrak{S}_{n-2}$ と同型)である。
 ※$|G|=n!,|G_{(1,1)}|=(n-1)!,|G\cdot(1,1)|=|Z|=n,|G_{(1,2)}|=(n-2)!,|G\cdot(1,2)|=|Y\setminus Z|=n^2-n=n(n-1)$
@@ -185,23 +186,43 @@ $G=GL_2(\mathbb{R}),\boldsymbol{x}=\lbrack1,0\rbrack$
 
 #### 4.1.10
 
-$G$ 四元数群
-
-1. $G$ の共役類
-2. $1,i$ の中心化群
+1. $x\in G$ として符号分は独立に計算できるので全組み合わせを計算すると(重複あり)、 $1x1^{-1}=x, x1x^{-1}=1, iji^{-1}=ij(-i)=-ki=-j, iki^{-1}=ik(-i)=-ij=-k,$ $jij^{-1}=ji(-j)=j(-k)=-jk=-i, jkj^{-1}=jk(-j)=-ij=-k,$ $ kik^{-1}=ki(-k)=-jk=-i, kjk^{-1}=kj(-k)=-ki=-j$
+以上により共役類としては $\lbrace\lbrace1\rbrace,\lbrace-1\rbrace,\lbrace i,-i\rbrace,\lbrace j,-j\rbrace,\lbrace k,-k\rbrace\rbrace$
+2. $x\in G$ として $x1=1x$ であることと↑の計算を参照することで、 $Z_G(1)=G, Z_G(i)=\lbrace g\in G|gig^{-1}\rbrace=\lbrace\pm1,\pm i\rbrace$ となる。
 
 #### 4.1.11
 
-ref. 命題4.1.10 $P_8,A_1=\lbrack1,0\rbrack,l_1=\overline{A_1A_5},\cdots,l_4=\overline{A_4A_8}, D_8 act on X=\lbrace l_1,\cdots,l_4\rbrace, \rho:D_8\rightarrow \mathfrak{S}_4$
-
-1. $\sigma\in D_8$ $\pi/4$ 回転 $\tau\in D_8$ $x$ 軸対象で $\rho(\sigma),\rho(\tau)$
-2. $l_1$ の安定化群
+1. $\sigma(l_i)=l_{i+1} (i\in \mathbb{Z}/4\mathbb{Z})$ なので $\rho(\sigma)=\begin{pmatrix}1&2&3&4\end{pmatrix}$
+$\tau(l_1)=l_1, \tau(l_2)=l_4, \tau(l_3)=l_3, \tau(l_4)=l_2$ なので $\rho(\tau)=\begin{pmatrix}2&4\end{pmatrix}$
+2. 置換表現を考えたときに $1$ が不変である置換になる元が $l_1$ の安定化群の元である。p.88 命題4.1.10(2)より $D_8=\lbrace1,\sigma,\cdots,\sigma^7,\tau,\tau\sigma,\cdots,\tau\sigma^7\rbrace$ である。 $\rho(\sigma^i)=\begin{pmatrix}1&2&3&4\end{pmatrix}^i(i=0,\cdots,7)$ で、 $1$ が固定されるということは、 $\rho(\sigma^i)=\begin{pmatrix}1&2&3&4\end{pmatrix}^i=1_{D_8}$ であり、 $i=0,4$ の時である。 $\tau$ は $1$ を固定するので、 $l_1$ の安定化群は $\lbrace1,\sigma^4,\tau,\tau\sigma^4\rbrace$
 
 #### 4.1.12
 
-a. $G=D_4$ b. $G=D_5$
-1. 共役類と代表元
-2. 代表元の中心化群
+$\sigma\in D_n$ を反時計回りに $2\pi/n$ 回転、 $\tau\in D_n$ を $x$ 軸対称とする。
+p.88 命題4.1.10(1) より、 $\tau^{-1}=\tau, \tau\sigma\tau=\tau\sigma\tau^{-1}=\sigma^{-1}$ で、また左から $\tau$ をかけて、 $\tau(\tau\sigma)\tau^{-1}=\tau\sigma^{-1}$
+さらに、 $\sigma\tau\sigma^{-1}=\sigma(\tau\sigma^{-1})=\sigma(\sigma\tau)=\sigma^2\tau$
+
+$G=D_4$ のとき
+
+1. 共役類 $\lbrace\lbrace1\rbrace,\lbrace\sigma^2\rbrace,\lbrace\sigma,\sigma^3\rbrace,\lbrace\tau,\tau\sigma^2\rbrace,\lbrace\tau\sigma,\tau\sigma^3\rbrace\rbrace$ 代表元 $1,\sigma,\sigma^2,\tau,\tau\sigma$
+2. 代表元の中心化群 $G, \langle\sigma\rangle, G,\langle\tau,\sigma^2\rangle,\langle\tau\sigma,\sigma^2\rangle$
+
+$G=D_5$ のとき
+
+1 2 3 4 5
+2 3 4 5 1
+3 4 5 1 2
+4 5 1 2 3
+5 1 2 3 4
+
+(2 5)(3 4)
+
+
+1. 共役類 $\lbrace\lbrace1\rbrace,\lbrace\sigma, \sigma^4\rbrace,\lbrace\sigma^2,\sigma^3\rbrace,\lbrace\tau,\tau\sigma,\tau\sigma^2,\tau\sigma^3,\tau\sigma^4\rbrace\rbrace$ 代表元 $1,\sigma,\sigma^2,\tau$
+2. 代表元の中心化群 $G, \langle\sigma\rangle, \langle\sigma\rangle, \langle\tau\rangle$
+
+※類等式からある程度検算できる
+※共役による作用の安定化群は中心化群になるので p.95 定理4.1.28(1) $|C(x)|=|G|/|Z_G(x)|$ から検算できる
 
 #### 4.1.13
 
