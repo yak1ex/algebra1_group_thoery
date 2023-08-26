@@ -63,13 +63,13 @@ $\forall x\in G$ についてこれが成立することになるので $G$ は�
 
 ### p.96 例4.1.30
 
-「なので、 $C(x)=\{(1\;2),(1\;3),(2\;3)\}$ 」は上2つの具体的な計算結果と $|C(x)|=3$ から来ている。そもそも「可換でない」について共役で計算してるのが流れ的に素直じゃないかも。
+「なので、 $C(x)=\lbrace\begin{pmatrix}1&2\end{pmatrix},\begin{pmatrix}1&3\end{pmatrix},\begin{pmatrix}2&3\end{pmatrix}\rbrace$ 」は上2つの具体的な計算結果と $|C(x)|=3$ から来ている。そもそも「可換でない」について共役で計算してるのが流れ的に素直じゃないかも。
 
 ### 演習問題
 
 #### 4.1.1
 
-| ↓ $\circ$ → | $x_1$ <br> $=1$ <br> $=\begin{pmatrix}1\;2\;3\;4\\1\;2\;3\;4\end{pmatrix}$ | $x_2$ <br> $(1\;2)(3\;4)$ <br> $=\begin{pmatrix}1\;2\;3\;4\\2\;1\;4\;3\end{pmatrix}$ | $x_3$ <br> $=(1\;3)(2\;4)$ <br> $=\begin{pmatrix}1\;2\;3\;4\\3\;4\;1\;2\end{pmatrix}$ | $x_4$ <br> $=(1\;4)(2\;3)$ <br> $=\begin{pmatrix}1\;2\;3\;4\\4\;3\;2\;1\end{pmatrix}$ |
+| ↓ $\circ$ → | $x_1$ <br> $=1$ <br> $=\begin{pmatrix}1&2&3&4\\1&2&3&4\end{pmatrix}$ | $x_2$ <br> $\begin{pmatrix}1&2\end{pmatrix}\begin{pmatrix}3&4\end{pmatrix}$ <br> $=\begin{pmatrix}1&2&3&4\\2&1&4&3\end{pmatrix}$ | $x_3$ <br> $=\begin{pmatrix}1&3\end{pmatrix}\begin{pmatrix}2&4\end{pmatrix}$ <br> $=\begin{pmatrix}1&2&3&4\\3&4&1&2\end{pmatrix}$ | $x_4$ <br> $=\begin{pmatrix}1&4\end{pmatrix}\begin{pmatrix}2&3\end{pmatrix}$ <br> $=\begin{pmatrix}1&2&3&4\\4&3&2&1\end{pmatrix}$ |
 | -           |   -   |   -   |   -   |   -   |
 | $x_1$       | $x_1$ | $x_2$ | $x_3$ | $x_4$ |
 | $x_2$       | $x_2$ | $x_1$ | $x_4$ | $x_3$ |
@@ -79,40 +79,40 @@ $\forall x\in G$ についてこれが成立することになるので $G$ は�
 上表より $G$ は可換群である。よって左からの積でも右からの積でも作用の結果は変わらない。
 
 $\rho(x_1)=1$
-$\rho(x_2)=\begin{pmatrix}1\;2\;3\;4\\2\;1\;4\;3\end{pmatrix}=(1\;2)(3\;4)=x_2$
-$\rho(x_3)=\begin{pmatrix}1\;2\;3\;4\\3\;4\;1\;2\end{pmatrix}=(1\;3)(2\;4)=x_3$
-$\rho(x_4)=\begin{pmatrix}1\;2\;3\;4\\4\;3\;2\;1\end{pmatrix}=(1\;4)(2\;3)=x_4$
+$\rho(x_2)=\begin{pmatrix}1&2&3&4\\2&1&4&3\end{pmatrix}=\begin{pmatrix}1&2\end{pmatrix}\begin{pmatrix}3&4\end{pmatrix}=x_2$
+$\rho(x_3)=\begin{pmatrix}1&2&3&4\\3&4&1&2\end{pmatrix}=\begin{pmatrix}1&3\end{pmatrix}\begin{pmatrix}2&4\end{pmatrix}=x_3$
+$\rho(x_4)=\begin{pmatrix}1&2&3&4\\4&3&2&1\end{pmatrix}=\begin{pmatrix}1&4\end{pmatrix}\begin{pmatrix}2&3\end{pmatrix}=x_4$
 
 #### 4.1.2 担当
 
 $x_1=1_{\mathfrak{S}_3}=1, x_2=(1\;2), x_3=(1\;3), x_4=(2\;3), x_5=(1\;2\;3), x_6=(1\;3\;2)$
 
 $x_4x_1=x_4$
-$x_4x_2=x_6$
-$x_4x_3=x_5$
+$x_4x_2=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}=\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=x_6$
+$x_4x_3=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}=x_5$
 $x_4x_4=x_1$
-$x_4x_5=x_3$
-$x_4x_6=x_2$
+$x_4x_5=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}=\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}=x_3$
+$x_4x_6=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}=x_2$
 
 以上より $\rho((2\;3))=\rho(x_4)=(1\;4)(2\;6)(3\;5)$
 
 #### 4.1.3
 
-$x_1=1,x_2=(1\;2\;3),x_3=(1\;3\;2)$
-$(1\;3\;2)x_1=(1\;3\;2)\in x_3H$
-$(1\;3\;2)x_2=1\in x_1H$
-$(1\;3\;2)x_3=(1\;2\;3)\in x_2H$
-よって $\rho((1\;3\;2))=(1\;3\;2)$
+$x_1=1,x_2=\begin{pmatrix}1&2&3\end{pmatrix},x_3=\begin{pmatrix}1&3&2\end{pmatrix}$
+$\begin{pmatrix}1&3&2\end{pmatrix}x_1=\begin{pmatrix}1&3&2\end{pmatrix}\in x_3H$
+$\begin{pmatrix}1&3&2\end{pmatrix}x_2=1\in x_1H$
+$\begin{pmatrix}1&3&2\end{pmatrix}x_3=\begin{pmatrix}1&2&3\end{pmatrix}\in x_2H$
+よって $\rho(\begin{pmatrix}1&3&2\end{pmatrix})=\begin{pmatrix}1&3&2\end{pmatrix}$
 
 #### 4.1.4
 
-$x_1=1,x_2=(1\;2),x_3=(1\;3),x_4=(2\;3),x_5=(1\;2\;3),x_6=(1\;3\;2)$ として、
+$x_1=1,x_2=\begin{pmatrix}1&2\end{pmatrix},x_3=\begin{pmatrix}1&3\end{pmatrix},x_4=\begin{pmatrix}2&3\end{pmatrix},x_5=\begin{pmatrix}1&2&3\end{pmatrix},x_6=\begin{pmatrix}1&3&2\end{pmatrix}$ として、
 $x_5x_1x_5^{-1}=1=x_1$
-$x_5x_2x_5^{-1}=(2\;3)=x_4$
-$x_5x_3x_5^{-1}=(1\;3)=x_2$
-$x_5x_4x_5^{-1}=(2\;3)=x_3$
-$x_5x_5x_5^{-1}=(1\;2\;3)=x_5$
-$x_5x_6x_5^{-1}=(1\;3\;2)=x_6$
+$x_5x_2x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}=x_4$
+$x_5x_3x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}=x_2$
+$x_5x_4x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}=x_3$
+$x_5x_5x_5^{-1}=x_5$
+$x_5x_6x_5^{-1}=x_6$
 なので
 $\rho((1\;2\;3))=\rho(x_5)=(2\;4\;3)$
 
@@ -125,8 +125,8 @@ p.32の乗積表より抜粋して
 |$x_7=k$|$x_7=k$|$x_8=-k$|$x_5=j$|$x_6=-j$|$x_4=-i$|$x_3=i$|$x_2=-1$|$x_1=1$|
 
 
-1. $\rho(i)=(1\;3\;2\;4)(5\;7\;6\;8)$
-2. $\rho(k)=(1\;7\;2\;8)(3\;5\;4\;6)$
+1. $\rho(i)=\begin{pmatrix}1&3&2&4\end{pmatrix}\begin{pmatrix}5&7&6&8\end{pmatrix}$
+2. $\rho(k)=\begin{pmatrix}1&7&2&8\end{pmatrix}\begin{pmatrix}3&5&4&6\end{pmatrix}$
 
 #### 4.1.6
 
@@ -170,8 +170,8 @@ $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ で�
 
 1. $\sigma((2,4))=(\sigma(2),\sigma(4))=(1,4)$
 2. 以下 $i,j\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),\cdots,(n,n)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
-$i=j$ の場合を考えると、$\sigma$ として $(i\;1),(i\;2),\cdots,(i\;n)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace=Z$
-$i\neq j$ の場合を考えると、$\sigma$ として $(i\;k)(j\;l)$ ($k\neq l\in X$) を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace=Y\setminus Z$
+$i=j$ の場合を考えると、$\sigma$ として $\begin{pmatrix}i&1\end{pmatrix},\begin{pmatrix}i&2\end{pmatrix},\cdots,\begin{pmatrix}i&n\end{pmatrix}$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i=j,\sigma\in G\rbrace=Z$
+$i\neq j$ の場合を考えると、$\sigma$ として $\sigma(i)=k, \sigma(j)=l(k,l\in X, k\neq l)$ となる $\sigma$ を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y,i\neq j,\sigma\in G\rbrace=Y\setminus Z$
 以上により軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は例えば $(1,1), (1,2)$ ととれる。
 3. $(1,1)$ に対する安定化群は、$1$ を固定した置換($\mathfrak{S}_{n-1}$ と同型)で、$(1,2)$ に対する安定化群は、$1,2$ を固定した置換($\mathfrak{S}_{n-2}$ と同型)である。
 ※$|G|=n!,|G_{(1,1)}|=(n-1)!,|G\cdot(1,1)|=|Z|=n,|G_{(1,2)}|=(n-2)!,|G\cdot(1,2)|=|Y\setminus Z|=n^2-n=n(n-1)$
