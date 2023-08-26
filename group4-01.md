@@ -185,25 +185,71 @@ $G=GL_2(\mathbb{R}),\boldsymbol{x}=\lbrack1,0\rbrack$
 
 #### 4.1.10
 
+$G$ 四元数群
+
+1. $G$ の共役類
+2. $1,i$ の中心化群
+
 #### 4.1.11
+
+ref. 命題4.1.10 $P_8,A_1=\lbrack1,0\rbrack,l_1=\overline{A_1A_5},\cdots,l_4=\overline{A_4A_8}, D_8 act on X=\lbrace l_1,\cdots,l_4\rbrace, \rho:D_8\rightarrow \mathfrak{S}_4$
+
+1. $\sigma\in D_8$ $\pi/4$ 回転 $\tau\in D_8$ $x$ 軸対象で $\rho(\sigma),\rho(\tau)$
+2. $l_1$ の安定化群
 
 #### 4.1.12
 
+a. $G=D_4$ b. $G=D_5$
+1. 共役類と代表元
+2. 代表元の中心化群
+
 #### 4.1.13
+
+$G=GL_2(\mathbb{C})$ で以下の中心化群
+
+$$
+\begin{pmatrix}
+2 & 0 \\
+0 & 1
+\end{pmatrix}
+$$
+
+$$
+\begin{pmatrix}
+2 & 1 \\
+0 & 2
+\end{pmatrix}
+$$
 
 #### 4.1.14
 
+$G=SL_2(\mathbb{R}), \mathbb{H}=\lbrace z\in\mathbb{C}|\mathrm{Im}(z)>0\rbrace, z\in\mathbb{H}, gz=(az+b)(cz+d)^{-1}$
+
+1. $cz+d\neq0, gz\in\mathbb{H}$
+2. $z\mapsto gz$ で左作用
+3. 推移的
+4. $z=\sqrt{-1}$ の安定化群
+
 #### 4.1.15 (2)担当
 
+1. $(\rho(g))f)(h)=f(gh)$ で右作用
 2. $\forall h\in G$ について $(\rho(1_G)f)(h)=f(h1_G^{-1})=f(h1_G)=f(h)$ なので $(\rho(1_G)f)=f$
 また、 $\forall h\in G$ について、 $e\in G$ として $(\rho(e)(\rho(g)f))(h)=(\rho(g)f))(he^{-1})=f(he^{-1}g^{-1})=f(h(ge)^{-1})=(\rho(ge)f)(h)$ なので $\rho(e)(\rho(g)f)=\rho(ge)f$
 以上により $\rho(g)f$ は $G$ の $X$ への右作用である。
+3. $(\rho(g))f)(h)=f(g^{-1}hg)$ で左作用
 
 ※ $X\ni f\mapsto\rho(g)f\in X$ は厳密な表記ではなくて、 $G\times X\ni (g,f)\mapsto\rho(g)f\in X$ なのでは
 
 #### 4.1.16
 
+$G\le\mathfrak{S}_n$ で推移的に作用するなら $|G|$ は $n$ で割り切れる
+
 #### 4.1.17
+
+$G\triangleright N, \mathrm{ord}(G)\equiv1\mod2, \mathrm{ord}(N)=17$
+
+1. $|\mathrm{Aut}N|$
+2. $N$ は $G$ の中心に含まれる
 
 #### 4.1.18
 
