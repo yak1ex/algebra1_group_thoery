@@ -209,15 +209,6 @@ $G=D_4$ のとき
 
 $G=D_5$ のとき
 
-1 2 3 4 5
-2 3 4 5 1
-3 4 5 1 2
-4 5 1 2 3
-5 1 2 3 4
-
-(2 5)(3 4)
-
-
 1. 共役類 $\lbrace\lbrace1\rbrace,\lbrace\sigma, \sigma^4\rbrace,\lbrace\sigma^2,\sigma^3\rbrace,\lbrace\tau,\tau\sigma,\tau\sigma^2,\tau\sigma^3,\tau\sigma^4\rbrace\rbrace$ 代表元 $1,\sigma,\sigma^2,\tau$
 2. 代表元の中心化群 $G, \langle\sigma\rangle, \langle\sigma\rangle, \langle\tau\rangle$
 
