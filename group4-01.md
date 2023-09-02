@@ -213,69 +213,157 @@ $\tau(l_1)=l_1, \tau(l_2)=l_4, \tau(l_3)=l_3, \tau(l_4)=l_2$ なので $\rho(\ta
 #### 4.1.12
 
 $\sigma\in D_n$ を反時計回りに $2\pi/n$ 回転、 $\tau\in D_n$ を $x$ 軸対称とする。
-p.88 命題4.1.10(1) より、 $\tau^{-1}=\tau, \tau\sigma\tau=\tau\sigma\tau^{-1}=\sigma^{-1}$ で、また左から $\tau$ をかけて、 $\tau(\tau\sigma)\tau^{-1}=\tau\sigma^{-1}$
-さらに、 $\sigma\tau\sigma^{-1}=\sigma(\tau\sigma^{-1})=\sigma(\sigma\tau)=\sigma^2\tau$
+p.88 命題4.1.10(1) より、 $\tau^{-1}=\tau, \tau\sigma\tau=\tau\sigma\tau^{-1}=\sigma^{-1}$ なので、 $\tau\sigma^i\tau=(\tau\sigma\tau)^i=\sigma^{-i}$ となるから $\tau\sigma^i=\sigma^{-i}\tau$ である( $i\in\mathbb{Z}$ )。
+またp.88 命題4.1.10(2) より $D_n$ の任意の元は $\tau^i\sigma^j(i=0,1,j=0,\cdots,n-1)$ と表せる。よって、
+
+* $\sigma^i\sigma^j(\sigma^i)^{-1}=\sigma^i\sigma^j\sigma^{-i}=\sigma^j$
+* $\sigma^i(\tau\sigma^j)(\sigma^i)^{-1}=\sigma^i\tau\sigma^j\sigma^{-i}=\tau\sigma^{-i}\sigma^j\sigma^{-i}=\tau\sigma^{j-2i}$
+* $(\tau\sigma^i)\sigma^j(\tau\sigma^i)^{-1}=\tau\sigma^i\sigma^j\sigma^{-i}\tau=\tau\sigma^j\tau=\tau\tau\sigma^{-j}=\sigma^{-j}$
+* $(\tau\sigma^i)(\tau\sigma^j)(\tau\sigma^i)^{-1}=\tau\sigma^i\tau\sigma^j\sigma^{-i}\tau=\tau\sigma^i\tau\tau\sigma^{i-j}=\tau\sigma^{2i-j}$
+
+となるので、自分自身以外と共役になるのは $\sigma^j,\sigma^{-j}$ の組、 $\tau\sigma^j, \tau\sigma^{j-2i}$ の組、 $\tau\sigma^j,\tau\sigma^{2i-j}$ の組となる。
 
 $G=D_4$ のとき
 
-1. 共役類 $\lbrace\lbrace1\rbrace,\lbrace\sigma^2\rbrace,\lbrace\sigma,\sigma^3\rbrace,\lbrace\tau,\tau\sigma^2\rbrace,\lbrace\tau\sigma,\tau\sigma^3\rbrace\rbrace$ 代表元 $1,\sigma,\sigma^2,\tau,\tau\sigma$
+1. 共役類 $\lbrace\lbrace1\rbrace,\lbrace\sigma,\sigma^3\rbrace,\lbrace\sigma^2\rbrace,\lbrace\tau,\tau\sigma^2\rbrace,\lbrace\tau\sigma,\tau\sigma^3\rbrace\rbrace$ 代表元 $1,\sigma,\sigma^2,\tau,\tau\sigma$
 2. 代表元の中心化群 $G, \langle\sigma\rangle, G,\langle\tau,\sigma^2\rangle,\langle\tau\sigma,\sigma^2\rangle$
+※ $\tau\sigma^2=\sigma^2\tau$ であることと、p.95 定理4.1.28(1)により $|C(x)|=|G|/|Z_G(x)|$ から求められる。
 
 $G=D_5$ のとき
 
 1. 共役類 $\lbrace\lbrace1\rbrace,\lbrace\sigma, \sigma^4\rbrace,\lbrace\sigma^2,\sigma^3\rbrace,\lbrace\tau,\tau\sigma,\tau\sigma^2,\tau\sigma^3,\tau\sigma^4\rbrace\rbrace$ 代表元 $1,\sigma,\sigma^2,\tau$
 2. 代表元の中心化群 $G, \langle\sigma\rangle, \langle\sigma\rangle, \langle\tau\rangle$
+※巡回群になることと、p.95 定理4.1.28(1)により $|C(x)|=|G|/|Z_G(x)|$ から求められる。
 
 ※類等式からある程度検算できる
 ※共役による作用の安定化群は中心化群になるので p.95 定理4.1.28(1) $|C(x)|=|G|/|Z_G(x)|$ から検算できる
 
 #### 4.1.13
 
-$G=GL_2(\mathbb{C})$ で以下の中心化群
+p.94 定義4.1.26の下の説明から $Z_G(x)=\lbrace g\in G|gxg^{-1}=x\rbrace$
+
+$g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G(a,b,c,d\in\mathbb{C},ad-bc\neq0)$ として $g^{-1}=\frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$ なので
 
 $$
 \begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+2 & 0 \\
+0 & 1
+\end{pmatrix}
+\frac{1}{ad-bc}
+\begin{pmatrix}
+d & -b \\
+-c & a
+\end{pmatrix}\\
+=\frac{1}{ad-bc}
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+2d & -2b \\
+-c & a
+\end{pmatrix}\\
+=\frac{1}{ad-bc}
+\begin{pmatrix}
+2ad-bc & -ab \\
+cd & ad-2bc
+\end{pmatrix}\\
+=\begin{pmatrix}
 2 & 0 \\
 0 & 1
 \end{pmatrix}
 $$
 
+となる。 $cd=0$ なので $c=0$ または $d=0$ だが、 $\frac{2ad-bc}{ad-bc}=2$ なので $d\neq0$ だから $c=0$ となる。この時 $ad-bc=ad\neq0$ かつ $-ab=0$ なので、 $a\neq0, b=0$ となる。よって、中心化群は
+$\lbrace\begin{pmatrix}
+a & 0 \\
+0 & d
+\end{pmatrix}|a,d\in\mathbb{C}, a\neq0, d\neq0\rbrace$
+
+
 $$
 \begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+2 & 1 \\
+0 & 2
+\end{pmatrix}
+\frac{1}{ad-bc}
+\begin{pmatrix}
+d & -b \\
+-c & a
+\end{pmatrix}\\
+=\frac{1}{ad-bc}
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+2d-c & a-2b \\
+-2c & 2a
+\end{pmatrix}\\
+=\frac{1}{ad-bc}
+\begin{pmatrix}
+2ad-ac-2bc & a^2 \\
+-c^2 & ac-2bc+2ad
+\end{pmatrix}\\
+=\begin{pmatrix}
 2 & 1 \\
 0 & 2
 \end{pmatrix}
 $$
 
+$-c^2=0$ なので $c=0$ である。また $\frac{a^2}{ad}=1$ なので、 $a=d\neq0$
+よって、中心化群は
+$\lbrace\begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}|a,b\in\mathbb{C}, a\neq0\rbrace$
+
+
 #### 4.1.14
 
 $G=SL_2(\mathbb{R}), \mathbb{H}=\lbrace z\in\mathbb{C}|\mathrm{Im}(z)>0\rbrace, z\in\mathbb{H}, gz=(az+b)(cz+d)^{-1}$
 
-1. $cz+d\neq0, gz\in\mathbb{H}$
-2. $z\mapsto gz$ で左作用
-3. 推移的
-4. $z=\sqrt{-1}$ の安定化群
+1. $cz+d=0$ と仮定する。さらに $c=0$ と仮定すると、 $d=0$ である。このとき $\mathrm{det}(g)=ad-bc=0$ となり $g\in G=\mathrm{SL}_2(\mathbb{R})$ に矛盾する。よって $c\neq0$ である。このとき $z=-\frac{d}{c}\in\mathbb{R}$ なので $\mathrm{Im}(z)=0$ となり、 $z\in\mathbb{H}=\lbrace z\in\mathbb{C}|\mathrm{Im}(z)>0\rbrace$ に矛盾する。
+以上により $cz+d\neq0$ である。
+$\mathrm{Im}(gz)=\mathrm{Im}(\frac{az+b}{cz+d})=\mathrm{Im}(\frac{(az+b)(\overline{cz+d})}{(cz+d)(\overline{cz+d})}))=\mathrm{Im}(\frac{ac|z|^2+adz+bc\overline{z}+bd}{|cz+d|^2})=\frac{1}{|cz+d|^2}\mathrm{Im}(adz+bc\overline{z})=\frac{ad-bc}{|cz+d|^2}\mathrm{Im}(z)=\frac{\mathrm{Im}(z)}{|cz+d|^2}>0$
+なので $gz\in\mathbb{H}$ である。
+2. $\phi(g,z)=gz$ とおくと、 $\phi(1,z)=z$ かつ $\phi(f,\phi(g,z))=\phi(f,gz)=fgz=\phi(fg,z)$ なので $\phi$ は左作用である。
+3. $g=\begin{pmatrix}a&b\\0&\frac{1}{a}\end{pmatrix}\in G$ ととると $gz=a^2z+ab$ なので、 $gz=\alpha+\beta i\in\mathbb{H}(\beta>0)$ とおくと、 $\alpha=a^2\mathrm{Re}(z)+ab, \beta=a^2\mathrm{Im}(z)$ となる。 $\frac{\beta}{\mathrm{Im}(z)}>0$ なので、 $a=\sqrt{\frac{\beta}{\mathrm{Im}(z)}},b=\frac{\alpha}{a}-a\mathrm{Re}(z)$ とおけば $gz$ は $\mathbb{H}$ の任意の元となる。すなわちこの作用は推移的である。
+4. $g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G_z\Leftrightarrow gz=z\Leftrightarrow\mathrm{Im}(gz)=\mathrm{Im}(z)\land\mathrm{Re}(gz)=\mathrm{Re}(z)$ である。2.の計算を参照すると、$\mathrm{Im}(gz)=\mathrm{Im}(z)\Leftrightarrow|cz+d|^2=|c\sqrt{-1}+d|^2=\sqrt{c^2+d^2}=1\Leftrightarrow c^2+d^2=1$ である。またこの条件のもとで、 $\mathrm{Re}(gz)=\mathrm{Re}(z)\Leftrightarrow ac+bd=0$ である。
 
 #### 4.1.15 (2)担当
 
-1. $(\rho(g))f)(h)=f(gh)$ で右作用
-2. $\forall h\in G$ について $(\rho(1_G)f)(h)=f(h1_G^{-1})=f(h1_G)=f(h)$ なので $(\rho(1_G)f)=f$
-また、 $\forall h\in G$ について、 $e\in G$ として $(\rho(e)(\rho(g)f))(h)=(\rho(g)f))(he^{-1})=f(he^{-1}g^{-1})=f(h(ge)^{-1})=(\rho(ge)f)(h)$ なので $\rho(e)(\rho(g)f)=\rho(ge)f$
+1. $\forall h\in G$ について $(\rho(1_G)f)(h)=f(1_Gh)=f(h)$ なので $(\rho(1_G)f)=f$
+また、 $\forall h\in G$ について、 $e\in G$ として $(\rho(e)(\rho(g)f))(h)=(\rho(g)f)(eh)=f(geh)=(\rho(ge)f)(h)$ なので $\rho(e)(\rho(g)f)=\rho(ge)f$
 以上により $\rho(g)f$ は $G$ の $X$ への右作用である。
-3. $(\rho(g))f)(h)=f(g^{-1}hg)$ で左作用
+2. $\forall h\in G$ について $(\rho(1_G)f)(h)=f(h1_G^{-1})=f(h1_G)=f(h)$ なので $(\rho(1_G)f)=f$
+また、 $\forall h\in G$ について、 $e\in G$ として $(\rho(e)(\rho(g)f))(h)=(\rho(g)f)(he^{-1})=f(he^{-1}g^{-1})=f(h(ge)^{-1})=(\rho(ge)f)(h)$ なので $\rho(e)(\rho(g)f)=\rho(ge)f$
+以上により $\rho(g)f$ は $G$ の $X$ への右作用である。
+3. $\forall h\in G$ について $(\rho(1_G)f)(h)=f(1_G^{-1}h1_G)=f(h)$ なので $(\rho(1_G)f)=f$
+また、 $\forall h\in G$ について、 $e\in G$ として $(\rho(e)(\rho(g)f))(h)=(\rho(g)f)(e^{-1}he)=f(g^{-1}e^{-1}heg)=f((eg)^{-1}h(eg))=(\rho(eg)f)(h)$ なので $\rho(e)(\rho(g)f)=\rho(eg)f$
+以上により $\rho(g)f$ は $G$ の $X$ への左作用である。
 
-※ $X\ni f\mapsto\rho(g)f\in X$ は厳密な表記ではなくて、 $G\times X\ni (g,f)\mapsto\rho(g)f\in X$ なのでは
+※ $X\ni f\mapsto\rho(g)f\in X$ は厳密には正しい表記ではなくて、 $G\times X\ni (g,f)\mapsto\rho(g)f\in X$ なのでは
 
 #### 4.1.16
 
-$G\le\mathfrak{S}_n$ で推移的に作用するなら $|G|$ は $n$ で割り切れる
+$G$ が推移的に作用するので $G\cdot x=\lbrace1,\cdots,n\rbrace$ となる $x\in\lbrace1,\cdots,n\rbrace$ が存在する。 $G$ は $\mathfrak{S}_n$ の部分群なので有限群である。p.93 命題4.1.23 より $|G\cdot x|=|G|/|G_x|$ となり、 $|G|=|G_x||G\cdot x|=|G_x|n$ となるため、 $|G|$ は $n$ で割り切れる。
 
-#### 4.1.17
+#### 4.1.17 未
 
-$G\triangleright N, \mathrm{ord}(G)\equiv1\mod2, \mathrm{ord}(N)=17$
-
-1. $|\mathrm{Aut}N|$
-2. $N$ は $G$ の中心に含まれる
+1. $17$ は素数なので、p.53 命題2.6.22より $N=\langle x\rangle(N\ni x\neq1_G)$ 。p.44 命題2.5.12から自己同型の(準)同型写像は生成元での値を決めれば $1$ つ決まる。また、考えているのは自己同型だから単射なので p.71 演習問題2.5.3(2)から位数 $17$ の生成元は位数 $17$ の位数の元と対応しなければならない。よって単位元以外の $16$ 通りありうるので、 $|\mathrm{Aut}N|=16$
+2. $N$ は正規部分群なので定義より $\forall g\in G, gng^{-1}\in N$ 。従って、$N$ に対する共役による作用を考えることができる。
+※p.95 定理4.1.28(1)から $n\in Z(G)\Leftrightarrow C(n)=\lbrace n\rbrace\Leftrightarrow|C(n)|=1\Leftrightarrow Z_G(n)=G$
+※ $\mathrm{Ad}(n)\in\mathrm{Aut}N$ なので $\mathrm{ord}(\mathrm{Ad}(n))=1,2,4,8,16$
+※ $\mathrm{ord}(G)$ は奇数
 
 #### 4.1.18
 
