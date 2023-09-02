@@ -156,10 +156,10 @@ $n=1$ で $x$ の位数が $7$ の場合となるので $k^m$ を $7$ で割っ�
 
 $R_i(\theta)$ を 第 $1$ 軸－第 $i$ 軸平面上での回転行列とする $(i\neq1)$ 。すなわち
 
-$r_i(\theta)_{1,1}=r_i(\theta)_{i,i}=\cos\theta$
+$r_i(\theta)_ {1,1}=r_ i(\theta)_{i,i}=\cos\theta$
 $r_i(\theta)_{1,i}=-\sin\theta$
 $r_i(\theta)_{i,1}=\sin\theta$
-$r_i(\theta)_{j,k}=\delta_{j,k} (j\neq1\lor j\neq i\lor k\neq1 \lor k\neq i)$
+$r_i(\theta)_ {j,k}=\delta_{j,k} (j\neq1\lor j\neq i\lor k\neq1 \lor k\neq i)$
 
 $$
 R_i(\theta) = \begin{pmatrix}
@@ -176,7 +176,7 @@ $$
 また、 $\lVert R_i(\theta)\boldsymbol{x}\rVert=\sqrt{{}^t\lbrace R_i(\theta)\boldsymbol{x}\rbrace\lbrace R_i(\theta)\boldsymbol{x}\rbrace}=\sqrt{{}^t\boldsymbol{x}{}^t R_i(\theta)R_i(\theta)\boldsymbol{x}}=\sqrt{{}^t\boldsymbol{x}I_n\boldsymbol{x}}=\sqrt{{}^t\boldsymbol{x}\boldsymbol{x}}=\lVert\boldsymbol{x}\rVert$ なので $R_i(\theta)$ の作用で長さは不変である。
 
 $\boldsymbol{x}=\boldsymbol{0}$ ならば $\boldsymbol{y}=\boldsymbol{0}$ となるので、 $G\boldsymbol{x}=\lbrace\boldsymbol{0}\rbrace=G\boldsymbol{y}$ のため、 $\boldsymbol{x},\boldsymbol{y}$ は同じ軌道に属する。
-$\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ ではない。第 $i(\neq2)$ 成分が $0$ でないとすると、 第 $1$ 軸－第 $i$ 軸平面上での回転、すなわち適当な $\theta$ をとって $R_i(\theta)$ を作用させることで第 $1$ 成分が正、第 $i$ 成分が $0$ とできる。この作用で長さは不変なのでこれを繰り返すことで $R_{i_n}(\theta_n)\cdots R_{i_1}(\theta_1)\boldsymbol{x}=\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack$ とできる。 $R_{i_n}(\theta_n)\cdots R_{i_1}(\theta_1)\in G$ なので、$\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack\in G\boldsymbol{x}$ 。 $\boldsymbol{x}\neq\boldsymbol{0}$ ならば $\boldsymbol{y}\neq\boldsymbol{0}$ となので同様の議論によって、$\lbrack\lVert\boldsymbol{y}\rVert,0,\cdots,0\rbrack=\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack\in G\boldsymbol{y}$ 。 従って、 $G\boldsymbol{x}\cap G\boldsymbol{y}\neq\emptyset$ なので、p.92 系4.1.21より $G\boldsymbol{x}=G\boldsymbol{y}$ となり、 $\boldsymbol{x},\boldsymbol{y}$ は同じ軌道に属する。
+$\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ ではない。第 $i(\neq2)$ 成分が $0$ でないとすると、 第 $1$ 軸－第 $i$ 軸平面上での回転、すなわち適当な $\theta$ をとって $R_i(\theta)$ を作用させることで第 $1$ 成分が正、第 $i$ 成分が $0$ とできる。この作用で長さは不変なのでこれを繰り返すことで $R_{i_n}(\theta_n)\cdots R_{i_1}(\theta_1)\boldsymbol{x}=\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack$ とできる。 $R_{i_n}(\theta_n)\cdots R_{i_1}(\theta_1)\in G$ なので、 $\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack\in G\boldsymbol{x}$ 。 $\boldsymbol{x}\neq\boldsymbol{0}$ ならば $\boldsymbol{y}\neq\boldsymbol{0}$ となるので同様の議論によって、 $\lbrack\lVert\boldsymbol{y}\rVert,0,\cdots,0\rbrack=\lbrack\lVert\boldsymbol{x}\rVert,0,\cdots,0\rbrack\in G\boldsymbol{y}$ 。 従って、 $G\boldsymbol{x}\cap G\boldsymbol{y}\neq\emptyset$ なので、p.92 系4.1.21より $G\boldsymbol{x}=G\boldsymbol{y}$ となり、 $\boldsymbol{x},\boldsymbol{y}$ は同じ軌道に属する。
 
 ※ $n=2$ の場合は注釈入れたほうがいいかも
 
