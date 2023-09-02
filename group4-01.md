@@ -63,13 +63,26 @@ $\forall x\in G$ についてこれが成立することになるので $G$ は�
 
 ### p.96 例4.1.30
 
-「なので、 $C(x)=\lbrace\begin{pmatrix}1&2\end{pmatrix},\begin{pmatrix}1&3\end{pmatrix},\begin{pmatrix}2&3\end{pmatrix}\rbrace$ 」は上2つの具体的な計算結果と $|C(x)|=3$ から来ている。そもそも「可換でない」について共役で計算してるのが流れ的に素直じゃないかも。
+「なので、 $C(x)=\lbrace(1\;2),(1\;3),(2\;3)\rbrace$ 」は上2つの具体的な計算結果と $|C(x)|=3$ から来ている。そもそも「可換でない」について共役で計算してるのが流れ的に素直じゃないかも。
 
 ### 演習問題
 
 #### 4.1.1
 
-| ↓ $\circ$ → | $x_1$ <br> $=1$ <br> $=\begin{pmatrix}1&2&3&4\\1&2&3&4\end{pmatrix}$ | $x_2$ <br> $\begin{pmatrix}1&2\end{pmatrix}\begin{pmatrix}3&4\end{pmatrix}$ <br> $=\begin{pmatrix}1&2&3&4\\2&1&4&3\end{pmatrix}$ | $x_3$ <br> $=\begin{pmatrix}1&3\end{pmatrix}\begin{pmatrix}2&4\end{pmatrix}$ <br> $=\begin{pmatrix}1&2&3&4\\3&4&1&2\end{pmatrix}$ | $x_4$ <br> $=\begin{pmatrix}1&4\end{pmatrix}\begin{pmatrix}2&3\end{pmatrix}$ <br> $=\begin{pmatrix}1&2&3&4\\4&3&2&1\end{pmatrix}$ |
+```math
+\begin{array}{l}
+x_1=1=\begin{pmatrix}1&2&3&4\\
+1&2&3&4\end{pmatrix} \\
+x_2=\begin{pmatrix}1&2\end{pmatrix}\begin{pmatrix}3&4\end{pmatrix} = \begin{pmatrix}1&2&3&4\\
+2&1&4&3\end{pmatrix}\\
+x_3=\begin{pmatrix}1&3\end{pmatrix}\begin{pmatrix}2&4\end{pmatrix}=\begin{pmatrix}1&2&3&4\\
+3&4&1&2\end{pmatrix}\\
+x_4=\begin{pmatrix}1&4\end{pmatrix}\begin{pmatrix}2&3\end{pmatrix}=\begin{pmatrix}1&2&3&4\\
+4&3&2&1\end{pmatrix}
+\end{array}
+```
+
+| ↓ $\circ$ → | $x_1$ | $x_2$ | $x_3$ | $x_4$ |
 | -           |   -   |   -   |   -   |   -   |
 | $x_1$       | $x_1$ | $x_2$ | $x_3$ | $x_4$ |
 | $x_2$       | $x_2$ | $x_1$ | $x_4$ | $x_3$ |
@@ -78,10 +91,17 @@ $\forall x\in G$ についてこれが成立することになるので $G$ は�
 
 上表より $G$ は可換群である。よって左からの積でも右からの積でも作用の結果は変わらない。
 
-$\rho(x_1)=1$
-$\rho(x_2)=\begin{pmatrix}1&2&3&4\\2&1&4&3\end{pmatrix}=\begin{pmatrix}1&2\end{pmatrix}\begin{pmatrix}3&4\end{pmatrix}=x_2$
-$\rho(x_3)=\begin{pmatrix}1&2&3&4\\3&4&1&2\end{pmatrix}=\begin{pmatrix}1&3\end{pmatrix}\begin{pmatrix}2&4\end{pmatrix}=x_3$
-$\rho(x_4)=\begin{pmatrix}1&2&3&4\\4&3&2&1\end{pmatrix}=\begin{pmatrix}1&4\end{pmatrix}\begin{pmatrix}2&3\end{pmatrix}=x_4$
+$$
+\begin{array}{l}
+\rho(x_1)=1\\
+\rho(x_2)=\begin{pmatrix}1&2&3&4\\
+2&1&4&3\end{pmatrix}=\begin{pmatrix}1&2\end{pmatrix}\begin{pmatrix}3&4\end{pmatrix}=x_2\\
+\rho(x_3)=\begin{pmatrix}1&2&3&4\\
+3&4&1&2\end{pmatrix}=\begin{pmatrix}1&3\end{pmatrix}\begin{pmatrix}2&4\end{pmatrix}=x_3\\
+\rho(x_4)=\begin{pmatrix}1&2&3&4\\
+4&3&2&1\end{pmatrix}=\begin{pmatrix}1&4\end{pmatrix}\begin{pmatrix}2&3\end{pmatrix}=x_4
+\end{array}
+$$
 
 #### 4.1.2 担当
 
@@ -89,12 +109,28 @@ ref. p.90 例4.1.14(2)
 
 $x_1=1_{\mathfrak{S}_3}=1, x_2=(1\;2), x_3=(1\;3), x_4=(2\;3), x_5=(1\;2\;3), x_6=(1\;3\;2)$
 
-$x_4x_1=x_4$
-$x_4x_2=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}=\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=x_6$
-$x_4x_3=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}=x_5$
-$x_4x_4=x_1$
-$x_4x_5=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}=\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}=x_3$
-$x_4x_6=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}=x_2$
+$$
+\begin{array}{l}
+x_4x_1=x_4\\
+x_4x_2=\begin{pmatrix}1&2&3\\
+1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\
+2&1&3\end{pmatrix}=\begin{pmatrix}1&2&3\\
+3&1&2\end{pmatrix}=x_6\\
+x_4x_3=\begin{pmatrix}1&2&3\\
+1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\
+3&2&1\end{pmatrix}=\begin{pmatrix}1&2&3\\
+2&3&1\end{pmatrix}=x_5\\
+x_4x_4=x_1\\
+x_4x_5=\begin{pmatrix}1&2&3\\
+1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\
+2&3&1\end{pmatrix}=\begin{pmatrix}1&2&3\\
+3&2&1\end{pmatrix}=x_3\\
+x_4x_6=\begin{pmatrix}1&2&3\\
+1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\
+3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\
+2&1&3\end{pmatrix}=x_2
+\end{array}
+$$
 
 以上より $\rho((2\;3))=\rho(x_4)=(1\;4)(2\;6)(3\;5)$
 
@@ -102,29 +138,42 @@ $x_4x_6=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{
 
 ref. p.90 例4.1.15
 
-$x_1=1,x_2=\begin{pmatrix}1&2&3\end{pmatrix},x_3=\begin{pmatrix}1&3&2\end{pmatrix}$
-$\begin{pmatrix}1&3&2\end{pmatrix}x_1=\begin{pmatrix}1&3&2\end{pmatrix}\in x_3H$
-$\begin{pmatrix}1&3&2\end{pmatrix}x_2=1\in x_1H$
-$\begin{pmatrix}1&3&2\end{pmatrix}x_3=\begin{pmatrix}1&2&3\end{pmatrix}\in x_2H$
-よって $\rho(\begin{pmatrix}1&3&2\end{pmatrix})=\begin{pmatrix}1&3&2\end{pmatrix}$
+$$
+\begin{array}{l}
+x_1=1,x_2=\begin{pmatrix}1&2&3\end{pmatrix},x_3=\begin{pmatrix}1&3&2\end{pmatrix}\\
+\begin{pmatrix}1&3&2\end{pmatrix}x_1=\begin{pmatrix}1&3&2\end{pmatrix}\in x_3H\\
+\begin{pmatrix}1&3&2\end{pmatrix}x_2=1\in x_1H\\
+\begin{pmatrix}1&3&2\end{pmatrix}x_3=\begin{pmatrix}1&2&3\end{pmatrix}\in x_2H
+\end{array}
+$$
 
-$x_1H=H=\langle\begin{pmatrix}1&2\end{pmatrix}\rangle$
-$x_2H=\lbrace\begin{pmatrix}1&2&3\end{pmatrix},\begin{pmatrix}1&3\end{pmatrix}\rbrace$
-$x_3H=\lbrace\begin{pmatrix}1&3&2\end{pmatrix},\begin{pmatrix}2&3\end{pmatrix}\rbrace$
+よって $\rho((1\;3\;2))=(1\;3\;2)$
+
+$$
+\begin{array}{l}
+x_1H=H=\langle\begin{pmatrix}1&2\end{pmatrix}\rangle\\
+x_2H=\lbrace\begin{pmatrix}1&2&3\end{pmatrix},\begin{pmatrix}1&3\end{pmatrix}\rbrace\\
+$x_3H=\lbrace\begin{pmatrix}1&3&2\end{pmatrix},\begin{pmatrix}2&3\end{pmatrix}\rbrace
+\end{array}
+$$
 
 #### 4.1.4
 
 ref. p.91 例4.1.16
 
-$x_1=1,x_2=\begin{pmatrix}1&2\end{pmatrix},x_3=\begin{pmatrix}1&3\end{pmatrix},x_4=\begin{pmatrix}2&3\end{pmatrix},x_5=\begin{pmatrix}1&2&3\end{pmatrix},x_6=\begin{pmatrix}1&3&2\end{pmatrix}$ として、
-$x_5x_1x_5^{-1}=1=x_1$
-$x_5x_2x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}=x_4$
-$x_5x_3x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}=x_2$
-$x_5x_4x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}=x_3$
-$x_5x_5x_5^{-1}=x_5$
-$x_5x_6x_5^{-1}=x_6$
-なので
-$\rho((1\;2\;3))=\rho(x_5)=(2\;4\;3)$
+$$
+\begin{array}{l}
+x_1=1,x_2=\begin{pmatrix}1&2\end{pmatrix},x_3=\begin{pmatrix}1&3\end{pmatrix},x_4=\begin{pmatrix}2&3\end{pmatrix},x_5=\begin{pmatrix}1&2&3\end{pmatrix},x_6=\begin{pmatrix}1&3&2\end{pmatrix} \text{として、}\\
+x_5x_1x_5^{-1}=1=x_1\\
+x_5x_2x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}=x_4\\
+x_5x_3x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}=x_2\\
+x_5x_4x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}=x_3\\
+x_5x_5x_5^{-1}=x_5\\
+x_5x_6x_5^{-1}=x_6
+\end{array}
+$$
+
+なので $\rho((1\;2\;3))=\rho(x_5)=(2\;4\;3)$
 
 #### 4.1.5
 
@@ -134,9 +183,8 @@ p.32の乗積表より抜粋して
 |$x_3=i$|$x_3=i$|$x_4=-i$|$x_2=-1$|$x_1=1$|$x_7=k$|$x_8=-k$|$x_6=-j$|$x_5=j$|
 |$x_7=k$|$x_7=k$|$x_8=-k$|$x_5=j$|$x_6=-j$|$x_4=-i$|$x_3=i$|$x_2=-1$|$x_1=1$|
 
-
-1. $\rho(i)=\begin{pmatrix}1&3&2&4\end{pmatrix}\begin{pmatrix}5&7&6&8\end{pmatrix}$
-2. $\rho(k)=\begin{pmatrix}1&7&2&8\end{pmatrix}\begin{pmatrix}3&5&4&6\end{pmatrix}$
+1. $\rho(i)=(1\;3\;2\;4)(5\;7\;6\;8)$
+2. $\rho(k)=(1\;7\;2\;8)(3\;5\;4\;6)$
 
 #### 4.1.6
 
@@ -156,10 +204,10 @@ $n=1$ で $x$ の位数が $7$ の場合となるので $k^m$ を $7$ で割っ�
 
 $R_i(\theta)$ を 第 $1$ 軸－第 $i$ 軸平面上での回転行列とする $(i\neq1)$ 。すなわち
 
-$r_i(\theta)_ {1,1}=r_ i(\theta)_ {i,i}=\cos\theta$
-$r_ i(\theta)_ {1,i}=-\sin\theta$
-$r_ i(\theta)_ {i,1}=\sin\theta$
-$r_ i(\theta)_ {j,k}=\delta_ {j,k} (j\neq1\lor j\neq i\lor k\neq1 \lor k\neq i)$
+* $r_i(\theta)_ {1,1}=r_ i(\theta)_ {i,i}=\cos\theta$
+* $r_i(\theta)_ {1,i}=-\sin\theta$
+* $r_i(\theta)_ {i,1}=\sin\theta$
+* $r_i(\theta)_ {j,k}=\delta_ {j,k} (j\neq1\lor j\neq i\lor k\neq1 \lor k\neq i)$
 
 $$
 R_i(\theta) = \begin{pmatrix}
@@ -185,7 +233,7 @@ $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ で�
 1. $\sigma((2,4))=(\sigma(2),\sigma(4))=(1,4)$
 2. 以下 $i,j\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),\cdots,(n,n)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
 以下 $i\in X$ を固定する。
-$i=j$ の場合を考えると、$\sigma$ として $\begin{pmatrix}i&1\end{pmatrix},\begin{pmatrix}i&2\end{pmatrix},\cdots,\begin{pmatrix}i&n\end{pmatrix}$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace=Z$
+$i=j$ の場合を考えると、$\sigma$ として $(i\;1)(i\;2),\cdots,(i\;n)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace=Z$
 次に $j\in X$ も固定して $i\neq j$ の場合を考えると、$\sigma$ として $\sigma(i)=k, \sigma(j)=l(k,l\in X, k\neq l)$ となる $\sigma$ を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace=Y\setminus Z$
 以上により軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は例えば $(1,1), (1,2)$ ととれる。
 3. $(1,1)$ に対する安定化群は、$1$ を固定した置換($\mathfrak{S}_{n-1}$ と同型)で、$(1,2)$ に対する安定化群は、$1,2$ を固定した置換($\mathfrak{S}_{n-2}$ と同型)である。
@@ -206,9 +254,9 @@ $G=GL_2(\mathbb{R}),\boldsymbol{x}=\lbrack1,0\rbrack$
 
 #### 4.1.11
 
-1. $\sigma(l_i)=l_{i+1} (i\in \mathbb{Z}/4\mathbb{Z})$ なので $\rho(\sigma)=\begin{pmatrix}1&2&3&4\end{pmatrix}$
-$\tau(l_1)=l_1, \tau(l_2)=l_4, \tau(l_3)=l_3, \tau(l_4)=l_2$ なので $\rho(\tau)=\begin{pmatrix}2&4\end{pmatrix}$
-2. 置換表現を考えたときに $1$ が不変である置換になる元が $l_1$ の安定化群の元である。p.88 命題4.1.10(2)より $D_8=\lbrace1,\sigma,\cdots,\sigma^7,\tau,\tau\sigma,\cdots,\tau\sigma^7\rbrace$ である。 $\rho(\sigma^i)=\begin{pmatrix}1&2&3&4\end{pmatrix}^i(i=0,\cdots,7)$ で、 $1$ が固定されるということは、 $\rho(\sigma^i)=\begin{pmatrix}1&2&3&4\end{pmatrix}^i=1_{D_8}$ であり、 $i=0,4$ の時である。 $\tau$ は $1$ を固定するので、 $l_1$ の安定化群は $\lbrace1,\sigma^4,\tau,\tau\sigma^4\rbrace$
+1. $\sigma(l_i)=l_{i+1} (i\in \mathbb{Z}/4\mathbb{Z})$ なので $\rho(\sigma)=(1\;2\;3\;4)$
+$\tau(l_1)=l_1, \tau(l_2)=l_4, \tau(l_3)=l_3, \tau(l_4)=l_2$ なので $\rho(\tau)=(2\;4)$
+2. 置換表現を考えたときに $1$ が不変である置換になる元が $l_1$ の安定化群の元である。p.88 命題4.1.10(2)より $D_8=\lbrace1,\sigma,\cdots,\sigma^7,\tau,\tau\sigma,\cdots,\tau\sigma^7\rbrace$ である。 $\rho(\sigma^i)=(1\;2\;3\;4)^i(i=0,\cdots,7)$ で、 $1$ が固定されるということは、 $\rho(\sigma^i)=(1\;2\;3\;4)^i=1_{D_8}$ であり、 $i=0,4$ の時である。 $\tau$ は $1$ を固定するので、 $l_1$ の安定化群は $\lbrace1,\sigma^4,\tau,\tau\sigma^4\rbrace$
 
 #### 4.1.12
 
@@ -242,7 +290,12 @@ $G=D_5$ のとき
 
 p.94 定義4.1.26の下の説明から $Z_G(x)=\lbrace g\in G|gxg^{-1}=x\rbrace$
 
-$g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G(a,b,c,d\in\mathbb{C},ad-bc\neq0)$ として $g^{-1}=\frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$ なので
+$$
+\begin{array}{l}
+g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G(a,b,c,d\in\mathbb{C},ad-bc\neq0) \text{として}\\
+g^{-1}=\frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix} \text{なので}
+\end{array}
+$$
 
 $$
 \begin{pmatrix}
@@ -279,11 +332,13 @@ cd & ad-2bc
 $$
 
 となる。 $cd=0$ なので $c=0$ または $d=0$ だが、 $\frac{2ad-bc}{ad-bc}=2$ なので $d\neq0$ だから $c=0$ となる。この時 $ad-bc=ad\neq0$ かつ $-ab=0$ なので、 $a\neq0, b=0$ となる。よって、中心化群は
-$\lbrace\begin{pmatrix}
+
+$$
+\lbrace\begin{pmatrix}
 a & 0 \\
 0 & d
-\end{pmatrix}|a,d\in\mathbb{C}, a\neq0, d\neq0\rbrace$
-
+\end{pmatrix}|a,d\in\mathbb{C}, a\neq0, d\neq0\rbrace
+$$
 
 $$
 \begin{pmatrix}
@@ -321,11 +376,12 @@ $$
 
 $-c^2=0$ なので $c=0$ である。また $\frac{a^2}{ad}=1$ なので、 $a=d\neq0$
 よって、中心化群は
-$\lbrace\begin{pmatrix}
+$$
+\lbrace\begin{pmatrix}
 a & b \\
 0 & a
-\end{pmatrix}|a,b\in\mathbb{C}, a\neq0\rbrace$
-
+\end{pmatrix}|a,b\in\mathbb{C}, a\neq0\rbrace
+$$
 
 #### 4.1.14
 
@@ -336,8 +392,15 @@ $G=SL_2(\mathbb{R}), \mathbb{H}=\lbrace z\in\mathbb{C}|\mathrm{Im}(z)>0\rbrace, 
 $\mathrm{Im}(gz)=\mathrm{Im}(\frac{az+b}{cz+d})=\mathrm{Im}(\frac{(az+b)(\overline{cz+d})}{(cz+d)(\overline{cz+d})}))=\mathrm{Im}(\frac{ac|z|^2+adz+bc\overline{z}+bd}{|cz+d|^2})=\frac{1}{|cz+d|^2}\mathrm{Im}(adz+bc\overline{z})=\frac{ad-bc}{|cz+d|^2}\mathrm{Im}(z)=\frac{\mathrm{Im}(z)}{|cz+d|^2}>0$
 なので $gz\in\mathbb{H}$ である。
 2. $\phi(g,z)=gz$ とおくと、 $\phi(1,z)=z$ かつ $\phi(f,\phi(g,z))=\phi(f,gz)=fgz=\phi(fg,z)$ なので $\phi$ は左作用である。
-3. $g=\begin{pmatrix}a&b\\0&\frac{1}{a}\end{pmatrix}\in G$ ととると $gz=a^2z+ab$ なので、 $gz=\alpha+\beta i\in\mathbb{H}(\beta>0)$ とおくと、 $\alpha=a^2\mathrm{Re}(z)+ab, \beta=a^2\mathrm{Im}(z)$ となる。 $\frac{\beta}{\mathrm{Im}(z)}>0$ なので、 $a=\sqrt{\frac{\beta}{\mathrm{Im}(z)}},b=\frac{\alpha}{a}-a\mathrm{Re}(z)$ とおけば $gz$ は $\mathbb{H}$ の任意の元となる。すなわちこの作用は推移的である。
-4. $g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G_z\Leftrightarrow gz=z\Leftrightarrow\mathrm{Im}(gz)=\mathrm{Im}(z)\land\mathrm{Re}(gz)=\mathrm{Re}(z)$ である。2.の計算を参照すると、$\mathrm{Im}(gz)=\mathrm{Im}(z)\Leftrightarrow|cz+d|^2=|c\sqrt{-1}+d|^2=\sqrt{c^2+d^2}=1\Leftrightarrow c^2+d^2=1$ である。またこの条件のもとで、 $\mathrm{Re}(gz)=\mathrm{Re}(z)\Leftrightarrow ac+bd=0$ である。
+3. ※1ととると $gz=a^2z+ab$ なので、 $gz=\alpha+\beta i\in\mathbb{H}(\beta>0)$ とおくと、 $\alpha=a^2\mathrm{Re}(z)+ab, \beta=a^2\mathrm{Im}(z)$ となる。 $\frac{\beta}{\mathrm{Im}(z)}>0$ なので、 $a=\sqrt{\frac{\beta}{\mathrm{Im}(z)}},b=\frac{\alpha}{a}-a\mathrm{Re}(z)$ とおけば $gz$ は $\mathbb{H}$ の任意の元となる。すなわちこの作用は推移的である。
+4. ※2である。2.の計算を参照すると、$\mathrm{Im}(gz)=\mathrm{Im}(z)\Leftrightarrow|cz+d|^2=|c\sqrt{-1}+d|^2=\sqrt{c^2+d^2}=1\Leftrightarrow c^2+d^2=1$ である。またこの条件のもとで、 $\mathrm{Re}(gz)=\mathrm{Re}(z)\Leftrightarrow ac+bd=0$ である。
+
+$$
+\begin{array}{ll}
+\text{※1：}&g=\begin{pmatrix}a&b\\0&\frac{1}{a}\end{pmatrix}\in G\\
+\text{※2：}&g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G_z\Leftrightarrow gz=z\Leftrightarrow\mathrm{Im}(gz)=\mathrm{Im}(z)\land\mathrm{Re}(gz)=\mathrm{Re}(z)
+\end{array}
+$$
 
 #### 4.1.15 (2)担当
 
