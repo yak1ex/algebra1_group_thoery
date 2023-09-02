@@ -156,10 +156,10 @@ $n=1$ で $x$ の位数が $7$ の場合となるので $k^m$ を $7$ で割っ�
 
 $R_i(\theta)$ を 第 $1$ 軸－第 $i$ 軸平面上での回転行列とする $(i\neq1)$ 。すなわち
 
-$r_i(\theta)_ {1,1}=r_ i(\theta)_{i,i}=\cos\theta$
-$r_i(\theta)_{1,i}=-\sin\theta$
-$r_i(\theta)_{i,1}=\sin\theta$
-$r_i(\theta)_ {j,k}=\delta_{j,k} (j\neq1\lor j\neq i\lor k\neq1 \lor k\neq i)$
+$r_i(\theta)_ {1,1}=r_ i(\theta)_ {i,i}=\cos\theta$
+$r_ i(\theta)_ {1,i}=-\sin\theta$
+$r_ i(\theta)_ {i,1}=\sin\theta$
+$r_ i(\theta)_ {j,k}=\delta_ {j,k} (j\neq1\lor j\neq i\lor k\neq1 \lor k\neq i)$
 
 $$
 R_i(\theta) = \begin{pmatrix}
