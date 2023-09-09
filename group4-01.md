@@ -63,7 +63,7 @@ $\forall x\in G$ についてこれが成立することになるので $G$ は�
 
 ### p.96 例4.1.30
 
-「なので、 $C(x)=\lbrace(1\;2),(1\;3),(2\;3)\rbrace$ 」は上2つの具体的な計算結果と $|C(x)|=3$ から来ている。そもそも「可換でない」について共役で計算してるのが流れ的に素直じゃないかも。
+「なので、 $C(x)=\lbrace(1\hspace{5mu}2),(1\hspace{5mu}3),(2\hspace{5mu}3)\rbrace$ 」は上2つの具体的な計算結果と $|C(x)|=3$ から来ている。そもそも「可換でない」について共役で計算してるのが流れ的に素直じゃないかも。
 
 ### 演習問題
 
@@ -107,7 +107,7 @@ $$
 
 ref. p.90 例4.1.14(2)
 
-$x_1=1_{\mathfrak{S}_3}=1, x_2=(1\;2), x_3=(1\;3), x_4=(2\;3), x_5=(1\;2\;3), x_6=(1\;3\;2)$
+$x_1=1_{\mathfrak{S}_3}=1, x_2=(1\hspace{5mu}2), x_3=(1\hspace{5mu}3), x_4=(2\hspace{5mu}3), x_5=(1\hspace{5mu}2\hspace{5mu}3), x_6=(1\hspace{5mu}3\hspace{5mu}2)$
 
 $$
 \begin{array}{l}
@@ -132,7 +132,7 @@ x_4x_6=\begin{pmatrix}1&2&3\\
 \end{array}
 $$
 
-以上より $\rho((2\;3))=\rho(x_4)=(1\;4)(2\;6)(3\;5)$
+以上より $\rho((2\hspace{5mu}3))=\rho(x_4)=(1\hspace{5mu}4)(2\hspace{5mu}6)(3\hspace{5mu}5)$
 
 #### 4.1.3
 
@@ -147,7 +147,7 @@ x_1=1,x_2=\begin{pmatrix}1&2&3\end{pmatrix},x_3=\begin{pmatrix}1&3&2\end{pmatrix
 \end{array}
 $$
 
-よって $\rho((1\;3\;2))=(1\;3\;2)$
+よって $\rho((1\hspace{5mu}3\hspace{5mu}2))=(1\hspace{5mu}3\hspace{5mu}2)$
 
 $$
 \begin{array}{l}
@@ -173,7 +173,7 @@ x_5x_6x_5^{-1}=x_6
 \end{array}
 $$
 
-なので $\rho((1\;2\;3))=\rho(x_5)=(2\;4\;3)$
+なので $\rho((1\hspace{5mu}2\hspace{5mu}3))=\rho(x_5)=(2\hspace{5mu}4\hspace{5mu}3)$
 
 #### 4.1.5
 
@@ -183,8 +183,8 @@ p.32の乗積表より抜粋して
 |$x_3=i$|$x_3=i$|$x_4=-i$|$x_2=-1$|$x_1=1$|$x_7=k$|$x_8=-k$|$x_6=-j$|$x_5=j$|
 |$x_7=k$|$x_7=k$|$x_8=-k$|$x_5=j$|$x_6=-j$|$x_4=-i$|$x_3=i$|$x_2=-1$|$x_1=1$|
 
-1. $\rho(i)=(1\;3\;2\;4)(5\;7\;6\;8)$
-2. $\rho(k)=(1\;7\;2\;8)(3\;5\;4\;6)$
+1. $\rho(i)=(1\hspace{5mu}3\hspace{5mu}2\hspace{5mu}4)(5\hspace{5mu}7\hspace{5mu}6\hspace{5mu}8)$
+2. $\rho(k)=(1\hspace{5mu}7\hspace{5mu}2\hspace{5mu}8)(3\hspace{5mu}5\hspace{5mu}4\hspace{5mu} 6)$
 
 #### 4.1.6
 
@@ -233,7 +233,7 @@ $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ で�
 1. $\sigma((2,4))=(\sigma(2),\sigma(4))=(1,4)$
 2. 以下 $i,j\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),\cdots,(n,n)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
 以下 $i\in X$ を固定する。
-$i=j$ の場合を考えると、$\sigma$ として $(i\;1)(i\;2),\cdots,(i\;n)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace=Z$
+$i=j$ の場合を考えると、$\sigma$ として $(i\hspace{5mu}1)(i\hspace{5mu}2),\cdots,(i\hspace{5mu}n)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace=Z$
 次に $j\in X$ も固定して $i\neq j$ の場合を考えると、$\sigma$ として $\sigma(i)=k, \sigma(j)=l(k,l\in X, k\neq l)$ となる $\sigma$ を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace=Y\setminus Z$
 以上により軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は例えば $(1,1), (1,2)$ ととれる。
 3. $(1,1)$ に対する安定化群は、$1$ を固定した置換($\mathfrak{S}_{n-1}$ と同型)で、$(1,2)$ に対する安定化群は、$1,2$ を固定した置換($\mathfrak{S}_{n-2}$ と同型)である。
@@ -254,9 +254,9 @@ $G=GL_2(\mathbb{R}),\boldsymbol{x}=\lbrack1,0\rbrack$
 
 #### 4.1.11
 
-1. $\sigma(l_i)=l_{i+1} (i\in \mathbb{Z}/4\mathbb{Z})$ なので $\rho(\sigma)=(1\;2\;3\;4)$
-$\tau(l_1)=l_1, \tau(l_2)=l_4, \tau(l_3)=l_3, \tau(l_4)=l_2$ なので $\rho(\tau)=(2\;4)$
-2. 置換表現を考えたときに $1$ が不変である置換になる元が $l_1$ の安定化群の元である。p.88 命題4.1.10(2)より $D_8=\lbrace1,\sigma,\cdots,\sigma^7,\tau,\tau\sigma,\cdots,\tau\sigma^7\rbrace$ である。 $\rho(\sigma^i)=(1\;2\;3\;4)^i(i=0,\cdots,7)$ で、 $1$ が固定されるということは、 $\rho(\sigma^i)=(1\;2\;3\;4)^i=1_{D_8}$ であり、 $i=0,4$ の時である。 $\tau$ は $1$ を固定するので、 $l_1$ の安定化群は $\lbrace1,\sigma^4,\tau,\tau\sigma^4\rbrace$
+1. $\sigma(l_i)=l_{i+1} (i\in \mathbb{Z}/4\mathbb{Z})$ なので $\rho(\sigma)=(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4)$
+$\tau(l_1)=l_1, \tau(l_2)=l_4, \tau(l_3)=l_3, \tau(l_4)=l_2$ なので $\rho(\tau)=(2\hspace{5mu}4)$
+2. 置換表現を考えたときに $1$ が不変である置換になる元が $l_1$ の安定化群の元である。p.88 命題4.1.10(2)より $D_8=\lbrace1,\sigma,\cdots,\sigma^7,\tau,\tau\sigma,\cdots,\tau\sigma^7\rbrace$ である。 $\rho(\sigma^i)=(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4)^i(i=0,\cdots,7)$ で、 $1$ が固定されるということは、 $\rho(\sigma^i)=(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4)^i=1_{D_8}$ であり、 $i=0,4$ の時である。 $\tau$ は $1$ を固定するので、 $l_1$ の安定化群は $\lbrace1,\sigma^4,\tau,\tau\sigma^4\rbrace$
 
 #### 4.1.12
 
