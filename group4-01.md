@@ -245,18 +245,24 @@ $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ で�
 1. $\sigma((2,4))=(\sigma(2),\sigma(4))=(1,4)$
 2. 以下 $i,j\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),\cdots,(n,n)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
 以下 $i\in X$ を固定する。
-$i=j$ の場合を考えると、$\sigma$ として $(i\hspace{5mu}1)(i\hspace{5mu}2),\cdots,(i\hspace{5mu}n)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j)) $ の結果は $Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace=Z$
-次に $j\in X$ も固定して $i\neq j$ の場合を考えると、$\sigma$ として $\sigma(i)=k, \sigma(j)=l(k,l\in X, k\neq l)$ となる $\sigma$ を考えれば $\sigma((i,j)) $ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace=Y\setminus Z$
+$i=j$ の場合を考えると、 $\sigma$ として $(i\hspace{5mu}1)(i\hspace{5mu}2),\cdots,(i\hspace{5mu}n)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j))$ の結果は $Z$ の元全てをとりつくす。すなわち、 $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace=Z$
+次に $j\in X$ も固定して $i\neq j$ の場合を考えると、 $\sigma$ として $\sigma(i)=k, \sigma(j)=l(k,l\in X, k\neq l)$ となる $\sigma$ を考えれば $\sigma((i,j))$ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、$\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace=Y\setminus Z$
 以上により軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は例えば $(1,1), (1,2)$ ととれる。
-3. $(1,1)$ に対する安定化群は、$1$ を固定した置換($\mathfrak{S}_{n-1}$ と同型)で、$(1,2)$ に対する安定化群は、$1,2$ を固定した置換($\mathfrak{S}_{n-2}$ と同型)である。
-※$|G|=n!,|G_{(1,1)}|=(n-1)!,|G\cdot(1,1)|=|Z|=n,|G_{(1,2)}|=(n-2)!,|G\cdot(1,2)|=|Y\setminus Z|=n^2-n=n(n-1)$
+3. $(1,1)$ に対する安定化群は、 $1$ を固定した置換( $\mathfrak{S}_{n-1}$ と同型)で、 $(1,2)$ に対する安定化群は、 $1,2$ を固定した置換( $\mathfrak{S}_{n-2}$ と同型)である。
+※ $|G|=n!,|G_{(1,1)}|=(n-1)!,|G\cdot(1,1)|=|Z|=n,$
+$|G_{(1,2)}|=(n-2)!,|G\cdot(1,2)|=|Y\setminus Z|=n^2-n=n(n-1)$
 
 #### 4.1.9
 
 $G=GL_2(\mathbb{R}),\boldsymbol{x}=\lbrack1,0\rbrack$
 
-1. $g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G(ad-bc\neq0)$ とすると、 $g\boldsymbol{x}=\lbrack a,c\rbrack$ となる。 $g\in G_x$ ならば $g\boldsymbol{x}=\lbrack a,c\rbrack=\lbrack 1,0\rbrack=\boldsymbol{x}$ なので、 $a=1,c=0$ である。よって、 $G_x=\left\lbrace\begin{pmatrix}1&b\\0&d\end{pmatrix}\mid b,d\in\mathbb{R}, d\neq0\right\rbrace$
+1. ※とすると、 $g\boldsymbol{x}=\lbrack a,c\rbrack$ となる。 $g\in G_x$ ならば $g\boldsymbol{x}=\lbrack a,c\rbrack=\lbrack 1,0\rbrack=\boldsymbol{x}$ なので、 $a=1,c=0$ である。よって、 $G_x=\left\lbrace\begin{pmatrix}1&b\\0&d\end{pmatrix}\mid b,d\in\mathbb{R}, d\neq0\right\rbrace$
 2. $G\cdot x=\lbrace\lbrack a,c\rbrack\mid a,c\in\mathbb{R}, a\neq0\lor c\neq0\rbrace$
+
+$$
+\text{※} g=\begin{pmatrix}a&b\\
+c&d\end{pmatrix}\in G(ad-bc\neq0)
+$$
 
 #### 4.1.10
 
@@ -408,7 +414,7 @@ $\mathrm{Im}(gz)=\mathrm{Im}(\frac{az+b}{cz+d})=\mathrm{Im}(\frac{(az+b)(\overli
 なので $gz\in\mathbb{H}$ である。
 2. $\phi(g,z)=gz$ とおくと、 $\phi(1,z)=z$ かつ $\phi(f,\phi(g,z))=\phi(f,gz)=fgz=\phi(fg,z)$ なので $\phi$ は左作用である。
 3. ※1ととると $gz=a^2z+ab$ なので、 $gz=\alpha+\beta i\in\mathbb{H}(\beta>0)$ とおくと、 $\alpha=a^2\mathrm{Re}(z)+ab, \beta=a^2\mathrm{Im}(z)$ となる。 $\frac{\beta}{\mathrm{Im}(z)}>0$ なので、 $a=\sqrt{\frac{\beta}{\mathrm{Im}(z)}},b=\frac{\alpha}{a}-a\mathrm{Re}(z)$ とおけば $gz$ は $\mathbb{H}$ の任意の元となる。すなわちこの作用は推移的である。
-4. ※2である。2.の計算を参照すると、$\mathrm{Im}(gz)=\mathrm{Im}(z)\Leftrightarrow|cz+d|^2=|c\sqrt{-1}+d|^2=\sqrt{c^2+d^2}=1\Leftrightarrow c^2+d^2=1$ である。またこの条件のもとで、 $\mathrm{Re}(gz)=\mathrm{Re}(z)\Leftrightarrow ac+bd=0$ である。
+4. ※2である。2.の計算を参照すると、 $\mathrm{Im}(gz)=\mathrm{Im}(z)\Leftrightarrow|cz+d|^2=|c\sqrt{-1}+d|^2=\sqrt{c^2+d^2}=1\Leftrightarrow c^2+d^2=1$ である。またこの条件のもとで、 $\mathrm{Re}(gz)=\mathrm{Re}(z)\Leftrightarrow ac+bd=0$ である。
 
 $$
 \begin{array}{ll}
@@ -440,7 +446,7 @@ $G$ が推移的に作用するので $G\cdot x=\lbrace1,\cdots,n\rbrace$ とな
 #### 4.1.17 未
 
 1. $17$ は素数なので、p.53 命題2.6.22より $N=\langle x\rangle(N\ni x\neq1_G)$ 。p.44 命題2.5.12から自己同型の(準)同型写像は生成元での値を決めれば $1$ つ決まる。また、考えているのは自己同型だから単射なので p.71 演習問題2.5.3(2)から位数 $17$ の生成元は位数 $17$ の位数の元と対応しなければならない。よって単位元以外の $16$ 通りありうるので、 $|\mathrm{Aut}N|=16$
-2. $N$ は正規部分群なので定義より $\forall g\in G, gng^{-1}\in N$ 。従って、$N$ に対する共役による作用を考えることができる。
+2. $N$ は正規部分群なので定義より $\forall g\in G, gng^{-1}\in N$ 。従って、 $N$ に対する共役による作用を考えることができる。
 ※p.95 定理4.1.28(1)から $n\in Z(G)\Leftrightarrow C(n)=\lbrace n\rbrace\Leftrightarrow|C(n)|=1\Leftrightarrow Z_G(n)=G$
 ※ $\mathrm{Ad}(n)\in\mathrm{Aut}N$ なので $\mathrm{ord}(\mathrm{Ad}(n))=1,2,4,8,16$
 ※ $\mathrm{ord}(G)$ は奇数
