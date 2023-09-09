@@ -165,9 +165,21 @@ $$
 \begin{array}{l}
 x_1=1,x_2=\begin{pmatrix}1&2\end{pmatrix},x_3=\begin{pmatrix}1&3\end{pmatrix},x_4=\begin{pmatrix}2&3\end{pmatrix},x_5=\begin{pmatrix}1&2&3\end{pmatrix},x_6=\begin{pmatrix}1&3&2\end{pmatrix} \text{として、}\\
 x_5x_1x_5^{-1}=1=x_1\\
-x_5x_2x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}=x_4\\
-x_5x_3x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\2&1&3\end{pmatrix}=x_2\\
-x_5x_4x_5^{-1}=\begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}=x_3\\
+x_5x_2x_5^{-1}=\begin{pmatrix}1&2&3\\
+2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\
+2&1&3\end{pmatrix}\begin{pmatrix}1&2&3\\
+3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\
+1&3&2\end{pmatrix}=x_4\\
+x_5x_3x_5^{-1}=\begin{pmatrix}1&2&3\\
+2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\
+3&2&1\end{pmatrix}\begin{pmatrix}1&2&3\\
+3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\
+2&1&3\end{pmatrix}=x_2\\
+x_5x_4x_5^{-1}=\begin{pmatrix}1&2&3\\
+2&3&1\end{pmatrix}\begin{pmatrix}1&2&3\\
+1&3&2\end{pmatrix}\begin{pmatrix}1&2&3\\
+3&1&2\end{pmatrix}=\begin{pmatrix}1&2&3\\
+3&2&1\end{pmatrix}=x_3\\
 x_5x_5x_5^{-1}=x_5\\
 x_5x_6x_5^{-1}=x_6
 \end{array}
@@ -292,8 +304,10 @@ p.94 定義4.1.26の下の説明から $Z_G(x)=\lbrace g\in G|gxg^{-1}=x\rbrace$
 
 $$
 \begin{array}{l}
-g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G(a,b,c,d\in\mathbb{C},ad-bc\neq0) \text{として}\\
-g^{-1}=\frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix} \text{なので}
+g=\begin{pmatrix}a&b\\
+c&d\end{pmatrix}\in G(a,b,c,d\in\mathbb{C},ad-bc\neq0) \text{として}\\
+g^{-1}=\frac{1}{ad-bc}\begin{pmatrix}d&-b\\
+-c&a\end{pmatrix} \text{なので}
 \end{array}
 $$
 
@@ -376,6 +390,7 @@ $$
 
 $-c^2=0$ なので $c=0$ である。また $\frac{a^2}{ad}=1$ なので、 $a=d\neq0$
 よって、中心化群は
+
 $$
 \lbrace\begin{pmatrix}
 a & b \\
@@ -397,8 +412,10 @@ $\mathrm{Im}(gz)=\mathrm{Im}(\frac{az+b}{cz+d})=\mathrm{Im}(\frac{(az+b)(\overli
 
 $$
 \begin{array}{ll}
-\text{※1：}&g=\begin{pmatrix}a&b\\0&\frac{1}{a}\end{pmatrix}\in G\\
-\text{※2：}&g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in G_z\Leftrightarrow gz=z\Leftrightarrow\mathrm{Im}(gz)=\mathrm{Im}(z)\land\mathrm{Re}(gz)=\mathrm{Re}(z)
+\text{※1：}&g=\begin{pmatrix}a&b\\
+0&\frac{1}{a}\end{pmatrix}\in G\\
+\text{※2：}&g=\begin{pmatrix}a&b\\
+c&d\end{pmatrix}\in G_z\Leftrightarrow gz=z\Leftrightarrow\mathrm{Im}(gz)=\mathrm{Im}(z)\land\mathrm{Re}(gz)=\mathrm{Re}(z)
 \end{array}
 $$
 
