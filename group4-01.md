@@ -248,7 +248,7 @@ $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ で�
 $i=j$ の場合を考えると、 $\sigma$ として $(i\hspace{5mu}1)(i\hspace{5mu}2),\cdots,(i\hspace{5mu}n)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j))$ の結果は $Z$ の元全てをとりつくす。すなわち、 $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace=Z$
 次に $j\in X$ も固定して $i\neq j$ の場合を考えると、 $\sigma$ として $\sigma(i)=k, \sigma(j)=l(k,l\in X, k\neq l)$ となる $\sigma$ を考えれば $\sigma((i,j))$ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、 $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace=Y\setminus Z$
 以上により軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は例えば $(1,1), (1,2)$ ととれる。
-3. $(1,1)$ に対する安定化群は、 $1$ を固定した置換( $\mathfrak{S}_ {n-1}$ と同型)で、 $(1,2)$ に対する安定化群は、 $1,2$ を固定した置換( $\mathfrak{S}_{n-2}$ と同型)である。
+3. $(1,1)$ に対する安定化群は、 $1$ を固定した置換( $\mathfrak{S}_ {n-1}$ と同型)で、 $(1,2)$ に対する安定化群は、 $1,2$ を固定した置換( $\mathfrak{S}_ {n-2}$ と同型)である。
 ※ $|G|=n!,|G_{(1,1)}|=(n-1)!,|G\cdot(1,1)|=|Z|=n,$
 $|G_{(1,2)}|=(n-2)!,|G\cdot(1,2)|=|Y\setminus Z|=n^2-n=n(n-1)$
 
@@ -270,7 +270,7 @@ $$
 
 #### 4.1.10
 
-1. $x\in G$ として符号分は独立に計算できるので全組み合わせを計算すると(重複あり)、 $1x1^{-1}=x, x1x^{-1}=1, iji^{-1}=ij(-i)=-ki=-j, iki^{-1}=ik(-i)=-ij=-k,$ $jij^{-1}=ji(-j)=j(-k)=-jk=-i, jkj^{-1}=jk(-j)=-ij=-k,$ $ kik^{-1}=ki(-k)=-jk=-i, kjk^{-1}=kj(-k)=-ki=-j$
+1. $x\in G$ として符号分は独立に計算できるので全組み合わせを計算すると(重複あり)、 $1x1^{-1}=x, x1x^{-1}=1, iji^{-1}=ij(-i)=-ki=-j, iki^{-1}=ik(-i)=-ij=-k,$ $jij^{-1}=ji(-j)=j(-k)=-jk=-i, jkj^{-1}=jk(-j)=-ij=-k,$ $kik^{-1}=ki(-k)=-jk=-i, kjk^{-1}=kj(-k)=-ki=-j$
 以上により共役類としては $\lbrace\lbrace1\rbrace,\lbrace-1\rbrace,\lbrace i,-i\rbrace,\lbrace j,-j\rbrace,\lbrace k,-k\rbrace\rbrace$
 2. $x\in G$ として $x1=1x$ であることと↑の計算を参照することで、 $Z_G(1)=G, Z_G(i)=\lbrace g\in G|gig^{-1}\rbrace=\lbrace\pm1,\pm i\rbrace$ となる。
 
