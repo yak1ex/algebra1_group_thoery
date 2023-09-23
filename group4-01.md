@@ -469,10 +469,17 @@ $G$ が推移的に作用するので $G\cdot x=\lbrace1,\cdots,n\rbrace$ とな
 #### 4.1.17 未
 
 1. $17$ は素数なので、p.53 命題2.6.22より $N=\langle x\rangle(N\ni x\neq1_G)$ 。p.44 命題2.5.12から自己同型の(準)同型写像は生成元での値を決めれば $1$ つ決まる。また、考えているのは自己同型だから単射なので p.71 演習問題2.5.3(2)から位数 $17$ の生成元は位数 $17$ の位数の元と対応しなければならない。よって単位元以外の $16$ 通りありうるので、 $|\mathrm{Aut}N|=16$
+※対応する元を決めたときにきちんと自己同型になってることは確認する必要があるのでは？→やっぱりそう、これだと高々16までしか言えてない、位数 $17$ の元は生成元となるので元の生成元を $g$ 選んだ元を $h$ とすれば $\phi(g^m)=h^m$ で自己同型になる
+※自己同型なら生成元は生成元にうつる、生成元を生成元にうつすなら自己同型
+※探索課題：素数位数じゃない群の自己同型群の位数
+$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}: (\bar{0},\bar{0}),(\bar{0},\bar{1}),(\bar{1},\bar{0}),(\bar{1},\bar{1})$ 元の位数 $1,2,2,2$ で $|\mathrm{Aut}(\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z})|=3!$
+$\mathbb{Z}/4\mathbb{Z}: \bar{0},\bar{1},\bar{2},\bar{3}$ 元の位数 $1,3,2,3$ で $|\mathrm{Aut}(\mathbb{Z}/4\mathbb{Z})|=2$
 2. $N$ は正規部分群なので定義より $\forall g\in G, gng^{-1}\in N$ 。従って、 $N$ に対する共役による作用を考えることができる。
+※パーツ
 ※p.95 定理4.1.28(1)から $n\in Z(G)\Leftrightarrow C(n)=\lbrace n\rbrace\Leftrightarrow|C(n)|=1\Leftrightarrow Z_G(n)=G$
 ※ $\mathrm{Ad}(n)\in\mathrm{Aut}N$ なので $\mathrm{ord}(\mathrm{Ad}(n))=1,2,4,8,16$
 ※ $\mathrm{ord}(G)$ は奇数
+※ $ng^2n^{-1}=g$ → g=g^2
 
 #### 4.1.18
 
