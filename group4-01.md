@@ -243,14 +243,33 @@ $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ で�
 #### 4.1.8 担当
 
 1. $\sigma((2,4))=(\sigma(2),\sigma(4))=(1,4)$
-2. 以下 $i,j\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),\cdots,(n,n)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
-以下 $i\in X$ を固定する。
-$i=j$ の場合を考えると、 $\sigma$ として $(i\hspace{5mu}1)(i\hspace{5mu}2),\cdots,(i\hspace{5mu}n)$ (※いずれかは恒等置換になる)を考えれば作用 $\sigma((i,j))$ の結果は $Z$ の元全てをとりつくす。すなわち、 $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\supset Z$ 。また $i=j\Rightarrow\sigma(i)=\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace\subset Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Z,\sigma\in G\rbrace=Z$
-次に $j\in X$ も固定して $i\neq j$ の場合を考えると、 $\sigma$ として $\sigma(i)=k, \sigma(j)=l(k,l\in X, k\neq l)$ となる $\sigma$ を考えれば $\sigma((i,j))$ の結果は $Y\setminus Z$ の元全てをとりつくす。すなわち、 $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\supset Y\setminus Z$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace\subset Y\setminus Z$ 。つまり $\lbrace\sigma((i,j))|(i,j)\in Y\setminus Z,\sigma\in G\rbrace=Y\setminus Z$
-以上により軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は例えば $(1,1), (1,2)$ ととれる。
+2. 以下 $i,j,k,l\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),\cdots,(n,n)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射(特に単射)だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
+p.93 系4.1.22より $G$ に関して同じ軌道に属することを同値関係として $Y$ は直和分割される。↑の事実から※1のように分割されると予想される。以下証明してみる。
+$i=j$ の場合として $(1,1)$ を考える。任意の $z=(k,k) \in Z$ に対して $\sigma=(1\hspace{5mu}k)$ ($k=1$ のときは恒等置換) ととれば $Z\ni z=\sigma((1,1))\in G\cdot(1,1)$ となるので、  $Z\subset G\cdot(1,1)$ 。また任意の $\sigma\in G$ を考えて $\sigma(1)=k$ とすると $G\cdot(1,1)\ni\sigma((1,1))=(k,k)\in Z$ なので $G\cdot(1,1)\subset Z$ 。つまり $G\cdot(1,1)=Z$ である。
+次に $i\neq j$ の場合として $(1,2)$ を考える。任意の $y=(k,l)\in Y\setminus Z(\text{注：}k\neq l)$ に対して、※2のように $\sigma$ をとれば $Y\setminus Z\ni y=\sigma((1,2))\in G\cdot(1,2)$ となるので $Y\setminus Z\subset G\cdot(1,2)$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $G\cdot(1,2)\subset Y\setminus Z$ 。つまり $G\cdot(1,2)=Y\setminus Z$
+以上と $Z\cup(Y\setminus Z)=Y\land Z\cap(Y\setminus Z)=\emptyset$ より軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は $(1,1), (1,2)$ ととれる。
 3. $(1,1)$ に対する安定化群は、 $1$ を固定した置換( $\mathfrak{S}_ {n-1}$ と同型)で、 $(1,2)$ に対する安定化群は、 $1,2$ を固定した置換( $\mathfrak{S}_ {n-2}$ と同型)である。
 ※ $|G|=n!,|G_{(1,1)}|=(n-1)!,|G\cdot(1,1)|=|Z|=n,$
-$|G_{(1,2)}|=(n-2)!,|G\cdot(1,2)|=|Y\setminus Z|=n^2-n=n(n-1)$
+$|G_{(1,2)}|=(n-2)!,|G\cdot(1,2)|=|Y\setminus Z|=n^2-n=n(n-1)$ なので
+$|G\cdot(1,1)|=\frac{|G|}{|G_{(1,1)}|}, |G\cdot(1,2)|=\frac{|G|}{|G_{(1,2)}|}$
+
+$$
+\begin{equation}
+\begin{array}{ll}
+\text{※1：}&G\cdot(i,j)=\begin{cases}
+Z&(i=j)\\
+Y\setminus Z&(i\neq j)
+\end{cases}\\
+\text{※2：}&\sigma((i,j))=\begin{cases}
+\begin{pmatrix}1&k\end{pmatrix}
+\begin{pmatrix}2&l\end{pmatrix}
+&(k\neq2\land l\neq1)\\
+\begin{pmatrix}1&2&l\end{pmatrix}&(k=2\land l\neq1)\\
+\begin{pmatrix}1&2\end{pmatrix}&(k=2\land l=1)\\
+\end{cases}
+\end{array}
+\end{equation}
+$$
 
 #### 4.1.9
 
