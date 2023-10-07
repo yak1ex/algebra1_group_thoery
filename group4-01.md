@@ -466,7 +466,7 @@ $$
 
 $G$ が推移的に作用するので $G\cdot x=\lbrace1,\cdots,n\rbrace$ となる $x\in\lbrace1,\cdots,n\rbrace$ が存在する。 $G$ は $\mathfrak{S}_n$ の部分群なので有限群である。p.93 命題4.1.23 より $|G\cdot x|=|G|/|G_x|$ となり、 $|G|=|G_x||G\cdot x|=|G_x|n$ となるため、 $|G|$ は $n$ で割り切れる。
 
-#### 4.1.17 未
+#### 4.1.17
 
 1. $17$ は素数なので、p.53 命題2.6.22より $N=\langle x\rangle(N\ni x\neq1_G)$ 。p.44 命題2.5.12から自己同型の(準)同型写像は生成元での値を決めれば $1$ つ決まる。また、考えているのは自己同型だから単射なので p.71 演習問題2.5.3(2)から位数 $17$ の生成元は位数 $17$ の位数の元と対応しなければならない。よって単位元以外の $16$ 通りありうるので、 $|\mathrm{Aut}N|=16$
 ※対応する元を決めたときにきちんと自己同型になってることは確認する必要があるのでは？→やっぱりそう、これだと高々16までしか言えてない、位数 $17$ の元は生成元となるので元の生成元を $g$ 選んだ元を $h$ とすれば $\phi(g^m)=h^m$ で自己同型になる
@@ -474,12 +474,9 @@ $G$ が推移的に作用するので $G\cdot x=\lbrace1,\cdots,n\rbrace$ とな
 ※探索課題：素数位数じゃない群の自己同型群の位数
 $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}: (\bar{0},\bar{0}),(\bar{0},\bar{1}),(\bar{1},\bar{0}),(\bar{1},\bar{1})$ 元の位数 $1,2,2,2$ で $|\mathrm{Aut}(\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z})|=3!$
 $\mathbb{Z}/4\mathbb{Z}: \bar{0},\bar{1},\bar{2},\bar{3}$ 元の位数 $1,3,2,3$ で $|\mathrm{Aut}(\mathbb{Z}/4\mathbb{Z})|=2$
-2. $N$ は正規部分群なので定義より $\forall g\in G, gng^{-1}\in N$ 。従って、 $N$ に対する共役による作用を考えることができる。
-※パーツ
-※p.95 定理4.1.28(1)から $n\in Z(G)\Leftrightarrow C(n)=\lbrace n\rbrace\Leftrightarrow|C(n)|=1\Leftrightarrow Z_G(n)=G$
-※ $\mathrm{Ad}(n)\in\mathrm{Aut}N$ なので $\mathrm{ord}(\mathrm{Ad}(n))=1,2,4,8,16$
-※ $\mathrm{ord}(G)$ は奇数
-※ $ng^2n^{-1}=g$ → g=g^2
+2. $N$ は正規部分群なので定義より $\forall g\in G,\forall n\in N, gng^{-1}\in N$ 。従って、 $G$ の $N$ への共役による作用 $\phi_g(n)=gng^{-1}$ を考えることができる。これは $G$ において自己同型となる $\mathrm{Ad}(g)$ (p.45参照)を $N$ に制限したものになり、 $N\rightarrow N$ の自己同型である。よって $\phi_g\in\mathrm{Aut}N$ 。 $|\mathrm{Aut}N|=16|$ なのでp.53 系2.6.21(2)より $\phi_g$ の位数は $16$ の約数となる。
+一方、 $n\in N$ の $G$ による軌道 $G\cdot n$を考える。以下では $m$ を $\phi_g$ の位数とする。 $\phi_g^k(n)=n$ となる最小の正の整数を $k$ とすると、 $\phi_g^m(n)=1_{\mathrm{Aut}N}(n)=n$ となるのでそのような $k$ は $m$ 以下に必ず存在する。このとき $k$ は $m$ の約数である。なぜなら、 $m$ を $k$ で割って $m=kq+r, q,r\in\mathrm{Z},0\le r\lt k$ とすると、 $\phi_g^k(n)=n$ なので $n=\phi_g^m(n)=\phi_g^{kq+r}(n)=\phi_g^r(n)$ となって $k$ の最小性から $r=0$ となるからである。また、 $\phi_g^0(n)=n, \phi_g^1(n), \phi_g^2(n),\cdots\phi_g^{k-1}(n)$ は全て相異なる $N$ の元である。なぜなら $0\le s\lt t\lt k$ で $\phi_g^s(n)=\phi_g^t(n)$ と仮定すると、 $s\lt t$ であることに注意して両辺にさらに $\phi_g$ を $m-s$ 回適用することで $n=\phi_g^m(n)=\phi_g^{m-s+s}(n)=\phi_g^{m-s+t}(n)=\phi_g^{t-s}(n)$ となって $k$ の最小性に矛盾するからである。以上より、 $G\cdot n=\lbrace\phi_g^i(n)|i\in\mathbb{Z},0\le i\lt k\rbrace$ 。従って、 $|G\cdot n|=k$ である。
+ここで、p.93 命題4.1.23より $|G\cdot n|=\frac{|G|}{|G_n|}$ となるが前提より $|G|$ は奇数なので右辺は奇数。また $|G\cdot n|=k$ は $\phi_g$ の位数 $m$ の約数なので $16$ の約数となるがこちらも奇数でなければならないため $k=1$ である。これは軌道 $G\cdot n=C(n)=\lbrace n\rbrace$ であることを意味しており、p.95 定理4.1.28(1) から $n\in Z(G)$ となる。よって $N\subset Z(G)$ である。
 
 #### 4.1.18
 
