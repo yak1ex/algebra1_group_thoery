@@ -96,3 +96,4 @@ $f:A\rightarrow B$で
 
 * p.92 系4.1.21 $G$ が $X$ に作用、 $x,y\in X, (G\cdot x)\cap(G\cdot y)\neq\emptyset\Rightarrow G\cdot y=G\cdot x\land G_y \cong G_x$
 * p.93 命題4.1.23 $G$ が $X$ に作用、$x\in X$ のとき、 $G/G_x\ni gG_x\mapsto gx\in G\cdot x$ は全単射。従って $|G\cdot x|=(G:G_x)$ 、 $|G|\lt\infty$ であれば $|G\cdot x|=|G|/|G_x|$
+* p.95 定理4.1.28 $\mathrm{ord}(G)\lt\infty$ (1) $x\in G\Rightarrow|C(x)|=\frac{|G|}{|Z_G(x)|}, C(x)=\lbrace x\rbrace\Leftrightarrow x\in Z(G)$ (2) $|G|=\sum|C(x)|$
