@@ -244,12 +244,12 @@ $\boldsymbol{x}\neq\boldsymbol{0}$ ならば、いずれかの成分は $0$ で�
 
 1. $\sigma((2,4))=(\sigma(2),\sigma(4))=(1,4)$
 2. 以下 $i,j,k,l\in X,\sigma\in G,Z=\lbrace(i,j)\in Y|i=j\rbrace=\lbrace(1,1),(2,2),\cdots,(n,n)\rbrace$ とする。 $\sigma((i,j))=(\sigma(i),\sigma(j))$ である。 $\sigma$ は置換なので全単射(特に単射)だから $\sigma(i)=\sigma(j)\Rightarrow i=j$ である。対偶を取ると $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ 。また当然ながら $i=j\Rightarrow\sigma(i)=\sigma(j)$ である。
-p.93 系4.1.22より $G$ に関して同じ軌道に属することを同値関係として $Y$ は直和分割される。↑の事実から※1のように分割されると予想される。以下証明してみる。
-$i=j$ の場合として $(1,1)$ を考える。任意の $z=(k,k) \in Z$ に対して $\sigma=(1\hspace{5mu}k)$ ($k=1$ のときは恒等置換) ととれば $Z\ni z=\sigma((1,1))\in G\cdot(1,1)$ となるので、  $Z\subset G\cdot(1,1)$ 。また任意の $\sigma\in G$ を考えて $\sigma(1)=k$ とすると $G\cdot(1,1)\ni\sigma((1,1))=(k,k)\in Z$ なので $G\cdot(1,1)\subset Z$ 。つまり $G\cdot(1,1)=Z$ である。
-次に $i\neq j$ の場合として $(1,2)$ を考える。任意の $y=(k,l)\in Y\setminus Z(\text{注：}k\neq l)$ に対して、※2のように $\sigma$ をとれば $Y\setminus Z\ni y=\sigma((1,2))\in G\cdot(1,2)$ となるので $Y\setminus Z\subset G\cdot(1,2)$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ なので $G\cdot(1,2)\subset Y\setminus Z$ 。つまり $G\cdot(1,2)=Y\setminus Z$
-以上と $Z\cup(Y\setminus Z)=Y\land Z\cap(Y\setminus Z)=\emptyset$ より軌道は $Z, Y\setminus Z$ の $2$ つであり、代表元は $(1,1), (1,2)$ ととれる。
+p.93 系4.1.22より $G$ に関して同じ軌道に属することを同値関係として $Y$ は直和分割される。これと↑の事実から※1のように分割されると予想される。以下証明する。
+$i=j$ の場合として $(1,1)$ を考える。任意の $z=(k,k) \in Z$ に対して $\sigma=(1\hspace{5mu}k)$ ($k=1$ のときは恒等置換) ととれば $Z\ni z=(k,k)=(\sigma(1),\sigma(1))=\sigma((1,1))\in G\cdot(1,1)$ となるので、  $Z\subset G\cdot(1,1)$ 。また任意の $\sigma\in G$ について $G\cdot(1,1)\ni\sigma((1,1))=(\sigma(1),\sigma(1))\in Z$ なので $G\cdot(1,1)\subset Z$ 。つまり $G\cdot(1,1)=Z$ である。
+次に $i\neq j$ の場合として $(1,2)$ を考える。任意の $y=(k,l)\in Y\setminus Z(\text{注：}k\neq l)$ に対して、※2のように $\sigma$ をとれば $Y\setminus Z\ni y=(k,l)=(\sigma(1),\sigma(2))=\sigma((1,2))\in G\cdot(1,2)$ となるので $Y\setminus Z\subset G\cdot(1,2)$ 。また $i\neq j\Rightarrow\sigma(i)\neq\sigma(j)$ より $\sigma(1)\neq\sigma(2)$ なので任意の $\sigma\in G$ について $G\cdot(1,2)\ni\sigma((1,2))=(\sigma(1),\sigma(2))\in Y\setminus Z$ となり $G\cdot(1,2)\subset Y\setminus Z$ 。つまり $G\cdot(1,2)=Y\setminus Z$
+以上と $(Z\cup(Y\setminus Z)=Y)\land(Z\cap(Y\setminus Z)=\emptyset)$ より軌道は直和分割された $Z, Y\setminus Z$ の $2$ つであり、代表元は $(1,1), (1,2)$ ととれる。
 3. $(1,1)$ に対する安定化群は、 $1$ を固定した置換( $\mathfrak{S}_ {n-1}$ と同型)で、 $(1,2)$ に対する安定化群は、 $1,2$ を固定した置換( $\mathfrak{S}_ {n-2}$ と同型)である。
-※ $|G|=n!,|G_{(1,1)}|=(n-1)!,|G\cdot(1,1)|=|Z|=n,$
+※p.93 命題4.1.23が成立していることの確認：$|G|=n!,|G_{(1,1)}|=(n-1)!,|G\cdot(1,1)|=|Z|=n,$
 $|G_{(1,2)}|=(n-2)!,|G\cdot(1,2)|=|Y\setminus Z|=n^2-n=n(n-1)$ なので
 $|G\cdot(1,1)|=\frac{|G|}{|G_{(1,1)}|}, |G\cdot(1,2)|=\frac{|G|}{|G_{(1,2)}|}$
 
@@ -474,6 +474,9 @@ $G$ が推移的に作用するので $G\cdot x=\lbrace1,\cdots,n\rbrace$ とな
 ※探索課題：素数位数じゃない群の自己同型群の位数
 $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}: (\bar{0},\bar{0}),(\bar{0},\bar{1}),(\bar{1},\bar{0}),(\bar{1},\bar{1})$ 元の位数 $1,2,2,2$ で $|\mathrm{Aut}(\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z})|=3!$
 $\mathbb{Z}/4\mathbb{Z}: \bar{0},\bar{1},\bar{2},\bar{3}$ 元の位数 $1,3,2,3$ で $|\mathrm{Aut}(\mathbb{Z}/4\mathbb{Z})|=2$
+素数位数は元の群が一意特定されていたがこの場合は位数から元の群が特定できないので自己同型群も(同型ではなく)位数が異なる
+生成元の位数と同じ位数の元の個数から順列計算しても自己同型群の位数は正しく計算できない
+$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ について生成元は例えば $\lbrace(\bar{0},\bar{0},\bar{1}),(\bar{0},\bar{1},\bar{0}),(\bar{1},\bar{0},\bar{0})\rbrace$ でいずれも位数は $2$ の元 $3$ つからなるが、 $\lbrace(\bar{0},\bar{0},\bar{1}),(\bar{0},\bar{1},\bar{0}),(\bar{0},\bar{1},\bar{1})\rbrace$ は位数 $2$ の元 $3$ つだが群全体が生成されない。
 2. 次の流れで証明する。 (i) $G$ の共役による作用(の $N$ への制限) $\phi_g\in\mathrm{Aut}N$ を言う (ii) $\phi_g$ の位数が16の約数であることを言う (iii) $n\in N$ の $G$ による軌道 $G\cdot n$ を考えると $|G\cdot n|$ が $\phi_g$ の約数であることを言う (iv) p.93 命題4.1.23より $|G\cdot n|=\frac{|G|}{|G_n|}$ であることと、(ii)(iii) および $G$ の位数が奇数であることから $|G\cdot n|=1$ であることを言う (v) p.95 定理4.1.28(1) から $n\in Z(G)$ であることを言う
 $N$ は正規部分群なので定義より $\forall g\in G,\forall n\in N, gng^{-1}\in N$ 。従って、 $G$ の $N$ への共役による作用 $\phi_g(n)=gng^{-1}$ を考えることができる。これは $G$ において自己同型となる $\mathrm{Ad}(g)$ (p.45参照)を $N$ に制限したものになり、 $N\rightarrow N$ の自己同型である。よって $\phi_g\in\mathrm{Aut}N$ 。 $|\mathrm{Aut}N|=16$ なのでp.53 系2.6.21(2)より $\phi_g$ の位数は $16$ の約数となる。
 一方、 $n\in N$ の $G$ による軌道 $G\cdot n$を考える。以下では $m$ を $\phi_g$ の位数とする。 $\phi_g^k(n)=n$ となる最小の正の整数を $k$ とする(※ $\phi_g^k$ は $\phi_g$ を $k$ 回適用する表記)と、 $\phi_g^m(n)=1_{\mathrm{Aut}N}(n)=n$ となるのでそのような $k$ は $m$ 以下に必ず存在する。このとき $k$ は $m$ の約数である。なぜなら、 $m$ を $k$ で割って $m=kq+r, (q,r\in\mathrm{Z},0\le r\lt k)$ とすると、 $\phi_g^k(n)=n$ なので $n=\phi_g^m(n)=\phi_g^{kq+r}(n)=\phi_g^r(n)$ となって $k$ の最小性から $r=0$ となるからである。また、 $\phi_g^0(n)=n, \phi_g^1(n), \phi_g^2(n),\cdots\phi_g^{k-1}(n)$ は全て相異なる $N$ の元である。なぜなら $0\le s\lt t\lt k\le m$ で $\phi_g^s(n)=\phi_g^t(n)$ と仮定すると、 $s\lt t$ であることに注意して両辺にさらに $\phi_g$ を $m-s(\gt0)$ 回適用することで $n=\phi_g^m(n)=\phi_g^{m-s+s}(n)=\phi_g^{m-s+t}(n)=\phi_g^{t-s}(n)$ となって $k$ の最小性に矛盾するからである。以上より、 $G\cdot n=\lbrace\phi_g^i(n)|i\in\mathbb{Z},0\le i\lt k\rbrace$ となり $|G\cdot n|=k$ である。
