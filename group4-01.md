@@ -477,19 +477,12 @@ $\mathbb{Z}/4\mathbb{Z}: \bar{0},\bar{1},\bar{2},\bar{3}$ 元の位数 $1,3,2,3$
 素数位数は元の群が一意特定されていたがこの場合は位数から元の群が特定できないので自己同型群も(同型ではなく)位数が異なる
 生成元の位数と同じ位数の元の個数から順列計算しても自己同型群の位数は正しく計算できない
 $\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ について生成元は例えば $\lbrace(\bar{0},\bar{0},\bar{1}),(\bar{0},\bar{1},\bar{0}),(\bar{1},\bar{0},\bar{0})\rbrace$ でいずれも位数は $2$ の元 $3$ つからなるが、 $\lbrace(\bar{0},\bar{0},\bar{1}),(\bar{0},\bar{1},\bar{0}),(\bar{0},\bar{1},\bar{1})\rbrace$ は位数 $2$ の元 $3$ つだが群全体が生成されない。
-2. 次の流れで証明する。 (i) $G$ の共役による作用(の $N$ への制限) $\phi_g\in\mathrm{Aut}N$ を言う (ii) $\phi_g$ の位数が16の約数であることを言う (iii) $n\in N$ の $G$ による軌道 $G\cdot n$ を考えると $|G\cdot n|$ が $\phi_g$ の位数の約数であることを言う (iv) p.93 命題4.1.23より $|G\cdot n|=\frac{|G|}{|G_n|}$ であることと、(ii)(iii) および $G$ の位数が奇数であることから $|G\cdot n|=1$ であることを言う (v) p.95 定理4.1.28(1) から $n\in Z(G)$ であることを言う
-$N$ は正規部分群なので定義より $\forall g\in G,\forall n\in N, gng^{-1}\in N$ 。従って、 $G$ の $N$ への共役による作用 $\phi_g(n)=gng^{-1}$ を考えることができる。これは $G$ において自己同型となる $\mathrm{Ad}(g)$ (p.45参照)を $N$ に制限したものになり、 $N\rightarrow N$ の自己同型である。よって $\phi_g\in\mathrm{Aut}N$ 。 $|\mathrm{Aut}N|=16$ なのでp.53 系2.6.21(2)より $\phi_g$ の位数は $16$ の約数となる。
-※※一方、 $n\in N$ の $G$ による軌道 $G\cdot n$を考える。以下では $m$ を $\phi_g$ の位数とする。 $\phi_g^k(n)=n$ となる最小の正の整数を $k$ とする(※ $\phi_g^k$ は $\phi_g$ を $k$ 回適用する表記)と、 $\phi_g^m(n)=1_{\mathrm{Aut}N}(n)=n$ となるのでそのような $k$ は $m$ 以下に必ず存在する。このとき $k$ は $m$ の約数である(※)。なぜなら、 $m$ を $k$ で割って $m=kq+r, (q,r\in\mathrm{Z},0\le r\lt k)$ とすると、 $\phi_g^k(n)=n$ なので $n=\phi_g^m(n)=\phi_g^{kq+r}(n)=\phi_g^r(n)$ となって $k$ の最小性から $r=0$ となるからである。また、 $\phi_g^0(n)=n, \phi_g^1(n), \phi_g^2(n),\cdots\phi_g^{k-1}(n)$ は全て相異なる $N$ の元である。なぜなら $0\le s\lt t\lt k\le m$ で $\phi_g^s(n)=\phi_g^t(n)$ と仮定すると、 $s\lt t$ であることに注意して両辺にさらに $\phi_g$ を $m-s(\gt0)$ 回適用することで $n=\phi_g^m(n)=\phi_g^{m-s+s}(n)=\phi_g^{m-s+t}(n)=\phi_g^{t-s}(n)$ となって $k$ の最小性に矛盾するからである。以上より、 $G\cdot n=\lbrace\phi_g^i(n)|i\in\mathbb{Z},0\le i\lt k\rbrace$ となり $|G\cdot n|=k$ である。
-ここで、p.93 命題4.1.23より $|G\cdot n|=\frac{|G|}{|G_n|}$ となるが前提より $|G|$ は奇数なので右辺は奇数。また $|G\cdot n|=k$ は $\phi_g$ の位数 $m$ の約数なので $16$ の約数となるがこちらも奇数でなければならないため $k=1$ である。これは軌道 $G\cdot n=C(n)=\lbrace n\rbrace$ であることを意味しており、p.95 定理4.1.28(1) から $n\in Z(G)$ となる。
+2. 次の流れで証明する。 (i) $G$ の共役による作用(の $N$ への制限) $\phi_g\in\mathrm{Aut}N$ を言う (ii) $\psi:G\ni g\mapsto\phi_g\in\mathrm{Aut}N$ として $|\mathrm{Im}(\psi)|$ が $16$ の約数であることを言う (iii) $N$ の生成元 $n$ の $G$ による軌道 $G\cdot n$ を考えると $|\mathrm{Im}(\psi)|=|G\cdot n|$ であることを言う (iv) p.93 命題4.1.23より $|G\cdot n|=\frac{|G|}{|G_n|}$ であることと、(ii)(iii) および $G$ の位数が奇数であることから $|G\cdot n|=1$ であることを言う (v) p.95 定理4.1.28(1) から $n\in Z(G)$ であることを言う
+$N$ は正規部分群なので定義より $\forall g\in G,\forall n\in N, gng^{-1}\in N$ 。従って、 $G$ の $N$ への共役による作用 $\phi_g(n)=gng^{-1}$ を考えることができる。これは $G$ において自己同型となる $\mathrm{Ad}(g)$ (p.45参照)を $N$ に制限したものになり、 $N\rightarrow N$ の自己同型である。よって $\phi_g\in\mathrm{Aut}N$ 。
+ここで写像 $\psi:G\ni g\mapsto\phi_g\in\mathrm{Aut}N$ を考えると、 $\forall g_1,g_2\in G, \forall n\in N$ で $\psi(g_1g_2)(n)=\phi_{g_1g_2}(n)=g_1g_2n(g_1g_2)^{-1}=g_1g_2ng_2^{-1}g_1^{-1}=g_1(g_2ng_2^{-1})g_1^{-1}=(\phi_{g_1}\circ\phi_{g_2})(n)=(\psi(g_1)\circ\psi(g_2))(n)$ なので、 $\psi(g_1g_2)=\psi(g_1)\circ\psi(g_2)$ となり、 $\psi$ は準同型。よってp.41 命題2.5.3(3)より $\mathrm{Im}(\psi)$ は $\mathrm{Aut}N$ の部分群となり、p.53 系2.6.21(1)から $|\mathrm{Im}(\psi)|$ は $|\mathrm{Aut}N|$ の約数のため $16$ の約数となる。
+次に $n\in N$ の $G$ による軌道 $G\cdot n$ を考えると、 $G\cdot n=\lbrace gng^{-1}|g\in G \rbrace=\lbrace\phi_g(n)|g\in G\rbrace=\lbrace\phi(n)|\phi\in\mathrm{Im}(\psi)\rbrace$ となる。 $n$ として単位元以外をとると 1. での議論より $N=\langle n\rangle$ となり $n$ は $N$ の生成元である。単位元以外に $n$ を固定して $\rho:\mathrm{Im}(\psi)\ni\phi\mapsto\phi(n)\in G\cdot n$ を考えると $\rho(\phi_1)=\rho(\phi_2)\Rightarrow\phi_1(n)=\phi_2(n)\Rightarrow\phi_1=\phi_2$ $(n\text{が生成元で}\phi\text{が同型(準同型)であることからp.44 命題2.5.12より})$ なので $\rho$ は単射である。定義から全射は明らか( $\mathrm{Im}(\rho)=G\cdot n$ )なので $\rho$ は全単射となり、 $|\mathrm{Im}(\psi)|=|G\cdot n|$
+ここで、p.93 命題4.1.23より $|G\cdot n|=\frac{|G|}{|G_n|}$ となるが前提より $|G|$ は奇数なので右辺は奇数。また $|G\cdot n|=|\mathrm{Im}(\psi)|$ は $16$ の約数だがこちらも奇数でなければならないため $|G\cdot n|=1$ である。これは軌道 $G\cdot n=C(n)=\lbrace n\rbrace$ であることを意味しており、p.95 定理4.1.28(1) から $n\in Z(G)$ となる。
 以上から $n\in N\Rightarrow n\in Z(G)$ となるので $N\subset Z(G)$ である。
-
-※ $n$ によっては $k=m$ とは限らない。たとえば、 $\mathfrak{S}_3$ の自己同型 $\sigma$ は位数 $3$ だが、 $\sigma((1\hspace{5mu}2\hspace{5mu}3))=(1\hspace{5mu}2\hspace{5mu}3)$ で $k=1$ になっている。というか単位元なら $k=1$ だった。
-
-|i|1|$(1\hspace{5mu}2)$|$(1\hspace{5mu}3)$|$(2\hspace{5mu}3)$|$(1\hspace{5mu}2\hspace{5mu}3)$|$(1\hspace{5mu}3\hspace{5mu}2)$|
-|-|-|-|-|-|-|-|
-|$\sigma(i)$|1|$(1\hspace{5mu}3)$|$(2\hspace{5mu}3)$|$(1\hspace{5mu}2)$|$(1\hspace{5mu}2\hspace{5mu}3)$|$(1\hspace{5mu}3\hspace{5mu}2)$|
-
-※※ 軌道 $G\cdot n$ は全ての $g\in G$ に対して持ってくる必要があるので↑は誤り、 $N$ の生成元を考えれば良さそう？
 
 #### 4.1.18
 
