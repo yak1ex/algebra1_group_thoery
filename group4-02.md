@@ -19,10 +19,98 @@
 * $\mathfrak{S}_3\rightarrow G$ は包含写像なのでp.41例2.5.4から準同型、 $G\rightarrow G/N$ は自然な写像なのでp.59命題2.8.13から準同型、単射性はp.44命題2.5.13から、単射で要素数が同じことからp.7命題1.1.6(2)より全射となるので全単射準同型となり同型。
 * p.99とp.100の順番(2,5,4)(2,4,5)が一致してない
 
-### p.100 例題4.2.7
+#### p.100 例題4.2.7
 
 * $A_4$ の共役類は $\mathfrak{S}_4$ の共役類より細かくなる(全体が小さくなるので共役にならないものがでてくるかもしれない)
 * 議論としては、偶置換分の共役類を対象として、それぞれ共役類がどうなるか(一致しているかより細かくなるか)を確認している
   * 第1段落は $(1\hspace{5mu}2)(3\hspace{5mu}4)$ の軌道(共役類)を確認している
   * 第2段落は $(1\hspace{5mu}2\hspace{5mu}3)$ の軌道(共役類)の元の数を確認している
-    * p.93命題4.1.23を使って安定化群の位数から共役類の要素の数を求めている
+    * p.93命題4.1.23を使って安定化群の位数から2 1共役類の要素の数を求めている
+
+### 演習問題
+
+#### 4.2.1
+
+1. 
+
+$$
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+5 & 2 & 8 & 6 & 1 & 10 & 9 & 4 & 7 & 3
+\end{pmatrix}=
+\begin{pmatrix}1&5\end{pmatrix}
+\begin{pmatrix}3&8&4&6&10\end{pmatrix}
+\begin{pmatrix}7&9\end{pmatrix}
+$$
+
+2.
+
+$$
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+6 & 10 & 4 & 2 & 8 & 1 & 5 & 7 & 3 & 9
+\end{pmatrix}=
+\begin{pmatrix}1&6\end{pmatrix}
+\begin{pmatrix}2&10&9&3&4\end{pmatrix}
+\begin{pmatrix}5&8&7\end{pmatrix}
+$$
+
+#### 4.2.2
+
+1. $\mathfrak{S}_5$ の全ての共役類の代表元
+2. $A_5$ の全ての共役類の代表元 $A_5$ の共役類で $\mathfrak{S}_5$ の共役類と一致しないものは？
+
+#### 4.2.3
+
+$\sigma=(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5\hspace{5mu}6), \tau=(4\hspace{5mu}1\hspace{5mu}3)(2\hspace{5mu}6\hspace{5mu}5)$
+
+1. $\nu\sigma\nu^{-1}$ となる $nu$
+2. ↑の個数
+
+#### 4.2.4
+
+$Z_G(\sigma)$
+
+1. $G=\mathfrak{S}_4, \sigma=(1\hspace{5mu}2)$
+2. $G=\mathfrak{S}_4, \sigma=(1\hspace{5mu}2)(3\hspace{5mu}4)$
+3. $G=\mathfrak{S}_4, \sigma=(1\hspace{5mu}2\hspace{5mu}3)$
+4. $G=\mathfrak{S}_5, \sigma=(1\hspace{5mu}2\hspace{5mu}3)$
+5. $G=\mathfrak{S}_6, \sigma=(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5\hspace{5mu}6)$
+6. $G=\mathfrak{S}_6, \sigma=(1\hspace{5mu}2)(3\hspace{5mu}4)(5\hspace{5mu}6)$
+
+#### 4.2.5 担当
+
+$G=\mathfrak{S}_n (n\ge3)$
+
+1. $\sigma=(1\hspace{5mu}2\cdots n)\Rightarrow Z_G(\sigma)=\langle\sigma\rangle$
+2. $Z(\mathfrak{S}_n)=\lbrace1\rbrace$
+
+#### 4.2.6
+
+$\sigma\in G$ 型が $(j_1\times a_1,j_2\times a_2,\cdots,j_t\times a_t)(j_1\lt \cdots \lt j_t)\Rightarrow$
+$Z_G(\sigma)\triangleright N\land N\cong(\mathbb{Z}/j_1\mathbb{Z})^{a_1}\times\cdots\times(\mathbb{Z}/j_t\mathbb{Z})^{a_t}\land Z_G(\sigma)/N\cong\mathfrak{S}_{a_1}\times\cdots\times\mathfrak{S}_{a_t}$
+
+#### 4.2.7
+
+偶置換 $\sigma\in\mathfrak{S}_n$ 型は $(i_1,\cdots,i_l)$
+
+1. $(\forall m\in[1,l],i_n\equiv1\mod{2}\land\forall u,v\in[i,l](u\neq v)\Rightarrow i_u\neq i_v)\Rightarrow Z_{\mathfrak{S}_n}(\sigma)=Z_{A_n}(\sigma)$
+※ $\sigma$ の $\mathfrak{S}_n$ における共役類は $A_n$ における元の個数が等しい共役類2つの和
+2. ↑以外は $[Z_{\mathfrak{S}_n}(\sigma):Z_{A_n}(\sigma)]=2$ 
+※ $\sigma$ の $\mathfrak{S}_n$ における共役類は $A_n$ においても1つの共役類
+
+#### 4.2.8
+
+$G=\mathfrak{S}_3$ 、 $G$ の位数 $2$ の元の集合は $X=\lbrace x_1=(1\hspace{5mu}2),x_2=(1\hspace{5mu}3),x_3=(2\hspace{5mu}3)\rbrace$ 、 $G$ は共役により $X$ に作用する、 $\rho:G\rightarrow\mathfrak{S}_3$ を置換表現として $\rho$ は同型
+
+#### 4.2.9 担当
+
+$G=\mathfrak{S}_4, X=\lbrace x_1=(1\hspace{5mu}2)(3\hspace{5mu}4),x_2=(1\hspace{5mu}3)(2\hspace{5mu}4),x_3=(1\hspace{5mu}4)(2\hspace{5mu}3)\rbrace$ 、 $G$ は共役により $X$ に作用する、 $\rho:G\rightarrow\mathfrak{S}_3$ を置換表現とする
+
+1. $\rho((1\hspace{5mu}2)),\rho((1\hspace{5mu}2\hspace{5mu}3)),\rho((2\hspace{5mu}3))$
+2. $\rho$ 全射
+3. $\mathrm{Ker}(\rho)$
+
+#### 4.2.10
+
+$\mathfrak{S}_4$ の部分群の共役類全て、正規部分群はどれ？
