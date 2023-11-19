@@ -55,23 +55,41 @@ $$
 \begin{pmatrix}5&8&7\end{pmatrix}
 $$
 
-#### 4.2.2
+#### 4.2.2 未
 
-1. $\mathfrak{S}_5$ の全ての共役類の代表元
-2. $A_5$ の全ての共役類の代表元 $A_5$ の共役類で $\mathfrak{S}_5$ の共役類と一致しないものは？
+1. $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4),(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2)(3\hspace{5mu}4),(1\hspace{5mu}2),1$
+2. $\mathfrak{S}_5$ の共役類の代表元のうち $A_5$ に含まれるものは $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2)(3\hspace{5mu}4),1$ である。 $A_5$ の共役類で $\mathfrak{S}_5$ の共役類と一致しないものは？
 
 #### 4.2.3
 
 $\sigma=(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5\hspace{5mu}6), \tau=(4\hspace{5mu}1\hspace{5mu}3)(2\hspace{5mu}6\hspace{5mu}5)$
 
-1. $\nu\sigma\nu^{-1}$ となる $nu$
-2. ↑の個数
+1. 例えば
 
-#### 4.2.4
+$$
+\nu = \begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 \\
+4 & 1 & 3 & 2 & 6 & 5
+\end{pmatrix}=
+\begin{pmatrix}
+1 & 4 & 2
+\end{pmatrix}
+\begin{pmatrix}
+5 & 6
+\end{pmatrix}
+$$
 
-$Z_G(\sigma)$
+2.
+
+$\lbrace1,2,3\rbrace\mapsto\lbrace4,1,3\rbrace,\lbrace4,5,6\rbrace\mapsto\lbrace2,6,5\rbrace$ か
+$\lbrace1,2,3\rbrace\mapsto\lbrace2,6,5\rbrace,\lbrace4,5,6\rbrace\mapsto\lbrace4,1,3\rbrace$ の場合で各写像については長さ $3$ の巡回置換同士の対応なので $3$ 通りなので $3\times3\times2=18$ 通り
+
+#### 4.2.4 未
+
+以下では作用として共役による作用を考える。p.94 定義4.1.27の上の記載より $Z_G(\sigma)=\lbrace g\in G\mid g\sigma g^{-1}=\sigma\rbrace$ である。これは共役による作用での $\sigma$ の安定化群である。 $\sigma$ の軌道 $G\cdot\sigma$ は共役類 $C(\sigma)=\lbrace g\sigma g^{-1}\mid g\in G\rbrace$ となるが、以下では $G$ は対称群なので $\sigma=(i_1\cdots i_l)$ とするとp.98 補題 4.2.2から $G\cdot\sigma=\lbrace g\sigma g^{-1}\mid g\in G\rbrace=\lbrace(g(i_1)\cdots g(i_l))\mid g\in G\rbrace$ である。これはつまり $G$ における $\sigma$ の型の置換全てである( $\sigma$ が元が重複しない循環置換の積である場合も同様)。また、p.95 定理4.1.28(1)より $|C(\sigma)|=\frac{|G|}{|Z_G(\sigma)|}$ なので、 $|Z_G(\sigma)|=\frac{|G|}{|G\cdot\sigma|}$ である。
 
 1. $G=\mathfrak{S}_4, \sigma=(1\hspace{5mu}2)$
+$|G\cdot\sigma|$ を考えると ${}_4C_2=6$ なので $|Z_G(\sigma)|=\frac{24}{6}=4$ である。明らかに $(1\hspace{5mu}2),(3\hspace{5mu}4)\in G_\sigma=Z_G(\sigma)$ であり、これらを含む最小の群 $\langle(1\hspace{5mu}2),(3\hspace{5mu}4)\rangle$ の位数が $4$ なので $Z_G(\sigma)=\langle(1\hspace{5mu}2),(3\hspace{5mu}4)\rangle$
 2. $G=\mathfrak{S}_4, \sigma=(1\hspace{5mu}2)(3\hspace{5mu}4)$
 3. $G=\mathfrak{S}_4, \sigma=(1\hspace{5mu}2\hspace{5mu}3)$
 4. $G=\mathfrak{S}_5, \sigma=(1\hspace{5mu}2\hspace{5mu}3)$

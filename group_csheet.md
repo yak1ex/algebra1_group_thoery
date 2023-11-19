@@ -97,3 +97,9 @@ $f:A\rightarrow B$で
 * p.92 系4.1.21 $G$ が $X$ に作用、 $x,y\in X, (G\cdot x)\cap(G\cdot y)\neq\emptyset\Rightarrow G\cdot y=G\cdot x\land G_y \cong G_x$
 * p.93 命題4.1.23 $G$ が $X$ に作用、$x\in X$ のとき、 $G/G_x\ni gG_x\mapsto gx\in G\cdot x$ は全単射。従って $|G\cdot x|=(G:G_x)$ 、 $|G|\lt\infty$ であれば $|G\cdot x|=|G|/|G_x|$
 * p.95 定理4.1.28 $\mathrm{ord}(G)\lt\infty$ (1) $x\in G\Rightarrow|C(x)|=\frac{|G|}{|Z_G(x)|}, C(x)=\lbrace x\rbrace\Leftrightarrow x\in Z(G)$ (2) $|G|=\sum|C(x)|$
+
+### 4.2 対称群の共役類
+
+* p.97 命題4.2.1 $\sigma$ が有限集合 $X$ の置換なら共通する元のない巡回置換の積に順序を除いて一意的に表せる。各巡回置換は(共通する元がないので)可換
+* p.98 補題4.2.2 $((i_1\cdots i_l)\in\mathfrak{S}_n\text{が巡回置換}\land\sigma\in\mathfrak{S}_n)\Rightarrow\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
+* p.99 定理4.2.3 $\sigma,\tau\in\mathfrak{S}_n$ であるとき、 $\sigma,\tau$ が共役であることと、 $\sigma,\tau$ の型が等しいことは同値
