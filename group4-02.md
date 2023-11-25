@@ -57,8 +57,9 @@ $$
 
 #### 4.2.2 未
 
-1. $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4),(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2)(3\hspace{5mu}4),(1\hspace{5mu}2),1$
-2. $\mathfrak{S}_5$ の共役類の代表元のうち $A_5$ に含まれるものは $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2)(3\hspace{5mu}4),1$ である。 $A_5$ の共役類で $\mathfrak{S}_5$ の共役類と一致しないものは？
+1. p.99 定理4.2.3 より共役類となることと置換の型が同じであることが同値になるので代表元としては $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4),(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2)(3\hspace{5mu}4),(1\hspace{5mu}2),1$ ととれる。
+2. $\mathfrak{S}_5$ の共役類の代表元のうち $A_5$ に含まれるものは $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2)(3\hspace{5mu}4),1$ である。以下 $\mathfrak{S}_5$ の共役類が $A_5$ でどうなるかを見ていく。
+p.99 補題4.2.2 より $\sigma(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)\sigma^{-1}=(\sigma(1)\hspace{5mu}\sigma(2)\hspace{5mu}\sigma(3)\hspace{5mu}\sigma(4)\hspace{5mu}\sigma(5))$ の共役類で $\mathfrak{S}_5$ の共役類と一致しないものは？
 
 #### 4.2.3
 
@@ -100,8 +101,8 @@ $|G\cdot\sigma|$ を考えると ${}_4C_2=6$ なので $|Z_G(\sigma)|=\frac{24}{
 
 $G=\mathfrak{S}_n (n\ge3)$
 
-1. $\sigma=(1\hspace{5mu}2\cdots n)\Rightarrow Z_G(\sigma)=\langle\sigma\rangle$
-2. $Z(\mathfrak{S}_n)=\lbrace1\rbrace$
+1. p.94 定義4.1.27 の上の記述より $Z_G(\sigma)=\lbrace g\in G\mid g\sigma g^{-1}=\sigma\rbrace$ である。また、p.98 補題 4.2.2 より　$g\sigma g^{-1}=(g(1)\hspace{5mu}g(2)\cdots g(n))$ であるからこれが $\sigma=(1\hspace{5mu}2\cdots n)$ と等しくなる $g$ は、p.99 例題4.2.6と同様の議論で $n$ 通りとることができ、 $1, \sigma, \sigma^2, \cdots, \sigma^{n-1}$ となる。よって、 $Z_G(\sigma)=\langle\sigma\rangle$ である。
+2. $Z(G)=\lbrace g\in G\mid \forall h\in G, gh=hg\rbrace=\lbrace g\in G\mid \forall h\in G, ghg^{-1}=h\rbrace$ なので、 $g\in Z(G)\Rightarrow g\in Z_G(\sigma)$ となるから $Z(G)\subset Z_G(\sigma)$ である。このとき、 $h=(1\hspace{5mu}2)\in G$ として $g\in Z(G)$ ならば $ghg^{-1}=(g(1)\hspace{5mu}g(2))=h=(1\hspace{5mu}2)$ となるので $g(1)=1,g(2)=2$ の場合か、$g(1)=2,g(2)=1$ の場合に限る。 $g\in Z(G)\subset Z_G(\sigma)=\langle\sigma\rangle$ でこの条件を満たすのは $g=1$ の場合のみである。(つまり $Z(G)\subset\lbrace1\rbrace$ ) 逆は明らかに $1\in Z(G)$ である。 (つまり $Z(G)\supset\lbrace1\rbrace$) よって、 $Z(G)=\lbrace1\rbrace$
 
 #### 4.2.6
 
@@ -125,10 +126,17 @@ $G=\mathfrak{S}_3$ 、 $G$ の位数 $2$ の元の集合は $X=\lbrace x_1=(1\hs
 
 $G=\mathfrak{S}_4, X=\lbrace x_1=(1\hspace{5mu}2)(3\hspace{5mu}4),x_2=(1\hspace{5mu}3)(2\hspace{5mu}4),x_3=(1\hspace{5mu}4)(2\hspace{5mu}3)\rbrace$ 、 $G$ は共役により $X$ に作用する、 $\rho:G\rightarrow\mathfrak{S}_3$ を置換表現とする
 
-1. $\rho((1\hspace{5mu}2)),\rho((1\hspace{5mu}2\hspace{5mu}3)),\rho((2\hspace{5mu}3))$
-2. $\rho$ 全射
-3. $\mathrm{Ker}(\rho)$
+1. $\rho$ の値
+  a. $(1\hspace{5mu}2)$ の作用は $x_1\mapsto x_1, x_2\mapsto x_3, x_3\mapsto x_2$ となるので $\rho((1\hspace{5mu}2))=(2\hspace{5mu}3)$
+  b. $(1\hspace{5mu}2\hspace{5mu}3)$ の作用は $x_1\mapsto x_3, x_2\mapsto x_1, x_3\mapsto x_2$ となるので $\rho((1\hspace{5mu}2\hspace{5mu}3))=(1\hspace{5mu}3\hspace{5mu}2)$
+  c. $(2\hspace{5mu}3)$ の作用は $x_1\mapsto x_2, x_2\mapsto x_1, x_3\mapsto x_3$ となるので $\rho((2\hspace{5mu}3))=(1\hspace{5mu}2)$
+2. p.89 命題4.1.12 より置換表現 $\rho$ は群の準同型である。よって、
+$\rho((1\hspace{5mu}3))=\rho((1\hspace{5mu}2\hspace{5mu}3)(1\hspace{5mu}2))=\rho((1\hspace{5mu}2\hspace{5mu}3))\rho((1\hspace{5mu}2))=(1\hspace{5mu}3\hspace{5mu}2)(2\hspace{5mu}3)=(1\hspace{5mu}3)$
+$\rho((1\hspace{5mu}3\hspace{5mu}2))=\rho((2\hspace{5mu}3)(1\hspace{5mu}2))=\rho((2\hspace{5mu}3))\rho((1\hspace{5mu}2))=(1\hspace{5mu}2)(2\hspace{5mu}3)=(1\hspace{5mu}2\hspace{5mu}3)$
+$\rho(1_G)=1_{\mathfrak{S}_3}$ ※p.41 命題2.5.3 (1)より
+以上により $\rho$ が $\mathfrak{S}_3$ 全ての元の値をとるので $\rho$ は全射である。
+3. いまいち：p.63 定理2.10.1(準同型定理(第一同型定理))より $G/\mathrm{Ker}(\rho)\cong\mathrm{Im}(\rho)=\mathfrak{S}_3$ である。p.53 定理2.6.20(ラグランランジュの定理)から $|G|/|\mathrm{Ker}(\rho)|=|\mathfrak{S}_3|$ となるので $|\mathrm{Ker}(\rho)|=|G|/|\mathfrak{S}_3|=24/6=4$ である。計算により $\rho(1_{\mathfrak{S}_4})=\rho(x_1)=\rho(x_2)=\rho(x_3)=1_{\mathfrak{S}_3}$ であることが確かめられるので $\mathrm{Ker}(\rho)=\lbrace1,x_1,x_2,x_3\rbrace$
 
 #### 4.2.10
-
+  
 $\mathfrak{S}_4$ の部分群の共役類全て、正規部分群はどれ？
