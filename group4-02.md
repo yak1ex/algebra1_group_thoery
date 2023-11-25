@@ -59,7 +59,14 @@ $$
 
 1. p.99 定理4.2.3 より共役類となることと置換の型が同じであることが同値になるので代表元としては $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4),(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2)(3\hspace{5mu}4),(1\hspace{5mu}2),1$ ととれる。
 2. $\mathfrak{S}_5$ の共役類の代表元のうち $A_5$ に含まれるものは $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5),(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2)(3\hspace{5mu}4),1$ である。以下 $\mathfrak{S}_5$ の共役類が $A_5$ でどうなるかを見ていく。
-p.99 補題4.2.2 より $\sigma(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)\sigma^{-1}=(\sigma(1)\hspace{5mu}\sigma(2)\hspace{5mu}\sigma(3)\hspace{5mu}\sigma(4)\hspace{5mu}\sigma(5))$ の共役類で $\mathfrak{S}_5$ の共役類と一致しないものは？
+まず $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ について考える。 $\mathfrak{S}_5$ において $\sigma\in A_5$ が $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ と共役であったとすると、 $\tau\sigma\tau^{-1}=(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ 。 $\tau$ が偶置換であれば $A_5$ においても $\sigma$ と $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ は共役である。 $\tau$ が奇置換である場合について、$(1\hspace{5mu}2)\tau\sigma\tau^{-1}(1\hspace{5mu}2)^{-1}=(1\hspace{5mu}2)(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)(1\hspace{5mu}2)^{-1}\Leftrightarrow((1\hspace{5mu}2)\tau)\sigma((1\hspace{5mu}2)\tau)^{-1}=(2\hspace{5mu}1\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ となり $(1\hspace{5mu}2)\tau$ は偶置換なので $A_5$ において $\sigma$ と $(2\hspace{5mu}1\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ が共役になる。したがって、 $\sigma$ は $A_5$ において $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5), (2\hspace{5mu}1\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ のいずれかと共役である。ここで $\mathfrak{S}_5$ での $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ の共役類の元の個数は $5!/5=24$ 個。一方、 $A_5$ での共役類の元の個数は ... ※安定化群を正確に求めなくとも一致しないことは言える
+よって $\mathfrak{S}_5$ での $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ の共役類は $A_5$ では $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ の共役類と $(2\hspace{5mu}1\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)$ の共役類に分かれる。
+次に、 $(1\hspace{5mu}2\hspace{5mu}3)$ について考える。 $\mathfrak{S}_5$ において $\sigma\in A_5$ が $(1\hspace{5mu}2\hspace{5mu}3)$ と共役であったとすると、 $\tau\sigma\tau^{-1}=(1\hspace{5mu}2\hspace{5mu}3)$ 。 $\tau$ が偶置換であれば $A_5$ においても $\sigma$ と $(1\hspace{5mu}2\hspace{5mu}3)$ は共役である。 $\tau$ が奇置換である場合について、$(4\hspace{5mu}5)\tau\sigma\tau^{-1}(4\hspace{5mu}5)^{-1}=(4\hspace{5mu}5)(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5)^{-1}\Leftrightarrow((4\hspace{5mu}5)\tau)\sigma((4\hspace{5mu}5)\tau)^{-1}=(1\hspace{5mu}2\hspace{5mu}3)$ となり $(4\hspace{5mu}5)\tau$ は偶置換なので $A_5$ において $\sigma$ と $(1\hspace{5mu}3\hspace{5mu}3)$ が共役となる。よって $\mathfrak{S}_5$ での $(1\hspace{5mu}2\hspace{5mu}3)$ の共役類は $A_5$ でも $1$ つの共役類のままである。
+次に、 $(1\hspace{5mu}2\hspace{5mu}3)$ について考える。 $\mathfrak{S}_5$ において $\sigma\in A_5$ が $(1\hspace{5mu}2\hspace{5mu}3)$ と共役であったとすると、 $\tau\sigma\tau^{-1}=(1\hspace{5mu}2\hspace{5mu}3)$ 。 $\tau$ が偶置換であれば $A_5$ においても $\sigma$ と $(1\hspace{5mu}2\hspace{5mu}3)$ は共役である。 $\tau$ が奇置換である場合について、$(4\hspace{5mu}5)\tau\sigma\tau^{-1}(4\hspace{5mu}5)^{-1}=(4\hspace{5mu}5)(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5)^{-1}\Leftrightarrow((4\hspace{5mu}5)\tau)\sigma((4\hspace{5mu}5)\tau)^{-1}=(1\hspace{5mu}2\hspace{5mu}3)$ となり $(4\hspace{5mu}5)\tau$ は偶置換なので $A_5$ において $\sigma$ と $(1\hspace{5mu}3\hspace{5mu}3)$ が共役となる。よって $\mathfrak{S}_5$ での $(1\hspace{5mu}2\hspace{5mu}3)$ の共役類は $A_5$ でも $1$ つの共役類のままである。
+
+$A_5$ の共役類で $\mathfrak{S}_5$ の共役類と一致しないものは？
+
+※交代群の位数については教科書上は語られてない？
 
 #### 4.2.3
 
@@ -89,11 +96,16 @@ $\lbrace1,2,3\rbrace\mapsto\lbrace2,6,5\rbrace,\lbrace4,5,6\rbrace\mapsto\lbrace
 
 以下では作用として共役による作用を考える。p.94 定義4.1.27の上の記載より $Z_G(\sigma)=\lbrace g\in G\mid g\sigma g^{-1}=\sigma\rbrace$ である。これは共役による作用での $\sigma$ の安定化群である。 $\sigma$ の軌道 $G\cdot\sigma$ は共役類 $C(\sigma)=\lbrace g\sigma g^{-1}\mid g\in G\rbrace$ となるが、以下では $G$ は対称群なので $\sigma=(i_1\cdots i_l)$ とするとp.98 補題 4.2.2から $G\cdot\sigma=\lbrace g\sigma g^{-1}\mid g\in G\rbrace=\lbrace(g(i_1)\cdots g(i_l))\mid g\in G\rbrace$ である。これはつまり $G$ における $\sigma$ の型の置換全てである( $\sigma$ が元が重複しない循環置換の積である場合も同様)。また、p.95 定理4.1.28(1)より $|C(\sigma)|=\frac{|G|}{|Z_G(\sigma)|}$ なので、 $|Z_G(\sigma)|=\frac{|G|}{|G\cdot\sigma|}$ である。
 
+※p.99 定理4.2.3 からすぐに共役であることと型が同じであることが言える
+
 1. $G=\mathfrak{S}_4, \sigma=(1\hspace{5mu}2)$
 $|G\cdot\sigma|$ を考えると ${}_4C_2=6$ なので $|Z_G(\sigma)|=\frac{24}{6}=4$ である。明らかに $(1\hspace{5mu}2),(3\hspace{5mu}4)\in G_\sigma=Z_G(\sigma)$ であり、これらを含む最小の群 $\langle(1\hspace{5mu}2),(3\hspace{5mu}4)\rangle$ の位数が $4$ なので $Z_G(\sigma)=\langle(1\hspace{5mu}2),(3\hspace{5mu}4)\rangle$
 2. $G=\mathfrak{S}_4, \sigma=(1\hspace{5mu}2)(3\hspace{5mu}4)$
+$|G\cdot\sigma|$ を考えると( $1$ とのペアの自由度のみとなり) ${}_3C_1=3$ なので $|Z_G(\sigma)|=\frac{24}{3}=8$ である。明らかに $(1\hspace{5mu}2),(3\hspace{5mu}4),(1\hspace{5mu}3)(2\hspace{5mu}4)\in G_\sigma=Z_G(\sigma)$ であり、これらを含む最小の群 $\langle(1\hspace{5mu}2),(3\hspace{5mu}4),(1\hspace{5mu}3)(2\hspace{5mu}4)\rangle$ の位数が $8$ となるので $Z_G(\sigma)=\langle(1\hspace{5mu}2),(3\hspace{5mu}4),(1\hspace{5mu}3)(2\hspace{5mu}4)\rangle$
 3. $G=\mathfrak{S}_4, \sigma=(1\hspace{5mu}2\hspace{5mu}3)$
+$|G\cdot\sigma|$ を考えると( 数字 $3$ つを決めると例えば $1$ がどこに移るかの自由度のみとなり) ${}_4C_3 \cdot {}_2C_1=8$ なので $|Z_G(\sigma)|=\frac{24}{8}=3$ である。明らかに $(1\hspace{5mu}2\hspace{5mu}3)\in G_\sigma=Z_G(\sigma)$ であり、これらを含む最小の群 $\langle(1\hspace{5mu}2\hspace{5mu}3)\rangle$ の位数が $3$ となるので $Z_G(\sigma)=\langle(1\hspace{5mu}2\hspace{5mu}3)\rangle$
 4. $G=\mathfrak{S}_5, \sigma=(1\hspace{5mu}2\hspace{5mu}3)$
+$|G\cdot\sigma|$ を考えると( 数字 $3$ つを決めると例えば $1$ がどこに移るかの自由度のみとなり) ${}_5C_3 \cdot {}_2C_1=20$ なので $|Z_G(\sigma)|=\frac{120}{20}=6$ である。明らかに $(1\hspace{5mu}2\hspace{5mu}3),(4\hspace{5mu}5)\in G_\sigma=Z_G(\sigma)$ であり、これらを含む最小の群 $\langle(1\hspace{5mu}2\hspace{5mu}3),(4\hspace{5mu}5)\rangle$ の位数が $6$ となるので $Z_G(\sigma)=\langle(1\hspace{5mu}2\hspace{5mu}3),(4\hspace{5mu}5)\rangle$
 5. $G=\mathfrak{S}_6, \sigma=(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5\hspace{5mu}6)$
 6. $G=\mathfrak{S}_6, \sigma=(1\hspace{5mu}2)(3\hspace{5mu}4)(5\hspace{5mu}6)$
 
@@ -102,14 +114,16 @@ $|G\cdot\sigma|$ を考えると ${}_4C_2=6$ なので $|Z_G(\sigma)|=\frac{24}{
 $G=\mathfrak{S}_n (n\ge3)$
 
 1. p.94 定義4.1.27 の上の記述より $Z_G(\sigma)=\lbrace g\in G\mid g\sigma g^{-1}=\sigma\rbrace$ である。また、p.98 補題 4.2.2 より　$g\sigma g^{-1}=(g(1)\hspace{5mu}g(2)\cdots g(n))$ であるからこれが $\sigma=(1\hspace{5mu}2\cdots n)$ と等しくなる $g$ は、p.99 例題4.2.6と同様の議論で $n$ 通りとることができ、 $1, \sigma, \sigma^2, \cdots, \sigma^{n-1}$ となる。よって、 $Z_G(\sigma)=\langle\sigma\rangle$ である。
-2. $Z(G)=\lbrace g\in G\mid \forall h\in G, gh=hg\rbrace=\lbrace g\in G\mid \forall h\in G, ghg^{-1}=h\rbrace$ なので、 $g\in Z(G)\Rightarrow g\in Z_G(\sigma)$ となるから $Z(G)\subset Z_G(\sigma)$ である。このとき、 $h=(1\hspace{5mu}2)\in G$ として $g\in Z(G)$ ならば $ghg^{-1}=(g(1)\hspace{5mu}g(2))=h=(1\hspace{5mu}2)$ となるので $g(1)=1,g(2)=2$ の場合か、$g(1)=2,g(2)=1$ の場合に限る。 $g\in Z(G)\subset Z_G(\sigma)=\langle\sigma\rangle$ でこの条件を満たすのは $g=1$ の場合のみである。(つまり $Z(G)\subset\lbrace1\rbrace$ ) 逆は明らかに $1\in Z(G)$ である。 (つまり $Z(G)\supset\lbrace1\rbrace$) よって、 $Z(G)=\lbrace1\rbrace$
+※ $Z_G(\sigma)$ に $\sigma$ が生成する群を含むことは自明なので演習問題4.2.2と同様な議論でそれで∀であることをを言えばよい( $\sigma$ の共役類の元は $(n-1)!$ 個ある ... )
+2. $Z(G)=\lbrace g\in G\mid \forall h\in G, gh=hg\rbrace=\lbrace g\in G\mid \forall h\in G, ghg^{-1}=h\rbrace$ なので、 $g\in Z(G)\Rightarrow g\in Z_G(\sigma)$ となるから $Z(G)\subset Z_G(\sigma)$ である。このとき、 $h=(1\hspace{5mu}2)\in G$ として $g\in Z(G)$ ならば $ghg^{-1}=(g(1)\hspace{5mu}g(2))=h=(1\hspace{5mu}2)$ となるので $g(1)=1,g(2)=2$ の場合か、$g(1)=2,g(2)=1$ の場合に限る。 $g\in Z(G)\subset Z_G(\sigma)=\langle\sigma\rangle$ でこの条件を満たすのは $g=1_{G}$ の場合のみである( $n\ge3$ なので $g=(1\hspace{5mu}2)$ は $\langle\sigma\rangle$ に含まれない)(つまり $Z(G)\subset\lbrace1\rbrace$ )。逆は明らかに $1\in Z(G)$ である(つまり $Z(G)\supset\lbrace1\rbrace$ )。よって、 $Z(G)=\lbrace1\rbrace$
+※(2)における $\sigma$ は(1)の $\sigma$ と同じ
 
-#### 4.2.6
+#### 4.2.6 未
 
 $\sigma\in G$ 型が $(j_1\times a_1,j_2\times a_2,\cdots,j_t\times a_t)(j_1\lt \cdots \lt j_t)\Rightarrow$
 $Z_G(\sigma)\triangleright N\land N\cong(\mathbb{Z}/j_1\mathbb{Z})^{a_1}\times\cdots\times(\mathbb{Z}/j_t\mathbb{Z})^{a_t}\land Z_G(\sigma)/N\cong\mathfrak{S}_{a_1}\times\cdots\times\mathfrak{S}_{a_t}$
 
-#### 4.2.7
+#### 4.2.7 未
 
 偶置換 $\sigma\in\mathfrak{S}_n$ 型は $(i_1,\cdots,i_l)$
 
@@ -118,7 +132,7 @@ $Z_G(\sigma)\triangleright N\land N\cong(\mathbb{Z}/j_1\mathbb{Z})^{a_1}\times\c
 2. ↑以外は $[Z_{\mathfrak{S}_n}(\sigma):Z_{A_n}(\sigma)]=2$ 
 ※ $\sigma$ の $\mathfrak{S}_n$ における共役類は $A_n$ においても1つの共役類
 
-#### 4.2.8
+#### 4.2.8 未
 
 $G=\mathfrak{S}_3$ 、 $G$ の位数 $2$ の元の集合は $X=\lbrace x_1=(1\hspace{5mu}2),x_2=(1\hspace{5mu}3),x_3=(2\hspace{5mu}3)\rbrace$ 、 $G$ は共役により $X$ に作用する、 $\rho:G\rightarrow\mathfrak{S}_3$ を置換表現として $\rho$ は同型
 
@@ -137,6 +151,6 @@ $\rho(1_G)=1_{\mathfrak{S}_3}$ ※p.41 命題2.5.3 (1)より
 以上により $\rho$ が $\mathfrak{S}_3$ 全ての元の値をとるので $\rho$ は全射である。
 3. いまいち：p.63 定理2.10.1(準同型定理(第一同型定理))より $G/\mathrm{Ker}(\rho)\cong\mathrm{Im}(\rho)=\mathfrak{S}_3$ である。p.53 定理2.6.20(ラグランランジュの定理)から $|G|/|\mathrm{Ker}(\rho)|=|\mathfrak{S}_3|$ となるので $|\mathrm{Ker}(\rho)|=|G|/|\mathfrak{S}_3|=24/6=4$ である。計算により $\rho(1_{\mathfrak{S}_4})=\rho(x_1)=\rho(x_2)=\rho(x_3)=1_{\mathfrak{S}_3}$ であることが確かめられるので $\mathrm{Ker}(\rho)=\lbrace1,x_1,x_2,x_3\rbrace$
 
-#### 4.2.10
+#### 4.2.10 未
   
 $\mathfrak{S}_4$ の部分群の共役類全て、正規部分群はどれ？
