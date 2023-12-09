@@ -92,7 +92,7 @@ $$
 $\lbrace1,2,3\rbrace\mapsto\lbrace4,1,3\rbrace,\lbrace4,5,6\rbrace\mapsto\lbrace2,6,5\rbrace$ か
 $\lbrace1,2,3\rbrace\mapsto\lbrace2,6,5\rbrace,\lbrace4,5,6\rbrace\mapsto\lbrace4,1,3\rbrace$ の場合で各写像については長さ $3$ の巡回置換同士の対応なので $3$ 通りなので $3\times3\times2=18$ 通り
 
-#### 4.2.4 未
+#### 4.2.4
 
 以下では作用として共役による作用を考える。p.94 定義4.1.27の上の記載より $Z_G(\sigma)=\lbrace g\in G\mid g\sigma g^{-1}=\sigma\rbrace$ である。これは共役による作用での $\sigma$ の安定化群である。 $\sigma$ の軌道 $G\cdot\sigma$ は共役類 $C(\sigma)=\lbrace g\sigma g^{-1}\mid g\in G\rbrace$ となるが、以下では $G$ は対称群なので $\sigma=(i_1\cdots i_l)$ とするとp.98 補題 4.2.2から $G\cdot\sigma=\lbrace g\sigma g^{-1}\mid g\in G\rbrace=\lbrace(g(i_1)\cdots g(i_l))\mid g\in G\rbrace$ である。これはつまり $G$ における $\sigma$ の型の置換全てである( $\sigma$ が元が重複しない循環置換の積である場合も同様)。また、p.95 定理4.1.28(1)より $|C(\sigma)|=\frac{|G|}{|Z_G(\sigma)|}$ なので、 $|Z_G(\sigma)|=\frac{|G|}{|G\cdot\sigma|}$ である。
 
@@ -121,26 +121,54 @@ $G=\mathfrak{S}_n (n\ge3)$
 2. $Z(G)=\lbrace g\in G\mid \forall h\in G, gh=hg\rbrace=\lbrace g\in G\mid \forall h\in G, ghg^{-1}=h\rbrace$ なので、 $g\in Z(G)\Rightarrow g\in Z_G(\sigma)$ となるから $Z(G)\subset Z_G(\sigma)$ である。このとき、 $h=(1\hspace{5mu}2)\in G$ として $g\in Z(G)$ ならば $ghg^{-1}=(g(1)\hspace{5mu}g(2))=h=(1\hspace{5mu}2)$ となるので $g(1)=1,g(2)=2$ の場合か、$g(1)=2,g(2)=1$ の場合に限る。 $g\in Z(G)\subset Z_G(\sigma)=\langle\sigma\rangle$ でこの条件を満たすのは $g=1_{G}$ の場合のみである( $n\ge3$ なので $g=(1\hspace{5mu}2)$ は $\langle\sigma\rangle$ に含まれない)(つまり $Z(G)\subset\lbrace1\rbrace$ )。逆は明らかに $1\in Z(G)$ である(つまり $Z(G)\supset\lbrace1\rbrace$ )。よって、 $Z(G)=\lbrace1\rbrace$
 ※(2)における $\sigma$ は(1)の $\sigma$ と同じ
 
-#### 4.2.6 未
+#### 4.2.6 緩めだが一応完
 
-$\sigma\in G$ 型が $(j_1\times a_1,j_2\times a_2,\cdots,j_t\times a_t)(j_1\lt \cdots \lt j_t)\Rightarrow$
+> $\sigma\in G$ 型が $(j_1\times a_1,j_2\times a_2,\cdots,j_t\times a_t)(j_1\lt \cdots \lt j_t)\Rightarrow$
 $Z_G(\sigma)\triangleright N\land N\cong(\mathbb{Z}/j_1\mathbb{Z})^{a_1}\times\cdots\times(\mathbb{Z}/j_t\mathbb{Z})^{a_t}\land Z_G(\sigma)/N\cong\mathfrak{S}_{a_1}\times\cdots\times\mathfrak{S}_{a_t}$
+
+$\sigma=\sigma_{j_1,1}\cdots\sigma_{j_1,a_1}\cdots\sigma_{j_t,1}\cdots\sigma_{j_t,a_t}$ と共通する元のない循環置換の積で表せているとする。
+
+$\rho\in Z_G(\sigma)$ を考えると $\rho\sigma\rho^{-1}=\sigma$ である。このとき $\rho$ の作用によって長さ $j_1$ の巡回置換は $a_1$ 個ある同じ長さ $j_1$ の巡回置換のいずれかと(重複なく)対応しているはずである。つまり適当な $\psi_1\in\mathfrak{S}_{a_1}$ によって
+
+$\rho\sigma_{j_1,1}\rho^{-1}=\sigma_{j_1,\psi_1(1)},\quad\cdots,\quad\rho\sigma_{j_1,a_1}\rho^{-1}=\sigma_{j_1,\psi_1(a_1)}$
+
+のように表せる。この $\psi_1$ は $\rho$ を決めれば一意に定まる。同様に議論を進めることで $\psi_2,\cdots,\psi_t$ を定めることができる。これらによって写像 $\phi: Z_G(\sigma)\ni\rho\mapsto(\psi_1,\cdots,\psi_t)\in\mathfrak{S}_{a_1}\times\cdots\times\mathfrak{S}_{a_t}$ を定めることができる。
+
+$\rho_2\rho_1\sigma_{j_1,1}(\rho_2\rho_1)^{-1}=\rho_2\rho_1\sigma_{j_1,1}\rho_1^{-1}\rho_2^{-1}=\rho_2\sigma_{j_1,\psi_1(1)}\rho_2^{-1}=\sigma_{j_1,\psi_2(\psi_1(1))}=\sigma_{j_1,(\psi_2\circ\psi_1)(1)}$
+
+となるので(同様に議論を進めることで)、 $\phi$ は準同型であることが言える。
+p.56 命題2.8.3より $\mathrm{Ker}(\phi)$ は $Z_G(\sigma)$ の正規部分群である。 $\rho\in N=\mathrm{Ker}(\phi)$ とすると各 $\psi_i$ が恒等置換となる場合なので
+
+$\rho\sigma_{j_1,1}\rho^{-1}=\sigma_{j_1,1},\cdots,\rho\sigma_{j_1,a_1}\rho^{-1}=\sigma_{j_1,a_1},\cdots,\rho\sigma_{j_t,t}\rho^{-1}=\sigma_{j_t,t},\cdots,\rho\sigma_{j_t,a_t}\rho^{-1}=\sigma_{j_t,a_t}$
+
+各 $\sigma_{j_k,l}$ に共通する元はないので $\rho$ は上の各式の組み合わせで一意に定義される。
+演習問題4.2.5(1)から $\sigma_{j_1,1}$ に対する作用分は $\langle\sigma_{j_1,1}\rangle\cong\mathbb{Z}/j_1\mathbb{Z}$ となる。
+同様の議論を進めることで $N\cong(\mathbb{Z}/j_1\mathbb{Z})^{a_1}\times\cdots\times(\mathbb{Z}/j_t\mathbb{Z})^{a_t}$ となる。
+※ここの同型をもうちょいうまく厳密に言いたい
+
+ここでp.63 定理2.10.1(準同型定理(第一同型定理))を用いると、 $Z_G(\sigma)/N=Z_G(\sigma)/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)=\mathfrak{S}_{a_1}\times\cdots\times\mathfrak{S}_{a_t}$
+となる。これで題意は証明された。
 
 #### 4.2.7 未
 
 偶置換 $\sigma\in\mathfrak{S}_n$ 型は $(i_1,\cdots,i_l)$
 
+p.97 命題4.2.1のような形で $\sigma=\sigma_{i_1}\cdots\sigma_{i_l}$ と書き下したとする。
+
 1. $(\forall m\in[1,l],i_n\equiv1\mod{2}\land\forall u,v\in[i,l](u\neq v)\Rightarrow i_u\neq i_v)\Rightarrow Z_{\mathfrak{S}_n}(\sigma)=Z_{A_n}(\sigma)$
 ※ $\sigma$ の $\mathfrak{S}_n$ における共役類は $A_n$ における元の個数が等しい共役類2つの和
-2. ↑以外は $[Z_{\mathfrak{S}_n}(\sigma):Z_{A_n}(\sigma)]=2$ 
-※ $\sigma$ の $\mathfrak{S}_n$ における共役類は $A_n$ においても1つの共役類
+2. 1以外の場合とは、 $i_1,\cdots,i_l$ のうち i) 偶数が存在するか、または ii) 全て奇数だが一致するものが存在するかのいずれかであるが、以下のようにいずれの場合でも、 $\mathfrak{S}_n$ での $\sigma$ の共役類と $A_n$ での $\sigma$ の共役類は一致するので $\frac{|A_n|}{|Z_{A_n}(\sigma)|}=\frac{|\mathfrak{S}_n|}{|Z_{\mathfrak{S}_n}(\sigma)|}$ となる。 また $|\mathfrak{S}_n|=2|A_n|, \mathfrak{S}_n\supset A_n$ なので $[Z_{\mathfrak{S}_n}(\sigma):Z_{A_n}(\sigma)]=2$ である。
+   1. $i_k$ が偶数であるとして一般性を失わない。長さが偶数の巡回置換は奇置換である。したがって、 $\sigma_{i_k}$ は奇置換である。このとき、 $\sigma_i$ に共通する元がないことと、 $\sigma_{i_k}\sigma_{i_k}\sigma_{i_k}^{-1}=\sigma_{i_k}$ であることから、 $\sigma_{i_k}\sigma\sigma_{i_k}^{-1}=\sigma$ である。
+   $\mathfrak{S}_n$ において $\tau$ と $\sigma$ が共役であったとすると、適当な置換 $\nu\in\mathfrak{S}_n$ をとることで、 $\nu\tau\nu^{-1}=\sigma$ とできる。 $\nu$ が偶置換である場合には、この式から $A_n$ でも $\tau$ と $\sigma$ は共役であることがわかる。 $\nu$ が奇置換である場合には、 $\sigma_{i_k}\nu\tau(\sigma_{i_k}\nu)^{-1}=\sigma_{i_k}\nu\tau\nu^{-1}\sigma_{i_k}^{-1}=\sigma_{i_k}\sigma\sigma_{i_k}^{-1}=\sigma$ となり、 $\sigma_{i_k}$ は奇置換なので偶置換 $\sigma_{i_k}\tau$ によって $\tau$ と $\sigma$ が共役となるため、 $A_n$ でも $\tau$ と $\sigma$ は共役である。いずれの場合でも成立するので $A_n$ で $\tau$ と $\sigma$ は共役である。よって、 $\mathfrak{S}_n$ での $\sigma$ の共役類と $A_n$ での $\sigma$ の共役類は一致する。
+   2. $i_j=i_k$ として一般性を失わない。 $\sigma_{i_j}=(a_1\hspace{5mu}\cdots\hspace{5mu}a_{i_j}), \sigma_{i_k}=(b_1\hspace{5mu}\cdots\hspace{5mu}b_{i_k})$ とすると、 $i_j=i_k$ (奇数) なので $\rho=(a_1\hspace{5mu}b_1)\cdots(a_{i_j}\hspace{5mu}b_{i_k})$ は奇置換であり、また $\rho\sigma_{i_j}\rho^{-1}=\sigma_{i_k}, \rho\sigma_{i_k}\rho^{-1}=\sigma_{i_j}$ で他の $\sigma_i$ は不変なので $\rho\sigma\rho^{-1}=\sigma$ である。
+   $\mathfrak{S}_n$ において $\tau$ と $\sigma$ が共役であったとすると、適当な置換 $\nu\in\mathfrak{S}_n$ をとることで、 $\nu\tau\nu^{-1}=\sigma$ とできる。 $\nu$ が偶置換である場合には、この式から $A_n$ でも $\tau$ と $\sigma$ は共役であることがわかる。 $\nu$ が奇置換である場合には、 $\rho\nu\tau(\rho\nu)^{-1}=\rho\nu\tau\nu^{-1}\rho^{-1}=\rho\sigma\rho^{-1}=\sigma$ となり、 $\rho$ は奇置換なので偶置換 $\rho\tau$ によって $\tau$ と $\sigma$ が共役となるため、 $A_n$ でも $\tau$ と $\sigma$ は共役である。いずれの場合でも成立するので $A_n$ で $\tau$ と $\sigma$ は共役である。よって、 $\mathfrak{S}_n$ での $\sigma$ の共役類と $A_n$ での $\sigma$ の共役類は一致する。
 
 #### 4.2.8
 
 $G=\mathfrak{S}_3$ 、 $G$ の位数 $2$ の元の集合は $X=\lbrace x_1=(1\hspace{5mu}2),x_2=(1\hspace{5mu}3),x_3=(2\hspace{5mu}3)\rbrace$ 、 $G$ は共役により $X$ に作用する、 $\rho:G\rightarrow\mathfrak{S}_3$ を置換表現とする
 
 p.89 命題4.1.12 より置換表現 $\rho$ は群の準同型である。
-$g\in G$ で $\rho(g)=1_{\mathfrak{S}_3}$ とすると、 $gx_1g^{-1}=x_1\Leftrightarrow(g(1)\hspace{5mu}g(2))=(1\hspace{5mu}2)(\because\text{p.98 補題 4.2.2 より})$ であるから $g$ は $3$ を固定する置換である。 $x_2, x_3$ について同様の議論から、 $g$ は $2$ と $1$ も固定する置換であることが言えるため、結局 $g$ は恒等置換 $1_G$ である。逆に、 $\rho$ は準同型なので $\rho(1_G)=1_{\mathfrak{S}_3}$ であるから、 $\mathrm{Ker}(\rho)=\lbrace1_G\rbrace$ となり、p.44 命題2.5.13 から $\rho$ は単射である。 $\rho$ が単射であることと $|G|=|\mathfrak{S}_3|$ から p.7 命題1.1.6(2) により $\rho$ は全射である。
+$g\in G$ で $\rho(g)=1_{\mathfrak{S}_3}$ とすると、 $gx_1g^{-1}=x_1\Leftrightarrow(g(1)\hspace{5mu}g(2))=(1\hspace{5mu}2)(\because\text{p.98 補題 4.2.2 より})$ であるから $g$ は $3$ を固定する置換である。 $x_2, x_3$ について同様の議論から、 $g$ は $2$ と $1$ も固定する置換であることが言えるため、結局 $g$ は恒等置換 $1_G$ でなければならない。逆に $\rho$ は準同型なので $\rho(1_G)=1_{\mathfrak{S}_3}$ であるから $\mathrm{Ker}(\rho)=\lbrace1_G\rbrace$ となり、p.44 命題2.5.13 から $\rho$ は単射である。 $\rho$ が単射であることと $|G|=|\mathfrak{S}_3|$ であることから p.7 命題1.1.6(2) により $\rho$ は全射である。
 以上により、 $\rho$ は全単射準同型なので同型である。
 
 #### 4.2.9 担当
