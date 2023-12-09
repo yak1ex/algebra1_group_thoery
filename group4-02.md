@@ -66,7 +66,7 @@ $$
 
 $A_5$ の共役類で $\mathfrak{S}_5$ の共役類と一致しないものは？
 
-※交代群の位数については教科書上は語られてない？
+※交代群の位数については教科書上は語られてない？8596-
 
 #### 4.2.3
 
@@ -107,7 +107,10 @@ $|G\cdot\sigma|$ を考えると( 数字 $3$ つを決めると例えば $1$ が
 4. $G=\mathfrak{S}_5, \sigma=(1\hspace{5mu}2\hspace{5mu}3)$
 $|G\cdot\sigma|$ を考えると( 数字 $3$ つを決めると例えば $1$ がどこに移るかの自由度のみとなり) ${}_5C_3 \cdot {}_2C_1=20$ なので $|Z_G(\sigma)|=\frac{120}{20}=6$ である。明らかに $(1\hspace{5mu}2\hspace{5mu}3),(4\hspace{5mu}5)\in G_\sigma=Z_G(\sigma)$ であり、これらを含む最小の群 $\langle(1\hspace{5mu}2\hspace{5mu}3),(4\hspace{5mu}5)\rangle$ の位数が $6$ となるので $Z_G(\sigma)=\langle(1\hspace{5mu}2\hspace{5mu}3),(4\hspace{5mu}5)\rangle$
 5. $G=\mathfrak{S}_6, \sigma=(1\hspace{5mu}2\hspace{5mu}3)(4\hspace{5mu}5\hspace{5mu}6)$
+$|G\cdot\sigma|$ を考えると( $1$ と組になる数字 $2$ つを選ぶと $3$ つの数字 $2$ 組それぞれで例えば $1$ がどこに移るかの自由度のみとなり) ${}_5C_2 \cdot {}_2C_1\cdot {}_2C_1=40$ なので $|Z_G(\sigma)|=\frac{720}{40}=18$ である。明らかに $(1\hspace{5mu}2\hspace{5mu}3),(4\hspace{5mu}5\hspace{5mu}6),(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\in G_\sigma=Z_G(\sigma)$ であり、これらを含む最小の群 $\langle(1\hspace{5mu}2\hspace{5mu}3),(4\hspace{5mu}5\hspace{5mu}6),(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\rangle$ の位数が $18$ となるので(※ $3\times3\times2$ だがそうなることはそんな自明じゃないとは思う) $Z_G(\sigma)=\langle(1\hspace{5mu}2\hspace{5mu}3),(4\hspace{5mu}5\hspace{5mu}6),(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\rangle$
 6. $G=\mathfrak{S}_6, \sigma=(1\hspace{5mu}2)(3\hspace{5mu}4)(5\hspace{5mu}6)$
+$|G\cdot\sigma|$ を考えると(順序を無視するところを考えれば) $\frac{6!}{3!2!2!2!}=15$ なので $|Z_G(\sigma)|=\frac{720}{15}=48$ である。明らかに $(1\hspace{5mu}2),(3\hspace{5mu}4),(5\hspace{5mu}6),(1\hspace{5mu}3)(2\hspace{5mu}4),(1\hspace{5mu}5)(2\hspace{5mu}6)\in G_\sigma=Z_G(\sigma)$ であり、これらを含む最小の群 $\langle(1\hspace{5mu}2),(3\hspace{5mu}4),(5\hspace{5mu}6),(1\hspace{5mu}3)(2\hspace{5mu}4),(1\hspace{5mu}5)(2\hspace{5mu}6)\rangle$ の位数が $48$ となるので(※本当かよ ref. group4-02.sage) $Z_G(\sigma)=\langle(1\hspace{5mu}2),(3\hspace{5mu}4),(5\hspace{5mu}6),(1\hspace{5mu}3)(2\hspace{5mu}4),(1\hspace{5mu}5)(2\hspace{5mu}6)\rangle$
+※ 気持ち的には $(1\hspace{5mu}2),(3\hspace{5mu}4),(5\hspace{5mu}6)$ は独立なので $2\times2\times2=8$ 、$(1\hspace{5mu}3)(2\hspace{5mu}4),(1\hspace{5mu}5)(2\hspace{5mu}6)$ は $(1\hspace{5mu}2),(3\hspace{5mu}4),(5\hspace{5mu}6)$ の対をペアとみなしたときの入れ替え $(1\hspace{5mu}2),(1\hspace{5mu}3)$ になっているので $3!$　、ペア内の置換とペアとしての置換になっているので $8\times6=48$
 
 #### 4.2.5 担当
 
@@ -132,9 +135,13 @@ $Z_G(\sigma)\triangleright N\land N\cong(\mathbb{Z}/j_1\mathbb{Z})^{a_1}\times\c
 2. ↑以外は $[Z_{\mathfrak{S}_n}(\sigma):Z_{A_n}(\sigma)]=2$ 
 ※ $\sigma$ の $\mathfrak{S}_n$ における共役類は $A_n$ においても1つの共役類
 
-#### 4.2.8 未
+#### 4.2.8
 
-$G=\mathfrak{S}_3$ 、 $G$ の位数 $2$ の元の集合は $X=\lbrace x_1=(1\hspace{5mu}2),x_2=(1\hspace{5mu}3),x_3=(2\hspace{5mu}3)\rbrace$ 、 $G$ は共役により $X$ に作用する、 $\rho:G\rightarrow\mathfrak{S}_3$ を置換表現として $\rho$ は同型
+$G=\mathfrak{S}_3$ 、 $G$ の位数 $2$ の元の集合は $X=\lbrace x_1=(1\hspace{5mu}2),x_2=(1\hspace{5mu}3),x_3=(2\hspace{5mu}3)\rbrace$ 、 $G$ は共役により $X$ に作用する、 $\rho:G\rightarrow\mathfrak{S}_3$ を置換表現とする
+
+p.89 命題4.1.12 より置換表現 $\rho$ は群の準同型である。
+$g\in G$ で $\rho(g)=1_{\mathfrak{S}_3}$ とすると、 $gx_1g^{-1}=x_1\Leftrightarrow(g(1)\hspace{5mu}g(2))=(1\hspace{5mu}2)(\because\text{p.98 補題 4.2.2 より})$ であるから $g$ は $3$ を固定する置換である。 $x_2, x_3$ について同様の議論から、 $g$ は $2$ と $1$ も固定する置換であることが言えるため、結局 $g$ は恒等置換 $1_G$ である。逆に、 $\rho$ は準同型なので $\rho(1_G)=1_{\mathfrak{S}_3}$ であるから、 $\mathrm{Ker}(\rho)=\lbrace1_G\rbrace$ となり、p.44 命題2.5.13 から $\rho$ は単射である。 $\rho$ が単射であることと $|G|=|\mathfrak{S}_3|$ から p.7 命題1.1.6(2) により $\rho$ は全射である。
+以上により、 $\rho$ は全単射準同型なので同型である。
 
 #### 4.2.9 担当
 
