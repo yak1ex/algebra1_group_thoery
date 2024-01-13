@@ -171,9 +171,15 @@ p.89 命題4.1.12 より置換表現 $\rho$ は群の準同型である。
 $g\in G$ で $\rho(g)=1_{\mathfrak{S}_3}$ とすると、 $gx_1g^{-1}=x_1\Leftrightarrow(g(1)\hspace{5mu}g(2))=(1\hspace{5mu}2)(\because\text{p.98 補題 4.2.2 より})$ であるから $g$ は $3$ を固定する置換である。 $x_2, x_3$ について同様の議論から、 $g$ は $2$ と $1$ も固定する置換であることが言えるため、結局 $g$ は恒等置換 $1_G$ でなければならない。逆に $\rho$ は準同型なので $\rho(1_G)=1_{\mathfrak{S}_3}$ であるから $\mathrm{Ker}(\rho)=\lbrace1_G\rbrace$ となり、p.44 命題2.5.13 から $\rho$ は単射である。 $\rho$ が単射であることと $|G|=|\mathfrak{S}_3|$ であることから p.7 命題1.1.6(2) により $\rho$ は全射である。
 以上により、 $\rho$ は全単射準同型なので同型である。
 
+※共役による作用が左作用、有限集合に対する作用だけど、 $X$ に閉じてることは確認必要
+
 #### 4.2.9 担当
 
 $G=\mathfrak{S}_4, X=\lbrace x_1=(1\hspace{5mu}2)(3\hspace{5mu}4),x_2=(1\hspace{5mu}3)(2\hspace{5mu}4),x_3=(1\hspace{5mu}4)(2\hspace{5mu}3)\rbrace$ 、 $G$ は共役により $X$ に作用する、 $\rho:G\rightarrow\mathfrak{S}_3$ を置換表現とする
+
+※共役による作用で置換の型が変わらない、 $X$ は $2,2$ 型の全ての元なので $X$ で閉じてる
+※(2)では $\mathfrak{S}_3$ の生成元全てに行く元があることを言えばよい
+※(3) $x_1\mapsto x_1, x_2\mapsto x_2, x_3\mapsto x_3$
 
 1. $\rho$ の値
   a. $(1\hspace{5mu}2)$ の作用は $x_1\mapsto x_1, x_2\mapsto x_3, x_3\mapsto x_2$ となるので $\rho((1\hspace{5mu}2))=(2\hspace{5mu}3)$
@@ -184,8 +190,10 @@ $\rho((1\hspace{5mu}3))=\rho((1\hspace{5mu}2\hspace{5mu}3)(1\hspace{5mu}2))=\rho
 $\rho((1\hspace{5mu}3\hspace{5mu}2))=\rho((2\hspace{5mu}3)(1\hspace{5mu}2))=\rho((2\hspace{5mu}3))\rho((1\hspace{5mu}2))=(1\hspace{5mu}2)(2\hspace{5mu}3)=(1\hspace{5mu}2\hspace{5mu}3)$
 $\rho(1_G)=1_{\mathfrak{S}_3}$ ※p.41 命題2.5.3 (1)より
 以上により $\rho$ が $\mathfrak{S}_3$ 全ての元の値をとるので $\rho$ は全射である。
-3. いまいち：p.63 定理2.10.1(準同型定理(第一同型定理))より $G/\mathrm{Ker}(\rho)\cong\mathrm{Im}(\rho)=\mathfrak{S}_3$ である。p.53 定理2.6.20(ラグランランジュの定理)から $|G|/|\mathrm{Ker}(\rho)|=|\mathfrak{S}_3|$ となるので $|\mathrm{Ker}(\rho)|=|G|/|\mathfrak{S}_3|=24/6=4$ である。計算により $\rho(1_{\mathfrak{S}_4})=\rho(x_1)=\rho(x_2)=\rho(x_3)=1_{\mathfrak{S}_3}$ であることが確かめられるので $\mathrm{Ker}(\rho)=\lbrace1,x_1,x_2,x_3\rbrace$
+3. いまいち？：p.63 定理2.10.1(準同型定理(第一同型定理))より $G/\mathrm{Ker}(\rho)\cong\mathrm{Im}(\rho)=\mathfrak{S}_3$ である。p.53 定理2.6.20(ラグランランジュの定理)から $|G|/|\mathrm{Ker}(\rho)|=|\mathfrak{S}_3|$ となるので $|\mathrm{Ker}(\rho)|=|G|/|\mathfrak{S}_3|=24/6=4$ である。計算により $\rho(1_{\mathfrak{S}_4})=\rho(x_1)=\rho(x_2)=\rho(x_3)=1_{\mathfrak{S}_3}$ であることが確かめられるので $\mathrm{Ker}(\rho)=\lbrace1,x_1,x_2,x_3\rbrace$
 
 #### 4.2.10 未
   
 $\mathfrak{S}_4$ の部分群の共役類全て、正規部分群はどれ？
+
+※そもそも題意があまり正しくとれてなかった
