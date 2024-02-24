@@ -86,4 +86,39 @@ $G=G_0\supset G_1=\lbrace1\rbrace$ で $G/\lbrace1\rbrace\cong G$ が可換群
 第2版命題4.3.4(3)参照
 $N$ ：クラインの四元群は可換なので可解群
 
+#### 例4.3.8
+
+$G_1$ が群演算で閉じていることは明らか。
+
+$G_1\subset Z(G)$ なので $\forall g\in G, \forall h\in G_1$ に対して $g h g^{-1}=h g g^{-1} = h\in G_1$ であるから $G_1\triangleleft G$
+
+$G_1/G$ の各類の元は $(1,3)$ 成分だけ異なる
+
+$*$ は $G/G_1$ について語る際には $(1,3)$ 成分は不問なのでこの表記。
+
+#### 命題4.3.9
+
+p.101 命題4.3.2(2)より $D(G_i)=[G_i,G_i]\subset G_{i+1}$ となり、 $D(G_{i+1})\subset D(G_i)\subset G_{i+1}$
+
+$D_n(G)\subset G_n=\lbrace1\rbrace$ で $D_n(G)\neq\emptyset$ なので $D_n(G)=\lbrace1\rbrace$
+
+逆は p.101 命題4.3.2(1)から
+
+#### 命題4.3.10証明できるといいね
+
+#### 命題4.3.12
+
+$G$ の正規部分群は $\lbrace1\rbrace$ しかないが $G/\lbrace1\rbrace\cong G$ が可換群ではないので可解群にならない。
+
 ### 演習問題
+
+#### 4.3.1
+
+1.
+2.
+
+#### 4.3.2
+
+1.
+2.
+3.
