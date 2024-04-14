@@ -30,6 +30,79 @@ $|H|$ が $p^a$ の約数でかつ、 $p^am/|H|$ が $p$ で割り切れない�
 
 ※確かに $n$ 個( $n$ を割る $p$ の最大べきが $p^a$ )の元の集合から $p^a$ 個の元を選ぶ組み合わせの数が $p$ で割れないって時点で面白いな
 
+###### 注
+
+(1)の証明における作用は「共役による作用」**ではない**(部分集合の集合に対する共役による作用について語っているのは、「群 $G$ の $G$ への共役による作用を考える」から命題4.5.6までと思われる)。なんとなればp.118 命題4.5.4自体が左からの積による作用と明示されている。
+
+$G=\mathfrak{S}_3, n=6, p=3, a=1$ として例を挙げてみる(まず左からの積による作用に基づく正しい例を挙げ、次に共役による作用に基づく誤った例を挙げる)。
+
+$|X|= {}_6C_3=20$ なので確かに $p=3$ で割り切れない。
+
+左からの積による作用の場合、 $S_i(i=1,2,3,4)$ を適当にとって
+
+$$
+\begin{array}{lllll}
+O(S_1)=
+\lbrace&
+\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}3\hspace{5mu}2),(1\hspace{5mu}2)\rbrace,
+\lbrace(1\hspace{5mu}3\hspace{5mu}2),(1\hspace{5mu}3),1_G\rbrace, \lbrace(1\hspace{5mu}2\hspace{5mu}3),(2\hspace{5mu}3),1_G\rbrace, \\
+&\lbrace(1\hspace{5mu}3),(2\hspace{5mu}3),1_G\rbrace,
+\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2),(2\hspace{5mu}3)\rbrace,
+\lbrace(1\hspace{5mu}3\hspace{5mu}2),(1\hspace{5mu}2),(1\hspace{5mu}3)\rbrace
+&\rbrace\\
+O(S_2)=
+\lbrace&
+\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}3\hspace{5mu}2),(1\hspace{5mu}3)\rbrace,
+\lbrace(1\hspace{5mu}3\hspace{5mu}2),(2\hspace{5mu}3),1_G\rbrace,
+\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2),1_G\rbrace, \\
+&\lbrace(1\hspace{5mu}3\hspace{5mu}2),(1\hspace{5mu}3),(2\hspace{5mu}3)\rbrace,
+\lbrace(1\hspace{5mu}2),(2\hspace{5mu}3),1_G\rbrace,
+\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}2),(1\hspace{5mu}3)\rbrace
+&\rbrace\\
+O(S_3)=
+\lbrace&
+\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}3\hspace{5mu}2),(2\hspace{5mu}3)\rbrace,
+\lbrace(1\hspace{5mu}3\hspace{5mu}2),(1\hspace{5mu}2),1_G\rbrace,
+\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}3),1_G\rbrace,\\
+&\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}3),(2\hspace{5mu}3)\rbrace,
+\lbrace(1\hspace{5mu}3\hspace{5mu}2),(1\hspace{5mu}2),(2\hspace{5mu}3)\rbrace,
+\lbrace(1\hspace{5mu}2),(1\hspace{5mu}3),1_G\rbrace,
+&\rbrace\\
+O(S_4)=
+\lbrace&
+\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}3\hspace{5mu}2),1_G\rbrace,
+\lbrace(1\hspace{5mu}2),(1\hspace{5mu}3),(2\hspace{5mu}3)\rbrace
+&\rbrace
+\end{array}
+$$
+
+$|O(S_1)|=|O(S_2)|=|O(S_3)|=6$ で $p=3$ の倍数、 $|O(S_4)|=2$ だから $S=S_4$ ととることになる。
+$H=\mathrm{Stab}(S)=\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}3\hspace{5mu}2),1_G\rbrace$ で、 $|H|=p^a=3^1$ になっている。
+
+|演算表|$(1\hspace{5mu}2\hspace{5mu}3)$|$(1\hspace{5mu}3\hspace{5mu}2)$|$(1\hspace{5mu}2)$|$(1\hspace{5mu}3)$|$(2\hspace{5mu}3)$|$1_G$|
+|-|-|-|-|-|-|-|
+|$(1\hspace{5mu}2\hspace{5mu}3)$|$(1\hspace{5mu}3\hspace{5mu}2)$|$1_G$|$(1\hspace{5mu}3)$|$(2\hspace{5mu}3)$|$(1\hspace{5mu}2)$|$(1\hspace{5mu}2\hspace{5mu}3)$|
+|$(1\hspace{5mu}3\hspace{5mu}2)$|$1_G$|$(1\hspace{5mu}2\hspace{5mu}3)$|$(2\hspace{5mu}3)$|$(1\hspace{5mu}2)$|$(1\hspace{5mu}3)$|$(1\hspace{5mu}3\hspace{5mu}2)$|
+|$(1\hspace{5mu}2)$|$(2\hspace{5mu}3)$|$(1\hspace{5mu}3)$|$1_G$|$(1\hspace{5mu}3\hspace{5mu}2)$|$(1\hspace{5mu}2\hspace{5mu}3)$|$(1\hspace{5mu}2)$|
+|$(1\hspace{5mu}3)$|$(1\hspace{5mu}2)$|$(2\hspace{5mu}3)$|$(1\hspace{5mu}2\hspace{5mu}3)$|$1_G$|$(1\hspace{5mu}3\hspace{5mu}2)$|$(1\hspace{5mu}3)$|
+|$(2\hspace{5mu}3)$|$(1\hspace{5mu}3)$|$(1\hspace{5mu}2)$|$(1\hspace{5mu}3\hspace{5mu}2)$|$(1\hspace{5mu}2\hspace{5mu}3)$|$1_G$|$(2\hspace{5mu}3)$|
+|$1_G$|$(1\hspace{5mu}2\hspace{5mu}3)$|$(1\hspace{5mu}3\hspace{5mu}2)$|$(1\hspace{5mu}2)$|$(1\hspace{5mu}3)$|$(2\hspace{5mu}3)$|$1_G$|
+
+共役による作用を考えた場合、対称群については共役による作用で置換の型が変わらないため、軌道(共役類)は置換の型の組み合わせの種類に分けられる。
+$(3)$ 型の元は $(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}3\hspace{5mu}2)$ の $2$ つ、 $(2,1)$ 型の元は $(1\hspace{5mu}2),(1\hspace{5mu}3),(2\hspace{5mu}3)$ の $3$ つ、 $(1,1,1)$ 型の元は $1_G$ のみの $1$ つとなるので軌道としては
+
+|型の組み合わせ|軌道の元の数|
+|-|-|
+|$(3),(3),(2,1)$|${}_2C_2\times{}_3C_1=3$|
+|$(3),(3),(1,1,1)$|${}_2C_2\times{}_1C_1=1$|
+|$(3),(2,1),(2,1)$|${}_2C_1\times{}_3C_2=6$|
+|$(3),(2,1),(1,1,1)$|${}_2C_1\times{}_3C_1\times{}_1C_1=6$|
+|$(2,1),(2,1),(2,1)$|${}_3C_3=1$|
+|$(2,1),(2,1),(1)$|${}_3C_1\times{}_1C_1=3$|
+
+$p=3$ で割り切れないのは $(3),(3),(1,1,1)$ か $(2,1),(2,1),(2,1)$ 、つまり
+$\lbrace\lbrace(1\hspace{5mu}2\hspace{5mu}3),(1\hspace{5mu}3\hspace{5mu}2),1_G\rbrace\rbrace$ か $\lbrace\lbrace(1\hspace{5mu}2),(1\hspace{5mu}3),(2\hspace{5mu}3)\rbrace\rbrace$ の場合でいずれも軌道の元の数は $1$ である。安定化群は $G=\mathfrak{S}_3$ 全体になるため話が成立しない(ので想定している作用の誤りに気づいたのである)。
+
 ##### (2)
 
 $q$ は $|K|$ の約数なので：p.104 命題4.1.24(第2版)より適当な $x$ をとって $q=|K\cdot x|=|K|/|K_x|$ となるから軌道の元の個数は作用する群の位数の約数となる。
