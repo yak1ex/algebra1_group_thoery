@@ -65,7 +65,7 @@ $f:A\rightarrow B$で
 
 * p.53 定理2.6.20(ラグランジュの定理) $|G|=(G:H)|H|$
 * p.53 系2.6.21 $G$が有限群$\Rightarrow$(1)$H\le G\Rightarrow\mathrm{ord}(H)\mid\mathrm{ord}(G)$ (2) $\mathrm{ord}(g)\mid \mathrm{ord}(G) \ (g \in G)$
-* p.53 命題2.6.22 $|G|=p, p$は素数 $\Rightarrow G = \langle x \rangle (G \ni x \neq 1_G)$
+* p.53(第2版p.58) 命題2.6.22 $|G|=p, p$は素数 $\Rightarrow G = \langle x \rangle (G \ni x \neq 1_G)$
 
 ### 2.8 正規部分群と剰余群
 
