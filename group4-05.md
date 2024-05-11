@@ -139,10 +139,10 @@ $H\subset N_G(H),K\subset N_G(H)$ はp.104 定義4.1.27(1)の定義から
 
 #### 4.5.1
 
-$G=\mathfrak{S}_4,Y=\lbrace X\mid X\subset G, |X|=2\rbrace$ 左からの積で作用 $\sigma=(1\hspace{5mu}2\hspace{5mu}3), y=\lbrace1,(1\hspace{5mu}2)(3\hspace{5mu}4)\rbrace\in Y$ 
+$G=\mathfrak{S}_4,Y=\lbrace X\mid X\subset G, |X|=2\rbrace$ 左からの積で作用 $\sigma=(1\hspace{5mu}3\hspace{5mu}2), y=\lbrace1,(1\hspace{5mu}2)(3\hspace{5mu}4)\rbrace\in Y$ 
 
-1. $\sigma y$
-2. $y$ の安定化群
+1. $\sigma y=\lbrace(1\hspace{5mu}3\hspace{5mu}2),(2\hspace{5mu}3\hspace{5mu}4)\rbrace$
+2. $G_y=\lbrace1,(1\hspace{5mu}2)(3\hspace{5mu}4)\rbrace$
 
 #### 4.5.2 担当
 
@@ -165,6 +165,17 @@ $O(x_1)=\lbrace x_1\rbrace, O(x_2)=\lbrace x_2,x_4\rbrace,O(x_3)=\lbrace x_3,x_5
 
 #### 4.5.3
 
+1. $p\gt q$ として一般性を失わない。$H,K$ をそれぞれ $G$ のシロー $p$ 部分群、シロー $q$ 部分群とする。シロー $p$ 部分群の数を $s$ 、シロー $q$ 部分群の数を $t$ とすると、(第2版)p.119定理4.5.7(4)より $s\equiv1\mod p,t\equiv1\mod q$ である。 $H\subset N_G(H),K\subset N_G(K)$ なので、 $s=(G:N_G(H)),t=(G:N_G(K))$ はそれぞれ $(G:H)=q,(G:K)=p$ の約数である。 $s$ は $1,q$ のいずれか、 $t$ は $1,p$ のいずれかである。 $p\gt q$ の場合、 $q\equiv q\mod p$ なので $s=1$ である。これは $H$ の共役が $H$ のみであることを意味するため、 $H\triangleleft G$ である。よって $G$ は単純群ではない。
+2. $p\not\equiv 1\mod q$ の場合、 $t=1$ である。これは $K$ の共役が $K$ のみであることを意味するため、 $K\triangleleft G$ である。(※以下p.121例題4.5.8と同じ流れ) $|H|=p,|K|=q$ は素数なので、 $H\cong\mathbb{Z}/p\mathbb{Z},K\cong\mathbb{Z}/q\mathbb{Z}$ である。 $|H\cap K|$ は $p,q$ の約数なので $1$ である。よって、 $H\cap K=\lbrace1_G\rbrace$ である。 $H,K\triangleleft G$なので、p.72 定理2.10.3(1)より $HK\subset G$ は部分群である。 $HK\supset H,K$ なので $|HK|$ は $p,q$ の公倍数である。 $|HK|\le pq$ なので $HK=G$ である。p.66 命題2.9.2およびp.67 定理2.9.3より $G\cong H\times K\cong\mathbb{Z}/p\mathbb{Z}\times\mathbb{Z}/q\mathbb{Z}\cong\mathbb{Z}/pq\mathbb{Z}$ である。これは位数 $pq$ の巡回群である(p.36例2.3.18)。
+3. 1 については $3\cdot2=6,5\cdot2=10,7\cdot2=14,11\cdot2=22,13\cdot2=26,17\cdot2=34,19\cdot2=38,$ $23\cdot2=46,29\cdot2=58,$
+$5\cdot3=15,7\cdot3=21,11\cdot3=33,13\cdot3=39,17\cdot3=51,19\cdot3=57,$
+$7\cdot5=35,11\cdot5=55$ なので、
+$6,10,14,15,21,22,26,33,34,35,38,39,46,51,55,57,58$
+2 については $5\cdot3=15,11\cdot3=33,17\cdot3=51,$
+$7\cdot5=35$ なので、
+$15,33,35,51$
+
+
 #### 4.5.4 担当
 
 1. $40=2^3\cdot5$ である。 $H,K$ をそれぞれ $G$ のシロー $2$ 部分群、シロー $5$ 部分群とする。シロー $2$ 部分群の数を $s$ 、シロー $5$ 部分群の数を $t$ とすると、(第2版)p.119定理4.5.7(4)より $s\equiv1\mod2,t\equiv1\mod5$ である。 $H\subset N_G(H),K\subset N_G(K)$ なので、 $s=(G:N_G(H)),t=(G:N_G(K))$ はそれぞれ $(G:H)=5,(G:K)=8$ の約数である。 $s$ は $1,5$ のいずれか、 $t$ は $1,2,4,8$ のいずれかである。 $t\equiv1\mod5$ を満たすのは $1$ のみなので $t=1$ である。これは $K$ の共役が $K$ のみであることを意味するため、 $K\triangleleft G$ である。よって $G$ は単純群ではない。
@@ -172,6 +183,12 @@ $O(x_1)=\lbrace x_1\rbrace, O(x_2)=\lbrace x_2,x_4\rbrace,O(x_3)=\lbrace x_3,x_5
 3. $54=2\cdot3^3$ である。 $H,K$ をそれぞれ $G$ のシロー $2$ 部分群、シロー $3$ 部分群とする。シロー $2$ 部分群の数を $s$ 、シロー $3$ 部分群の数を $t$ とすると、(第2版)p.119定理4.5.7(4)より $s\equiv1\mod2,t\equiv1\mod3$ である。 $H\subset N_G(H),K\subset N_G(K)$ なので、 $s=(G:N_G(H)),t=(G:N_G(K))$ はそれぞれ $(G:H)=27,(G:K)=2$ の約数である。 $s$ は $1,3,9,27$ のいずれか、 $t$ は $1,2$ のいずれかである。 $t\equiv1\mod3$ を満たすのは $1$ のみなので $t=1$ である。これは $K$ の共役が $K$ のみであることを意味するため、 $K\triangleleft G$ である。よって $G$ は単純群ではない。
 
 #### 4.5.5
+
+$56=2^3\cdot7$ である。シロー $2$ 部分群の数を $s$ 、シロー $7$ 部分群の数を $t$ とすると、(第2版)p.119定理4.5.7(4)より $s\equiv1\mod2,t\equiv1\mod7$ である。 $H\subset N_G(H),K\subset N_G(K)$ なので、 $s=(G:N_G(H)),t=(G:N_G(K))$ はそれぞれ $(G:H)=7,(G:K)=8$ の約数である。 $s$ は $1,7$ のいずれか、 $t$ は $1,2,4,8$ のいずれかである。
+
+1. $s=1$ の場合、これは $H$ の共役が $H$ のみであることを意味するため、 $H\triangleleft G$ である。
+2. $s=7$ の場合、
+
 
 #### 4.5.6
 
