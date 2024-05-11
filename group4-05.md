@@ -144,11 +144,32 @@ $G=\mathfrak{S}_4,Y=\lbrace X\mid X\subset G, |X|=2\rbrace$ 左からの積で�
 1. $\sigma y$
 2. $y$ の安定化群
 
-#### 4.5.2
+#### 4.5.2 担当
+
+$G=D_4=\langle\sigma=(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4),\tau=(2\hspace{5mu}4)\rangle=$
+$$
+\begin{array}{lllll}
+\lbrace&1_G,&\sigma=(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4),&\sigma^2=(1\hspace{5mu}3)(2\hspace{5mu}4),&\sigma^3=(1\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2),\\
+&\tau=(2\hspace{5mu}4),&\tau\sigma=(1\hspace{5mu}4)(2\hspace{5mu}3),&\tau\sigma^2=(1\hspace{5mu}3),&\tau\sigma^3=(1\hspace{5mu}2)(3\hspace{5mu}4)\rbrace
+\end{array}
+$$
+
+※自分にとってのわかりやすさから(第2版)p.98 命題4.1.10(2)に基づき全要素を書き下したが、(3)から $\tau\sigma^i$ の位数が $2$ であることは言えるので後は $\sigma^i$ の位数が $2$ になるのは $i=2$ のときだけであることから位数 $2$ の元は特定できる
+※あるいは(第2版)p.98 命題4.1.10(2)から $\tau\sigma\tau=\sigma^{-1}\Leftrightarrow\tau\sigma\tau\sigma=1_G\Leftrightarrow\sigma\tau\sigma=\tau$ 使うと巡回置換の積に書き下さなくても位数 $2$ の元であることは確かめられる
+
+1. $2$ は素数なので(第2版)p.58 命題2.6.22より位数 $2$ の元から生成される巡回群である。位数 $2$ の元それぞれに位数 $2$ の部分群が定まるので↑の全要素書き下しから位数 $2$ の部分群は　$\lbrace1_G,\sigma^2\rbrace,\lbrace1_G,\tau\rbrace,\lbrace1_G,\tau\sigma\rbrace,\lbrace1_G,\tau\sigma^2\rbrace,\lbrace1_G,\tau\sigma^3\rbrace$
+2. ↑を順に $x_1=\lbrace1_G,\sigma^2\rbrace,x_2=\lbrace1_G,\tau\rbrace,x_3=\lbrace1_G,\tau\sigma\rbrace,x_4=\lbrace1_G,\tau\sigma^2\rbrace,x_5=\lbrace1_G,\tau\sigma^3\rbrace$ と置いて愚直に取り尽くす(対称群の共役による作用なので(第2版)p.109 補題4.2.2を使う)と
+$O(x_1)=\lbrace x_1\rbrace, O(x_2)=\lbrace x_2,x_4\rbrace,O(x_3)=\lbrace x_3,x_5\rbrace$
+3. 代表元として $x_1,x_2,x_3$ を選ぶとすると、 $G_{x_1}=G, G_{x_2}=\lbrace1_G,\sigma^2,\tau,\tau\sigma^2\rbrace,G_{x_3}=\lbrace1_G,\sigma^2,\tau\sigma,\tau\sigma^3\rbrace$
+※軌道の計算するときに合わせて計算している
 
 #### 4.5.3
 
-#### 4.5.4
+#### 4.5.4 担当
+
+1. $40=2^3\cdot5$ である。 $H,K$ をそれぞれ $G$ のシロー $2$ 部分群、シロー $5$ 部分群とする。シロー $2$ 部分群の数を $s$ 、シロー $5$ 部分群の数を $t$ とすると、(第2版)p.119定理4.5.7(4)より $s\equiv1\mod2,t\equiv1\mod5$ である。 $H\subset N_G(H),K\subset N_G(K)$ なので、 $s=(G:N_G(H)),t=(G:N_G(K))$ はそれぞれ $(G:H)=5,(G:K)=8$ の約数である。 $s$ は $1,5$ のいずれか、 $t$ は $1,2,4,8$ のいずれかである。 $t\equiv1\mod5$ を満たすのは $1$ のみなので $t=1$ である。これは $K$ の共役が $K$ のみであることを意味するため、 $K\triangleleft G$ である。よって $G$ は単純群ではない。
+2. $42=2\cdot3\cdot7$ である。 $H,K,L$ をそれぞれ $G$ のシロー $2$ 部分群、シロー $3$ 部分群、シロー $7$ 部分群とする。シロー $2$ 部分群の数を $s$ 、シロー $3$ 部分群の数を $t$ 、シロー $7$ 部分群の数を $u$ とすると、(第2版)p.119定理4.5.7(4)より $s\equiv1\mod2,t\equiv1\mod3,u\equiv1\mod7$ である。 $H\subset N_G(H),K\subset N_G(K),L\subset N_G(L)$ なので、 $s=(G:N_G(H)),t=(G:N_G(K)),u=(G:N_G(L))$ はそれぞれ $(G:H)=21,(G:K)=14,(G:L)=6$ の約数である。 $s$ は $1,3,7,21$ のいずれか、 $t$ は $1,2,7,14$ のいずれか、 $u$ は $1,2,3,6$ である。 $u\equiv1\mod7$ を満たすのは $1$ のみなので $u=1$ である。これは $L$ の共役が $L$ のみであることを意味するため、 $L\triangleleft G$ である。よって $G$ は単純群ではない。
+3. $54=2\cdot3^3$ である。 $H,K$ をそれぞれ $G$ のシロー $2$ 部分群、シロー $3$ 部分群とする。シロー $2$ 部分群の数を $s$ 、シロー $3$ 部分群の数を $t$ とすると、(第2版)p.119定理4.5.7(4)より $s\equiv1\mod2,t\equiv1\mod3$ である。 $H\subset N_G(H),K\subset N_G(K)$ なので、 $s=(G:N_G(H)),t=(G:N_G(K))$ はそれぞれ $(G:H)=27,(G:K)=2$ の約数である。 $s$ は $1,3,9,27$ のいずれか、 $t$ は $1,2$ のいずれかである。 $t\equiv1\mod3$ を満たすのは $1$ のみなので $t=1$ である。これは $K$ の共役が $K$ のみであることを意味するため、 $K\triangleleft G$ である。よって $G$ は単純群ではない。
 
 #### 4.5.5
 
@@ -156,6 +177,10 @@ $G=\mathfrak{S}_4,Y=\lbrace X\mid X\subset G, |X|=2\rbrace$ 左からの積で�
 
 #### 4.5.7
 
-#### 4.5.8
+#### 4.5.8 担当
+
+1. $24=2^3\cdot3$ なので $|H|=8$ である。シロー $2$ 部分群の数を $s$ とすると、(第2版)p.119定理4.5.7(4)より $s\equiv1\mod2$ である。 $H\subset N_G(H)$ なので、 $s=(G:N_G(H))$ は $(G:H)=3$ の約数である。よって $s$ は $1,3$ のいずれかである。以下によりいずれの場合も $G$ が正規部分群を持つため $G$ は単純群ではない。
+   1. $s=1$ の場合、 $H$ の共役が $H$ のみであるため、 $H\triangleleft G$ であるから $G$ は正規部分群を持つ。
+   2. $s=3$ の場合、シロー $2$ 部分群を $H_1, H_2, H_3$ と置く。 $G$ の $\lbrace H_1,H_2,H_3\rbrace$ に対する共役による作用の置換表現 $\rho:G\rightarrow\mathfrak{S}_3$ を考える。(第2版)p.100 命題4.1.12より $\rho$ は群の準同型であるため、(第2版)p.61 命題2.8.3より $\mathrm{Ker}(\rho)\triangleleft G$ となるため、 $G$ は正規部分群を持つ。 
 
 #### 4.5.9
