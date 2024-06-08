@@ -44,7 +44,7 @@ $f:A\rightarrow B$で
 
 ### 2.3 部分群と生成元
 
-* p.32 命題2.3.13 $S\subset G$のとき、(1) $\langle S\rangle\le G$ (2) $S \subset H, H \le G \Rightarrow \langle S\rangle\subset H$ (つまり$\langle S\rangle$が$S$を含む最小の部分群)
+* p.32(第2版p.35) 命題2.3.13 $S\subset G$のとき、(1) $\langle S\rangle\le G$ (2) $S \subset H, H \le G \Rightarrow \langle S\rangle\subset H$ (つまり$\langle S\rangle$が$S$を含む最小の部分群)
 
 ### 2.4 元の位数
 
@@ -88,7 +88,7 @@ $f:A\rightarrow B$で
 * p.64 定理2.10.2 準同型定理(部分群の対応) $N\triangleleft G, \pi:G\rightarrow G/N$が自然な準同型、$\mathbb{X}=\{X|X\le G/N\}, \mathbb{Y}=\{Y|N\subset Y\land Y\le G\}\Rightarrow\exists\phi:\mathbb{X}\ni H\mapsto\pi^{-1}(H)\in\mathbb{Y},\psi:\mathbb{Y}\ni K\mapsto\pi(K)\in\mathbb{X},\phi\circ\psi=\mathrm{id}_\mathbb{Y}\land\psi\circ\phi=\mathrm{id}_\mathbb{X}$
 * p.65 命題2.10.3 第二同型定理 $H\le G, N\triangleleft G$ (1) $HN \le G\land HN=NH$ (2) $H\cap N\triangleleft H\land HN/N\cong H/H\cap N$
 * p.66 命題2.10.4 第三同型定理 $N\subset N^\prime,N\triangleleft G,N^\prime\triangleleft G$ (1) $\exists \phi:G/N\rightarrow G/N^\prime,\phi(xN)=xN^\prime\land\phi$が準同型 (2) $(G/N)/(N^\prime/N)\cong G/N^\prime$
-* p.66 命題2.10.5 準同型の分解 $\phi:G\rightarrow H$が群の準同型、$N\triangleleft G,\pi:G\rightarrow G/N$が自然な準同型 $\exists \psi \in \mathrm{homo}(G/N\rightarrow H)\land\phi=\psi\circ\pi\Leftrightarrow N\subset\mathrm{Ker}(\phi)$
+* p.66(第2版p.73) 命題2.10.5 準同型の分解 $\phi:G\rightarrow H$が群の準同型、$N\triangleleft G,\pi:G\rightarrow G/N$が自然な準同型 $\exists \psi \in \mathrm{homo}(G/N\rightarrow H)\land\phi=\psi\circ\pi\Leftrightarrow N\subset\mathrm{Ker}(\phi)$
 
 ## 第4章 群の作用とシローの定理
 
