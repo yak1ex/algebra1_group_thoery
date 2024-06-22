@@ -4,6 +4,8 @@
 
 ### メモ
 
+外延と内包に近いイメージかも、外延が乗積表を書き下す形で、内包が生成元と関係式による表示
+
 #### 定理4.6.2
 
 最後の文は第1版p.44 命題2.5.12ないし第2版p.48 命題2.5.14
@@ -28,18 +30,22 @@ p.73 定理2.10.5
 少なくとも
 全射準同型 $\phi:G\rightarrow H_1$ を考えたとき準同型定理から $G/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)=H_1$ 、ラグランジュの定理から $|G|=|H_1||\mathrm{Ker}(\phi)|$ なので $|G|$ は $|H_1|$ の倍数。
 
+$G/H$ という表記だけなら剰余類で考えててもよいので $H$ が正規部分群である必要はない。
+$\mathfrak{S}_3$ への「全射」準同型が必然かはわからない
+補題4.2.2って必要なの？準同型なら明らかに関係式を満たす。「はずである」の部分はあくまで仮定したうえで話を進めて実際に確認できました、みたいな勢いかもしれない。
+
 ### 演習問題
 
 ### 4.6.1
 
 >例2.10.6： $G$ を位数 $n$ の巡回群、 $x$ を $G$ の生成元とする。(略) $\mathbb{Z}/n\mathbb{Z}$ は $G$ と同型である。
 
-p.125 例題4.6.7から $\langle x^2,y \rangle$ の元は全て $y^jx^{2i}(i=0,1,j=0,1,2)$ の形で書き表せまた全て相異なることが言える(※ $G$ で全てこの形で書き下しているから)ので $|\langle x^2,y \rangle|=6$ である。
+p.125 例題4.6.7から $\langle x^2,y \rangle$ の元は全て $y^ix^{2j}(i=0,1,2,j=0,1)$ の形で書き表せまた全て相異なることが言える(※例題で $G$ の中で全てこの形で書き下しているから)ので $|\langle x^2,y \rangle|=6$ である。
 $\langle yx^2\rangle=\lbrace1,yx^2,y^2,x^2,y,y^2x^2\rbrace=\langle x^2,y\rangle$ で位数 $6$ の巡回群となるため、p.73 例2.10.6より $\mathbb{Z}/6\mathbb{Z}$ と同型である。
 
 ### 4.6.2
 
->定理4.6.5： $G$ は $n$ この生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
+>定理4.6.5： $G$ は $n$ 個の生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
 
 >命題4.1.10： (1)関係式 $t^n=1,r^2=1,rtr=t^{-1}$ が成り立つ。
 (2) $|D_n|=2n,D_n=\lbrace1,t,\cdots,t^{n-1},r,rt,\cdots,rt^{n-1}\rbrace$ である。
@@ -59,22 +65,38 @@ $yxy=x^{-1},x^n=1,y^2=1$ から $yx=x^{n-1}y$ となるので $x$ を左に移�
 
 ### 4.6.3 担当
 
+> $G$ が群で $x,y\in G,x^2=y^5=1,xyx=y^2$ なら、 $y=1$ であることを証明せよ
+
 $xyx=y^2$ なので左から $x$ をかけると $yx=xy^2$ である。
 
-$1=y^5=y\cdot y^2\cdot y^2=y(xyx)(xyx)=yxy^2x=xy^4x=x^2y^8=y^3$
+$1=y^5=y\cdot y^2\cdot y^2=y(xyx)(xyx)=\underline{yx}y^2x=xy^4x=x^2y^8=y^3$
 
 より $y^5=1$ かつ $y^3=1$ から $y^2=1$ となり、
 $y^3=1$ かつ $y^2=1$ から $y=1$ である。
 
 ※p.41 定理2.4.13と指数法則から互いに素な $i,j$ で $y^i=y^j=1$ なら $y=1$ が言えるはずだがこの程度ならまぁ
+※→不要。 $y$ の位数は $5$ の約数かつ $3$ の約数となるので $1$となる。よって $y=1$ 、が明快
 
 >定理2.4.13： 整数 $a,b$ の最大公約数が $d$ なら、 $ax+by=d$ となる整数 $x,y$ が存在する
 
+※ $(xyx)(xyx)=xy^2x=y^4$ 。両辺に左右から $x$ をかけて $y^2=xy^4x$ 。よって $xyx=xy^4x$ となるので $y^3=1$
+
 ### 4.6.4
 
-1. $n\ge3,x_1=(1\;2),\cdots x_{n-1}=(n-1\;n)\in\mathfrak{S}_n\Rightarrow x_i^2=1,x_ix_j=x_j x_i(|i-j|\ge2),x_i x_{i+1}x_i=x_{i+1}x_ix_{i+1}(i=1,\cdots,n-2)$
-2. $H_n=\langle x_i,\cdots,x_{n-1}\rangle\Rightarrow|H_n|\le n!$
+1. 各 $x_i$ は全て互換なので $x_i^2=1$ である。
+$x_i=(i\hspace{5mu}i+1),x_j=(j\hspace{5mu}j+1)$ なので $|i-j|\ge2$ であれば要素が被らないため可換 $x_i x_j = x_j x_i$ である。
+$x_i x_{i+1} x_i=x_i (i+1\hspace{5mu}i+2)x_i^{-1}=(x_i(i+1)\hspace{5mu}x_i(i+2))=(i\hspace{5mu}i+2)$
+$=(x_{i+1}(i)\hspace{5mu}x_{i+1}(i+1))=x_{i+1}(i\hspace{5mu}i+1)x_{i+1}^{-1}=x_{i+1} x_i x_{i+1}$
+2. $H_n=\langle x_1,\cdots,x_{n-1}\rangle\Rightarrow|H_n|\le n!$
 3. $H_n\cong\mathfrak{S}_n$
+
+帰納法？
+$\langle x_1,x_2\rangle=\lbrace\rbrace$
+(1 2) x1
+(2 3) x2
+(1 3) x1x2x1 x2x1x2
+(1 2 3) x1x2
+(1 3 2) x2x1
 
 ### 4.6.5
 
@@ -89,7 +111,9 @@ $x=(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}\cdots\hspace{5mu}13)\in\mathfrak{S}_
 
 >補題4.2.2： $(i_1\cdots i_l)\in\mathfrak{S}_n$ を巡回置換、 $\sigma\in\mathfrak{S}_n$ とすると、 $\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
 
-p.109 補題4.2.2より $yxy^{-1}=(y(1)\hspace{5mu}y(2)\hspace{5mu}y(3)\hspace{5mu}\cdots\hspace{5mu}y(13))=(1\hspace{5mu}4\hspace{5mu}7\hspace{5mu}10\hspace{5mu}13\hspace{5mu}3\hspace{5mu}6\hspace{5mu}9\hspace{5mu}12\hspace{5mu}2\hspace{5mu}5\hspace{5mu}8\hspace{5mu}11)=x^3$ である。(※どこからでてきたの？は厳密じゃないけど↓↓で説明)
+p.109 補題4.2.2より $yxy^{-1}=(y(1)\hspace{5mu}y(2)\hspace{5mu}y(3)\hspace{5mu}\cdots\hspace{5mu}y(13))=(1\hspace{5mu}4\hspace{5mu}7\hspace{5mu}10\hspace{5mu}13\hspace{5mu}3\hspace{5mu}6\hspace{5mu}9\hspace{5mu}12\hspace{5mu}2\hspace{5mu}5\hspace{5mu}8\hspace{5mu}11)$
+$=\begin{pmatrix}1&2&3&4&5&6&7&8&9&10&11&12&13\\4&5&6&7&8&9&10&11&12&13&1&2&3\end{pmatrix}=x^3$ である。
+(※どこからでてきたの？は厳密じゃないけど↓↓で説明)
 
 >定理4.6.5： $G$ は $n$ この生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
 
@@ -108,7 +132,7 @@ $H$ は位数 $13,3$ の元を含むのでp.58 系2.6.21(2)より $H$ の位数�
 #### p.125 例題4.6.7の方針だと詰まる
 
 ※$H=\langle x\rangle$ とすると $|G/H|=3$ になるはずで、 $G$ の $G/H$ への左作用による置換表現を考える。 $G/H$ の代表元として $\lbrace1,y,y^2\rbrace$ が取れるので $y$ は $(1\;2\;3)$ として作用するはずである。 $x^9H=H,x^9yH=yx^3H=yH,x^9y^2=yx^3yH=y^2xH=y^2H$ (※ここで $x^iy^2$ を $y^2x$ の形にしたいので $x^9$ を持ってきている)なので $x^9$ は恒等置換として作用する。また $x^{13}=1$ なので $x^4=1$ 、結局 $x=1$ でなければならない(※)。この場合、 $x,y$ では $H$ が生成できないので条件を満たさない。ならば逆に $y$ で生成される群、つまり $\mathbb{Z}/3\mathbb{Z}$ と同型な群を考えると、 $y=\bar{1}, x=\bar{0}$ で生成され、関係式を満たしている。なのでこれは使える。
-が、仮に $H$ を可換群とした場合、 $yxy^{-1}=x^3$ から $x=x^3$ となり $x^2=1$ 、さらに $x^{13}=1$ から $x=1$ となる。すると $y^3=1$ となる $y$ で生成される群になるので単位元からなる群か、 $\mathbb{Z}/3\mathbb{Z}$ と同型な群となる。よって非可換な群を考えなければならない。
+が、仮に $H$ を可換群とした場合、 $yxy^{-1}=x^3$ から $x=x^3$ となり $x^2=1$ 、さらに $x^{13}=1$ から $x=1$ となる。すると $y^3=1$ となる $y$ で生成される群になるので単位元からなる群か、 $\mathbb{Z}/3\mathbb{Z}$ と同型な群となる。よって非可換な群を考えなければならない。条件踏まえると位数 $39$ になるはず。
 
 ※p.41 定理2.4.13と指数法則から互いに素な $i,j$ で $x^i=x^j=1$ なら $x=1$ が言えるはず
 
