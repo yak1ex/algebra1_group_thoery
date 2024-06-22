@@ -63,8 +63,8 @@ $f:A\rightarrow B$で
 
 ### 2.6 同値関係と剰余類
 
-* p.53 定理2.6.20(ラグランジュの定理) $|G|=(G:H)|H|$
-* p.53 系2.6.21 $G$が有限群$\Rightarrow$(1)$H\le G\Rightarrow\mathrm{ord}(H)\mid\mathrm{ord}(G)$ (2) $\mathrm{ord}(g)\mid \mathrm{ord}(G) \ (g \in G)$
+* p.53(第2版p.57) 定理2.6.20(ラグランジュの定理) $|G|=(G:H)|H|$
+* p.53(第2版p.58) 系2.6.21 $G$が有限群$\Rightarrow$(1)$H\le G\Rightarrow\mathrm{ord}(H)\mid\mathrm{ord}(G)$ (2) $\mathrm{ord}(g)\mid \mathrm{ord}(G) \ (g \in G)$
 * p.53(第2版p.58) 命題2.6.22 $|G|=p, p$は素数 $\Rightarrow G = \langle x \rangle (G \ni x \neq 1_G)$
 
 ### 2.8 正規部分群と剰余群
@@ -84,7 +84,7 @@ $f:A\rightarrow B$で
 
 ### 2.10 準同型定理
 
-* p.63 定理2.10.1 準同型定理(第一同型定理) $\phi:G\rightarrow H$ が群の準同型、 $\pi:G\rightarrow G/\mathrm{Ker}(\phi)$ が自然な準同型 $\Rightarrow (\exists!\psi:G/\mathrm{Ker}(\phi)\rightarrow H,((\phi=\psi\circ\pi)\land(\psi:G/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)))$
+* p.63(第2版p.70) 定理2.10.1 準同型定理(第一同型定理) $\phi:G\rightarrow H$ が群の準同型、 $\pi:G\rightarrow G/\mathrm{Ker}(\phi)$ が自然な準同型 $\Rightarrow (\exists!\psi:G/\mathrm{Ker}(\phi)\rightarrow H,((\phi=\psi\circ\pi)\land(\psi:G/\mathrm{Ker}(\phi)\cong\mathrm{Im}(\phi)))$
 * p.64 定理2.10.2 準同型定理(部分群の対応) $N\triangleleft G, \pi:G\rightarrow G/N$が自然な準同型、$\mathbb{X}=\{X|X\le G/N\}, \mathbb{Y}=\{Y|N\subset Y\land Y\le G\}\Rightarrow\exists\phi:\mathbb{X}\ni H\mapsto\pi^{-1}(H)\in\mathbb{Y},\psi:\mathbb{Y}\ni K\mapsto\pi(K)\in\mathbb{X},\phi\circ\psi=\mathrm{id}_\mathbb{Y}\land\psi\circ\phi=\mathrm{id}_\mathbb{X}$
 * p.65 命題2.10.3 第二同型定理 $H\le G, N\triangleleft G$ (1) $HN \le G\land HN=NH$ (2) $H\cap N\triangleleft H\land HN/N\cong H/H\cap N$
 * p.66 命題2.10.4 第三同型定理 $N\subset N^\prime,N\triangleleft G,N^\prime\triangleleft G$ (1) $\exists \phi:G/N\rightarrow G/N^\prime,\phi(xN)=xN^\prime\land\phi$が準同型 (2) $(G/N)/(N^\prime/N)\cong G/N^\prime$
@@ -101,5 +101,5 @@ $f:A\rightarrow B$で
 ### 4.2 対称群の共役類
 
 * p.97 命題4.2.1 $\sigma$ が有限集合 $X$ の置換なら共通する元のない巡回置換の積に順序を除いて一意的に表せる。各巡回置換は(共通する元がないので)可換
-* p.98 補題4.2.2 $((i_1\cdots i_l)\in\mathfrak{S}_n\text{が巡回置換}\land\sigma\in\mathfrak{S}_n)\Rightarrow\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
+* p.98 補題4.2.2(第2版p.109 補題4.2.2) $((i_1\cdots i_l)\in\mathfrak{S}_n\text{が巡回置換}\land\sigma\in\mathfrak{S}_n)\Rightarrow\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
 * p.99 定理4.2.3 $\sigma,\tau\in\mathfrak{S}_n$ であるとき、 $\sigma,\tau$ が共役であることと、 $\sigma,\tau$ の型が等しいことは同値
