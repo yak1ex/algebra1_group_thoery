@@ -187,6 +187,8 @@ $n=3$ として $n$ 倍を繰り返すと、 $\overline{3},\overline{3}^2=\overl
 
 ### 4.6.9 担当
 
+※ $S$ は積で閉じているわけではない
+
 >演習問題2.3.9(2)： $\mathfrak{S}_n$ は $\sigma=(1\hspace{5mu}2\cdots n)$ と $\tau=(1\hspace{5mu}2)$ で生成されることを証明せよ
 
 1. 愚直に計算する。 $\sigma\tau\nu=(3\hspace{5mu}4)(1\hspace{5mu}3\hspace{5mu}2)(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4)=(\text{※1})=1_{\mathfrak{S}_4}$
