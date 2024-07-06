@@ -53,7 +53,7 @@ $\langle yx^2\rangle=\lbrace1,yx^2,y^2,x^2,y,y^2x^2\rbrace=\langle x^2,y\rangle$
 
 >定理1.5.2(2)： 集合 $A$ から集合 $B$ への全射写像があれば、 $|A|\ge|B|$ である。
 
-定義とp.98 命題4.1.10から二面体群 $D_n$ は定理4.6.5の条件を満たし(生成される、関係式を満たす)、 $G=\langle x,y\mid x^n=y^2=1,yxy=x^{-1}\rangle$ から $D_n$ への全射準同型 $\phi$ が存在する。全射なのでp.18 定理1.5.2(2)とp.98 命題4.1.10(2)から $|G|\ge|D_n|=2n$
+定義とp.98 命題4.1.10から二面体群 $D_n$ はp.124 定理4.6.5の条件を満たし(生成される、関係式を満たす)、 $G=\langle x,y\mid x^n=y^2=1,yxy=x^{-1}\rangle$ から $D_n$ への全射準同型 $\phi$ が存在する。全射なのでp.18 定理1.5.2(2)とp.98 命題4.1.10(2)から $|G|\ge|D_n|=2n$
 
 $yxy=x^{-1},x^n=1,y^2=1$ から $yx=x^{n-1}y$ となるので $x$ を左に移すことで $G$ の元は全て $x^i y^j(i=0,1,\cdots,n-1, j=0,1)$ の形で表せる。したがって $|G|\le2n$
 
@@ -87,18 +87,35 @@ $y^3=1$ かつ $y^2=1$ から $y=1$ である。
 $x_i=(i\hspace{5mu}i+1),x_j=(j\hspace{5mu}j+1)$ なので $|i-j|\ge2$ であれば要素が被らないため可換 $x_i x_j = x_j x_i$ である。
 $x_i x_{i+1} x_i=x_i (i+1\hspace{5mu}i+2)x_i^{-1}=(x_i(i+1)\hspace{5mu}x_i(i+2))=(i\hspace{5mu}i+2)$
 $=(x_{i+1}(i)\hspace{5mu}x_{i+1}(i+1))=x_{i+1}(i\hspace{5mu}i+1)x_{i+1}^{-1}=x_{i+1} x_i x_{i+1}$
-2. $H_n=\langle x_1,\cdots,x_{n-1}\rangle\Rightarrow|H_n|\le n!$
-3. $H_n\cong\mathfrak{S}_n$
+2. **【まだ】** ヒントに沿って、まず $H_n$ の任意の元が $x_1,\cdots,x_n$ の語で $x_{n-1}$ が高々 $1$ 回しか現れないもので表されることを証明し、次に $\tau_i=x_ix_{i+1}\cdots x_{n-1}(i=1,\cdots,n-1)$ とするとき、 $H_n$ の任意の元は、 $x_{n-1}$ が現れない語であるか、 $x_{n-1}$ が現れない語 $y$ により $\tau_i y(1\le y\le n-1)$ という形で表されることを証明する。
+$H_n=\langle x_1,\cdots,x_{n-1}\rangle\Rightarrow|H_n|\le n!$
+3. p.77 演習問題2.3.9(1) から $\langle x_1,\cdots,x_{n-1}\rangle=\mathfrak{S}_n$ である。
+(1)とp.124 定理4.6.5より $H_n$ から $\mathfrak{S}_n$ への全射準同型 $\phi$ が存在する。p.18 定理1.5.2(2)より $|H_n|\ge|\mathfrak{S}_n|=n!$ 。一方(2)より $|H_n|\le n!$ なので $|H_n|=n!$ である。
+p.8 命題1.1.7(2)より $\phi$ は全単射準同型となり、p.45 命題2.5.3より $\phi$ は同型(写像)となるため $H_n\cong\mathfrak{S}_n$ である。
 
-帰納法？
-$\langle x_1,x_2\rangle=\lbrace\rbrace$
-(1 2) x1
-(2 3) x2
-(1 3) x1x2x1 x2x1x2
-(1 2 3) x1x2
-(1 3 2) x2x1
+>定理4.6.5： $G$ は $n$ この生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
+
+>演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,\sigma_{n-1}(n-1\hspace{5mu}n)$ で生成されることを証明せよ
+
+>定理1.5.2(2)： 集合 $A$ から集合 $B$ への全射写像があれば、 $|A|\ge|B|$ である。
+
+>命題1.1.7(2)： $A,B$ が有限集合で $|A|=|B|$ なら (2) $f:A\rightarrow B$ が写像なら、 $f$ が単射であることと、全射であることは同値である。したがって、このとき $f$ は全単射になる。
+
+>命題2.5.3： 全単射写像 $\phi:G_1\rightarrow G_2$ が群の準同型なら、同型である。
 
 ### 4.6.5
+
+1. $yxy^{-1}=x^2$ より $yx=x^2y$ 。これを用いて $x$ を左に移すことで $G$ の任意の元は $x^iy^j$ と表せる。 $x^7=y^3=1$ なので $G=\lbrace x^iy^j\mid i=0,\cdots,6,y=0,1,2\rbrace$ である。
+2. $\sigma=(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5\hspace{5mu}6\hspace{5mu}7)\in\mathfrak{S}_7$ とおくと $\sigma^2=(1\hspace{5mu}3\hspace{5mu}5\hspace{5mu}7\hspace{5mu}2\hspace{5mu}4\hspace{5mu}6)$ なのでp.109 補題4.2.2より $\tau=(2\hspace{5mu}3\hspace{5mu}5)(4\hspace{5mu}7\hspace{5mu}6)\in\mathfrak{S}_7$ とおけば $\tau\sigma\tau^{-1}=\sigma^2$ となる。また巡回置換なので明らかに $\sigma,\tau$ の位数はそれぞれ $7,3$ である。
+3. p.124 定理4.6.5より $G$ から $\langle\sigma,\tau\rangle$ への全射準同型が存在する。(1) より $|G|\le21$ であり、p.18 定理1.5.2(2)から $|\langle\sigma,\tau\rangle|\le|G|\le21$ である。一方  p.58 系2.6.21(2)より $|\langle\sigma,\tau\rangle|$ は $\sigma,\tau$ の位数の公倍数でなければならないので $|\langle\sigma,\tau\rangle|\ge21$ である。よって $|G|=21$ である。
+
+>補題4.2.2： $(i_1\cdots i_l)\in\mathfrak{S}_n$ を巡回置換、 $\sigma\in\mathfrak{S}_n$ とすると、 $\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
+
+>定理4.6.5： $G$ は $n$ この生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
+
+>定理1.5.2(2)： 集合 $A$ から集合 $B$ への全射写像があれば、 $|A|\ge|B|$ である。
+
+>系2.6.21(2)： $g\in G$ の位数は $|G|$ の約数である。
 
 ### 4.6.6 担当
 
@@ -267,7 +284,7 @@ $y_4y_5y_4=(3\hspace{5mu}4)(2\hspace{5mu}5)(1\hspace{5mu}6)=y_5y_4y_5$
 
 >定理4.6.5： $G$ は $n$ 個の生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
 
-したがって p.123 定理4.6.5より(p.151 演習問題4.6.4の表記で) $H_6$ から $Y=\langle y_1,\cdots,y_5\rangle$ への全射準同型 $\rho$ で $\rho(x_i)=y_i(i=1,2,3,4,5)$ となるものが存在する。
+したがって p.124 定理4.6.5より(p.151 演習問題4.6.4の表記で) $H_6$ から $Y=\langle y_1,\cdots,y_5\rangle$ への全射準同型 $\rho$ で $\rho(x_i)=y_i(i=1,2,3,4,5)$ となるものが存在する。
 
 >演習問題2.3.9(2)： $\mathfrak{S}_n$ は $\sigma=(1\hspace{5mu}2\cdots n)$ と $\tau=(1\hspace{5mu}2)$ によって生成されることを証明せよ。
 
@@ -283,7 +300,6 @@ $y_1y_3y_2y_4=(2\hspace{5mu}5\hspace{5mu}3\hspace{5mu}6)(1\hspace{5mu}2)(3\hspac
 $y_1y_3y_2y_4y_1y_3y_5=(1\hspace{5mu}5\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2)(5\hspace{5mu}6)=(1\hspace{5mu}5\hspace{5mu}6\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2)$
 となり、p.77 演習問題2.3.9(2)より $y_1y_3y_5=(5\hspace{5mu}6),y_1y_3y_2y_4y_1y_3y_5=(5\hspace{5mu}6\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2\hspace{5mu}1)$ から $\mathfrak{S}_6$ が生成されるので、 $Y=\mathfrak{S}_6$ である。
 p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なので $\rho:H_6\rightarrow Y=\mathfrak{S}_6$ はp.8 命題1.1.7(2)、p.45 命題2.5.3から $\rho$ は同型(写像)となる。
-
 
 >演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,\sigma_{n-1}(n-1\hspace{5mu}n)$ で生成されることを証明せよ
 
