@@ -69,7 +69,7 @@ $yxy=x^{-1},x^n=1,y^2=1$ から $yx=x^{n-1}y$ となるので $x$ を左に移�
 
 $xyx=y^2$ なので左から $x$ をかけると $yx=xy^2$ である。
 
-$1=y^5=y\cdot y^2\cdot y^2=y(xyx)(xyx)=\underline{yx}y^2x=xy^4x=x^2y^8=y^3$
+$1=y^5=y\cdot y^2\cdot y^2=y(xyx)(xyx)=\underline{yx}y^2x=x\underline{y^4x}=x^2y^8=y^3$
 
 より $y^5=1$ かつ $y^3=1$ から $y^2=1$ となり、
 $y^3=1$ かつ $y^2=1$ から $y=1$ である。
@@ -240,13 +240,57 @@ $$
 
 ### 4.6.13 担当(まだ)
 
-ref 演習問題 4.6.4
+>p.77 演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,(n-1\hspace{5mu}n)$ によって生成されることを証明せよ
 
-$\mathfrak{S}_6$ の自己同型 $\phi$ で
-$\phi((1\;2))=(1\;2)(3\;4)(5\;6)$
-$\phi((2\;3))=(1\;4)(2\;5)(3\;6)$
-$\phi((3\;4))=(1\;3)(2\;4)(5\;6)$
-$\phi((4\;5))=(1\;2)(3\;6)(4\;5)$
-$\phi((5\;6))=(1\;4)(2\;3)(5\;6)$
+>p.109 補題4.2.2： $(i_1\cdots i_l)\in\mathfrak{S}_n$ を巡回置換、 $\sigma\in\mathfrak{S}_n$ とすると、 $\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
+
+$y_1=\phi((1\hspace{5mu}2))=(1\hspace{5mu}2)(3\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6$
+$y_2=\phi((2\hspace{5mu}3))=(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\in\mathfrak{S}_6$
+$y_3=\phi((3\hspace{5mu}4))=(1\hspace{5mu}3)(2\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6$
+$y_4=\phi((4\hspace{5mu}5))=(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)\in\mathfrak{S}_6$
+$y_5=\phi((5\hspace{5mu}6))=(1\hspace{5mu}4)(2\hspace{5mu}3)(5\hspace{5mu}6)\in\mathfrak{S}_6$
+
+とおく。このとき明らかに $y_i^2=1(i=1,2,3,4,5)$ である(互換の積だから)。また
+
+$y_1y_3=(1\hspace{5mu}4)(2\hspace{5mu}3)=y_3y_1$ 
+$y_2y_4=(1\hspace{5mu}5)(2\hspace{5mu}4)=y_4y_2$ 
+$y_3y_5=(1\hspace{5mu}2)(3\hspace{5mu}4)=y_5y_3$ 
+
+である。さらに p.109 補題4.2.2 と $y_i=y_i^{-1}$ であることから
+
+$y_1y_2y_1=(2\hspace{5mu}3)(1\hspace{5mu}6)(4\hspace{5mu}5)=y_2y_1y_2$
+$y_2y_3y_2=(4\hspace{5mu}6)(1\hspace{5mu}5)(2\hspace{5mu}3)=y_3y_2y_3$
+$y_3y_4y_3=(3\hspace{5mu}4)(1\hspace{5mu}5)(2\hspace{5mu}6)=y_4y_3y_4$
+$y_4y_5y_4=(3\hspace{5mu}4)(2\hspace{5mu}5)(1\hspace{5mu}6)=y_5y_4y_5$
+
+よって $y_i(i=1,2,3,4,5)$ はp.151 演習問題4.6.4(1)の関係式を満たす。
+
+>定理4.6.5： $G$ は $n$ 個の生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
+
+したがって p.123 定理4.6.5より(p.151 演習問題4.6.4の表記で) $H_6$ から $Y=\langle y_1,\cdots,y_5\rangle$ への全射準同型 $\rho$ で $\rho(x_i)=y_i(i=1,2,3,4,5)$ となるものが存在する。
+
+>演習問題2.3.9(2)： $\mathfrak{S}_n$ は $\sigma=(1\hspace{5mu}2\cdots n)$ と $\tau=(1\hspace{5mu}2)$ によって生成されることを証明せよ。
+
+>命題1.1.7(2)： $A,B$ が有限集合で $|A|=|B|$ なら (2) $f:A\rightarrow B$ が写像なら、 $f$ が単射であることと、全射であることは同値である。したがって、このとき $f$ は全単射になる。
+
+>命題2.5.3： 全単射写像 $\phi:G_1\rightarrow G_2$ が群の準同型なら、同型である。
+
+ここで、
+( $Y$ が $\mathfrak{S}_6$ を生成することが言いたいのだが超力技)
+$y_1y_3y_5=(1\hspace{5mu}4)(2\hspace{5mu}3)(1\hspace{5mu}4)(2\hspace{5mu}3)(5\hspace{5mu}6)=(5\hspace{5mu}6)$
+$y_1y_3y_2=(1\hspace{5mu}4)(2\hspace{5mu}3)(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)= (2\hspace{5mu}5\hspace{5mu}3\hspace{5mu}6)$
+$y_1y_3y_2y_4=(2\hspace{5mu}5\hspace{5mu}3\hspace{5mu}6)(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)=(1\hspace{5mu}5\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2)$
+$y_1y_3y_2y_4y_1y_3y_5=(1\hspace{5mu}5\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2)(5\hspace{5mu}6)=(1\hspace{5mu}5\hspace{5mu}6\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2)$
+となり、p.77 演習問題2.3.9(2)より $y_1y_3y_5=(5\hspace{5mu}6),y_1y_3y_2y_4y_1y_3y_5=(5\hspace{5mu}6\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2\hspace{5mu}1)$ から $\mathfrak{S}_6$ が生成されるので、 $Y=\mathfrak{S}_6$ である。
+p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なので $\rho:H_6\rightarrow Y=\mathfrak{S}_6$ はp.8 命題1.1.7(2)、p.45 命題2.5.3から $\rho$ は同型(写像)となる。
+
+
+>演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,\sigma_{n-1}(n-1\hspace{5mu}n)$ で生成されることを証明せよ
+
+$z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ とおき同様の議論をすることで、 $H_6$ から $Z=\langle z_1,\cdots,z_5\rangle$ への全射準同型で $\psi(x_i)=z_i$ となるものが存在する。p.77 演習問題2.3.9(1) から $Z=\mathfrak{S}_6$ で、p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なのでp.8 命題1.1.7(2)、p.45 命題2.5.3から $\psi$ は同型(写像)となる。
+
+>命題2.5.13(2)：群の同型写像の合成は同型写像である。同型写像の逆写像も同型写像である。
+
+$x_i=\rho(y_i)=\psi(z_i)(i=1,2,3,4,5)$ で $\rho$ は全単射だから逆写像が存在し $(\rho^{-1}\circ\psi)(z_i)=x_i(i=1,2,3,4,5)$ となる。 $\phi=\rho^{-1}\circ\psi$ と置くと $\phi:\mathfrak{S}_6\rightarrow\mathfrak{S}_6$ で p.48 命題2.5.13(2) から $\phi$ は同型写像、さらに $\phi(z_i)=x_i(i=1,2,3,4,5)$ となるので、$\phi$ が題意を満たす自己同型である。
 
 (※内部自己同型は共役なものに移すので互換は互換に移る)

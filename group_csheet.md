@@ -103,3 +103,7 @@ $f:A\rightarrow B$で
 * p.97 命題4.2.1 $\sigma$ が有限集合 $X$ の置換なら共通する元のない巡回置換の積に順序を除いて一意的に表せる。各巡回置換は(共通する元がないので)可換
 * p.98 補題4.2.2(第2版p.109 補題4.2.2) $((i_1\cdots i_l)\in\mathfrak{S}_n\text{が巡回置換}\land\sigma\in\mathfrak{S}_n)\Rightarrow\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
 * p.99 定理4.2.3 $\sigma,\tau\in\mathfrak{S}_n$ であるとき、 $\sigma,\tau$ が共役であることと、 $\sigma,\tau$ の型が等しいことは同値
+
+### 4.6 生成元と関係式
+
+* 第2版p.123 定理4.6.5 $G$ は $n$ 個の生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
