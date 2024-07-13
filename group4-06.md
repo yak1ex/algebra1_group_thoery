@@ -183,11 +183,40 @@ $n=3$ として $n$ 倍を繰り返すと、 $\overline{3},\overline{3}^2=\overl
 
 ### 4.6.7
 
+>p.34 四元数群 
+$$
+\begin{array}{l}
+1=I_2,
+i=\begin{pmatrix}\sqrt{-1}&0\\0&-\sqrt{-1}\end{pmatrix},
+j=\begin{pmatrix}0&1\\-1&0\end{pmatrix},
+k=\begin{pmatrix}0&\sqrt{-1}\\\sqrt{-1}&0\end{pmatrix} \\
+H=\lbrace\pm1,\pm i,\pm j,\pm k\rbrace
+\end{array}
+$$
+
+>定理4.6.5： $G$ は $n$ この生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
+
+>定理1.5.2(2)： 集合 $A$ から集合 $B$ への全射写像があれば、 $|A|\ge|B|$ である。
+
+>命題1.1.7(2)： $A,B$ が有限集合で $|A|=|B|$ なら (2) $f:A\rightarrow B$ が写像なら、 $f$ が単射であることと、全射であることは同値である。したがって、このとき $f$ は全単射になる。
+
+>命題2.5.3： 全単射写像 $\phi:G_1\rightarrow G_2$ が群の準同型なら、同型である。
+
+以下、 $G=\langle x,y\mid x^4=y^4=1,x^2=y^2,yxy^{-1}=x^{-1}\rangle$ とし、また四元数群を $H$ と表す。
+$i^4=j^4=1, i^2=j^2(=-1), jij^{-1}=ji(-j)=j(-k)=-i=i^{-1}$ なので $G$ の関係式を満たす。
+
+よって p.124 定理4.6.5より $G$ から $H$ への全射準同型 $\phi$ が存在する。p.18 定理1.5.2より $|G|\ge|H|=8$ である。
+
+$yxy^{-1}=x^{-1},x^4=1$ なので $yx = x^3y$ である。この式を用いて $x$ を $y$ の左に持ってくることで $G$ の任意の元は $x^i y^j(i=0,1,2,3,j=0,1,2,3)$ と表せる。ところが $y^2=x^2$ なので $j\ge2$ の場合は $y^2$ を $x^2$ に置き換えることで $x^k y^l(k=0,1,2,3,l=0,1)$ と表せることになる。よって $|G|\le8$ である。
+
+以上により $8\ge|G|\ge|H|=8$ となるので $|G|=|H|=8$ である。p.8 命題1.1.7(2)から $\phi$ は全単射となり、p.45 命題2.5.3から同型(写像)である。よって $|G|\cong|H|$ となり題意は証明された。
+
+
 ### 4.6.8
 
 ### 4.6.9 担当
 
-※ $S$ は積で閉じているわけではない
+※ $S$ は積で閉じているわけではないので、 $s_1,s_2\in S$ として $s_1s_2\in S$ とは言えない
 
 >演習問題2.3.9(2)： $\mathfrak{S}_n$ は $\sigma=(1\hspace{5mu}2\cdots n)$ と $\tau=(1\hspace{5mu}2)$ で生成されることを証明せよ
 
@@ -196,10 +225,10 @@ p.77 演習問題2.3.9(2)から $\mathfrak{S}_4$ が $(1\hspace{5mu}2\hspace{5mu
 2. $x^2=1$ から $x^{-1}=x$ 、これと $xyz=1$ から $x=yz, yzyz=1, yz=(yz)^{-1}=z^{-1}y^{-1},zy=y^{-1}z^{-1}$ である。
 $S=\lbrace1,y,y^2,y^2z,y^2z^2,y^2z^2y\rbrace$ なので、
 $Sy=\lbrace y,y^2,1,y^2zy,y^2z^2y,y^2z^2y^2\rbrace$ である。
-(※2)より、 $y^2zy=(z^3)(y^2z^2)\in HS,y^2z^2y^2=(z^3)(y^2z)(y^2z^2y) \in HS$ 、他の要素は $S$ に含まれているので $HSy\subset HS$ である。
+(※2)より、 $y^2zy=(z^3)(y^2z^2)\in HS,y^2z^2y^2=(z)(y^2z) \in HS$ 、他の要素は $S$ に含まれているので $HSy\subset HS$ である。
 また $Sz=\lbrace z,yz,y^2z,y^2z^2,y^2z^3,y^2z^2yz\rbrace$ である。
-$z\in HS$ 、(※3)より、 $yz=(z^3)(y^2)\in HS, y^2z^3=(z^3)(y^2z^2)(y^2z^2)\in HS, y^2z^2yz=(y^2z)(y^2)\in HS$ で他の要素は $S$ に含まれているので $HSz\subset HS$ である。
-$x=yz$ なので $HSx=HSyz\subset HSz\subset HS$ となり $Sx\subset HS$ である。全ての生成元 $x,y,z$ に対して $HSx, HSy, HSz \subset HS$ なので、 ($\forall g\in G$ について $HSg\subset HS$ となるから $g\in HS$ となり) $G\subset HS$ である。
+$z\in HS$ 、(※3)より、 $yz=(z^3)(y^2)\in HS, y^2z^3=(z)(y)\in HS, y^2z^2yz=(z^3)(y^2z^2y)\in HS$ で他の要素は $S$ に含まれているので $HSz\subset HS$ である。
+$x=yz$ なので $HSx=HSyz\subset HSz\subset HS$ となり $HSx\subset HS$ である。全ての生成元 $x,y,z$ に対して $HSx, HSy, HSz \subset HS$ なので、 ($\forall g\in G$ について $HSg\subset HS$ となるから $g\in HS$ となり) $G\subset HS$ である。
 明らかに $G\supset HS$ なので $G=HS$ である。
 
 >定理4.6.5： $G$ は $n$ この生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
@@ -211,7 +240,7 @@ $x=yz$ なので $HSx=HSyz\subset HSz\subset HS$ となり $Sx\subset HS$ であ
 >命題2.5.3： 全単射写像 $\phi:G_1\rightarrow G_2$ が群の準同型なら、同型である。
 
 3. (1)とp.124 定理4.6.5から $G$ から $\mathfrak{S}_4$ への全射準同型 $\phi$ が存在する。全射なのでp.18 定理1.5.2(2)から $|G|\ge|\mathfrak{S}_4|=24$ である。
-一方、(2) より $G=HS$ なので $|G|=|HS|\le|H||S|=4\cdot6=24$ なので $|G|=|\mathfrak{S}_4|=24$ である。
+一方、(2) より $G=HS$ なので $|G|=|HS|\le|H||S|=4\cdot6=24$ なので $|G|=|\mathfrak{S}_4|=24$ 4である。
 よって、p.8 命題1.1.7(2)より $\phi$ は全単射準同型となり、p.45 命題2.5.3より $\phi$ は同型(写像)となるため $G\cong\mathfrak{S}_4$ である。
 
 (※1)
@@ -226,28 +255,27 @@ $$
 
 下線部を置き換え
 
-(※2)
+(※2) 2つ目はトッドコクセターの方法の表から $6y=4$ を参照( $6:y^2z^2y, 4:y^2z$ )
 $$
 \begin{array}{lll}
 y^2zy&=&y\underline{yz}y=yz^{-1}y^{-1}y=yz^{-1}=yz^3\\
 &=&\underline{yz}zz=z^{-1}y^{-1}z^2=z^3y^2z^2\\
 &=&(z^3)(y^2z^2)\\
-y^2z^2y^2&=&y\underline{yz}\underline{zy}y=yz^{-1}y^{-1}y^{-1}z^{-1}y=yz^{-1}y^{-2}z^{-1}y=yz^3yz^3y\\
-&=&\underline{yz}z\underline{zy}zzzy=z^{-1}y^{-1}zy^{-1}z^{-1}zzzy=z^3y^2zy^2z^2y\\
-&=&(z^3)(y^2z)(y^2z^2y)
+y^2z^2y^2&=&(y^2z^2y^2)(yzyz)=y^2z^3yz=\underline{y^{-1}z^{-1}}yz=zyyz=zy^2z
+&=&(z)(y^2z)
 \end{array}
 $$
 
-(※3)
+(※3) 3つ目はトッドコクセターの方法の表から $6z=6$ を参照( $6:y^2z^2y$ )
 $$
 \begin{array}{lll}
 yz&=&z^{-1}y^{-1}=z^3y^2\\
 &=&(z^3)(y^2)\\
-y^2z^3&=&y\underline{yz}zz=yz^{-1}y^{-1}zz=yz^3y^2z^2\\
-&=&\underline{yz}zzy^2z^2=z^{-1}y^{-1}zzy^2z^2=z^3y^2z^2y^2z^2\\
-&=&(z^3)(y^2z^2)(y^2z^2)\\
-y^2z^2yz&=&yyzz\underline{yz}=yyzzz^{-1}y^{-1}=y^2zy^2\\
-&=&(y^2z)(y^2)
+y^2z^3&=&y^{-1}z^{-1}=zy\\
+&=&(z)(y)\\
+y^2z^2yz&=&y(\underline{yz})(\underline{zyz})=y(z^{-1}y^{-1})(y^{-1})=yz^3y\\
+&=&\underline{yz}zzy=z^3y^2z^2y\\
+&=&(z^3)(y^2z^2y)
 \end{array}
 $$
 
@@ -257,7 +285,7 @@ $$
 
 ### 4.6.12
 
-### 4.6.13 担当(まだ)
+### 4.6.13 担当
 
 >p.77 演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,(n-1\hspace{5mu}n)$ によって生成されることを証明せよ
 
