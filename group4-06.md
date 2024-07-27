@@ -222,16 +222,34 @@ $yxy^{-1}=x^{-1},x^4=1$ なので $yx = x^3y$ である。この式を用いて 
 
 ### 4.6.8
 
-1. 
+>p.109 補題4.2.2： $(i_1\cdots i_l)\in\mathfrak{S}_n$ を巡回置換、 $\sigma\in\mathfrak{S}_n$ とすると、 $\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
+1. 愚直に計算すると $\sigma\tau\nu=(1\hspace{5mu}2)(3\hspace{5mu}4)(1\hspace{5mu}2\hspace{5mu}3)(2\hspace{5mu}3\hspace{5mu}4)=(\text{※1})=1_{\mathfrak{S}_4}$
+$\sigma,\tau,\nu$ はいずれも偶置換なのでその積も全て偶置換である。
+$A_4$ の要素の置換の型を考えると $2,2$ 型が $3$ 通り( $1$ とのペアの選び方)、 $3,1$ 型が $8$ 通り( $1$ 部分の要素の選び方で $4$ 通り、 $3$ 部分の置換は $2$ 通り)、 $1,1,1,1$ 型が恒等置換で $1$ 通りである。
+p.109 補題4.2.2より $\tau\sigma\tau^{-1}=(2\hspace{5mu}3)(1\hspace{5mu}4),\nu\sigma\nu^{-1}=(1\hspace{5mu}3)(4\hspace{5mu}2)$ なので $2,2$ 型は $\sigma,\tau,\nu$ から全て生成される。
+$\tau=(1\hspace{5mu}2\hspace{5mu}3),\tau^2=(1\hspace{5mu}3\hspace{5mu}2),\nu=(2\hspace{5mu}3\hspace{5mu}4),\nu^2=(2\hspace{5mu}4\hspace{5mu}3),$
+$\sigma\tau\sigma^{-1}=(1\hspace{5mu}2\hspace{5mu}4),(\sigma\tau\sigma^{-1})^2=(1\hspace{5mu}4\hspace{5mu}2),\sigma\nu\sigma^{-1}=(1\hspace{5mu}3\hspace{5mu}4),(\sigma\nu\sigma^{-1})^2=(1\hspace{5mu}4\hspace{5mu}3)$ となり $3,1$ 型も全て生成される。
+$\mathfrak{S}_4$ の偶置換 $\sigma,\tau,\nu$ によって $A_4$ の全ての要素が生成され、 $\mathfrak{S}_4$ には他に奇置換しかなく $\sigma,\tau,\nu$ で生成できるものはないので、 $\sigma,\nu,\tau$ は $A_4$ を生成する。
 2.
 3.
 4.
+
+(※1)
+$$
+\begin{array}{ll}
+&(1\hspace{5mu}2)(3\hspace{5mu}4)(1\hspace{5mu}2\hspace{5mu}3)(2\hspace{5mu}3\hspace{5mu}4)\\
+=&\begin{pmatrix}1&2&3&4\\2&1&4&3\end{pmatrix}\begin{pmatrix}1&2&3&4\\2&3&1&4\end{pmatrix}\begin{pmatrix}1&2&3&4\\1&3&4&2\end{pmatrix}\\
+=&\begin{pmatrix}1&2&3&4\\2&1&4&3\end{pmatrix}\begin{pmatrix}1&2&3&4\\2&1&4&3\end{pmatrix}\\
+=&\begin{pmatrix}1&2&3&4\\1&2&3&4\end{pmatrix}\\
+=&1_{\mathfrak{S}_4}
+\end{array}
+$$
 
 ### 4.6.9 担当
 
 >演習問題2.3.9(2)： $\mathfrak{S}_n$ は $\sigma=(1\hspace{5mu}2\cdots n)$ と $\tau=(1\hspace{5mu}2)$ で生成されることを証明せよ
 
-1. 愚直に計算する。 $\sigma\tau\nu=(3\hspace{5mu}4)(1\hspace{5mu}3\hspace{5mu}2)(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4)=(\text{※1})=1_{\mathfrak{S}_4}$
+1. 愚直に計算すると $\sigma\tau\nu=(3\hspace{5mu}4)(1\hspace{5mu}3\hspace{5mu}2)(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4)=(\text{※1})=1_{\mathfrak{S}_4}$
 p.77 演習問題2.3.9(2)から $\mathfrak{S}_4$ が $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4),(1\hspace{5mu}2)$ で生成されることが言えている。 $\nu=(3\hspace{5mu}4\hspace{5mu}1\hspace{5mu}2),\sigma=(3\hspace{5mu}4)$ なので(単にラベルの置き換えだから) $\mathfrak{S}_4$ は $\nu,\sigma$ で生成される。ここに $\mathfrak{S}_4$ の元を生成元として追加したところで $\mathfrak{S}_4$ より生成される群が大きくなることはないから、 $\mathfrak{S}_4$ は $\sigma,\tau,\nu$ で生成される。
 2. $x^2=1$ から $x^{-1}=x$ 、これと $xyz=1$ から $x=yz, yzyz=1, yz=(yz)^{-1}=z^{-1}y^{-1},zy=y^{-1}z^{-1}$ である。
 $S=\lbrace1,y,y^2,y^2z,y^2z^2,y^2z^2y\rbrace$ なので、
@@ -272,8 +290,17 @@ $$
 y^2zy&=&y\underline{yz}y=yz^{-1}y^{-1}y=yz^{-1}=yz^3\\
 &=&\underline{yz}zz=z^{-1}y^{-1}z^2=z^3y^2z^2\\
 &=&(z^3)(y^2z^2)\\
-y^2z^2y^2&=&(y^2z^2y^2)(yzyz)=y^2z^3yz=\underline{y^{-1}z^{-1}}yz=zyyz=zy^2z\\
+y^2z^2y^2&=&(y^2z^2y^2)(yzyz)=\underline{y^2}\underline{z^3}yz=\underline{y^{-1}z^{-1}}yz=zyyz=zy^2z\\
 &=&(z)(y^2z)
+\end{array}
+$$
+
+参照した計算
+$$
+\begin{array}{lll}
+(y^2z^2y^2)(y^2z)^{-1}&=&y^2z^2y^2\underline{z^{-1}y^{-1}}y^{-1}=y^2z^2\underline{y^2y}zy^{-1}=\underline{y^2}\underline{z^3}y^{-1}\\
+&=&\underline{y^{-1}z^{-1}}y^{-1}=z\underline{yy^{-1}}\\
+&=&z
 \end{array}
 $$
 
@@ -284,8 +311,8 @@ yz&=&z^{-1}y^{-1}=z^3y^2\\
 &=&(z^3)(y^2)\\
 y^2z^3&=&y^{-1}z^{-1}=zy\\
 &=&(z)(y)\\
-y^2z^2yz&=&y(\underline{yz})(\underline{zyz})=y(z^{-1}y^{-1})(y^{-1})=yz^3y\\
-&=&\underline{yz}zzy=z^3y^2z^2y\\
+y^2z^2yz&=&y(\underline{yz})(\underline{zyz})=y(z^{-1}y^{-1})(y^{-1})=y\underline{z^{-1}}\underline{y^{-2}}=yz^3y\\
+&=&\underline{yz}zzy=\underline{z^{-1}}\underline{y^{-1}}z^2y=z^3y^2z^2y\\
 &=&(z^3)(y^2z^2y)
 \end{array}
 $$
@@ -304,11 +331,11 @@ $$
 
 >p.109 補題4.2.2： $(i_1\cdots i_l)\in\mathfrak{S}_n$ を巡回置換、 $\sigma\in\mathfrak{S}_n$ とすると、 $\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
 
-$y_1=\phi((1\hspace{5mu}2))=(1\hspace{5mu}2)(3\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6$
-$y_2=\phi((2\hspace{5mu}3))=(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\in\mathfrak{S}_6$
-$y_3=\phi((3\hspace{5mu}4))=(1\hspace{5mu}3)(2\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6$
-$y_4=\phi((4\hspace{5mu}5))=(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)\in\mathfrak{S}_6$
-$y_5=\phi((5\hspace{5mu}6))=(1\hspace{5mu}4)(2\hspace{5mu}3)(5\hspace{5mu}6)\in\mathfrak{S}_6$
+$y_1=(1\hspace{5mu}2)(3\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((1\hspace{5mu}2))\text{に相当}$
+$y_2=(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((2\hspace{5mu}3))\text{に相当}$
+$y_3=(1\hspace{5mu}3)(2\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((3\hspace{5mu}4))\text{に相当}$
+$y_4=(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)\in\mathfrak{S}_6\quad\text{※}\phi((4\hspace{5mu}5))\text{に相当}$
+$y_5=(1\hspace{5mu}4)(2\hspace{5mu}3)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((5\hspace{5mu}6))\text{に相当}$
 
 とおく。このとき明らかに $y_i^2=1(i=1,2,3,4,5)$ である(互換の積だから)。また
 
@@ -336,7 +363,7 @@ $y_4y_5y_4=(3\hspace{5mu}4)(2\hspace{5mu}5)(1\hspace{5mu}6)=y_5y_4y_5$
 >命題2.5.3： 全単射写像 $\phi:G_1\rightarrow G_2$ が群の準同型なら、同型である。
 
 ここで、
-( $Y$ が $\mathfrak{S}_6$ を生成することが言いたいのだが超力技)
+( $Y$ の要素が $\mathfrak{S}_6$ を生成することが言いたいのだが超力技)
 $y_1y_3y_5=(1\hspace{5mu}4)(2\hspace{5mu}3)(1\hspace{5mu}4)(2\hspace{5mu}3)(5\hspace{5mu}6)=(5\hspace{5mu}6)$
 $y_1y_3y_2=(1\hspace{5mu}4)(2\hspace{5mu}3)(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)= (2\hspace{5mu}5\hspace{5mu}3\hspace{5mu}6)$
 $y_1y_3y_2y_4=(2\hspace{5mu}5\hspace{5mu}3\hspace{5mu}6)(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)=(1\hspace{5mu}5\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2)$
@@ -350,6 +377,6 @@ $z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ とおき同様の議論を�
 
 >命題2.5.13(2)：群の同型写像の合成は同型写像である。同型写像の逆写像も同型写像である。
 
-$x_i=\rho(y_i)=\psi(z_i)(i=1,2,3,4,5)$ で $\rho$ は全単射だから逆写像が存在し $(\rho^{-1}\circ\psi)(z_i)=x_i(i=1,2,3,4,5)$ となる。 $\phi=\rho^{-1}\circ\psi$ と置くと $\phi:\mathfrak{S}_6\rightarrow\mathfrak{S}_6$ で p.48 命題2.5.13(2) から $\phi$ は同型写像、さらに $\phi(z_i)=x_i(i=1,2,3,4,5)$ となるので、$\phi$ が題意を満たす自己同型である。
+$x_i=\rho(y_i)=\psi(z_i)(i=1,2,3,4,5)$ で $\rho$ は全単射だから逆写像が存在し $(\rho^{-1}\circ\psi)(z_i)=y_i(i=1,2,3,4,5)$ となる。 $\phi=\rho^{-1}\circ\psi$ と置くと $\phi:\mathfrak{S}_6\rightarrow\mathfrak{S}_6$ で p.48 命題2.5.13(2) から $\phi$ は同型写像、さらに $\phi(z_i)=y_i(i=1,2,3,4,5)$ となるので、$\phi$ が題意を満たす自己同型である。
 
-(※内部自己同型は共役なものに移すので互換は互換に移る)
+(※内部自己同型は共役なものに移すので互換は互換に移るから $\phi$ は内部自己同型ではない)
