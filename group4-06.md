@@ -229,10 +229,26 @@ $A_4$ の要素の置換の型を考えると $2,2$ 型が $3$ 通り( $1$ と�
 p.109 補題4.2.2より $\tau\sigma\tau^{-1}=(2\hspace{5mu}3)(1\hspace{5mu}4),\nu\sigma\nu^{-1}=(1\hspace{5mu}3)(4\hspace{5mu}2)$ なので $2,2$ 型は $\sigma,\tau,\nu$ から全て生成される。
 $\tau=(1\hspace{5mu}2\hspace{5mu}3),\tau^2=(1\hspace{5mu}3\hspace{5mu}2),\nu=(2\hspace{5mu}3\hspace{5mu}4),\nu^2=(2\hspace{5mu}4\hspace{5mu}3),$
 $\sigma\tau\sigma^{-1}=(1\hspace{5mu}2\hspace{5mu}4),(\sigma\tau\sigma^{-1})^2=(1\hspace{5mu}4\hspace{5mu}2),\sigma\nu\sigma^{-1}=(1\hspace{5mu}3\hspace{5mu}4),(\sigma\nu\sigma^{-1})^2=(1\hspace{5mu}4\hspace{5mu}3)$ となり $3,1$ 型も全て生成される。
-$\mathfrak{S}_4$ の偶置換 $\sigma,\tau,\nu$ によって $A_4$ の全ての要素が生成され、 $\mathfrak{S}_4$ には他に奇置換しかなく $\sigma,\tau,\nu$ で生成できるものはないので、 $\sigma,\nu,\tau$ は $A_4$ を生成する。
-2.
-3.
-4.
+$\mathfrak{S}_4$ の偶置換 $\sigma,\tau,\nu$ によって $A_4$ の全ての要素が生成され、 $\mathfrak{S}_4$ には他に奇置換しかなく偶置換である $\sigma,\tau,\nu$ の積で生成できるものは他にないので、 $\sigma,\nu,\tau$ は $A_4$ を生成する。
+2. $x^2=1$ から $x^{-1}=x$ 、これと $xyz=1$ から $x=yz, yzyz=1, yz=(yz)^{-1}=z^{-1}y^{-1},zy=y^{-1}z^{-1}$ である。
+$S=\lbrace1,y,y^2,y^2z\rbrace$ なので、
+$Sy=\lbrace y,y^2,1,y^2zy\rbrace$ である。
+$y^2zy=y\underline{yzy}=yz^{-1}=\underline{yz}z=\underline{z^{-1}}\underline{y^{-1}}z=(z^2)(y^2z)\in HS$ 、他の要素は $S$ に含まれているので $HSy\subset HS$ である。
+また $Sz=\lbrace z,yz,y^2z,y^2z^2\rbrace$ である。
+$z\in HS$ 、$\underline{y}\underline{z}=\underline{z^{-1}}\underline{y^{-1}}=(z^2)(y^2)\in HS, \underline{y^2}\underline{z^2}=\underline{y^{-1}z^{-1}}=(z)(y)\in HS$ で他の要素は $S$ に含まれているので $HSz\subset HS$ である。
+>定理4.6.5： $G$ は $n$ この生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
+3. $x=yz$ なので $HSx=HSyz\subset HSz\subset HS$ となり $HSx\subset HS$ である。全ての生成元 $x,y,z$ に対して $HSx, HSy, HSz \subset HS$ なので、 ($\forall g\in G$ について $HSg\subset HS$ となるから $g\in HS$ となり) $G\subset HS$ である。
+明らかに $G\supset HS$ なので $G=HS$ である。
+$H=\lbrace1,z,z^2\rbrace$ なので $|H|=3$ 、また $|S|=4$ なので $|G|=|HS|\le|H||S|=12$
+>定理1.5.2(2)： 集合 $A$ から集合 $B$ への全射写像があれば、 $|A|\ge|B|$ である。
+
+>命題1.1.7(2)： $A,B$ が有限集合で $|A|=|B|$ なら (2) $f:A\rightarrow B$ が写像なら、 $f$ が単射であることと、全射であることは同値である。したがって、このとき $f$ は全単射になる。
+
+>命題2.5.3： 全単射写像 $\phi:G_1\rightarrow G_2$ が群の準同型なら、同型である。
+4. (1)とp.124 定理4.6.5より $G$ から $\langle\sigma,\tau,\nu\rangle=A_4$ への全射準同型 $\phi$ が存在する。
+(1)とp.124 定理4.6.5から $G$ から $\mathfrak{S}_4$ への全射準同型 $\phi$ が存在する。全射なのでp.18 定理1.5.2(2)から $|G|\ge|A_4|=12$ である。
+一方、(2) より $|G|=|A_4|=12$ である。
+よって、p.8 命題1.1.7(2)より $\phi$ は全単射準同型となり、p.45 命題2.5.3より $\phi$ は同型(写像)となるため $G\cong\mathfrak{S}_4$ である。
 
 (※1)
 $$
@@ -244,6 +260,16 @@ $$
 =&1_{\mathfrak{S}_4}
 \end{array}
 $$
+
+※(1) 異なる元が $7$ 個生成できれば部分群として位数 $12$ の群しかできず、偶置換しか生成できないので $A_4$ になる
+
+#### ヒントとコメント
+
+$G$ の $H\backslash G$ への右作用は全単射であり
+
+>p.96 命題4.1.2 群 $G$ が集合 $X$ に作用すると、 $g\in G$ に対して定める写像 $X\ni x\mapsto gx\in X$ は全単射である
+
+$2$ が $Hy$ であることを考えなくとも上の行の表から機械的に数字を割り当てることはできる
 
 ### 4.6.9 担当
 
@@ -319,7 +345,19 @@ $$
 
 ※ $S$ は積で閉じているわけではないので、 $s_1,s_2\in S$ として $s_1s_2\in S$ とは言えない
 
+※ トッド・コクセターの方法が証明されている前提であれば $G\subset HS$ は明らかでよい？ → $H\backslash G$ の代表系がトッド・コクセターの方法の結果 $S$ になるとすれば $G=\bigsqcup_{s\in S} Hs=HS$ と言って良さそうだが
+※ 演習問題4.6.8,4.6.9,4.6.10で似たような形の関係式でそれぞれ $A_4,\mathfrak{S}_4,A_5$ と同型な群が定義できている。これは一般的に言える？
+
 ### 4.6.10
+
+※ p.138 補題4.9.1 $n\ge3$ なら、 $A_n$ は長さ $3$ の巡回置換で生成される を使うこともできる
+※ 全部隣接してる場合 $(1\hspace{5mu}2\hspace{5mu}3)$ とそうでない場合 $(1\hspace{5mu}3\hspace{5mu}4)$ で $\tau, (\sigma\nu)\tau(\sigma\nu)^{-1}$ に $\nu$ の共役作用でぐるぐる回せば全パターンの長さ $3$ の巡回置換を生成できる
+
+※ 生成元の位数が $2,3,5$ なので生成される部分群の位数は $30$ か $60$ 
+※ 位数 $4$ の部分群を含めば位数 $60$ であることが言える
+※ シロー $2$ 部分群を考えると $A_4,A_5$ の中に位数 $4$ の部分群は存在しているはず
+※ $A_4\subset A_5$ で、 $A_4$ の中に位数 $4$ の部分群がある
+※ 実際には $2,2$ 型＋単位元がその位数 $4$ の部分群になる
 
 ### 4.6.11
 
