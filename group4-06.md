@@ -361,6 +361,21 @@ $$
 
 ### 4.6.11
 
+1. p.125 例題4.6.7より $G$ のすべての元は $y^ix^j(i\in\lbrace0,1,2\rbrace,j\in\lbrace0,1,2,3\rbrace)$ と個別に表せる。 $y^ix^j\in Z(G),y^kx^l\in G$ とすると
+$(y^i x^j)(y^k x^l)=y^{i+k2^j}x^{j+l}, (y^k x^l)(y^i x^j)=y^{k+i2^l}x^{l+j}$ なので
+任意の $k\in\lbrace0,1,2\rbrace,l\in\lbrace0,1,2,3\rbrace$ で
+$i+k2^j\equiv k+i2^l\mod3$ でなくてはならない。
+$2^l \mod3$ は $l$ によって $1,2$ のいずれかを取りうる。
+$k=0$ のとき $i\equiv i2^l\mod3$ であり、 $l=0,2$ であれば $i\equiv i\mod3$ なので任意の $i$ で成立、 $l=1,3$ であれば $i\equiv 2i\mod3$ なので、 $i=0$ で成立する。よって $i=0$ でなければならない。
+$k=1$ のとき $i+2^j\equiv 1+i2^l\mod3$ であり、 $i=0$ の制約を使うと $2^j\equiv 1\mod3$ なので $j=0,2$
+$k=2$ のとき $i+2\cdot2^j\equiv 2+i2^l\mod3$ であり、 $i=0$ の制約を使うと
+$2\cdot2^j\equiv 2\mod3$ なので $j=0,2$
+以上により $i=0,j=0$ または $i=0,j=2$ で条件を満たすので $Z(G)=\lbrace y^0x^0,y^0x^2\rbrace=\lbrace1_G,x^2\rbrace$
+2. $(y^kx^l)(y^ix^j)(y^kx^l)^{-1}=y^kx^ly^ix^jx^{-l}y^{-k}=y^{k+i2^l}x^jy^{3-k}=y^{k+i2^l+(3-k)2^j}x^j$ となるので $x$ の指数が異なる要素は共役類にならない。
+$1_G,x^2\in Z(G)$ なのでそれぞれで共役類である( $i=0,j=0$ あるいは $i=0,j=2$ の場合)。
+$i=0,j=1$ あるいは $i=0,j=3$ のときには $y^{k+i2^l+(3-k)2^j}x^j=y^{-k}x^j$ となるため、 $x$ の指数は変えられないが $k$ を適当に選べば $y$ 分の指数は任意に設定できる。
+よって共役類は $\lbrace1_G\rbrace,\lbrace x^2\rbrace,\lbrace x,yx,y^2x\rbrace,\lbrace x^3,yx^3,y^2x^3\rbrace$
+
 ### 4.6.12
 
 ### 4.6.13 担当
@@ -411,7 +426,7 @@ p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なので $\rho:H_6\
 
 >演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,\sigma_{n-1}(n-1\hspace{5mu}n)$ で生成されることを証明せよ
 
-$z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ とおき同様の議論をすることで、 $H_6$ から $Z=\langle z_1,\cdots,z_5\rangle$ への全射準同型で $\psi(x_i)=z_i$ となるものが存在する。p.77 演習問題2.3.9(1) から $Z=\mathfrak{S}_6$ で、p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なのでp.8 命題1.1.7(2)、p.45 命題2.5.3から $\psi$ は同型(写像)となる。
+$z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ とおくとp.151 演習問題4.6.4(1) で関係式を満たすことは確かめたので同様の議論をすることで、 $H_6$ から $Z=\langle z_1,\cdots,z_5\rangle$ への全射準同型で $\psi(x_i)=z_i$ となるものが存在する。p.77 演習問題2.3.9(1) から $Z=\mathfrak{S}_6$ で、p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なのでp.8 命題1.1.7(2)、p.45 命題2.5.3から $\psi$ は同型(写像)となる。
 
 >命題2.5.13(2)：群の同型写像の合成は同型写像である。同型写像の逆写像も同型写像である。
 
