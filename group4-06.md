@@ -359,6 +359,8 @@ $$
 ※ $A_4\subset A_5$ で、 $A_4$ の中に位数 $4$ の部分群がある
 ※ 実際には $2,2$ 型＋単位元がその位数 $4$ の部分群になる
 
+※ 剰余類の遷移を図示すると面白いかも
+
 ### 4.6.11
 
 1. p.125 例題4.6.7より $G$ のすべての元は $y^ix^j(i\in\lbrace0,1,2\rbrace,j\in\lbrace0,1,2,3\rbrace)$ と個別に表せる。 $y^ix^j\in Z(G),y^kx^l\in G$ とすると
@@ -373,8 +375,19 @@ $2\cdot2^j\equiv 2\mod3$ なので $j=0,2$
 以上により $i=0,j=0$ または $i=0,j=2$ で条件を満たすので $Z(G)=\lbrace y^0x^0,y^0x^2\rbrace=\lbrace1_G,x^2\rbrace$
 2. $(y^kx^l)(y^ix^j)(y^kx^l)^{-1}=y^kx^ly^ix^jx^{-l}y^{-k}=y^{k+i2^l}x^jy^{3-k}=y^{k+i2^l+(3-k)2^j}x^j$ となるので $x$ の指数が異なる要素は共役類にならない。
 $1_G,x^2\in Z(G)$ なのでそれぞれで共役類である( $i=0,j=0$ あるいは $i=0,j=2$ の場合)。
-$i=0,j=1$ あるいは $i=0,j=3$ のときには $y^{k+i2^l+(3-k)2^j}x^j=y^{-k}x^j$ となるため、 $x$ の指数は変えられないが $k$ を適当に選べば $y$ 分の指数は任意に設定できる。
-よって共役類は $\lbrace1_G\rbrace,\lbrace x^2\rbrace,\lbrace x,yx,y^2x\rbrace,\lbrace x^3,yx^3,y^2x^3\rbrace$
+$i=0,j=1$ あるいは $i=0,j=3$ のときには $y^{k+i2^l+(3-k)2^j}x^j=y^{-k}x^j$ となるため、 $k$ を適当に選べば $y$ 分の指数は任意に設定できる。 $x$ の指数が異なる元は共役類にならないので $\lbrace x,yx,y^2x\rbrace,\lbrace x^3,yx^3,y^2x^3\rbrace$ が共役類となる。
+$i=1,j=0$ のときには $y^{k+i2^l+(3-k)2^j}x^j=y^{2^l}$ なので $l=2$ とすれば $y^2$ とできる。 $1_G,x^2$ がそれぞ共役類で、 $x$ の指数が異なる元は共役類にならないので $\lbrace y,y^2\rbrace$ が共役類となる。
+$i=1,j=2$ のときには $y^{k+i2^l+(3-k)2^j}x^j=y^{2\cdot2^l}x^2$ のなので $l=2$ とすれば $xy^2$ とできる。$1_G,x^2$ がそれぞ共役類で、 $x$ の指数が異なる元は共役類にならないので $\lbrace yx^2,y^2x^2\rbrace$ が共役類となる。
+よって共役類は $\lbrace1_G\rbrace,\lbrace y,y^2\rbrace,\lbrace x^2\rbrace,\lbrace yx^2,y^2x^2\rbrace,\lbrace x,yx,y^2x\rbrace,\lbrace x^3,yx^3,y^2x^3\rbrace$
+3. $(y^ix^j)^3=y^ix^jy^ix^jy^ix^j=y^{i+i2^j}x^{2j}y^ix^j=y^{i+i2^j+i2^{2j}}x^{3j}$
+$3$ の約数は $1,3$ だけなので上の式が $1_G$ と等しくかつそれ自身が単位元でなければ $y^ix^j$ の位数は $3$ である(p.43 命題2.4.19より)。
+$3j$ が $4$ の倍数となる必要があるので $j=0$ のときのみ。
+このとき $i+i2^j+i2^{2j}=3i$ となりこれは常に $3$ の倍数となる。
+以上により、位数 $3$ の元は $y,y^2$ の $2$ つである。
+
+> 命題2..4.19 $G$ を群、 $x\in G$ とし、 $x$ の位数は有限で $c\le\infty$ とする。このとき、 $n\in\mathbb{Z}$ に対し次の(1),(2)は同値である。さらに、 $\lbrace m\in\mathbb{Z}\mid x^m=1_G\rbrace=d\mathbb{Z}$ である。
+(1) $x^n=1_G$
+(2) $n$ は $d$ の倍数である
 
 ### 4.6.12
 
