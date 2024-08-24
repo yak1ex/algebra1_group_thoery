@@ -383,13 +383,17 @@ $i=1,j=2$ のときには $y^{k+i2^l+(3-k)2^j}x^j=y^{2\cdot2^l}x^2$ のなので
 $3$ の約数は $1,3$ だけなので上の式が $1_G$ と等しくかつそれ自身が単位元でなければ $y^ix^j$ の位数は $3$ である(p.43 命題2.4.19より)。
 $3j$ が $4$ の倍数となる必要があるので $j=0$ のときのみ。
 このとき $i+i2^j+i2^{2j}=3i$ となりこれは常に $3$ の倍数となる。
-以上により、位数 $3$ の元は $y,y^2$ の $2$ つである。
+$i=0,j=0$ は単位元のときなので、以上により位数 $3$ の元は $y,y^2$ の $2$ つである。
 
 > 命題2..4.19 $G$ を群、 $x\in G$ とし、 $x$ の位数は有限で $c\le\infty$ とする。このとき、 $n\in\mathbb{Z}$ に対し次の(1),(2)は同値である。さらに、 $\lbrace m\in\mathbb{Z}\mid x^m=1_G\rbrace=d\mathbb{Z}$ である。
 (1) $x^n=1_G$
 (2) $n$ は $d$ の倍数である
 
+※ (1) 例題4.6.7から準同型 $\phi:G\rightarrow\mathfrak{S}_3$ を考え^ると $z\in Z(G)\Rightarrow\phi(z)\in Z(\mathfrak{S}_3)=\lbrace1\rbrace$ なので $z\in\mathrm{Ker}(\phi)$ 。また位数の関係から $|\mathrm{Ker}(\phi)|=2$ 。 $\phi(x^2)=\sigma^2=1_{\mathfrak{S}_3}$ なので $x^2\in\mathrm{Ker}(\phi)$ だから $\mathrm{Ker}(\phi)=\lbrace1,x^2\rbrace$ 。ここで $x^2y=y^4x^2=yx^2$ なので $y$ に対して可換になる。 $x$ についても当然可換なので $x^2$ は任意の元と可換であるから $Z(G)=\lbrace1,x^2\rbrace$ 。
+
 ### 4.6.12
+
+>演習問題4.2.6
 
 ### 4.6.13 担当
 
@@ -402,8 +406,9 @@ $y_2=(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\in\mathfrak{S}_6\quad\text
 $y_3=(1\hspace{5mu}3)(2\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((3\hspace{5mu}4))\text{に相当}$
 $y_4=(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)\in\mathfrak{S}_6\quad\text{※}\phi((4\hspace{5mu}5))\text{に相当}$
 $y_5=(1\hspace{5mu}4)(2\hspace{5mu}3)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((5\hspace{5mu}6))\text{に相当}$
+$z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ ※ $y_i=\phi(z_i)$
 
-とおく。このとき明らかに $y_i^2=1(i=1,2,3,4,5)$ である(互換の積だから)。また
+とおく。このとき明らかに $y_i^2=1(i=1,2,3,4,5)$ である(要素の重複がない互換の積だから)。また
 
 $y_1y_3=(1\hspace{5mu}4)(2\hspace{5mu}3)=y_3y_1$ 
 $y_2y_4=(1\hspace{5mu}5)(2\hspace{5mu}4)=y_4y_2$ 
@@ -417,6 +422,9 @@ $y_3y_4y_3=(3\hspace{5mu}4)(1\hspace{5mu}5)(2\hspace{5mu}6)=y_4y_3y_4$
 $y_4y_5y_4=(3\hspace{5mu}4)(2\hspace{5mu}5)(1\hspace{5mu}6)=y_5y_4y_5$
 
 よって $y_i(i=1,2,3,4,5)$ はp.151 演習問題4.6.4(1)の関係式を満たす。
+
+>演習問題4.6.4(1) $n\ge3,x_1=(1\hspace{5mu}2),\cdots,x_n=(n\hspace{5mu}n-1)\in\mathfrak{S}_n$ なら $x_i^2=1,x_i x_j=x_j x_i(|i-j|\ge2),x_i x_{i+1}x_i=x_{i+1}x_i x_{i+1}(i=1,\cdots,n-2)$ であることを確認せよ
+(3) $H_n\cong\mathfrak{S}_n$ であることを証明せよ
 
 >定理4.6.5： $G$ は $n$ 個の生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
 
@@ -439,10 +447,12 @@ p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なので $\rho:H_6\
 
 >演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,\sigma_{n-1}(n-1\hspace{5mu}n)$ で生成されることを証明せよ
 
-$z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ とおくとp.151 演習問題4.6.4(1) で関係式を満たすことは確かめたので同様の議論をすることで、 $H_6$ から $Z=\langle z_1,\cdots,z_5\rangle$ への全射準同型で $\psi(x_i)=z_i$ となるものが存在する。p.77 演習問題2.3.9(1) から $Z=\mathfrak{S}_6$ で、p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なのでp.8 命題1.1.7(2)、p.45 命題2.5.3から $\psi$ は同型(写像)となる。
+$z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ で、p.151 演習問題4.6.4(1) で関係式を満たすことは確かめたので同様の議論をすることで、 $H_6$ から $Z=\langle z_1,\cdots,z_5\rangle$ への全射準同型で $\psi(x_i)=z_i$ となるものが存在する。p.77 演習問題2.3.9(1) から $Z=\mathfrak{S}_6$ で、p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なのでp.8 命題1.1.7(2)、p.45 命題2.5.3から $\psi$ は同型(写像)となる。
 
 >命題2.5.13(2)：群の同型写像の合成は同型写像である。同型写像の逆写像も同型写像である。
 
 $x_i=\rho(y_i)=\psi(z_i)(i=1,2,3,4,5)$ で $\rho$ は全単射だから逆写像が存在し $(\rho^{-1}\circ\psi)(z_i)=y_i(i=1,2,3,4,5)$ となる。 $\phi=\rho^{-1}\circ\psi$ と置くと $\phi:\mathfrak{S}_6\rightarrow\mathfrak{S}_6$ で p.48 命題2.5.13(2) から $\phi$ は同型写像、さらに $\phi(z_i)=y_i(i=1,2,3,4,5)$ となるので、$\phi$ が題意を満たす自己同型である。
+
+$\stackrel{f}{\mapsto}$
 
 (※内部自己同型は共役なものに移すので互換は互換に移るから $\phi$ は内部自己同型ではない)
