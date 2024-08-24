@@ -363,8 +363,8 @@ $$
 
 ### 4.6.11
 
-1. p.125 例題4.6.7より $G$ のすべての元は $y^ix^j(i\in\lbrace0,1,2\rbrace,j\in\lbrace0,1,2,3\rbrace)$ と個別に表せる。 $y^ix^j\in Z(G),y^kx^l\in G$ とすると
-$(y^i x^j)(y^k x^l)=y^{i+k2^j}x^{j+l}, (y^k x^l)(y^i x^j)=y^{k+i2^l}x^{l+j}$ なので
+1. p.125 例題4.6.7より $G$ のすべての元は $y^ix^j(i\in\lbrace0,1,2\rbrace,j\in\lbrace0,1,2,3\rbrace)$ と個別に表せる。 $y^ix^j\in Z(G),y^kx^l\in G$ とすると $xy=y^2x$ を用いることで
+$(y^i x^j)(y^k x^l)=y^{i+k2^j}x^{j+l}, (y^k x^l)(y^i x^j)=y^{k+i2^l}x^{l+j}$ となるので
 任意の $k\in\lbrace0,1,2\rbrace,l\in\lbrace0,1,2,3\rbrace$ で
 $i+k2^j\equiv k+i2^l\mod3$ でなくてはならない。
 $2^l \mod3$ は $l$ によって $1,2$ のいずれかを取りうる。
@@ -391,22 +391,52 @@ $i=0,j=0$ は単位元のときなので、以上により位数 $3$ の元は $
 
 ※ (1) 例題4.6.7から準同型 $\phi:G\rightarrow\mathfrak{S}_3$ を考え^ると $z\in Z(G)\Rightarrow\phi(z)\in Z(\mathfrak{S}_3)=\lbrace1\rbrace$ なので $z\in\mathrm{Ker}(\phi)$ 。また位数の関係から $|\mathrm{Ker}(\phi)|=2$ 。 $\phi(x^2)=\sigma^2=1_{\mathfrak{S}_3}$ なので $x^2\in\mathrm{Ker}(\phi)$ だから $\mathrm{Ker}(\phi)=\lbrace1,x^2\rbrace$ 。ここで $x^2y=y^4x^2=yx^2$ なので $y$ に対して可換になる。 $x$ についても当然可換なので $x^2$ は任意の元と可換であるから $Z(G)=\lbrace1,x^2\rbrace$ 。
 
+※ (1)(2) 可換、共役類は生成元について確かめればいいので簡略化できそう
+※ $x$ の指数は一致している必要があるので共役類は高々 $3$ つ、単独で共役類になるものは中心になるので分け方が制限される(中心に含まれる元がなければまとめて共役類になる)
+※ (3) 共役類に含まれる元の位数が等しいことが言える
+
 ### 4.6.12
 
->演習問題4.2.6
+>演習問題4.2.6 $\sigma\in G=\mathfrak{S}_n$ の型を $(j_1,\cdots,j_1,j_2,\cdots,j_2,\cdots,j_l,\cdots,j_l)$ とする。ただし $j_1\ge\cdots\ge j_l$ である。このとき、 $Z_G(\sigma)$ は $(\mathbb{Z}/j_1\mathbb{Z})^{a_1}\times\cdots\times(\mathbb{Z}/j_l\mathbb{Z})^{a_l}$ と同型な群 $N$ を正規部分群として含み、 $Z_G(\sigma)/N\cong\mathfrak{S}_{a_1}\times\cdots\times\mathfrak{S}_{a_l}$ であることを証明せよ
+
+>p.44 命題2.5.13 $\phi:G_1 \rightarrow G_2$：準同型ならば、$\phi$ が単射 $\Leftrightarrow \mathrm{Ker}(\phi)=\{1_G\}$
+
+※
+(1)
+$\phi$ は同型写像なので (第1版)p.44 命題2.5.13より $\mathrm{Ker}(\phi)=\lbrace1_{\mathfrak{S}_n}\rbrace$
+準同型定理から $Z_G(\sigma)/N\cong\mathrm{Im}(\phi)$
+演習問題4.2.6から $Z_G(\sigma)/N\cong\mathfrak{S}_1\times\mathfrak{S}_{n-2},N\cong\mathbb{Z}/2\mathbb{Z}$
+$\phi(\sigma)$ の位数は $2$ 、 $\mathfrak{S}_n$ の要素は互いに素な巡回置換の積で表せ、位数が $2$ であれば互いに素な互換の積で表せることになる
+互換の数を $m$ とおくと
+演習問題4.2.6から $Z_G(\phi(\sigma))/N^\prime\cong\mathfrak{S}_m\times\mathfrak{S}_{n-2m},N^\prime\cong(\mathbb{Z}/2\mathbb{Z})^m$
+自己同型 $\phi$ に対して $Z_G(\phi(\sigma))=\phi(Z_G(\sigma))$ が言える
+ラグランジュの定理から $2(n-2)!=2^m m!(n-2m)!$
+ここから $m=1$ に限られることを言う
+(2) 同様
+(3)
+相違なる $i,j,k$ に対して $(i j)(i k)=(i k j)$
+長さ $3$ の巡回置換を $2$ つの互換の積に表すとそれらの互換は共通要素を $1$ つだけ持つし、
+共通要素を $1$ つだけもつ互換 $2$ つの積は長さ $3$ の巡回置換になることを言う
+相違なる $1,i,j,k$ について $\phi((1 i)),\phi((1 j)),\phi((1 k))$ は共通要素を持つことを言う → 全てに共通な要素 $a_1$ がある
+$\phi$ は互換を互換、長さ $3$ の巡回置換を長さ $3$ の巡回置換に移すので
+$\phi((1 i j))=\phi((1 j)(1 i))=\phi((1 j))\phi((1 i))=(a_1 a_j)(a_1 a_i)=(a_1 a_i a_j)$
+となる
+(4) $\sigma(i)=a_i$ と定義して内部自己同型 $\psi(x)=\sigma x\sigma^{-1}$ を考えると $\psi((i i))=(a_1 a_i)$ となり生成元 $(1 i)$ について $\psi((1 i))=(a_1 a_i)=\phi((1 i))$ となるので $\phi=\psi$ 。
 
 ### 4.6.13 担当
+
+※4.6.12で除外されていた $n=6$ の具体例(外部自己同型)にあたる
 
 >p.77 演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,(n-1\hspace{5mu}n)$ によって生成されることを証明せよ
 
 >p.109 補題4.2.2： $(i_1\cdots i_l)\in\mathfrak{S}_n$ を巡回置換、 $\sigma\in\mathfrak{S}_n$ とすると、 $\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
 
+$z_1=(1\hspace{5mu}2)\in\mathfrak{S}_6,\cdots,z_5=(5\hspace{5mu}6)\in\mathfrak{S}_6,$
 $y_1=(1\hspace{5mu}2)(3\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((1\hspace{5mu}2))\text{に相当}$
 $y_2=(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((2\hspace{5mu}3))\text{に相当}$
 $y_3=(1\hspace{5mu}3)(2\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((3\hspace{5mu}4))\text{に相当}$
 $y_4=(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)\in\mathfrak{S}_6\quad\text{※}\phi((4\hspace{5mu}5))\text{に相当}$
 $y_5=(1\hspace{5mu}4)(2\hspace{5mu}3)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((5\hspace{5mu}6))\text{に相当}$
-$z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ ※ $y_i=\phi(z_i)$
 
 とおく。このとき明らかに $y_i^2=1(i=1,2,3,4,5)$ である(要素の重複がない互換の積だから)。また
 
@@ -424,6 +454,7 @@ $y_4y_5y_4=(3\hspace{5mu}4)(2\hspace{5mu}5)(1\hspace{5mu}6)=y_5y_4y_5$
 よって $y_i(i=1,2,3,4,5)$ はp.151 演習問題4.6.4(1)の関係式を満たす。
 
 >演習問題4.6.4(1) $n\ge3,x_1=(1\hspace{5mu}2),\cdots,x_n=(n\hspace{5mu}n-1)\in\mathfrak{S}_n$ なら $x_i^2=1,x_i x_j=x_j x_i(|i-j|\ge2),x_i x_{i+1}x_i=x_{i+1}x_i x_{i+1}(i=1,\cdots,n-2)$ であることを確認せよ
+(2) $H_n$ を $x_1,\cdots,x_{n-1}$ で生成され、(1)の関係で定義された群とするとき、 $|H_n|\le n!$ であることを証明せよ
 (3) $H_n\cong\mathfrak{S}_n$ であることを証明せよ
 
 >定理4.6.5： $G$ は $n$ 個の生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
@@ -447,12 +478,11 @@ p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なので $\rho:H_6\
 
 >演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,\sigma_{n-1}(n-1\hspace{5mu}n)$ で生成されることを証明せよ
 
-$z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ で、p.151 演習問題4.6.4(1) で関係式を満たすことは確かめたので同様の議論をすることで、 $H_6$ から $Z=\langle z_1,\cdots,z_5\rangle$ への全射準同型で $\psi(x_i)=z_i$ となるものが存在する。p.77 演習問題2.3.9(1) から $Z=\mathfrak{S}_6$ で、p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なのでp.8 命題1.1.7(2)、p.45 命題2.5.3から $\psi$ は同型(写像)となる。
+$z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ に対してp.151 演習問題4.6.4(1)で関係式を満たすことは確かめたので同様の議論をすることで、 $H_6$ から $Z=\langle z_1,\cdots,z_5\rangle$ への全射準同型で $\psi(x_i)=z_i$ となるものが存在することが言える。p.77 演習問題2.3.9(1) から $Z=\mathfrak{S}_6$ で、p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なのでp.8 命題1.1.7(2)、p.45 命題2.5.3から $\psi$ は同型(写像)となる。
 
 >命題2.5.13(2)：群の同型写像の合成は同型写像である。同型写像の逆写像も同型写像である。
 
-$x_i=\rho(y_i)=\psi(z_i)(i=1,2,3,4,5)$ で $\rho$ は全単射だから逆写像が存在し $(\rho^{-1}\circ\psi)(z_i)=y_i(i=1,2,3,4,5)$ となる。 $\phi=\rho^{-1}\circ\psi$ と置くと $\phi:\mathfrak{S}_6\rightarrow\mathfrak{S}_6$ で p.48 命題2.5.13(2) から $\phi$ は同型写像、さらに $\phi(z_i)=y_i(i=1,2,3,4,5)$ となるので、$\phi$ が題意を満たす自己同型である。
+同型写像 $\rho: H_6\ni x_i \mapsto y_i\in\mathfrak{S}_6, \psi: H_6\ni x_i \mapsto z_i\in\mathfrak{S}_6$ で $\psi$ は全単射だから逆写像が存在し $x_i=\psi^{-1}(z_i)$ となるから $y_i=\rho(x_i)=\rho(\psi^{-1}(z_i))=(\rho\circ\psi^{-1})(z_i)$ となる。 $\phi=\rho\circ\psi^{-1}$ と置くとp.48 命題2.5.13(2)から $\phi$ は同型写像となり $\phi:\mathfrak{S}_6\ni z_i\mapsto y_i\in\mathfrak{S}_6$ となので、これが題意を満たす自己同型 $\phi$ となる。
 
-$\stackrel{f}{\mapsto}$
 
 (※内部自己同型は共役なものに移すので互換は互換に移るから $\phi$ は内部自己同型ではない)
