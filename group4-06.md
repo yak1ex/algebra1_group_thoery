@@ -426,19 +426,22 @@ $\phi((1 i j))=\phi((1 j)(1 i))=\phi((1 j))\phi((1 i))=(a_1 a_j)(a_1 a_i)=(a_1 a
 ### 4.6.13 担当
 
 ※4.6.12で除外されていた $n=6$ の具体例(外部自己同型)にあたる
+※あまり使って来なかった定理4.6.5後半の $x_i$ と $y_i$ が対応していることを使っている
 
 >p.77 演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,(n-1\hspace{5mu}n)$ によって生成されることを証明せよ
 
 >p.109 補題4.2.2： $(i_1\cdots i_l)\in\mathfrak{S}_n$ を巡回置換、 $\sigma\in\mathfrak{S}_n$ とすると、 $\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
 
 $z_1=(1\hspace{5mu}2)\in\mathfrak{S}_6,\cdots,z_5=(5\hspace{5mu}6)\in\mathfrak{S}_6,$
-$y_1=(1\hspace{5mu}2)(3\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((1\hspace{5mu}2))\text{に相当}$
-$y_2=(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((2\hspace{5mu}3))\text{に相当}$
-$y_3=(1\hspace{5mu}3)(2\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((3\hspace{5mu}4))\text{に相当}$
-$y_4=(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)\in\mathfrak{S}_6\quad\text{※}\phi((4\hspace{5mu}5))\text{に相当}$
-$y_5=(1\hspace{5mu}4)(2\hspace{5mu}3)(5\hspace{5mu}6)\in\mathfrak{S}_6\quad\text{※}\phi((5\hspace{5mu}6))\text{に相当}$
+$y_1=(1\hspace{5mu}2)(3\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6$
+$y_2=(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hspace{5mu}6)\in\mathfrak{S}_6$
+$y_3=(1\hspace{5mu}3)(2\hspace{5mu}4)(5\hspace{5mu}6)\in\mathfrak{S}_6$
+$y_4=(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)\in\mathfrak{S}_6$
+$y_5=(1\hspace{5mu}4)(2\hspace{5mu}3)(5\hspace{5mu}6)\in\mathfrak{S}_6$
+とおく。
+※ 題意は「 $\phi(z_i)=y_i$ となる同型写像 $\phi$ が存在することを証明せよ」になる。 $\langle z_i\rangle\cong\langle y_i\rangle$ より強い主張である。
 
-とおく。このとき明らかに $y_i^2=1(i=1,2,3,4,5)$ である(要素の重複がない互換の積だから)。また
+このとき明らかに $y_i^2=1(i=1,2,3,4,5)$ である(要素の重複がない互換の積だから)。また
 
 $y_1y_3=(1\hspace{5mu}4)(2\hspace{5mu}3)=y_3y_1$ 
 $y_2y_4=(1\hspace{5mu}5)(2\hspace{5mu}4)=y_4y_2$ 
@@ -457,7 +460,7 @@ $y_4y_5y_4=(3\hspace{5mu}4)(2\hspace{5mu}5)(1\hspace{5mu}6)=y_5y_4y_5$
 (2) $H_n$ を $x_1,\cdots,x_{n-1}$ で生成され、(1)の関係で定義された群とするとき、 $|H_n|\le n!$ であることを証明せよ
 (3) $H_n\cong\mathfrak{S}_n$ であることを証明せよ
 
->定理4.6.5： $G$ は $n$ 個の生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y1,\cdots,\phi(x_n)=y_n$ となるものがある。
+>定理4.6.5： $G$ は $n$ 個の生成元 $y_1,\cdots,y_n$ を持ち、関係式 $R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ を持つとする。このとき、 $K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle$ から $G$ への全射準同型 $\phi$ で、 $\phi(x_1)=y_1,\cdots,\phi(x_n)=y_n$ となるものがある。
 
 したがって p.124 定理4.6.5より(p.151 演習問題4.6.4の表記で) $H_6$ から $Y=\langle y_1,\cdots,y_5\rangle$ への全射準同型 $\rho$ で $\rho(x_i)=y_i(i=1,2,3,4,5)$ となるものが存在する。
 
@@ -474,7 +477,7 @@ $y_1y_3y_2=(1\hspace{5mu}4)(2\hspace{5mu}3)(1\hspace{5mu}4)(2\hspace{5mu}5)(3\hs
 $y_1y_3y_2y_4=(2\hspace{5mu}5\hspace{5mu}3\hspace{5mu}6)(1\hspace{5mu}2)(3\hspace{5mu}6)(4\hspace{5mu}5)=(1\hspace{5mu}5\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2)$
 $y_1y_3y_2y_4y_1y_3y_5=(1\hspace{5mu}5\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2)(5\hspace{5mu}6)=(1\hspace{5mu}5\hspace{5mu}6\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2)$
 となり、p.77 演習問題2.3.9(2)より $y_1y_3y_5=(5\hspace{5mu}6),y_1y_3y_2y_4y_1y_3y_5=(5\hspace{5mu}6\hspace{5mu}4\hspace{5mu}3\hspace{5mu}2\hspace{5mu}1)$ から $\mathfrak{S}_6$ が生成されるので、 $Y=\mathfrak{S}_6$ である。
-p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なので $\rho:H_6\rightarrow Y=\mathfrak{S}_6$ はp.8 命題1.1.7(2)、p.45 命題2.5.3から $\rho$ は同型(写像)となる。
+p.151 演習問題4.6.4(3) から $H_6\cong\mathfrak{S}_6$  なので $\rho:H_6\rightarrow Y=\mathfrak{S}_6$ はp.8 命題1.1.7(2)、p.45 命題2.5.3から同型(写像)となる。
 
 >演習問題2.3.9(1)： $\mathfrak{S}_n$ は $\sigma_1=(1\hspace{5mu}2),\cdots,\sigma_{n-1}(n-1\hspace{5mu}n)$ で生成されることを証明せよ
 
@@ -482,7 +485,7 @@ $z_1=(1\hspace{5mu}2),\cdots,z_5=(5\hspace{5mu}6)$ に対してp.151 演習問�
 
 >命題2.5.13(2)：群の同型写像の合成は同型写像である。同型写像の逆写像も同型写像である。
 
-同型写像 $\rho: H_6\ni x_i \mapsto y_i\in\mathfrak{S}_6, \psi: H_6\ni x_i \mapsto z_i\in\mathfrak{S}_6$ で $\psi$ は全単射だから逆写像が存在し $x_i=\psi^{-1}(z_i)$ となるから $y_i=\rho(x_i)=\rho(\psi^{-1}(z_i))=(\rho\circ\psi^{-1})(z_i)$ となる。 $\phi=\rho\circ\psi^{-1}$ と置くとp.48 命題2.5.13(2)から $\phi$ は同型写像となり $\phi:\mathfrak{S}_6\ni z_i\mapsto y_i\in\mathfrak{S}_6$ となので、これが題意を満たす自己同型 $\phi$ となる。
+同型写像 $\rho: H_6\ni x_i \mapsto y_i\in\mathfrak{S}_6, \psi: H_6\ni x_i \mapsto z_i\in\mathfrak{S}_6$ で $\psi$ は全単射だから逆写像が存在し $x_i=\psi^{-1}(z_i)$ となるから $y_i=\rho(x_i)=\rho(\psi^{-1}(z_i))=(\rho\circ\psi^{-1})(z_i)$ となる。 $\phi=\rho\circ\psi^{-1}$ と置くとp.48 命題2.5.13(2)から $\phi$ は同型写像となり $\phi:\mathfrak{S}_6\ni z_i\mapsto y_i\in\mathfrak{S}_6(\text{つまり}\phi(z_i)=y_i)$ となるので、これが題意を満たす自己同型 $\phi$ となる。
 
 
 (※内部自己同型は共役なものに移すので互換は互換に移るから $\phi$ は内部自己同型ではない)

@@ -52,3 +52,14 @@ check_presentation(5)
 #check_presentation(6)
 # Finitely presented group < a, b | a^2, b^3, (a*b)^6 >
 # sage.libs.gap.util.GAPError: Error, reached the pre-set memory limit
+
+y1 = PermutationGroupElement([(1,2),(3,4),(5,6)])
+y2 = PermutationGroupElement([(1,4),(2,5),(3,6)])
+y3 = PermutationGroupElement([(1,3),(2,4),(5,6)])
+y4 = PermutationGroupElement([(1,2),(3,6),(4,5)])
+y5 = PermutationGroupElement([(1,4),(2,3),(5,6)])
+print(y1,y2,y3,y4,y5)
+print(y1*y3*y5) # (5,6)
+print(y1*y3*y2) # (2,6,3,5) 置換の合成の定義の順序が逆
+print(y1*y3*y2*y4) # (1,2,3,4,5)
+print(y1*y3*y2*y4*y1*y3*y5) # (1,2,3,4,6,5)
