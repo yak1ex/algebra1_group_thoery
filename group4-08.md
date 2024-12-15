@@ -31,11 +31,21 @@ $$
 \mathrm{Coker}(T_A)\ni\bm{y}+\mathrm{Im}(T_A)\mapsto g_1\bm{y}+\mathrm{Im}(T_B)\in\mathrm{Coker}(T_B)
 $$
 
+#### 命題4.8.4
+
+「ネーター環上の有限生成加群の部分加群は有限生成である」
+有限生成の部分群で有限生成でないものがある？
+→
+https://ja.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E7%94%9F%E6%88%90%E7%BE%A4#%E9%83%A8%E5%88%86%E7%BE%A4
+>有限生成群の部分群は必ずしも有限生成に限らない。二元生成自由群 F2 の交換子部分群は有限生成群の有限生成でない部分群の例を与える。
+
 #### 補題4.8.5
 
 ##### $g_1=I_n,g_2=I_m$ の場合に分けて考える
 
 $g_1=I_n$ として議論すると $\mathrm{Im}(T_B)=\mathrm{Im}(T_{Ag_2})=\mathrm{Im}(T_A)=M$ になるので、新たに $A g_2$ を $A$ 、 $g_2$ を $I_m$ と置き直せば $g_2=I_m$ の場合に帰着できる。 
+
+※新たに文字入れたほうがわかりやすいかも。
 
 ##### $g_2=I_m$ の場合
 
@@ -43,9 +53,9 @@ $\pi_A,\pi_B$ を剰余群に対する自然な写像として写像の関係を
 
 $$
 \begin{CD}
-\mathbb{Z}^m @>{T_A}>> \mathbb{Z}^n @>{\pi_A}>> \mathbb{Z}^n+\mathrm{Im}(T_A)=\mathrm{Coker}(T_A) \\
+\mathbb{Z}^m @>{T_A}>> \mathbb{Z}^n @>{\pi_A}>> \mathbb{Z}^n/\mathrm{Im}(T_A)=\mathrm{Coker}(T_A) \\
 @VV{T_B}V @VV{\phi}V @VV{\psi}V \\
-\mathbb{Z}^n @= \mathbb{Z}^n @>{\pi_B}>> \mathbb{Z}^n+\mathrm{Im}(T_B)=\mathrm{Coker}(T_B) \\
+\mathbb{Z}^n @= \mathbb{Z}^n @>{\pi_B}>> \mathbb{Z}^n/\mathrm{Im}(T_B)=\mathrm{Coker}(T_B) \\
 \end{CD}
 $$
 
@@ -58,7 +68,7 @@ p.73 定理2.10.5を、
 $\mathrm{Im}(T_A)\subset\mathrm{Ker}(\pi_B\circ\phi)$ であれば
 準同型 $\psi:\mathrm{Coker}(T_A)\ni\bm{y}+\mathrm{Im}(T_A)\mapsto g_1\bm{y}+\mathrm{Im}(T_B)\in\mathrm{Coker}(T_B)$ が存在することが言える。
 
-ここで $\mathrm{Im}(\phi\circ T_A)\subset\mathrm{Im}(T_B)$ なので(実際には等しい)、 $\forall x\in\mathrm{Im}(T_A)$ について $\phi(x)\in\mathrm{Im}(T_B)=\mathrm{Ker}(\pi_B)$ である。したがって $(\pi_B\circ\phi)(x)=1_{\mathbb{Z}^n+\mathrm{Im}(T_B)}$ なので、 $x\in\mathrm{Ker}(\pi_B\circ\phi)$ となるから $\mathrm{Im}(T_A)\subset\mathrm{Ker}(\pi_B\circ\phi)$ である。よって↑の通り $\psi$ の存在が言える。
+ここで $\mathrm{Im}(\phi\circ T_A)\subset\mathrm{Im}(T_B)$ なので(実際には等しい)、 $\forall \bm{y}\in\mathrm{Im}(T_A)$ について $\phi(\bm{y})\in\mathrm{Im}(T_B)=\mathrm{Ker}(\pi_B)$ である。したがって $(\pi_B\circ\phi)(\bm{y})=1_{\mathbb{Z}^n+\mathrm{Im}(T_B)}$ なので、 $\bm{y}\in\mathrm{Ker}(\pi_B\circ\phi)$ となるから $\mathrm{Im}(T_A)\subset\mathrm{Ker}(\pi_B\circ\phi)$ である。よって↑の通り定理2.10.5から $\psi$ の存在が言える。
 
 #### 補題4.8.6の証明
 
@@ -84,7 +94,10 @@ p.43 命題2.4.19より $p^ag=0$ であれば、 $g$ の位数は $p^a$ の約�
 
 $p_i=p$ となる $p_i$ がなければ $G(p)=\lbrace0\rbrace$ となるので、( $p_i$ が有限個しか無いから)有限個の $p$ を除き $G(p)=\lbrace0\rbrace$ である。
 
-異なる $p$ について $G(p)$ の $0$ 以外の成分は重複しないので直積
+$g\in G_{fin}$ について $\mathbb{Z}^r$ 部分の因子が $0$ ではないとすると $ag=0$ となる $a$ は存在しない。それ以外の因子については、 $a=\prod_i p_i^{a_i}$ とすれば $0$ となる。よって、 $G_{fin}\cong\lbrace0\rbrace\times\mathbb{Z}/p_1^{a_1}\mathbb{Z}\times\cdots\times\mathbb{Z}/p_t^{a_t}\mathbb{Z}$ となるから、 $G_{fin}\cong\prod_p G(p)$ とできる。
+
+※ $G_{fin}$ は $G$ の有限位数の元の集合
+※ 4.8.2(1)の時点では一意性はないけど部分群を考えることで $G_{fin},G(p)$ は定義可能
 
 ### 演習問題
 
