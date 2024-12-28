@@ -31,6 +31,12 @@ $$
 \mathrm{Coker}(T_A)\ni\bm{y}+\mathrm{Im}(T_A)\mapsto g_1\bm{y}+\mathrm{Im}(T_B)\in\mathrm{Coker}(T_B)
 $$
 
+p.135 $G$ が定理4.8.2(1)の形をしていれば
+→ 定理4.8.1(1)の形をしていれば
+
+p.136 すべての $i$ に対し $\bar{c}_i=c_i\mod \mathbb{Z}/p^{a_t}\mathbb{Z}$
+→ $\bar{c}_i=c_i\mod p^{a_t}$
+
 #### 命題4.8.4
 
 「ネーター環上の有限生成加群の部分加群は有限生成である」
@@ -98,6 +104,45 @@ $g\in G_{fin}$ について $\mathbb{Z}^r$ 部分の因子が $0$ ではない�
 
 ※ $G_{fin}$ は $G$ の有限位数の元の集合
 ※ 4.8.2(1)の時点では一意性はないけど部分群を考えることで $G_{fin},G(p)$ は定義可能
+※ アーベル群のシロー $p$ 部分群って $1$ つ？
+
+#### よって $G/G_{fin}\cong\mathbb{Z}^r$
+
+準同型定理を使えばよい
+
+#### $M,N$ を実行列とみなせば、 $r=s$ である
+
+* ここでの議論は $\mathbb{Z}^r,\mathbb{Z}^s$ で話してるので一般の線形代数の話に帰着させてる
+* $r=\mathrm{rank}(I_r)=\mathrm{rank}(NM)\le\mathrm{rank}(N)\le s,$
+$s=\mathrm{rank}(I_s)=\mathrm{rank}(MN)\le\mathrm{rank}(N)\le r,$
+より $r=s$
+
+#### $G$ はアーベル群なので、 $H$ は部分群である
+
+「なお $p^ax=p^ay=0(x,y\in H)$ なら、 $p^a(x+y)=0$ である」から来ている。
+$p^ax=0$ を $x$ の位数が $p^a$ 以下とみなせばよい。
+※ $G(p)$ のの元の位数は $p$ べき
+
+#### $g_1,\cdots,g_{t-1}$ の位数は $p^{a_i}$ より真に小さいので
+
+$0\lt a_1\lt a_2\lt\cdots\lt a_t$ と、因子の位数が $p$ べきなので
+元の位数＝因子の位数の最小公倍数が指数最大の値となることから言える
+
+#### $c_1,\cdots,c_{b_t}\in\mathbb{Z}$ とし、(略) $c_1,\cdots,c_{b_i}$ が $p$ で割れることは同値である。
+
+$(\mathbb{Z}/p^{a_t}\mathbb{Z})^{b_t}$ の $b_t$ 個の因子分すべてが $p$ の倍数であることを説明している
+
+#### $p\mathbb{Z}/p^{a_t}\mathbb{Z}\cong\mathbb{Z}/p^{a_t-1}\mathbb{Z}$
+
+第三同型定理かと思ったけどうまくいかない
+愚直に示す？
+
+#### $G/H\cong(\mathbb{Z}/p\mathbb{Z})^{b_t}$
+
+同じ成分は打ち消せることはOKだとして
+
+$G/H\cong(\mathbb{Z}/p^{a_t}\mathbb{Z})^{b_t}/(p\mathbb{Z}/p^{a_t}\mathbb{Z})^{b_t}\cong(\mathbb{Z}/p\mathbb{Z})^{b_t}$
+
+$b_t$ 乗部分の取り扱いは言うほど自明か？
 
 ### 演習問題
-
