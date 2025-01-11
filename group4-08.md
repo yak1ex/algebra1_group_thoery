@@ -143,6 +143,21 @@ $(\mathbb{Z}/p^{a_t}\mathbb{Z})^{b_t}$ の $b_t$ 個の因子分すべてが $p$
 
 $G/H\cong(\mathbb{Z}/p^{a_t}\mathbb{Z})^{b_t}/(p\mathbb{Z}/p^{a_t}\mathbb{Z})^{b_t}\cong(\mathbb{Z}/p\mathbb{Z})^{b_t}$
 
-$b_t$ 乗部分の取り扱いは言うほど自明か？
+$b_t$ 乗部分の取り扱いは言うほど自明か？→因子ごとに考えればよさそう
+
+#### p.137 例題4.8.7の上
+
+$a_{t-1}<a_t-1$ つまり $a_{t-1}\ne a_t-1$ のとき、
+$H\cong(\mathbb{Z}/p^{a_1}\mathbb{Z})^{b_1}\times\cdots\times(\mathbb{Z}/p^{a_{t-1}}\mathbb{Z})^{b_{t-1}}\times(\mathbb{Z}/p^{a_t-1}\mathbb{Z})^{b_t}$
+(表記は前頁まま、 $\mathbb{Z}/p^{a_{t-1}}\mathbb{Z}\ncong\mathbb{Z}/p^{a_t-1}\mathbb{Z}$ が明確になった)
+
+$a_{t-1}=a_t-1$ のとき、
+$H\cong(\mathbb{Z}/p^{a_1}\mathbb{Z})^{b_1}\times\cdots\times(\mathbb{Z}/p^{a_{t-1}}\mathbb{Z})^{(b_{t-1}+b_t)}$
+
+$b_t$ が定まっているなら帰納法の仮定から結局 $a_\star,b_\star$ が定まっていることが言える
+
+#### $j=1$ の場合から $s=t$ でなければならず
+
+$e_1=\prod^l_{i=1}p_i^{a_{i\ s-t+1}}=\prod^l_{i=1}p_i^{a_{i\ 1}}$ になってるはず
 
 ### 演習問題
