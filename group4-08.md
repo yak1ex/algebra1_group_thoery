@@ -37,6 +37,34 @@ p.135 $G$ が定理4.8.2(1)の形をしていれば
 p.136 すべての $i$ に対し $\bar{c}_i=c_i\mod \mathbb{Z}/p^{a_t}\mathbb{Z}$
 → $\bar{c}_i=c_i\mod p^{a_t}$
 
+#### p.130 定理4.8.1 定理4.8.2 の証明の流れ
+
+※ $G$ が $g_1,\cdots,g_n$ で生成されてるのでそれぞれ何個足したかで $\mathbb{Z}^n$ の世界で考えることができる
+
+##### 定理4.8.1(1)、定理4.8.2(1)まで
+
+準同型 $\phi:\mathbb{Z}^n\ni[a_1,\cdots,a_n]\mapsto a_1g_1+\cdots+a_ng_n\in G$ を考える
+$M=\mathrm{Ker}(\phi)$ とすると $G\cong\mathbb{Z}^n/M$
+命題4.8.4 より $M$ も有限生成なので $M=\langle \bm{a}_1,\cdots,\bm{a}_m\rangle$ と表せる
+$\bm{a}_i$ を並べた行列 $A$ に対して $T_A(\bm{x})=A\bm{x}$ とすると、 $M=\mathrm{Im}(T_A)$ となり
+$G\cong\mathrm{Coker}(T_A)=\mathbb{Z}^n/\mathrm{Im}(T_A)=\mathbb{Z}/M$
+補題4.8.5 から $g_1\in\mathrm{GL}_n(\mathbb{Z}),g_2\in\mathrm{GL}_m(\mathbb{Z}),B=g_1A g_2,T_B:\mathbb{Z}^m\ni\bm{x}\mapsto T_B\bm{x}\in\mathbb{Z}^n$ とすると $\mathrm{Coker}(T_A)\cong\mathrm{Coker}(T_B)$ なので、適当な $g_1,g_2$ をかけて構わない
+補題4.8.6 から $g_1,g_2$ をうまく選んでやれば $g_1A g_2$ がいい感じの形になる
+そうすると $\mathrm{Im}(T_{g_1A g_2})$ の形から $G\cong\mathrm{Coker}(T_A)\cong\mathrm{Coker}(T_{g_1Ag_2})\cong\mathbb{Z}^n/\mathrm{Im}(T_{g_1Ag_2})\cong\mathbb{Z}/e_1\mathbb{Z}\times\cdots\times\mathbb{Z}/e_l\mathbb{Z}\times\mathbb{Z}^{(n-l)}$
+$e_i=1$ の因子(自明な群)を除いて定理4.8.1(1)
+中国式剰余定理によって素数べきに分解して定理4.8.2(1)
+
+##### 定理4.8.2(2)
+
+有限位数の元の集合 $G_{\mathrm{fin}}$ 、 $p$ べき位数の元の集合 $G(p)$ を考える ( $G$ の部分群になっている)とこれらは $G$ によって定まる。
+定理4.8.2(1)から $G/G_{\mathrm{fin}}\cong\mathbb{Z}^r$ でこれは $G$ から定まる。
+$\mathbb{Z}^r\cong\mathbb{Z}^s\Rightarrow r=s$ を示すことで $r$ の一意性を示す。
+$G(p)$ について位数の大きい方から特定して一意性を示す。
+
+##### 定理4.8.1(2)
+
+4.8.2(2)の結果から各素数について素数べきの大きい方からとっていくと一意性が示せる
+
 #### 命題4.8.4
 
 「ネーター環上の有限生成加群の部分加群は有限生成である」
@@ -109,6 +137,12 @@ $g\in G_{fin}$ について $\mathbb{Z}^r$ 部分の因子が $0$ ではない�
 #### よって $G/G_{fin}\cong\mathbb{Z}^r$
 
 準同型定理を使えばよい
+
+#### $G(p)$ は $G_{\mathrm{fin}}$ のシロー $p$ 部分群である
+
+$G_{\mathrm{fin}}$ を定理4.8.2の形に分けたうち、 $p=p_i$ を全部持ってきたら(つまり $G(p)$ のこと) $a_p=\sum_{\lbrace i\mid p=p_i\rbrace}a_i$ とすると群の位数 $p^{a_p}$ で最大の p べきになる
+
+※一意性が必要かと思ったけど分け方変わっても $p$ べきに寄与するのは $G(p)$ 分だけになること自体は変わらない
 
 #### $M,N$ を実行列とみなせば、 $r=s$ である
 
