@@ -203,4 +203,58 @@ $e_1=\prod^l_{i=1}p_i^{a_{i\ s-t+1}}=\prod^l_{i=1}p_i^{a_{i\ 1}}$ になって�
 
 #### 定理4.8.1 定理4.8.2 の証明でアーベル群であることはどこに効いているか
 
+最初に準同型 $\phi:\mathbb{Z}^n\ni[a_1,\cdots,a_n]\mapsto a_1g_1+\cdots a_n g_n\in G$ を定義したが、 $G$ がアーベル群でないと(一般には)準同型にならない。
+
 ### 演習問題
+
+#### 4.8.1
+
+>定理2.9.3 $m,n\neq0$ が互いに素な整数なら、 $\mathbb{Z}/mn\mathbb{Z}$ は $\mathbb{Z}/m\mathbb{Z}\times\mathbb{Z}/n\mathbb{Z}$ と同型である
+
+$$
+\begin{array}{lll}
+G&=&\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/8\mathbb{Z}\times\\
+&&\mathbb{Z}/3\mathbb{Z}\times\mathbb{Z}/9\mathbb{Z}\times\mathbb{Z}/27\mathbb{Z}\times\\
+&&\mathbb{Z}/5\mathbb{Z}\times\mathbb{Z}/25\mathbb{Z}\times\mathbb{Z}/25\mathbb{Z}\times\mathbb{Z}/125\mathbb{Z}\times\mathbb{Z}/125\mathbb{Z}\\
+&=&\mathbb{Z}/5\mathbb{Z}\times\\
+&&(\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/25\mathbb{Z})\times\\
+&&(\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/3\mathbb{Z}\times\mathbb{Z}/25\mathbb{Z})\times\\
+&&(\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/9\mathbb{Z}\times\mathbb{Z}/125\mathbb{Z})\times\\
+&&(\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/27\mathbb{Z}\times\mathbb{Z}/125\mathbb{Z})\\
+&=&\mathbb{Z}/5\mathbb{Z}\times\mathbb{Z}/50\mathbb{Z}\times\mathbb{Z}/150\mathbb{Z}\times\mathbb{Z}/9000\mathbb{Z}\times\mathbb{Z}/27000\mathbb{Z}
+\end{array}
+$$
+
+最後はp.67 定理2.9.3 中国式剰余定理を使った。
+
+#### 4.8.2
+
+>定理4.8.2 $G$ が有限生成アーベル群なら、次の(1)、(2)が成り立つ
+(1) 整数 $r\ge0$ と(重複があってもよい)素数 $p_1,\cdots,p_t$ と正の整数 $a_1,\cdots,a_t$ があり、
+$G\cong\mathbb{Z}^r\times\mathbb{Z}/p_1^{a_1}\times\cdots\times\mathbb{Z}/p_t^{a_t}\mathbb{Z}$ となる
+(2) 整数 $r$ と素数べき $p_1^{a_1},\cdots,p_t^{a_t}$ で上の条件を満たすものは $p_1^{a_1},\cdots,p_t^{a_t}$ の順序を除いて一意的に定まる
+
+p.131 定理4.8.2より位数 $16$ のアーベル群は(必ず4.8.2の形に分解できて直積因子の位数の積が $16$ となる必要があるから)、 $\mathbb{Z}/16\mathbb{Z},\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z},(\mathbb{Z}/4\mathbb{Z})^2,\mathbb{Z}/4\mathbb{Z}\times(\mathbb{Z}/2\mathbb{Z})^2,(\mathbb{Z}/2\mathbb{Z})^4$ のいずれかとなる。
+$\mathbb{Z}/4\mathbb{Z}$ は位数 $4$ の巡回群なので位数 $4$ の元で生成される(p.43 命題2.4.20より)。
+
+>命題2.4.20 $x$ を群 $G$ の位数 $d\le\infty$ の元、 $H=\langle x\rangle$ を $x$ で生成される巡回部分群とする。このとき、 $|H|=d$ である
+
+以下では加法の表記を用い $\mathbb{Z}/n\mathbb{Z}$ の元を $n$ を明記せず $\overline{0},\overline{1},\cdots,\overline{n-1}$ のように表記する。
+1. $\mathbb{Z}/16\mathbb{Z}$ の場合、位数 $4$ の元は $\overline{4},\overline{12}$ の $2$ つのみである (※どこかに使える命題か定理かありそうだが……)。いずれの場合も $\mathbb{Z}/4\mathbb{Z}$ に同型な部分群は $\langle\overline{4}\rangle=\langle\overline{12}\rangle=\lbrace\overline{0},\overline{4},\overline{8},\overline{12}\rbrace$ となり、これを $H$ とする。このとき $(\mathbb{Z}/16\mathbb{Z})/H=\lbrace H,\overline{1}+H,\overline{2}+H,\overline{3}+H\rbrace\cong\mathbb{Z}/4\mathbb{Z}\ncong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ なので題意を満たさない
+2. $\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ の場合、位数 $4$ の元として $(\overline{2},\overline{0})$ がある。このとき、 $\langle(\overline{2},\overline{0})\rangle=\lbrace(\overline{0},\overline{0}),(\overline{2},\overline{0}),(\overline{4},\overline{0}),(\overline{6},\overline{0})\rbrace=H$ とおくと、
+$(\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z})/H=\lbrace H,(\overline{0},\overline{1})+H,(\overline{1},\overline{0})+H,(\overline{1},\overline{1})+H\rbrace\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ となり、 $\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ は題意を満たす。
+※存在を言えばいいから全ての場合を考える必要はない
+3. $(\mathbb{Z}/4\mathbb{Z})^2$ の場合、位数 $4$ の元は $(\overline{1},\overline{0}),(\overline{3},\overline{0}),(\overline{0},\overline{1}),(\overline{0},\overline{3}),(\overline{1},\overline{1}),(\overline{1},\overline{3}),(\overline{3},\overline{1}),(\overline{3},\overline{3})$ である。以下から、いずれの元を生成元としても生成された部分群を $H$ とした場合に題意を満たさない。
+3-1. $\langle(\overline{1},\overline{0})\rangle=\langle(\overline{3},\overline{0})\rangle=\mathbb{Z}/4\mathbb{Z}\times\lbrace\overline{0}\rbrace=H$ とおくと、
+$((\mathbb{Z}/4\mathbb{Z})^2)/H=\lbrace H,(\overline{0},\overline{1})+H,(\overline{0},\overline{2})+H,(\overline{0},\overline{3})+H\rbrace\cong\mathbb{Z}/4\mathbb{Z}$ なので題意を満たさない
+3-2. $\langle(\overline{0},\overline{1})\rangle=\langle(\overline{0},\overline{3})\rangle=\lbrace\overline{0}\rbrace\times\mathbb{Z}/4\mathbb{Z}=H$ とおくと、
+$((\mathbb{Z}/4\mathbb{Z})^2)/H=\lbrace H,(\overline{1},\overline{0})+H,(\overline{2},\overline{0})+H,(\overline{3},\overline{0})+H\rbrace\cong\mathbb{Z}/4\mathbb{Z}$ なので題意を満たさない
+3-3. $\langle(\overline{1},\overline{1})\rangle=\langle(\overline{3},\overline{3})\rangle=\lbrace(\overline{0},\overline{0}),(\overline{1},\overline{1}),(\overline{2},\overline{2}),(\overline{3},\overline{3})\rbrace=H$ とおくと、
+$((\mathbb{Z}/4\mathbb{Z})^2)/H=\lbrace H,(\overline{1},\overline{0})+H,(\overline{2},\overline{0})+H,(\overline{3},\overline{0})+H\rbrace\cong\mathbb{Z}/4\mathbb{Z}$ なので題意を満たさない
+3-4. $\langle(\overline{1},\overline{3})\rangle=\langle(\overline{3},\overline{1})\rangle=\lbrace(\overline{0},\overline{0}),(\overline{1},\overline{3}),(\overline{2},\overline{2}),(\overline{3},\overline{1})\rbrace=H$ とおくと、
+$((\mathbb{Z}/4\mathbb{Z})^2)/H=\lbrace H,(\overline{1},\overline{0})+H,(\overline{2},\overline{0})+H,(\overline{3},\overline{0})+H\rbrace\cong\mathbb{Z}/4\mathbb{Z}$ なので題意を満たさない
+4. $\mathbb{Z}/4\mathbb{Z}\times(\mathbb{Z}/2\mathbb{Z})^2$ の場合、位数 $4$ の元として $(\overline{1},\overline{0},\overline{0})$ がある。このとき、 $\langle(\overline{1},\overline{0},\overline{0})\rangle=\mathbb{Z}/4\mathbb{Z}\times\lbrace\overline{0}\rbrace\times\lbrace\overline{0}\rbrace=H$ とおくと、 $(\mathbb{Z}/4\mathbb{Z}\times(\mathbb{Z}/2\mathbb{Z})^2)/H=\lbrace H,(\overline{0},\overline{0},\overline{1})+H,(\overline{0},\overline{1},\overline{0})+H,(\overline{0},\overline{1},\overline{1})+H\rbrace\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ となり、 $\mathbb{Z}/4\mathbb{Z}\times(\mathbb{Z}/2\mathbb{Z})^2$ は題意を満たす
+※存在を言えばいいから全ての場合を考える必要はない
+5. $(\mathbb{Z}/2\mathbb{Z})^4$ の場合、位数 $4$ の元がないので $\mathbb{Z}/4\mathbb{Z}$ を部分群として持たないから題意を満たさない
+
+以上より、題意を満たすのは、 $\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}\times(\mathbb{Z}/2\mathbb{Z})^2$ である。
