@@ -49,8 +49,8 @@ $f:A\rightarrow B$で
 ### 2.4 元の位数
 
 * p.36 $a = qb (a,b,q \in \mathbb{Z}, b \neq 0): b \mid a$、$b$ は $a$ の約数、$a$ は $b$ の倍数
-* p.39 命題2.4.18 $x \in G$, $\mathrm{ord}(x)=d (<\infty)\Rightarrow x^n = 1_G \Leftrightarrow d \mid n$
-* p.40 命題2.4.19 $x\in G, d=\mathrm{ord}(g)\lt\infty,H=\langle g\rangle\Rightarrow|H|=d$
+* p.39 命題2.4.18(第2版 p.43 命題2.4.19) $x \in G$, $\mathrm{ord}(x)=d (<\infty)\Rightarrow x^n = 1_G \Leftrightarrow d \mid n$
+* p.40 命題2.4.19(第2版 p.43 命題2.4.20) $x\in G, d=\mathrm{ord}(g)\lt\infty,H=\langle g\rangle\Rightarrow|H|=d$
 * p.70 演習問題2.4.8 $(\forall g\in G, g^2=1)\Rightarrow gは可換群$
 
 ### 2.5 準同型と同型
@@ -74,13 +74,13 @@ $f:A\rightarrow B$で
 * p.57 系2.8.8 $G$が群、$S \subset G$のとき、$N=\langle\{xyx^{-1}|x\in G, y\in S\}\rangle$は$S$を含む最小の正規部分群
 * p.58 補題2.8.10 $N\triangleleft G, g\in G\Rightarrow gN=Ng$
 * p.59 命題2.8.13 自然な写像 $\pi:G\rightarrow G/N$ は群の全射準同型で$\mathrm{Ker}(\pi)=N$
-* p.73 演習問題2.8.2 $G\ge H\land|G:H|=2\Rightarrow G\triangleright H$
+* p.73(第2版p.81) 演習問題2.8.2 $G\ge H\land|G:H|=2\Rightarrow G\triangleright H$
 
 ### 2.9 群の直積
 
 * p.60 命題2.9.1 (1)$\forall g_1\in G_1\subset G_1\times G_2, \forall g_2\in G_2\subset G_1\times G_2, g_1g_2=g_2g_1$ (2)$G_1,G_2\triangleleft G_1\times G_2$
-* p.60 命題2.9.2 $H,K\triangleleft G\land H\cap K=\lbrace1_G\rbrace\land HK=G\rightarrow G\cong H\times K$
-* p.60 定理2.9.3 中国式剰余定理 $n,m\in\mathbb{Z}\land\gcd(n,m)=1\Rightarrow\mathbb{Z}/nm\mathbb{Z}\cong\mathbb{Z}/n\mathbb{Z}\times\mathbb{Z}/m\mathbb{Z}$
+* p.60(第2版p.66) 命題2.9.2 $H,K\triangleleft G\land H\cap K=\lbrace1_G\rbrace\land HK=G\rightarrow G\cong H\times K$
+* p.60(第2版p.67) 定理2.9.3 中国式剰余定理 $n,m\in\mathbb{Z}\land\gcd(n,m)=1\Rightarrow\mathbb{Z}/nm\mathbb{Z}\cong\mathbb{Z}/n\mathbb{Z}\times\mathbb{Z}/m\mathbb{Z}$
 
 ### 2.10 準同型定理
 
@@ -104,6 +104,22 @@ $f:A\rightarrow B$で
 * p.98 補題4.2.2(第2版p.109 補題4.2.2) $((i_1\cdots i_l)\in\mathfrak{S}_n\text{が巡回置換}\land\sigma\in\mathfrak{S}_n)\Rightarrow\sigma(i_1\cdots i_l)\sigma^{-1}=(\sigma(i_1)\cdots\sigma(i_l))$
 * p.99 定理4.2.3 $\sigma,\tau\in\mathfrak{S}_n$ であるとき、 $\sigma,\tau$ が共役であることと、 $\sigma,\tau$ の型が等しいことは同値
 
+### 4.4 $p$ 群
+
+* p.117 命題4.4.4 $|G|\lt\infty,|G|=p^2(p\text{は素数})\Rightarrow G\text{はアーベル群}$
+
+### 4.5 シローの定理
+
+* p.119 命題4.5.6 $H\le G$ 、 $H$ と共役な部分群の数は $|G/N_G(H)|$
+* p.119 定理4.5.7(シローの定理) $G$ 有限群、 $|G|=n$ $p$ を $n$ の素因数、 $p^a(a\gt0)$ を $n$ を割り切る $p$ の最大のべき (1) シロー $p$ 部分群 $H$ $\exists H\le G(|H|=p^a)$ (2) $K\le G,|K|=p^b\Rightarrow\exists g\in G(K\subset gHg^{-1})$ 特に $K$ を含むシロー $p$ 部分群がある (3) $G$ の全てのシロー $p$ 部分群は共役である (4) シロー $p$ 部分群の数 $s$ は $s=|G|/|N_G(H)|\equiv 1 \mod p$ を満たす
+
 ### 4.6 生成元と関係式
 
-* 第2版 
+* p.124 定理4.6.5 $G=\langle y_1,\cdots,y_n\rangle, R_1(y_1,\cdots,y_n)=\cdots=R_m(y_1,\cdots,y_n)=1_G$ $\Rightarrow$ $\exists \phi: K\rightarrow G,K=\langle x_1,\cdots,x_n\mid R_1(\boldsymbol{x})=1,\cdots,R_m(\boldsymbol{x})=1\rangle,$ $\phi\text{は全射準同型},$ $\phi(x_1)=y_1,\cdots,\phi(x_n)=y_n$
+
+### 4.7 位数12の群の分類
+
+### 4.8 有限生成アーベル群
+
+* p130 定理4.8.1 $G$ が有限生成アーベル群 (1) 有限個の整数 $r\ge0,e_1,\cdots,e_n\ge2$ で $i=1,\cdots,n-1$ に対し $e_i\mid e_{i+1} \land G\cong\mathbb{Z}^r\times\mathbb{Z}/e_1\mathbb{Z}\times\cdots\times\mathbb{Z}/e_n\mathbb{Z}$ (2) $r,e_1,\cdots,e_n$ は一意的に定まる
+* p.131 定理4.8.2 $G$ が有限生成アーベル群 (1) 整数 $r$ 、素数 $p_1,\cdots,p_t$ と正の整数 $a_1,\cdots,a_t$ があり、 $G\cong\mathbb{Z}^r\times\mathbb{Z}/p_1^{a_1}\mathbb{Z}\times\cdots\times\mathbb{Z}/p_t^{a_t}\mathbb{Z}$ となる (2) $p_1^{a_1},\cdots,p_t^{a_t}$ の順序を除いて一意的である
