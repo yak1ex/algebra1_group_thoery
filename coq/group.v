@@ -176,6 +176,7 @@ Proof.
     apply Hgf. apply Hfg.
 Qed.
 
+(* 全単射なら単射 *)
 Lemma bijective_injective: forall A B, forall f: A -> B, Bijective f -> Injective f.
 Proof.
     unfold Bijective, Injective.
@@ -248,9 +249,9 @@ Proof.
 Qed.
 
 Class SubGroup S op (X: Ensemble S) {H:Group S op} := {
-  op_closed: forall x y, In _ X x -> In _ X y -> In _ X (op x y);
-  unit_closed: In _ X e;
-  inv_closed: forall x, In _ X x -> In _ X (inv x)
+    op_closed: forall x y, In _ X x -> In _ X y -> In _ X (op x y);
+    unit_closed: In _ X e;
+    inv_closed: forall x, In _ X x -> In _ X (inv x)
 }.
 
 Lemma group_subgroup:
@@ -361,6 +362,139 @@ Proof.
     rewrite <- H3.
     reflexivity.
 Qed.
+
+(* Xの元による語の集合：単位元、Xの元そのもの、逆元、群演算で生成できるもの *)
+Inductive generated G op (X: Ensemble G) {H: Group G op}: Ensemble G :=
+| generated_unit: In _ (generated G op X) e (* 単位元 single,inv,consから言えるのでなくてもよい *)
+| generated_single: forall x, In _ X x -> In _ (generated G op X) x (* 生成元 *)
+| generated_inv: forall x, In _ (generated G op X) x
+    -> In _ (generated G op X) (inv x) (* 逆元 *)
+| generated_cons: forall x, In _ (generated G op X) x
+    -> forall y, In _ (generated G op X) y
+    -> In _ (generated G op X) (op x y). (* 演算 *)
+
+Check generated.
+
+(* 命題2.3.13 (1) <X>はGの部分群である *)
+Lemma generated_group:
+    forall G op X H, (@SubGroup G op (@generated G op X H) H).
+Proof.
+    intros. split; intros.
+    - apply generated_cons; auto.
+    - apply generated_unit.
+    - apply generated_inv. auto.
+Qed.
+
+(* 命題2.3.13 (2) <X>はXを含む部分群のうち最小である(部分群HがXを含めば<X>⊂H)*)
+Lemma generated_minimum:
+    forall G op X HG H, (@SubGroup G op H HG)
+    -> Included _ X H -> Included _ (@generated G op X HG) H.
+Proof.
+    unfold Included. intros. inversion H0. apply generated_ind with G op X HG; auto.
+Qed.
+
+(* 単位元によって生成される群は単位元からなる群である *)
+(* 以下では集合として一致することだけ言っているが↑と合わせればOK *)
+Lemma generated_by_unit:
+    forall G op H, Same_set _ (@generated G op (Singleton _ e) H) (Singleton _ e).
+Proof.
+    intros. split; unfold Included; intros. apply generated_ind with G op (Singleton _ e) H.
+    - apply In_singleton.
+    - intros. auto.
+    - intros. inversion H2. rewrite <- inv_unit. apply In_singleton.
+    - intros. inversion H2. inversion H4. rewrite (proj1 (op_unit _)). apply In_singleton.
+    - apply H0.
+    - inversion H0. apply generated_unit.
+Qed.
+
+(* 命題2.5.14 G1 G2が群、phi1,phi2がG1→G2の準同型、G1が部分集合Xで生成されていて
+   phi1(x)=phi2(x)がすべてのx∈Xに対して成り立てばphi1=phi2 *)
+(* phi1 = phi2 とするためには Function Extensionality(関数外延性)が必要なので
+   すべてのx∈G1についてphi1 x=phi2 xとしている *)
+Lemma generator_defines_homomorphism:
+    forall G1 G2 op1 op2 phi1 phi2 H1 H2 X,
+    @homomorphic G1 G2 op1 op2 phi1 H1 H2 ->
+    @homomorphic G1 G2 op1 op2 phi2 H1 H2 ->
+    Same_set _ (@generated G1 op1 X H1) (Full_set G1) ->
+    (forall x, In _ X x -> phi1 x = phi2 x) -> forall x, phi1 x = phi2 x.
+Proof.
+    intros. inversion H3. unfold Included in H6.
+    pose (Full_intro G1) as Hfull.
+    pose (H6 x (Hfull x)) as HInd.
+    induction HInd.
+    - rewrite (homomorphic_unit _ _ _ _ phi1 _ _ H).
+      rewrite (homomorphic_unit _ _ _ _ phi2 _ _ H0).
+      reflexivity.
+    - apply H4. auto.
+    - rewrite (homomorphic_inv _ _ _ _ phi1 _ _ _ H).
+      rewrite (homomorphic_inv _ _ _ _ phi2 _ _ _ H0).
+      f_equal. auto.
+    - rewrite H, H0, IHHInd, IHHInd0. reflexivity.
+Qed.
+
+(* 命題2.5.15 phi:G1→G2が準同型なら phiが単射 と Ker(phi)=1_G は同値 *)
+Lemma injective_trivial_kernel:
+    forall G1 G2 op1 op2 phi H1 H2,
+    @homomorphic G1 G2 op1 op2 phi H1 H2 ->
+    Injective phi <-> Same_set _ (Kernel G1 G2 phi) (Singleton _ e).
+Proof.
+    unfold Injective, Same_set, Included. intros. split.
+    - intros. split.
+      + intros. inversion H3. pose (H0 e x) as Hinj.
+        rewrite (homomorphic_unit _ _ _ _ phi _ _ H) in Hinj.
+        rewrite <- (Hinj H4).
+        apply In_singleton.
+      + intros. inversion H3. apply Kernel_intro.
+        rewrite (homomorphic_unit _ _ _ _ phi _ _ H). reflexivity.
+    - intros [HL HR] x y Hphi.
+      apply (f_equal (op2 (inv (phi x)))) in Hphi.
+      rewrite (proj2 (op_inv _)) in Hphi.
+      rewrite <- (homomorphic_inv _ _ _ _ phi _ _ x H) in Hphi.
+      rewrite <- H in Hphi.
+      pose (Kernel_intro _ _ _ _ Hphi) as HK.
+      pose (HL _ HK) as HS.
+      inversion HS.
+      apply (f_equal (op1 x)) in H3.
+      rewrite <- op_assoc in H3.
+      rewrite (proj1 (op_unit _)) in H3.
+      rewrite (proj1 (op_inv _)) in H3.
+      rewrite (proj2 (op_unit _)) in H3.
+      auto.
+Qed.
+
+(* Z以外の例 *)
+Inductive klein :=
+    k_I | k_X | k_Y | k_Z.
+
+Definition klein_op k1 k2 :=
+    match (k1, k2) with
+    | (k_I, _) => k2
+    | (_, k_I) => k1
+    | (k_X, k_X) => k_I
+    | (k_X, k_Y) => k_Z
+    | (k_X, k_Z) => k_Y
+    | (k_Y, k_X) => k_Z
+    | (k_Y, k_Y) => k_I
+    | (k_Y, k_Z) => k_X
+    | (k_Z, k_X) => k_Y
+    | (k_Z, k_Y) => k_X
+    | (k_Z, k_Z) => k_I
+    end.
+
+Definition klein_inv (k1: klein) := k1.
+
+Lemma klein_double : forall k, klein_op k k = k_I.
+    simple destruct k; [split; auto | auto | auto | auto].
+Qed.
+
+Instance KGroup : Group klein klein_op.
+    split with klein_inv k_I.
+    intros. split; destruct x; auto.
+    intros. split; unfold klein_inv; apply klein_double.
+    intros. destruct x; destruct y; destruct z; compute; reflexivity.
+Qed.
+
+Check (generated klein klein_op (Singleton _ k_I)).
 
 End Trial2.
 
