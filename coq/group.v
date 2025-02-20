@@ -70,8 +70,8 @@ End Trial1.
 
 Module Trial2.
 
-(* 逆元の存在を言えば唯一であることが言えるが
-   取り扱いがちょっと面倒になるので逆元をとる操作自体を定義する *)
+(* 教科書では逆元の存在だけ言って唯一であること(関数になること)を後から示しているが
+   取り扱いがちょっと面倒になるので最初から逆元をとる操作として定義する *)
 Class Group (S : Type) (op: S -> S -> S) :=
 {
     inv: S -> S;
@@ -248,12 +248,14 @@ Proof.
     exact Htemp.
 Qed.
 
+(* 命題2.3.2 部分群になる必要十分条件 *)
 Class SubGroup S op (X: Ensemble S) {H:Group S op} := {
     op_closed: forall x y, In _ X x -> In _ X y -> In _ X (op x y);
     unit_closed: In _ X e;
     inv_closed: forall x, In _ X x -> In _ X (inv x)
 }.
 
+(* 群は自分自身の部分群 *)
 Lemma group_subgroup:
     forall S op (H: Group S op), SubGroup S op (Full_set S).
 Proof.
@@ -364,6 +366,7 @@ Proof.
 Qed.
 
 (* Xの元による語の集合：単位元、Xの元そのもの、逆元、群演算で生成できるもの *)
+(* 教科書の定義そのものではない *)
 Inductive generated G op (X: Ensemble G) {H: Group G op}: Ensemble G :=
 | generated_unit: In _ (generated G op X) e (* 単位元 single,inv,consから言えるのでなくてもよい *)
 | generated_single: forall x, In _ X x -> In _ (generated G op X) x (* 生成元 *)
@@ -374,6 +377,115 @@ Inductive generated G op (X: Ensemble G) {H: Group G op}: Ensemble G :=
     -> In _ (generated G op X) (op x y). (* 演算 *)
 
 Check generated.
+Check generated_ind.
+
+Hint Constructors generated : core.
+
+(* 教科書の定義により近づけた場合 *)
+(* Xが空集合のケースを考えると _unit は必須のはず *)
+Inductive generated' G op (X: Ensemble G) {H: Group G op}: Ensemble G :=
+| generated'_unit: In _ (generated' G op X) e
+| generated'_single: forall x, In _ X x -> In _ (generated' G op X) x
+| generated'_inv: forall x, In _ X x -> In _ (generated' G op X) (inv x)
+| generated'_append: forall x, In _ (generated' G op X) x
+    -> forall y, In _ X y
+    -> In _ (generated' G op X) (op x y)
+| generated'_append_inv: forall x, In _ (generated' G op X) x
+    -> forall y, In _ X y
+    -> In _ (generated' G op X) (op x (inv y)).
+
+Check generated'.
+Check generated'_ind.
+
+Hint Constructors generated' : core.
+
+Lemma inv_inv: forall G op H x, x = inv ((@inv G op H) x).
+Proof.
+    intros.
+    destruct (op_inv (! x)) as [Hinv _].
+    apply (f_equal (op x)) in Hinv.
+    rewrite <- op_assoc in Hinv.
+    rewrite (proj1 (op_inv _)) in Hinv.
+    rewrite (proj1 (op_unit _)) in Hinv.
+    rewrite (proj2 (op_unit _)) in Hinv.
+    symmetry.
+    auto.
+Qed.
+
+Lemma inv_op: forall G op H x y, op (! x) (! y) = (@inv G op H) (op y x).
+Proof.
+    intros.
+    pose (proj1 (op_inv (op y x))) as Hopinv.
+    apply (f_equal (op (inv y))) in Hopinv.
+    rewrite <- op_assoc, <- op_assoc in Hopinv.
+    rewrite (proj2 (op_inv y)) in Hopinv.
+    rewrite (proj2 (op_unit _)) in Hopinv.
+    apply (f_equal (op (inv x))) in Hopinv.
+    rewrite <- op_assoc in Hopinv.
+    rewrite (proj2 (op_inv x)) in Hopinv.
+    rewrite (proj2 (op_unit _)) in Hopinv.
+    rewrite (proj1 (op_unit _)) in Hopinv.
+    symmetry.
+    auto.
+Qed.
+
+(* この補題は立てて大正解 ∀x,y∈<X>, xy^{-1}∈<X> *)
+(* それまで滅茶苦茶迷走した *)
+Lemma generated'_closed:
+    forall G op X H x y, In _ (@generated' G op X H) x -> In _ (@generated' G op X H) y -> In _ (@generated' G op X H) (op x (inv y)).
+Proof.
+    intros. generalize dependent x. induction H1; auto; intros.
+    - rewrite <- inv_unit, (proj1 (op_unit _)). auto.
+    - rewrite <- inv_inv. apply generated'_append. auto. auto.
+    - rewrite <- inv_op, <- op_assoc.
+      pose (generated'_append_inv _ _ _ _ H2 _ H1) as Htemp.
+      apply (IHgenerated' _ Htemp).
+    - rewrite <- inv_op, <- inv_inv, <- op_assoc.
+      pose (generated'_append _ _ _ _ H2 _ H1) as Htemp.
+      apply (IHgenerated' _ Htemp).
+Qed.
+
+Lemma generated'_closed_inv:
+    forall G op X H x, In _ (@generated' G op X H) x -> In _ (@generated' G op X H) (inv x).
+Proof.
+    intros.
+    pose (generated'_unit G op X) as Hunit.
+    pose (generated'_closed _ _ _ _ _ _ Hunit H0) as Hinv.
+    rewrite (proj2 (op_unit _)) in Hinv.
+    auto.
+Qed.
+
+Lemma generated'_closed_op:
+    forall G op X H x y, In _ (@generated' G op X H) x -> In _ (@generated' G op X H) y -> In _ (@generated' G op X H) (op x y).
+Proof.
+    intros.
+    pose (generated'_closed_inv _ _ _ _ _ H1) as Hinv.
+    pose (generated'_closed _ _ _ _ _ _ H0 Hinv) as Htemp.
+    rewrite <- inv_inv in Htemp.
+    auto.
+Qed.
+
+(* 2つの定義は同値 *)
+Lemma generated_generated' :
+    forall G op X H x, (@generated G op X H) x -> (@generated' G op X H) x.
+Proof.
+    intros. induction H0.
+    - apply generated'_unit.
+    - apply generated'_single. auto.
+    - apply generated'_closed_inv. auto.
+    - apply generated'_closed_op. auto. auto.
+Qed.
+
+Lemma generated'_generated:
+    forall G op X H x, (@generated' G op X H) x -> (@generated G op X H) x.
+Proof.
+    intros. induction H0.
+    - apply generated_unit.
+    - intros. apply generated_single. auto.
+    - intros. apply generated_inv. auto.
+    - intros. apply generated_cons. auto. auto.
+    - intros. apply generated_cons. auto. apply generated_inv. auto.
+Qed.
 
 (* 命題2.3.13 (1) <X>はGの部分群である *)
 Lemma generated_group:
@@ -385,26 +497,91 @@ Proof.
     - apply generated_inv. auto.
 Qed.
 
+Lemma generated'_group:
+    forall G op X H, (@SubGroup G op (@generated' G op X H) H).
+Proof.
+    intros. split; intros.
+    - apply generated'_closed_op. auto. auto.
+    - apply generated'_unit.
+    - apply generated'_closed_inv. auto.
+Qed.
+
 (* 命題2.3.13 (2) <X>はXを含む部分群のうち最小である(部分群HがXを含めば<X>⊂H)*)
 Lemma generated_minimum:
     forall G op X HG H, (@SubGroup G op H HG)
     -> Included _ X H -> Included _ (@generated G op X HG) H.
 Proof.
-    unfold Included. intros. inversion H0. apply generated_ind with G op X HG; auto.
+    unfold Included.
+    intros.
+    inversion H0.
+    induction H2; auto.
 Qed.
+
+Definition CycleGroup G op x {H} := (@generated G op (Singleton _ x) H).
+Hint Unfold CycleGroup: core.
 
 (* 単位元によって生成される群は単位元からなる群である *)
 (* 以下では集合として一致することだけ言っているが↑と合わせればOK *)
 Lemma generated_by_unit:
-    forall G op H, Same_set _ (@generated G op (Singleton _ e) H) (Singleton _ e).
+    forall G op H, Same_set _ (@CycleGroup G op e H) (Singleton _ e).
 Proof.
-    intros. split; unfold Included; intros. apply generated_ind with G op (Singleton _ e) H.
+    intros. split; unfold Included; intros.
+    induction H0; auto.
     - apply In_singleton.
-    - intros. auto.
-    - intros. inversion H2. rewrite <- inv_unit. apply In_singleton.
-    - intros. inversion H2. inversion H4. rewrite (proj1 (op_unit _)). apply In_singleton.
-    - apply H0.
+    - inversion IHgenerated. rewrite <- inv_unit. apply In_singleton.
+    - inversion IHgenerated. inversion IHgenerated0. rewrite (proj1 (op_unit _)). apply In_singleton.
     - inversion H0. apply generated_unit.
+Qed.
+
+(* 命題2.3.19 巡回群はアーベル群である *)
+(* 巡回群(単一の生成元によって生成された部分群)の任意の2要素は可換である *)
+Lemma cycle_group_arbel:
+    forall G op H g x y,
+    In _ (@CycleGroup G op g H) x
+    -> In _ (@CycleGroup G op g H) y
+    -> op x y = op y x.
+Proof.
+    intros. generalize dependent x. induction H1.
+    - intros.
+      rewrite (proj1 (op_unit _)), (proj2 (op_unit _)). 
+      reflexivity.
+    - intros. induction H1.
+      + rewrite (proj1 (op_unit _)), (proj2 (op_unit _)).
+        reflexivity.
+      + inversion H0.
+        inversion H1.
+        rewrite <- H2, <- H3.
+        reflexivity.
+      + apply (f_equal (op (inv x0))) in IHgenerated.
+        rewrite <- op_assoc in IHgenerated.
+        rewrite (proj2 (op_inv _)) in IHgenerated.
+        rewrite (proj2 (op_unit _)) in IHgenerated.
+        apply (f_equal (fun x => (op x (inv x0)))) in IHgenerated.
+        repeat rewrite op_assoc in IHgenerated.
+        rewrite (proj1 (op_inv _)) in IHgenerated.
+        rewrite (proj1 (op_unit _)) in IHgenerated.
+        symmetry.
+        auto.
+      + rewrite op_assoc, IHgenerated0, <- op_assoc, <- op_assoc, IHgenerated.
+        reflexivity.
+    - intros.
+      pose (IHgenerated _ H1) as Htemp.
+      apply (f_equal (op (inv x))) in Htemp.
+      repeat rewrite <- op_assoc in Htemp.
+      rewrite (proj2 (op_inv _)) in Htemp.
+      rewrite (proj2 (op_unit _)) in Htemp.
+      apply (f_equal (fun y => (op y (inv x)))) in Htemp.
+      rewrite op_assoc in Htemp.
+      rewrite (proj1 (op_inv _)) in Htemp.
+      rewrite (proj1 (op_unit _)) in Htemp.
+      symmetry.
+      auto.
+    - intros.
+      rewrite <- op_assoc.
+      rewrite (IHgenerated _ H2).
+      repeat rewrite op_assoc.
+      rewrite (IHgenerated0 _ H2).
+      reflexivity.
 Qed.
 
 (* 命題2.5.14 G1 G2が群、phi1,phi2がG1→G2の準同型、G1が部分集合Xで生成されていて
@@ -496,5 +673,187 @@ Qed.
 
 Check (generated klein klein_op (Singleton _ k_I)).
 
-End Trial2.
+(* 補題 生成元で生成される群は元の群に含まれる *)
+Lemma generated_included:
+    forall G op X H, Included _ (@generated G op X H) (Full_set G).
+Proof.
+    unfold Included, In. intros. induction H0; apply Full_intro.
+Qed.
 
+(* 命題2.4.5 Gが有限群ならGの任意の元の位数は有限である *)
+(* 元によって生成される群の位数が有限である、で形式化 *)
+(* 命題2.4.20を使っている *)
+Lemma finite_group_finite_order:
+    forall G op x (H: Group G op), Finite _ (Full_set G) -> In _ (Full_set G) x -> Finite _ (@generated G op (Singleton _ x) H).
+Proof.
+    intros.
+    apply Finite_downward_closed with (Full_set G); auto.
+    apply generated_included.
+Qed.
+
+Inductive CycleElementPos G op g {H:Group G op} : G -> Prop :=
+| cycle_element_pos_single: CycleElementPos G op g g
+| cycle_element_pos_cons: forall x, CycleElementPos G op g x -> CycleElementPos G op g (op g x).
+
+Inductive CycleElementNeg G op g {H:Group G op} : G -> Prop :=
+| cycle_element_neg_single: CycleElementNeg G op g (inv g)
+| cycle_element_neg_cons: forall x, CycleElementNeg G op g x -> CycleElementNeg G op g (op (inv g) x).
+
+Inductive CycleElement G op g {H:Group G op} : G -> Prop :=
+| cycle_element_pos: forall x, CycleElementPos G op g x -> CycleElement G op g x
+| cycle_element_unit: CycleElement G op g e
+| cycle_element_neg: forall x, CycleElementNeg G op g x -> CycleElement G op g x.
+
+Hint Constructors CycleElementPos : core.
+Hint Constructors CycleElementNeg : core.
+Hint Constructors CycleElement : core.
+
+Lemma cycle_element_pos_cycle_group:
+    forall G op g H x, (@CycleElementPos G op g H x) -> In _ (CycleGroup G op g) x.
+Proof.
+    unfold CycleGroup. intros. induction H0; auto with sets.
+Qed.
+
+Lemma cycle_element_neg_cycle_group:
+    forall G op g H x, (@CycleElementNeg G op g H x) -> In _ (CycleGroup G op g) x.
+Proof.
+    unfold CycleGroup. intros. induction H0; auto with sets.
+Qed.
+
+Lemma cycle_element_cycle_group:
+    forall G op g H x, (@CycleElement G op g H x) -> In _ (CycleGroup G op g) x.
+Proof.
+    intros. inversion H0; auto using cycle_element_pos_cycle_group, cycle_element_neg_cycle_group with sets.
+    - unfold CycleGroup. auto.
+Qed.
+
+Lemma inv_cycle_element_pos:
+    forall G op g H x, (@CycleElementPos G op g H x) -> CycleElementNeg G op g (inv x).
+Proof.
+    intros. induction H0; auto.
+    - rewrite <- inv_op.
+      rewrite (cycle_group_arbel _ _ _ g (inv x) (inv g)).
+      + apply cycle_element_neg_cons; auto.
+      + apply cycle_element_neg_cycle_group; auto.
+      + unfold CycleGroup. auto with sets.
+Qed.
+
+Lemma inv_cycle_element_neg:
+    forall G op g H x, (@CycleElementNeg G op g H x) -> CycleElementPos G op g (inv x).
+Proof.
+    intros. induction H0.
+    - rewrite <- inv_inv. auto.
+    - rewrite <- inv_op, <- inv_inv.
+      rewrite (cycle_group_arbel _ _ _ g (inv x) g); auto.
+      + apply cycle_element_pos_cycle_group. auto.
+      + unfold CycleGroup. auto with sets.
+Qed.
+
+Lemma cycle_element_pos_pos:
+    forall G op g H x y, (@CycleElementPos G op g H x)
+    -> CycleElementPos G op g y
+    -> CycleElementPos G op g (op x y).
+Proof.
+    intros. generalize dependent x. induction H1.
+    - intros.
+      rewrite (cycle_group_arbel _ _ _ g x g); auto.
+      + apply cycle_element_pos_cycle_group; auto.
+      + unfold CycleGroup; auto with sets.
+    - intros.
+      rewrite <- op_assoc.
+      rewrite (cycle_group_arbel _ _ _ g x0 g); auto.
+      + apply cycle_element_pos_cycle_group; auto.
+      + unfold CycleGroup; auto with sets.
+Qed.
+
+Lemma cycle_element_neg_neg:
+    forall G op g H x y, (@CycleElementNeg G op g H x)
+    -> CycleElementNeg G op g y
+    -> CycleElementNeg G op g (op x y).
+Proof.
+    intros. generalize dependent x. induction H1.
+    - intros.
+      rewrite (cycle_group_arbel _ _ _ g x (inv g)); auto.
+      + apply cycle_element_neg_cycle_group; auto.
+      + unfold CycleGroup; auto with sets.
+    - intros.
+      rewrite <- op_assoc.
+      rewrite (cycle_group_arbel _ _ _ g x0 (inv g)); auto.
+      + apply cycle_element_neg_cycle_group; auto.
+      + unfold CycleGroup; auto with sets.
+Qed.
+
+Lemma cycle_element_pos_neg:
+    forall G op g H x y, (@CycleElementPos G op g H x)
+    -> CycleElementNeg G op g y
+    -> CycleElement G op g (op x y).
+Proof.
+    intros. generalize dependent x. induction H1.
+    - intros. induction H0.
+      + rewrite (proj1 (op_inv _)).
+        apply cycle_element_unit.
+      + rewrite op_assoc.
+        rewrite (cycle_group_arbel _ _ _ g x (inv g)).
+        * rewrite <- op_assoc.
+          rewrite (proj1 (op_inv _)).
+          rewrite (proj2 (op_unit _)).
+          apply cycle_element_pos.
+          auto.
+        * apply cycle_element_pos_cycle_group. auto.
+        * apply generated_inv; auto with sets.
+    - intros. inversion H0.
+      + rewrite <- op_assoc.
+        rewrite (proj1 (op_inv _)).
+        rewrite (proj2 (op_unit _)).
+        rewrite <- H2.
+        apply cycle_element_neg.
+        auto.
+      + rewrite <- op_assoc, (op_assoc g).
+        rewrite (cycle_group_arbel _ _ _ g x1 (inv g)).
+        * rewrite <- op_assoc.
+          rewrite (proj1 (op_inv _)).
+          rewrite (proj2 (op_unit _)).
+          apply IHCycleElementNeg.
+          auto.
+        * apply cycle_element_pos_cycle_group.
+          auto.
+        * apply generated_inv; auto with sets.
+Qed.
+
+Lemma cycle_element_neg_pos:
+    forall G op g H x y, (@CycleElementNeg G op g H x)
+    -> CycleElementPos G op g y
+    -> CycleElement G op g (op x y).
+Proof.
+    intros.
+    rewrite (cycle_group_arbel _ _ _ g x _).
+    - apply cycle_element_pos_neg; auto.
+    - apply cycle_element_neg_cycle_group; auto.
+    - apply cycle_element_pos_cycle_group; auto.
+Qed.
+
+Lemma cycle_group_cycle_element:
+    forall G op g H x, In _ (@CycleGroup G op g H) x -> CycleElement G op g x.
+Proof.
+    intros. induction H0; auto.
+    - inversion H0. auto.
+    - induction IHgenerated.
+      + apply cycle_element_neg.
+        apply inv_cycle_element_pos.
+        auto.
+      + rewrite <- inv_unit. auto with sets.
+      + apply cycle_element_pos.
+        apply inv_cycle_element_neg; auto.
+    - inversion IHgenerated; inversion IHgenerated0;
+      auto using cycle_element_pos_pos,
+                 cycle_element_pos_neg,
+                 cycle_element_neg_pos,
+                 cycle_element_neg_neg.
+      + rewrite (proj1 (op_unit _)); auto.
+      + rewrite (proj2 (op_unit _)); auto.
+      + rewrite (proj2 (op_unit _)); auto.
+      + rewrite (proj2 (op_unit _)); auto.
+      + rewrite (proj1 (op_unit _)); auto.
+Qed.
+
+End Trial2.
