@@ -258,3 +258,9 @@ $((\mathbb{Z}/4\mathbb{Z})^2)/H=\lbrace H,(\overline{1},\overline{0})+H,(\overli
 5. $(\mathbb{Z}/2\mathbb{Z})^4$ の場合、位数 $4$ の元がないので $\mathbb{Z}/4\mathbb{Z}$ を部分群として持たないから題意を満たさない
 
 以上より、題意を満たすのは、 $\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と $\mathbb{Z}/4\mathbb{Z}\times(\mathbb{Z}/2\mathbb{Z})^2$ である。
+
+※ $(2\mathbb{Z}/8\mathbb{Z}\times\lbrace\overline{0}\rbrace)\triangleleft(\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z})$ で、 $(2\mathbb{Z}/8\mathbb{Z}\times\lbrace\overline{0}\rbrace)\cong\mathbb{Z}/4\mathbb{Z}$ であり、
+$(\mathbb{Z}/8\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z}\times\lbrace\overline{0}\rbrace)\cong((\mathbb{Z}/8\mathbb{Z})/(2\mathbb{Z}/8\mathbb{Z}))\times\mathbb{Z}/2\mathbb{Z}\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$
+(第三同型定理より)
+でも行けそう
+※ $H\triangleleft G$ と $G/H$ の半直積になるのでは？と思ったけど、必ずしもそうではないらしい $H$ と $G/H$ の位数が互いに素であれば半直積になる https://en.wikipedia.org/wiki/Schur%E2%80%93Zassenhaus_theorem
