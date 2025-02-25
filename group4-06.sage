@@ -63,3 +63,11 @@ print(y1*y3*y5) # (5,6)
 print(y1*y3*y2) # (2,6,3,5) 置換の合成の定義の順序が逆
 print(y1*y3*y2*y4) # (1,2,3,4,5)
 print(y1*y3*y2*y4*y1*y3*y5) # (1,2,3,4,6,5)
+
+# 4.9 alternating group
+
+GG = PermutationGroup(['(1,2)(3,4)','(1,2,3)'])
+print(GG.order())
+# 12
+print(GG.structure_description())
+# A4
