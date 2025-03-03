@@ -6,6 +6,7 @@ From Coq Require Export Lia. *)
 From Coq Require Export ZArith.
 From Coq Require Import Logic.FinFun.
 From Coq Require Import Sets.Image.
+From Coq Require Import Logic.ProofIrrelevance.
 
 Module Trial1.
 
@@ -488,7 +489,7 @@ Proof.
 Qed.
 
 (* 命題2.3.13 (1) <X>はGの部分群である *)
-Lemma generated_group:
+Lemma generated_subgroup:
     forall G op X H, (@SubGroup G op (@generated G op X H) H).
 Proof.
     intros. split; intros.
@@ -497,7 +498,7 @@ Proof.
     - apply generated_inv. auto.
 Qed.
 
-Lemma generated'_group:
+Lemma generated'_subgroup:
     forall G op X H, (@SubGroup G op (@generated' G op X H) H).
 Proof.
     intros. split; intros.
@@ -854,6 +855,74 @@ Proof.
       + rewrite (proj2 (op_unit _)); auto.
       + rewrite (proj2 (op_unit _)); auto.
       + rewrite (proj1 (op_unit _)); auto.
+Qed.
+Local Open Scope Z_scope.
+Inductive ZCycleElement (n: nat) (H: (n > 1)%nat) :=
+|   ICE (x: { x : Z | 0 <= x < Z.of_nat n}): ZCycleElement n H.
+
+Check ICE.
+
+Lemma guard: forall n (H: (n > 1)%nat) x, 0 <= x mod Z.of_nat n < Z.of_nat n.
+Proof.
+    intros.
+    apply Z_mod_lt.
+    rewrite <- Nat2Z.inj_0.
+    apply Nat2Z.inj_gt.
+    unfold gt, lt in *.
+    apply le_S, le_S_n in H; auto.
+Defined.
+
+Check Zmod_small.
+
+Definition zcycle_op (n: nat) (H: (n > 1)%nat) (x: ZCycleElement n H) (y: ZCycleElement n H) :=
+match x with
+| ICE _ _ xx =>
+    match y with
+    | ICE _ _ yy => ICE n H (exist _ (Z.modulo (proj1_sig xx + proj1_sig yy) (Z.of_nat n)) (guard n H (proj1_sig xx + proj1_sig yy)))
+    end
+end.
+
+Definition zcycle_inv (n: nat) (H: (n > 1)%nat) (x: ZCycleElement n H) :=
+match x with
+| ICE _ _ xx => ICE n H (exist _ (Z.modulo (Z.opp (proj1_sig xx)) (Z.of_nat n)) (guard n H (Z.opp (proj1_sig xx))))
+end.
+
+Definition zcycle_unit (n: nat) (H: (n > 1)%nat) := (ICE n H (exist _ 0 (guard n H 0))).
+
+Lemma zcycle_element_group:
+    forall n H, Group (ZCycleElement n H) (zcycle_op n H).
+Proof.
+    intros. split with (zcycle_inv n H) (zcycle_unit n H).
+    - unfold zcycle_inv, zcycle_unit in *. intros.
+      split; induction x; simpl;
+      pose (Zmod_small (proj1_sig x) (Z.of_nat n) (proj2_sig x)) as Heq;
+      f_equal; [rewrite (Z.add_0_r _)|];
+      apply eq_sig with Heq; apply proof_irrelevance.
+    - unfold zcycle_inv, zcycle_unit in *. intros.
+      induction x.
+      pose (Zmod_small (proj1_sig x) (Z.of_nat n) (proj2_sig x)) as Heq.
+      assert (Heq' : (proj1_sig x + - proj1_sig x mod Z.of_nat n) mod Z.of_nat n = 0).
+      {
+        rewrite <- Heq at 1.
+        rewrite <- Zplus_mod, Z.add_opp_diag_r, Zmod_0_l. reflexivity.
+      }
+      split; induction x; simpl; f_equal;
+      [|rewrite Z.add_comm];
+      apply eq_sig with Heq'; apply proof_irrelevance.
+    - intros. induction x. induction y. induction z. simpl. f_equal.
+      pose (Zmod_small (proj1_sig x) (Z.of_nat n) (proj2_sig x)) as Heqx.
+      pose (Zmod_small (proj1_sig x1) (Z.of_nat n) (proj2_sig x1)) as Heqx1.
+      assert (Heq: (((proj1_sig x + proj1_sig x0) mod Z.of_nat n + proj1_sig x1) mod Z.of_nat n)
+        = ((proj1_sig x + (proj1_sig x0 + proj1_sig x1) mod Z.of_nat n) mod Z.of_nat n)).
+      {
+        rewrite <- Heqx at 2.
+        rewrite <- Zplus_mod.
+        rewrite <- Heqx1 at 1.
+        rewrite <- Zplus_mod, Z.add_assoc.
+        reflexivity.
+      }
+      apply eq_sig with Heq.
+      apply proof_irrelevance.
 Qed.
 
 End Trial2.
