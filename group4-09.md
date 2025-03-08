@@ -66,6 +66,21 @@ $\tau\sigma\tau^{-1}=(1\hspace{5mu}2\hspace{5mu}4\cdots)\cdots$ となるので�
 $\sigma^{-1}(3)=2,\tau\sigma\tau^{-1}(2)=4$ だから $\sigma^\prime(3)=4$
 また、 $\sigma^{-1}(2)=1,\tau\sigma\tau^{-1}(1)=2$ だから $\sigma^\prime(2)=2$
 
+##### 証明の流れ
+
+* 長さ3の巡回置換を1つでも含めばその共役(長さ3の巡回置換)全てを含むので補題4.9.1, 4.9.2より $N=A_n$
+  * 長さ3の巡回置換を1つでも持つことを言う
+    * $a=n-2$ だと $\sigma$ が互換になるので矛盾
+    * ※「 $a=n-3$ であることを示す」 ＝ 後段での「 $\sigma\neq$ $(i_{11}\hspace{5mu}i_{12}\hspace{5mu}i_{13})$ と仮定して矛盾を導く」と同じ 以下より $a=n-3$ のケースしか存在しない
+      * $l_1=\cdots=l_t=2$ 互換の積となる場合は矛盾
+      * $l_1\ge3$
+        * $a=n-4\Leftrightarrow l_1=4\Leftrightarrow\sigma=(i_{11}\hspace{5mu}i_{12}\hspace{5mu}i_{13}\hspace{5mu}i_{14})$ が矛盾
+        * $a\le n-5$ の場合も矛盾
+
+##### メモ
+
+$\sigma^\prime=\tau\sigma\tau^{-1}\sigma^{-1}$ は交換子
+
 #### p.139 系4.9.4
 
 >p.114 命題4.3.9(1) $G$ が可解群であることと $D_n(G)=\lbrace1\rbrace$ となる $n\gt0$ があることは同値である
