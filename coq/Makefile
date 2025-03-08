@@ -1,6 +1,6 @@
 COQMFFLAGS := -Q . GROUP  -arg "-w -omega-is-deprecated,-implicit-core-hint-db"
 
-ALLVFILES := group.v
+ALLVFILES := group.v EnsembleFun.v
 
 build: Makefile.coq
 	$(MAKE) -f Makefile.coq

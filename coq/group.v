@@ -7,6 +7,7 @@ From Coq Require Export ZArith.
 From Coq Require Import Logic.FinFun.
 From Coq Require Import Sets.Image.
 From Coq Require Import Logic.ProofIrrelevance.
+From GROUP Require Import EnsembleFun.
 
 Module Trial1.
 
@@ -857,24 +858,23 @@ Proof.
       + rewrite (proj1 (op_unit _)); auto.
 Qed.
 Local Open Scope Z_scope.
-Inductive ZCycleElement (n: nat) (H: (n > 1)%nat) :=
+Inductive ZCycleElement (n: nat) (H: Z.of_nat n > 0) :=
 |   ICE (x: { x : Z | 0 <= x < Z.of_nat n}): ZCycleElement n H.
 
 Check ICE.
 
-Lemma guard: forall n (H: (n > 1)%nat) x, 0 <= x mod Z.of_nat n < Z.of_nat n.
+Lemma guard: forall n (H: Z.of_nat n > 0) x, 0 <= x mod Z.of_nat n < Z.of_nat n.
 Proof.
     intros.
     apply Z_mod_lt.
-    rewrite <- Nat2Z.inj_0.
-    apply Nat2Z.inj_gt.
-    unfold gt, lt in *.
-    apply le_S, le_S_n in H; auto.
+    auto.
 Defined.
+
+Check guard.
 
 Check Zmod_small.
 
-Definition zcycle_op (n: nat) (H: (n > 1)%nat) (x: ZCycleElement n H) (y: ZCycleElement n H) :=
+Definition zcycle_op (n: nat) (H: Z.of_nat n > 0) (x: ZCycleElement n H) (y: ZCycleElement n H) :=
 match x with
 | ICE _ _ xx =>
     match y with
@@ -882,12 +882,12 @@ match x with
     end
 end.
 
-Definition zcycle_inv (n: nat) (H: (n > 1)%nat) (x: ZCycleElement n H) :=
+Definition zcycle_inv (n: nat) (H: Z.of_nat n > 0) (x: ZCycleElement n H) :=
 match x with
 | ICE _ _ xx => ICE n H (exist _ (Z.modulo (Z.opp (proj1_sig xx)) (Z.of_nat n)) (guard n H (Z.opp (proj1_sig xx))))
 end.
 
-Definition zcycle_unit (n: nat) (H: (n > 1)%nat) := (ICE n H (exist _ 0 (guard n H 0))).
+Definition zcycle_unit (n: nat) (H: Z.of_nat n > 0) := (ICE n H (exist _ 0 (guard n H 0))).
 
 Lemma zcycle_element_group:
     forall n H, Group (ZCycleElement n H) (zcycle_op n H).
@@ -924,5 +924,176 @@ Proof.
       apply eq_sig with Heq.
       apply proof_irrelevance.
 Qed.
+
+Print Assumptions zcycle_element_group.
+Check subset_eq_compat.
+Check guard.
+
+Local Close Scope Z_scope.
+Inductive NCycleElement (n: nat) (H: 0 < n) :=
+|   NCE (x: { x : nat | x < n}): NCycleElement n H.
+
+Lemma Nguard: forall n (H: 0 < n) x, x mod n < n.
+Proof.
+    intros.
+    apply Nat.mod_bound_pos.
+    apply Nat.le_0_l.
+    auto.
+Defined.
+
+Check Nguard.
+
+Definition ncycle_unit (n: nat) (H: 0 < n) := (NCE n H (exist _ (0 mod n) (Nguard n H 0))).
+
+Definition ncycle_op (n: nat) (H: 0 < n) (x: NCycleElement n H) (y: NCycleElement n H) :=
+match x,y with
+| (NCE _ _ (exist _ xx _)),(NCE _ _ (exist _ yy _)) => NCE n H (exist _ ((xx + yy) mod n) (Nguard n H (xx + yy)))
+end.
+
+Definition ncycle_inv (n: nat) (H: 0 < n) (x: NCycleElement n H) :=
+match x with
+| NCE _ _ (exist _ xx _) => NCE n H (exist _ ((n - xx) mod n) (Nguard n H (n - xx)))
+end.
+
+Lemma ncycle_element_group:
+    forall n H, Group (NCycleElement n H) (ncycle_op n H).
+Proof.
+    intros. split with (ncycle_inv n H) (ncycle_unit n H).
+    - unfold ncycle_inv, ncycle_unit in *;
+      intros; split; induction x; induction x; simpl;
+      f_equal;
+      apply subset_eq_compat;
+      rewrite (Nat.mod_0_l _ (Nat.neq_sym _ _ (Nat.lt_neq _ _ H)));
+      [rewrite Nat.add_0_r|rewrite Nat.add_0_l];
+      apply Nat.mod_small;
+      auto.
+    - unfold ncycle_inv, ncycle_unit; intros; split;
+      induction x; induction x; simpl;
+      f_equal;
+      apply subset_eq_compat;
+      [|rewrite Nat.add_comm];
+      rewrite <- (Nat.mod_small x n p) at 1;
+      rewrite <- Nat.Div0.add_mod;
+      rewrite (Nat.add_sub_assoc _ _ _ (Nat.lt_le_incl _ _ p));
+      rewrite (Nat.add_sub_swap x n x (le_n x));
+      rewrite (Nat.sub_diag _);
+      rewrite Nat.add_0_l, Nat.Div0.mod_same, Nat.Div0.mod_0_l;
+      auto.
+    - unfold ncycle_inv, ncycle_unit; intros;
+      induction x; induction x;
+      induction y; induction x0;
+      induction z; induction x1; simpl;
+      f_equal;
+      apply subset_eq_compat;
+      rewrite <- (Nat.mod_small x n p) at 2;
+      rewrite <- (Nat.mod_small x1 n p1) at 1;
+      repeat rewrite <- Nat.Div0.add_mod;
+      rewrite Nat.add_assoc.
+      auto.
+Qed.
+
+Fixpoint gpower' {G op} {H:Group G op} (g:G) (p:positive): G :=
+  match p with
+  | (q~1)%positive => let g' := (gpower' g q) in g' <*> g' <*> g
+  | (q~0)%positive => let g' := (gpower' g q) in g' <*> g'
+  | 1%positive => g 
+  end.
+
+Definition gpower {G op} {H:Group G op} (g:G) (z:Z): G :=
+  match z with
+  | Z0 => e
+  | Zpos p => gpower' g p
+  | Zneg p => gpower' (inv g) p
+  end.
+
+Notation "x <^> y" := (gpower x y) (at level 100, right associativity).
+
+Check cardinal.
+
+Definition element_order1 G op {H} g ord : Prop := cardinal G (@CycleGroup G op g H) ord.
+
+Definition element_order2 G op {H:Group G op} g ord : Prop :=
+    forall n, n > 0 -> (g <^> Z.of_nat n) = e -> n >= ord.
+
+Definition element_order3 G op {H:Group G op} g ord: Prop :=
+    (g <^> Z.of_nat ord) = e /\ forall n, n < ord -> (g <^> Z.of_nat n) <> e.
+
+Definition NormalSubGroup G op {H} N: Prop :=
+    (@SubGroup G op N H) /\ (forall g n, In _ N n -> In _ N (g <*> n <*> ! g)).
+
+Inductive LeftCoset G op {H} g K (HK: @SubGroup G op K H) : G -> Prop :=
+| LeftCoset_cons: forall k, In _ K k -> LeftCoset G op g K HK (g <*> k).
+
+Inductive RightCoset G op {H} K g (HK: @SubGroup G op K H) : G -> Prop :=
+| RightCoset_cons: forall k, In _ K k -> RightCoset G op K g HK (k <*> g).
+
+Lemma normal_subgroup_coset:
+    forall G op {H} g K HK, (@NormalSubGroup G op H K) -> Same_set _ (@LeftCoset G op H g K HK) (@RightCoset G op H K g HK).
+Proof.
+    intros. split; unfold Included; intros.
+    - induction H1. induction H0. induction H0.
+      set (HC := RightCoset_cons _ _ _ g _ _ (H2 g k H1)).
+      rewrite op_assoc in HC.
+      rewrite (proj2 (op_inv _)) in HC.
+      rewrite (proj1 (op_unit _)) in HC.
+      auto.
+    - induction H1. induction H0. induction H0.
+      set (HC := LeftCoset_cons _ _ g _ _ _ (H2 (! g) k H1)).
+      rewrite <- op_assoc in HC.
+      rewrite <- op_assoc in HC.
+      rewrite (proj1 (op_inv _)) in HC.
+      rewrite (proj2 (op_unit _)) in HC.
+      rewrite <- (inv_inv _ _ _ g) in HC.
+      auto.
+Qed.
+
+(* 定義域や値域の条件は？ *)
+(* 準同型の定義 *)
+Definition homomorphicE {S1 S2 op1 op2} (F: @EnsembleFun.EnsembleFun S1 S2) {H1: Group S1 op1} {H2: Group S2 op2} :=
+    forall x y, EnsembleFun.appF F (op1 x y) = op2 (EnsembleFun.appF F x) (EnsembleFun.appF F y).
+
+(* Z での符号の反転は準同型である *)
+Example hEopp : homomorphicE (EnsembleFun.mkEnsembleFun Z.opp (Full_set Z) (Full_set Z)).
+Proof.
+    unfold homomorphicE. intros. simpl. ring.
+    (* op1,2がZ.addで見えてるので整数が環であることを使って横着 *)
+Qed.
+
+(* 準同型の合成は準同型である *)
+(* klein になってる *)
+Lemma homomorphicE_compose:
+    forall G F, homomorphicE G -> homomorphicE F
+    -> homomorphicE (EnsembleFun.mkEnsembleFun
+        (fun x => EnsembleFun.appF G (EnsembleFun.appF F x))
+        F.(EnsembleFun.U)
+        G.(EnsembleFun.V)).
+Proof.
+    unfold homomorphicE. intros. simpl.
+    rewrite (H0 x y).
+    rewrite (H _ _).
+    reflexivity.
+Qed.
+
+(* TODO *)
+
+Lemma element_order_1_2 :
+    forall G op {H} g ord, (@element_order1 G op H g ord) -> (@element_order2 G op H g ord).
+Admitted.
+
+Lemma element_order_2_3 :
+    forall G op {H} g ord, (@element_order2 G op H g ord) -> (@element_order3 G op H g ord).
+Admitted.
+
+Lemma element_order_3_1 :
+    forall G op {H} g ord, (@element_order3 G op H g ord) -> (@element_order1 G op H g ord).
+Admitted.
+
+Lemma cycle_element_subgroup : forall G op g H, (@SubGroup G op (@CycleElement G op g H) H).
+Admitted.
+
+Lemma element_order_divide_group_order :
+    forall G op {H} K g n m, (@SubGroup G op K H) -> In _ K g ->
+    cardinal _ K n -> (@element_order1 G op H g m) -> Nat.divide m n.
+Admitted.
 
 End Trial2.
