@@ -1,54 +1,99 @@
 Require Import List ListDec.
+Require Import Sets.Ensembles.
 
 Module EnsembleFun.
 
-Record EnsembleFun {A B} := mkEnsembleFun {
+Class EnsembleFun {A B} := {
     f: A -> B;
     U: A -> Prop;
-    V: B -> Prop
+    V: B -> Prop;
+    ef_welldef: forall x, U x -> V (f x)
 }.
 
-Arguments mkEnsembleFun {_ _ } _ _ _.
+Print EnsembleFun.
 
-Check mkEnsembleFun.
+#[refine]
+Instance asEF `{A: Type, B: Type} `(f': A->B) : EnsembleFun :=
+{
+    f := f';
+    U := Full_set A;
+    V := Full_set B;
+}.
+Proof.
+    intros.
+    apply Full_intro.
+Defined.
 
-Definition applicable {A B} (F: @EnsembleFun A B) x : Prop :=
-    F.(U) x /\ F.(V) (F.(f) x).
+Print asEF.
 
-Definition appF {A B} (F: @EnsembleFun A B) x : B :=
-    F.(f) x.
+Definition asEF' {A B} (f:A->B) :=
+    Build_EnsembleFun A B f (Full_set A) (Full_set B)
+    (fun (x : A) (_ : Full_set A x) => Full_intro B (f x)).
 
-Definition InjectiveE {A B} (F: @EnsembleFun A B) :=
-    forall x y, applicable F x -> applicable F y -> appF F x = appF F y -> x = y.
+Print asEF'.
 
-Definition SurjectiveE {A B} (F: @EnsembleFun A B) :=
-    forall y, exists x, applicable F x -> appF F x = y.
+Definition applicableEF {A B} (F: @EnsembleFun A B) x: Prop :=
+    U x /\ V (f x).
+
+Definition appEF {A B} (F: @EnsembleFun A B) x : B :=
+    f x.
+
+#[refine]
+Instance composeEF {A B C} `(G: @EnsembleFun B C, F: @EnsembleFun A B, H: forall x,F.(V) x = G.(U) x) : @EnsembleFun A C:=
+{
+    f := (fun x => G.(f) (F.(f) x));
+    U := F.(U);
+    V := G.(V)
+}.
+Proof.
+    intros.
+    induction G as [g Ug Vg Hg].
+    induction F as [f Uf Vf Hf].
+    apply Hg.
+    rewrite <- H.
+    apply Hf.
+    auto.
+Defined.
+
+Print composeEF.
+
+Definition InjectiveEF {A B} (F: @EnsembleFun A B) :=
+    forall x y, f x = f y -> x = y.
+
+Definition SurjectiveEF {A B} (F: @EnsembleFun A B) :=
+    forall y, exists x, f x = y.
    
-Definition BijectiveE {A B} (F: @EnsembleFun A B) :=
+Definition BijectiveEF {A B} (F: @EnsembleFun A B) :=
     exists G: (@EnsembleFun B A),
-        (forall x, applicable F x -> applicable G (appF F x) /\ appF G (appF F x) = x) /\
-        (forall y, applicable G y -> applicable F (appF G y) /\ appF F (appF G y) = y).
+        (forall x, appEF G (appEF F x) = x) /\
+        (forall y, appEF F (appEF G y) = y).
 
-Definition FullE {A:Type} (U:A->Prop) (l:list A) := forall a:A, U a -> In a l.
-Definition FiniteE {A:Type} (U:A->Prop) := exists (l:list A), FullE U l.
+Definition FullEF {A:Type} (U:A->Prop) (l:list A) := forall a:A, U a -> List.In a l.
+Definition FiniteEF {A:Type} (U:A->Prop) := exists (l:list A), FullEF U l.
 
-Definition ListingE {A:Type} (U:A->Prop) (l:list A) := NoDup l /\ FullE U l.
-Definition FiniteE' {A:Type} (U:A->Prop) := exists (l:list A), ListingE U l.
+Definition ListingEF {A:Type} (U:A->Prop) (l:list A) := NoDup l /\ FullEF U l.
+Definition FiniteEF' {A:Type} (U:A->Prop) := exists (l:list A), ListingEF U l.
 
 (*
 Lemma FiniteE_alt A (d:decidable_eq A) (U:A->Prop): FiniteE U <-> FiniteE' U.
 *)
 
-Lemma InjectiveE_map_NoDup {A B} (F: @EnsembleFun A B) (l:list A) :
-    InjectiveE F -> NoDup l -> (forall e, In e l -> applicable F e) -> NoDup (map (appF F) l).
+Lemma InjectiveEF_map_NoDup {A B} (F: @EnsembleFun A B) (l:list A) :
+    InjectiveEF F -> NoDup l -> (forall e, List.In e l -> applicableEF F e) -> NoDup (map (appEF F) l).
 Proof.
-    intros. induction l; simpl; constructor. rewrite in_map_iff.
-    intros (y & E & Y). apply H in E. subst. destruct (proj1 (NoDup_cons_iff _ _) H0).
-    apply H2. auto.
-    apply H1. apply in_cons. auto.
-    apply H1. apply in_eq.
-    apply IHl. apply (proj1 (NoDup_cons_iff _ _ ) H0). intros. apply H1.
-    apply in_cons. auto.
+    intros. induction l; simpl; constructor.
+    - rewrite in_map_iff.
+      intros (y & E & Y).
+      apply H in E.
+      subst.
+      destruct (proj1 (NoDup_cons_iff _ _) H0).
+      apply H2. auto.
+    - apply IHl.
+      + apply (proj1 (NoDup_cons_iff _ _ ) H0).
+      + intros.
+        apply H1.
+        apply in_cons.
+        auto.
 Qed.
 
 (*
@@ -59,13 +104,15 @@ Lemma Injective_carac A B (l:list A) : Listing l ->
     forall (f:A->B), Injective f <-> NoDup (map f l).
 *)
 
-Lemma BijectiveE_InjectiveE: forall A B F, (@BijectiveE A B F) -> InjectiveE F.
+Lemma BijectiveEF_InjectiveEF: forall A B F, (@BijectiveEF A B F) -> InjectiveEF F.
 Proof.
-    unfold BijectiveE, InjectiveE.
-    intros A B F [G [H1 H2]] x y Hx Hy Happ.
-    destruct (H1 x Hx) as [Hx1 Hx2].
-    destruct (H1 y Hy) as [Hy1 Hy2].
-    rewrite <- Hx2, <- Hy2, Happ. auto.
+    unfold BijectiveEF, InjectiveEF, appEF.
+    intros A B F [G [H1 H2]] x y Happ.
+    set (Hx := H1 x).
+    set (Hy := H1 y).
+    rewrite <- Hx, <- Hy, Happ. auto.
 Qed.
 
 End EnsembleFun.
+
+Import EnsembleFun.

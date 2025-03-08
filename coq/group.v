@@ -8,6 +8,7 @@ From Coq Require Import Logic.FinFun.
 From Coq Require Import Sets.Image.
 From Coq Require Import Logic.ProofIrrelevance.
 From GROUP Require Import EnsembleFun.
+Import EnsembleFun.
 
 Module Trial1.
 
@@ -1047,31 +1048,108 @@ Proof.
       auto.
 Qed.
 
-(* 定義域や値域の条件は？ *)
 (* 準同型の定義 *)
-Definition homomorphicE {S1 S2 op1 op2} (F: @EnsembleFun.EnsembleFun S1 S2) {H1: Group S1 op1} {H2: Group S2 op2} :=
-    forall x y, EnsembleFun.appF F (op1 x y) = op2 (EnsembleFun.appF F x) (EnsembleFun.appF F y).
+Definition homomorphicEF {S1 S2 op1 op2} (F: @EnsembleFun S1 S2) {H1: Group S1 op1} {H2: Group S2 op2} :=
+    forall x y, appEF F (op1 x y) = op2 (appEF F x) (appEF F y).
 
 (* Z での符号の反転は準同型である *)
-Example hEopp : homomorphicE (EnsembleFun.mkEnsembleFun Z.opp (Full_set Z) (Full_set Z)).
+Print asEF.
+Example hEopp : homomorphicEF (asEF Z.opp).
 Proof.
-    unfold homomorphicE. intros. simpl. ring.
+    unfold homomorphicEF. intros. simpl. ring.
     (* op1,2がZ.addで見えてるので整数が環であることを使って横着 *)
 Qed.
 
 (* 準同型の合成は準同型である *)
-(* klein になってる *)
-Lemma homomorphicE_compose:
-    forall G F, homomorphicE G -> homomorphicE F
-    -> homomorphicE (EnsembleFun.mkEnsembleFun
-        (fun x => EnsembleFun.appF G (EnsembleFun.appF F x))
-        F.(EnsembleFun.U)
-        G.(EnsembleFun.V)).
+Lemma homomorphicEF_compose:
+    forall S1 S2 S3 op1 op2 op3 HG1 HG2 HG3 G F Heq,
+    (@homomorphicEF S2 S3 op2 op3 G HG2 HG3) ->
+    (@homomorphicEF S1 S2 op1 op2 F HG1 HG2) ->
+    homomorphicEF (composeEF G F Heq).
 Proof.
-    unfold homomorphicE. intros. simpl.
+    unfold homomorphicEF, appEF. intros. simpl.
     rewrite (H0 x y).
     rewrite (H _ _).
     reflexivity.
+Qed.
+
+(* 同型の定義 準同型fに対して、逆写像g(fg,gfが恒等写像)が存在し準同型でもある *)
+Definition isomorphicEF {S1 S2 op1 op2} (F: @EnsembleFun S1 S2) {H1: Group S1 op1} {H2: Group S2 op2}:=
+    homomorphicEF F /\ exists G, (homomorphicEF G /\ (forall x, appEF F (appEF G x) = x) /\ (forall x, appEF G (appEF F x) = x)).
+
+(* 同型は全単射 *)
+Lemma isomorphicEF_BijectiveEF: forall S1 S2 op1 op2 F HG1 HG2,
+    (@isomorphicEF S1 S2 op1 op2 F HG1 HG2) -> BijectiveEF F.
+Proof.
+    unfold isomorphicEF, homomorphicEF, BijectiveEF.
+    intros S1 S2 op1 op2 F HG1 HG2 [Hhom [g [Hhom' [Hfg Hgf]]]].
+    (* eauto. *)
+    exists g.
+    split.
+    apply Hgf. apply Hfg.
+Qed.
+
+(* p.45 命題2.5.3 全単射で準同型ならば同型 *)
+Lemma BijectiveEF_homomorphicEF_isomorphicEF:
+    forall S1 S2 op1 op2 F HG1 HG2,
+        BijectiveEF F -> @homomorphicEF S1 S2 op1 op2 F HG1 HG2-> isomorphicEF F.
+Proof.
+    unfold BijectiveEF,isomorphicEF,homomorphicEF.
+    intros S1 S2 op1 op2 F HG1 HG2 Hb Hhom.
+    split. exact Hhom.
+    pose (BijectiveEF_InjectiveEF _ _ _ Hb) as Hinj.
+    destruct Hb as [G [Hgf Hfg]].
+    exists G.
+    split. intros.
+    pose (Hhom (appEF G x) (appEF G y)) as Htemp.
+    repeat rewrite Hfg in Htemp.
+    rewrite <- (Hfg (op2 x y)%Z) in Htemp.
+    apply Hinj in Htemp.
+    symmetry.
+    auto.
+    auto.
+Qed.
+
+(* p.45 命題2.5.4 φ:G1→G2 が群の準同型のとき *)
+
+(* 単純に @ つけずにやると phi: Z -> Z になる *)
+
+(* (1) φ(1_{G_1})=1_{G_2} *)
+
+Lemma homomorphicEF_unit :
+    forall G1 G2 op1 op2 Phi HG1 HG2,
+    @homomorphicEF G1 G2 op1 op2 Phi HG1 HG2-> appEF Phi e = e.
+Proof.
+    intros. unfold homomorphicEF in H.
+    pose (H e e) as Htemp.
+    rewrite (proj1 (op_unit e)) in Htemp. (* 単位元の性質を使う *)
+    apply (f_equal (op2 (inv (appEF Phi e)))) in Htemp. (* 左からφ(1)^{-1}をかける *)
+    rewrite <- op_assoc in Htemp. (* 結合則で順番を入れ替えて *)
+    rewrite (proj2 (op_inv _)) in Htemp. (* 逆元の性質を使う *)
+    rewrite (proj2 (op_unit _)) in Htemp.
+    symmetry.
+    exact Htemp.
+Qed.
+
+(* (2) x ∈ G_1 ⇒ φ(x^{-1})=φ(x)^{-1} *)
+
+Lemma homomorphicEF_inv:
+    forall G1 G2 op1 op2 Phi H1 H2 x,
+    @homomorphicEF G1 G2 op1 op2 Phi H1 H2 -> appEF Phi (inv x) = inv (appEF Phi x).
+Proof.
+    intros.
+    pose (homomorphicEF_unit G1 G2 op1 op2 Phi H1 H2 H) as Hunit.
+    unfold homomorphicEF in H.
+    pose (H x (inv x)) as Htemp.
+    rewrite (proj1 (op_inv _)) in Htemp.
+    rewrite Hunit in Htemp.
+    apply (f_equal (op2 (! appEF Phi x))) in Htemp.
+    rewrite <- op_assoc in Htemp.
+    rewrite (proj2 (op_inv _)) in Htemp.
+    rewrite (proj1 (op_unit _)) in Htemp.
+    rewrite (proj2 (op_unit _)) in Htemp.
+    symmetry.
+    exact Htemp.
 Qed.
 
 (* TODO *)
