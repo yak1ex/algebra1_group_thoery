@@ -13,7 +13,7 @@ Class EnsembleFun {A B} := {
 Print EnsembleFun.
 
 #[refine]
-Instance asEF `{A: Type, B: Type} `(f': A->B) : EnsembleFun :=
+Instance asEF {A: Type} {B: Type} (f': A->B) : EnsembleFun :=
 {
     f := f';
     U := Full_set A;
@@ -32,14 +32,14 @@ Definition asEF' {A B} (f:A->B) :=
 
 Print asEF'.
 
-Definition applicableEF {A B} (F: @EnsembleFun A B) x: Prop :=
-    U x /\ V (f x).
+(* V (f x) follows from (U x) and ef_welldef *)
+Definition applicableEF {A B} (F: @EnsembleFun A B) x: Prop := U x.
 
 Definition appEF {A B} (F: @EnsembleFun A B) x : B :=
     f x.
 
 #[refine]
-Instance composeEF {A B C} `(G: @EnsembleFun B C, F: @EnsembleFun A B, H: forall x,F.(V) x = G.(U) x) : @EnsembleFun A C:=
+Instance composeEF {A B C} (G: @EnsembleFun B C) (F: @EnsembleFun A B) (H: forall x,F.(V) x = G.(U) x) : @EnsembleFun A C:=
 {
     f := (fun x => G.(f) (F.(f) x));
     U := F.(U);
@@ -57,16 +57,19 @@ Defined.
 
 Print composeEF.
 
+(* 定義域に対する条件が必要 *)
 Definition InjectiveEF {A B} (F: @EnsembleFun A B) :=
-    forall x y, f x = f y -> x = y.
+    forall x y, U x -> U y -> f x = f y -> x = y.
 
 Definition SurjectiveEF {A B} (F: @EnsembleFun A B) :=
-    forall y, exists x, f x = y.
+    forall y, exists x, U x /\ f x = y.
    
 Definition BijectiveEF {A B} (F: @EnsembleFun A B) :=
     exists G: (@EnsembleFun B A),
-        (forall x, appEF G (appEF F x) = x) /\
-        (forall y, appEF F (appEF G y) = y).
+        (forall x, F.(U) x = G.(V) x) /\
+        (forall x, F.(V) x = G.(U) x) /\
+        (forall x, F.(U) x -> appEF G (appEF F x) = x) /\
+        (forall y, G.(U) y -> appEF F (appEF G y) = y).
 
 Definition FullEF {A:Type} (U:A->Prop) (l:list A) := forall a:A, U a -> List.In a l.
 Definition FiniteEF {A:Type} (U:A->Prop) := exists (l:list A), FullEF U l.
@@ -85,9 +88,12 @@ Proof.
     - rewrite in_map_iff.
       intros (y & E & Y).
       apply H in E.
-      subst.
-      destruct (proj1 (NoDup_cons_iff _ _) H0).
-      apply H2. auto.
+      + subst.
+        destruct (proj1 (NoDup_cons_iff _ _) H0).
+        apply H2. auto.
+      + apply H1.
+        apply in_cons; auto.
+      + apply H1. apply in_eq; auto.
     - apply IHl.
       + apply (proj1 (NoDup_cons_iff _ _ ) H0).
       + intros.
@@ -107,9 +113,9 @@ Lemma Injective_carac A B (l:list A) : Listing l ->
 Lemma BijectiveEF_InjectiveEF: forall A B F, (@BijectiveEF A B F) -> InjectiveEF F.
 Proof.
     unfold BijectiveEF, InjectiveEF, appEF.
-    intros A B F [G [H1 H2]] x y Happ.
-    set (Hx := H1 x).
-    set (Hy := H1 y).
+    intros A B F [G (HU & HV & H1 & H2)] x y HUx HUy Happ.
+    set (Hx := H1 x HUx).
+    set (Hy := H1 y HUy).
     rewrite <- Hx, <- Hy, Happ. auto.
 Qed.
 
