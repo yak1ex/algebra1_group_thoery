@@ -35,8 +35,8 @@ Qed.
 
 (* ref. https://www.tildedave.com/2019/07/18/formalizing-lagranges-theorem-in-coq.html *)
 
-Notation "x <*> y" := (op x y) (at level 50, left associativity).
-Notation "! x" := (inv x) (at level 90, right associativity).
+Notation "x <*> y" := (op x y) (at level 40, left associativity).
+Notation "! x" := (inv x) (at level 35, right associativity).
 
 Lemma group_cancel_l: forall a b c, a <*> b = a <*> c -> b = c.
 Proof.
@@ -93,11 +93,12 @@ Qed.
 
 (* ref. https://stackoverflow.com/questions/48394056/using-implicit-type-class-parameters-in-coq-notation *)
 Definition group_op {S op} {G: @Group S op} := op.
+(* Hint Unfold group_op: core. *)
 
 (* ref. https://www.tildedave.com/2019/07/18/formalizing-lagranges-theorem-in-coq.html *)
 
-Notation "x <*> y" := (group_op x y) (at level 50, left associativity).
-Notation "! x" := (inv x) (at level 90, right associativity).
+Notation "x <*> y" := (group_op x y) (at level 40, left associativity).
+Notation "! x" := (inv x) (at level 35, right associativity).
 
 Lemma group_cancel_l: forall a b c, a <*> b = a <*> c -> b = c.
 Proof.
@@ -402,7 +403,7 @@ Check generated'_ind.
 
 Hint Constructors generated' : core.
 
-Lemma inv_inv: forall G op H x, x = inv ((@inv G op H) x).
+Lemma inv_inv: forall {G} op {H} x, x = inv ((@inv G op H) x).
 Proof.
     intros.
     destruct (op_inv (! x)) as [Hinv _].
@@ -964,7 +965,7 @@ Proof.
       intros; split; induction x; induction x; simpl;
       f_equal;
       apply subset_eq_compat;
-      rewrite (Nat.mod_0_l _ (Nat.neq_sym _ _ (Nat.lt_neq _ _ H)));
+      rewrite (Nat.Div0.mod_0_l _);
       [rewrite Nat.add_0_r|rewrite Nat.add_0_l];
       apply Nat.mod_small;
       auto.
@@ -1004,10 +1005,197 @@ Definition gpower {G op} {H:Group G op} (g:G) (z:Z): G :=
   match z with
   | Z0 => e
   | Zpos p => gpower' g p
-  | Zneg p => gpower' (inv g) p
+  | Zneg p => ! gpower' g p
   end.
 
-Notation "x <^> y" := (gpower x y) (at level 100, right associativity).
+Notation "x <^> y" := (gpower x y) (at level 30, right associativity).
+
+Lemma gpower'_g_comm:
+    forall {G op} {H:Group G op} g p, gpower' g p <*> g = g <*> gpower' g p.
+Proof.
+    intros. induction p; simpl.
+    - simpl.
+      repeat rewrite <- op_assoc. rewrite <- IHp.
+      Check op_assoc.
+      rewrite (op_assoc (gpower' g p) g _), <- IHp.
+      now repeat rewrite <- op_assoc.
+    - simpl.
+      rewrite <- op_assoc, <- IHp.
+      rewrite (op_assoc _ g), <- IHp.
+      now rewrite <- op_assoc.
+    - reflexivity.
+Qed.
+
+Lemma gpower'_comm:
+    forall {G op} {H:Group G op} g p q,
+    gpower' g p <*> gpower' g q = gpower' g q <*> gpower' g p.
+Proof.
+    intros. generalize dependent p. induction q; intros; simpl.
+    - repeat rewrite op_assoc. rewrite <- (gpower'_g_comm g).
+      rewrite <- (op_assoc _ (gpower' g p)).
+      rewrite <- (IHq p).
+      repeat rewrite <- op_assoc.
+      now rewrite <- (IHq p).
+    - repeat rewrite op_assoc. rewrite <- (IHq p).
+      repeat rewrite <- op_assoc.
+      now rewrite <- (IHq p).
+    - apply gpower'_g_comm.
+Qed.  
+
+Lemma gpower'_inv:
+    forall {G op} {H:Group G op} g p, ! gpower' g p = gpower' (! g) p.
+Proof.
+    intros. induction p; simpl; repeat rewrite <- inv_op;
+    unfold group_op; repeat rewrite IHp; fold group_op; auto.
+    now rewrite op_assoc, gpower'_g_comm, <- op_assoc, <- op_assoc, gpower'_g_comm.
+Qed.
+
+Lemma gpower'_succ:
+    forall {G op} {H:Group G op} g p,
+    gpower' g (Pos.succ p) = (gpower' g p) <*> g.
+Proof.
+    intros. induction p; simpl; auto.
+    - rewrite IHp.
+      rewrite op_assoc. rewrite <- (op_assoc g).
+      rewrite <- gpower'_g_comm.
+      now repeat rewrite <- op_assoc.
+Qed.
+
+Lemma homomorphic_gpower':
+    forall {G op} {H:Group G op} g p q,
+    gpower' g (p + q) = (gpower' g p) <*> (gpower' g q).
+Proof.
+    intros. generalize dependent p. induction q; intros.
+    - rewrite Pos.xI_succ_xO at 1.
+      rewrite Pos.add_succ_r, gpower'_succ, <- Pos.add_diag.
+      rewrite Pos.add_assoc, IHq, IHq.
+      simpl.
+      now repeat rewrite <- op_assoc.
+    - rewrite <- Pos.add_diag at 1.
+      rewrite Pos.add_assoc, IHq, IHq.
+      simpl.
+      now rewrite <- op_assoc.
+    - simpl.
+      now rewrite Pos.add_1_r, gpower'_succ.
+Qed.  
+
+Lemma gpower_pos_sub:
+    forall {G op} {H:Group G op} g p q,
+    g <^> Z.pos_sub p q = (gpower' g p) <*> (! gpower' g q).
+Proof.
+    intros.
+    destruct (p ?= q)%positive eqn:E; rewrite Z.pos_sub_spec, E; simpl.
+    - pose proof (proj1 (Pos.compare_eq_iff _ _) E) as Exy.
+      subst.
+      now rewrite (proj1 (op_inv _)).
+    - pose proof (proj1 (Pos.compare_lt_iff _ _) E) as Exy.
+      rewrite <- (Pos.sub_add _ _ Exy) at 2.
+      rewrite homomorphic_gpower'.
+      now rewrite <- inv_op, <- op_assoc, (proj1 (op_inv _)), (proj2 (op_unit _)).
+    - pose proof (proj1 (Pos.compare_gt_iff _ _) E) as Exy.
+      rewrite <- (Pos.sub_add _ _ Exy) at 2.
+      rewrite homomorphic_gpower'.
+      now rewrite op_assoc, (proj1 (op_inv _)), (proj1 (op_unit _)).
+Qed.
+
+Lemma gpower'_comm_inv:
+    forall {G op} {H:Group G op} g p q,
+    gpower' g p <*> ! gpower' g q = ! gpower' g q <*> gpower' g p.
+Proof.
+    intros.
+    destruct (p ?= q)%positive eqn:E.
+    - pose proof (proj1 (Pos.compare_eq_iff _ _) E) as Exy.
+      subst.
+      now rewrite (proj1 (op_inv _)), (proj2 (op_inv _)).
+    - pose proof (proj1 (Pos.compare_lt_iff _ _) E) as Exy.
+      rewrite <- (Pos.sub_add _ _ Exy).
+      rewrite homomorphic_gpower'.
+      rewrite gpower'_comm at 2.
+      rewrite <- inv_op, <- op_assoc, (proj1 (op_inv _)), (proj2 (op_unit _)).
+      now rewrite <- inv_op, op_assoc, (proj2 (op_inv _)), (proj1 (op_unit _)).
+    - pose proof (proj1 (Pos.compare_gt_iff _ _) E) as Exy.
+      rewrite <- (Pos.sub_add _ _ Exy).
+      rewrite homomorphic_gpower'.
+      rewrite gpower'_comm at 2.
+      rewrite op_assoc, (proj1 (op_inv _)), (proj1 (op_unit _)).
+      now rewrite <- op_assoc, (proj2 (op_inv _)), (proj2 (op_unit _)).
+Qed.
+
+(* g <^> (n + m) = (g <^> n) <*> (g <^> m) *)
+(* 指数法則 これはつまり準同型 *)
+Lemma homomorphic_gpower:
+    forall {G op HG} g, @homomorphic Z G Z.add op (gpower g) ZPGroup HG.
+Proof.
+    unfold homomorphic. intros. induction x; induction y; simpl; try rewrite (proj1 (op_unit _ )); try rewrite (proj2 (op_unit _ )); auto.
+    - apply homomorphic_gpower'.
+    - apply gpower_pos_sub.
+    - fold group_op. rewrite <- gpower'_comm_inv.
+      apply gpower_pos_sub.
+    - repeat rewrite gpower'_inv.
+      apply homomorphic_gpower'.
+Qed.
+
+Lemma gpower'_unit: forall {G op} {HG:Group G op} p, e = gpower' e p.
+Proof.
+    intros. induction p; simpl; repeat rewrite <- IHp; repeat rewrite (proj1 (op_unit _)); auto.
+Qed.
+
+Lemma gpower'_mult:
+    forall {G op} {HG:Group G op} g p q,
+    gpower' g (p * q) = gpower' (gpower' g p) q.
+Proof.
+    intros. generalize dependent p; induction q; intros; simpl.
+    - rewrite Pos.xI_succ_xO.
+      rewrite Pos.mul_succ_r, <- Pos.add_diag, Pos.mul_add_distr_l.
+      rewrite (Pos.add_comm p).
+      repeat rewrite homomorphic_gpower'.
+      now repeat rewrite IHq.
+    - rewrite <- Pos.add_diag, Pos.mul_add_distr_l, homomorphic_gpower'.
+      now rewrite IHq.
+    - now rewrite Pos.mul_1_r.
+Qed.
+
+(* g <^> (n * m) = ((g <^> n) <^> m) *)
+Lemma gpower_mult:
+    forall {G op} {HG:Group G op} g n m, g <^> (n * m) = ((g <^> n) <^> m).
+Proof.
+    intros. generalize dependent n. induction m; intros; simpl; destruct n; simpl; auto.
+    - apply gpower'_unit.
+    - apply gpower'_mult.
+    - rewrite <- gpower'_inv. f_equal. apply gpower'_mult.
+    - rewrite gpower'_inv, <- inv_unit.
+      apply gpower'_unit.
+    - f_equal. apply gpower'_mult.
+    - now rewrite <- gpower'_inv, <- inv_inv, gpower'_mult.
+Qed.
+
+Lemma gpower_order_plus:
+    forall {G op} {HG:Group G op} g m n,
+    g <^> m = e -> g <^> n = g <^> (n + m).
+Proof.
+    intros.
+    now rewrite homomorphic_gpower, H, (proj1 (op_unit _)).
+Qed.
+
+Lemma gpower_order_plus_mult:
+    forall {G op} {HG:Group G op} g m n k,
+    g <^> m = e -> g <^> n = g <^> (n + m * k).
+Proof.
+    intros. induction k; rewrite homomorphic_gpower.
+    - rewrite Z.mul_0_r. simpl. now rewrite (proj1 (op_unit _)).
+    - destruct m; simpl.
+      + now rewrite (proj1 (op_unit _)).
+      + simpl in H.
+        now rewrite gpower'_mult, H, <- gpower'_unit, (proj1 (op_unit _)).
+      + simpl in H.
+        now rewrite gpower'_inv, gpower'_mult, <- gpower'_inv, H, <- gpower'_unit, (proj1 (op_unit _)).
+    - destruct m; simpl.
+      + now rewrite (proj1 (op_unit _)).
+      + simpl in H.
+        now rewrite gpower'_mult, H, <- gpower'_unit, <- inv_unit, (proj1 (op_unit _)).
+      + simpl in H. apply (f_equal inv) in H. rewrite <- inv_inv, <- inv_unit in H.
+        now rewrite gpower'_mult, H, <- gpower'_unit, (proj1 (op_unit _)).
+Qed.
 
 Check cardinal.
 
@@ -1049,8 +1237,16 @@ Proof.
 Qed.
 
 (* 準同型の定義 *)
-Definition homomorphicEF {S1 S2 op1 op2} (F: @EnsembleFun S1 S2) {H1: Group S1 op1} {H2: Group S2 op2} :=
-    forall x y, appEF F (op1 x y) = op2 (appEF F x) (appEF F y).
+(* 定義域に関する条件が必要 *)
+(* F.(U) (op1 x y) は HS1 から従う *)
+Definition homomorphicEF {S1 S2 op1 op2} (F: @EnsembleFun S1 S2)
+    {H1: Group S1 op1} {H2: Group S2 op2}
+    {HS1: @SubGroup S1 op1 F.(U) H1} {HS2: @SubGroup S2 op2 F.(V) H2} :=
+    forall x y, F.(U) x -> F.(U) y ->
+        appEF F (op1 x y) = op2 (appEF F x) (appEF F y).
+
+Instance GroupSubGroup {S op} {H: Group S op} : SubGroup S op (Full_set S).
+Proof. apply group_subgroup. Qed.
 
 (* Z での符号の反転は準同型である *)
 Print asEF.
@@ -1061,53 +1257,94 @@ Proof.
 Qed.
 
 (* 準同型の合成は準同型である *)
+(* HS2 と HS2' が必要(Heqで結びついている) *)
 Lemma homomorphicEF_compose:
-    forall S1 S2 S3 op1 op2 op3 HG1 HG2 HG3 G F Heq,
-    (@homomorphicEF S2 S3 op2 op3 G HG2 HG3) ->
-    (@homomorphicEF S1 S2 op1 op2 F HG1 HG2) ->
+    forall S1 S2 S3 op1 op2 op3 HG1 HG2 HG3 G F HS1 HS2 HS2' HS3 Heq,
+    (@homomorphicEF S2 S3 op2 op3 G HG2 HG3 HS2 HS3) ->
+    (@homomorphicEF S1 S2 op1 op2 F HG1 HG2 HS1 HS2') ->
     homomorphicEF (composeEF G F Heq).
 Proof.
-    unfold homomorphicEF, appEF. intros. simpl.
-    rewrite (H0 x y).
-    rewrite (H _ _).
-    reflexivity.
+    intros. unfold homomorphicEF, appEF in *. simpl in *.
+    destruct G as [fG UG VG HG].
+    destruct F as [fF UF VF HF].
+    intros.
+    rewrite (H0 _ _); auto.
+    rewrite (H _ _); auto;
+    rewrite <- Heq; apply HF; auto.
 Qed.
 
+Lemma rewrite_SubGroup:
+    forall {S op U V H}, (forall x, U x = V x) -> @SubGroup S op U H <-> @SubGroup S op V H.
+Proof.
+    intros; split; intros.
+    - destruct H1. split; intros; rewrite <- H0.
+      + apply op_closed0; rewrite H0; auto.
+      + auto.
+      + apply inv_closed0; rewrite H0; auto.
+    - destruct H1. split; intros; rewrite H0.
+      + apply op_closed0; rewrite <- H0; auto.
+      + auto.
+      + apply inv_closed0; rewrite <- H0; auto.
+Qed.  
+
 (* 同型の定義 準同型fに対して、逆写像g(fg,gfが恒等写像)が存在し準同型でもある *)
-Definition isomorphicEF {S1 S2 op1 op2} (F: @EnsembleFun S1 S2) {H1: Group S1 op1} {H2: Group S2 op2}:=
-    homomorphicEF F /\ exists G, (homomorphicEF G /\ (forall x, appEF F (appEF G x) = x) /\ (forall x, appEF G (appEF F x) = x)).
+(* 定義域の条件に注意 *)
+Definition isomorphicEF {S1 S2 op1 op2} (F: @EnsembleFun S1 S2)
+    {H1: Group S1 op1} {H2: Group S2 op2}
+    {HS1: @SubGroup S1 op1 F.(U) H1} {HS2: @SubGroup S2 op2 F.(V) H2} :=
+    (@homomorphicEF S1 S2 op1 op2 F H1 H2 HS1 HS2) /\
+        (exists G,
+            (forall x, F.(U) x = G.(V) x) /\
+            (forall x, F.(V) x = G.(U) x) /\
+            (forall (Heq2:forall x, F.(V) x = G.(U) x) (Heq1:forall x, F.(U) x = G.(V) x),
+                @homomorphicEF S2 S1 op2 op1 G H2 H1 (proj1 (rewrite_SubGroup Heq2) HS2) (proj1 (rewrite_SubGroup Heq1) HS1)) /\
+            (forall x, G.(U) x -> appEF F (appEF G x) = x) /\
+            (forall x, F.(U) x -> appEF G (appEF F x) = x)
+        ).
+
+Print isomorphicEF.
 
 (* 同型は全単射 *)
-Lemma isomorphicEF_BijectiveEF: forall S1 S2 op1 op2 F HG1 HG2,
-    (@isomorphicEF S1 S2 op1 op2 F HG1 HG2) -> BijectiveEF F.
+Lemma isomorphicEF_BijectiveEF: forall S1 S2 op1 op2 F HG1 HG2 HS1 HS2,
+    (@isomorphicEF S1 S2 op1 op2 F HG1 HG2 HS1 HS2) -> BijectiveEF F.
 Proof.
     unfold isomorphicEF, homomorphicEF, BijectiveEF.
-    intros S1 S2 op1 op2 F HG1 HG2 [Hhom [g [Hhom' [Hfg Hgf]]]].
+    intros S1 S2 op1 op2 F HG1 HG2 HS1 HS2 [Hhom [G [HS1'[HS2' [Hhom' [Hfg Hgf]]]]]].
     (* eauto. *)
-    exists g.
-    split.
-    apply Hgf. apply Hfg.
+    exists G.
+    repeat split; auto.
 Qed.
 
 (* p.45 命題2.5.3 全単射で準同型ならば同型 *)
 Lemma BijectiveEF_homomorphicEF_isomorphicEF:
-    forall S1 S2 op1 op2 F HG1 HG2,
-        BijectiveEF F -> @homomorphicEF S1 S2 op1 op2 F HG1 HG2-> isomorphicEF F.
+    forall S1 S2 op1 op2 F HG1 HG2 HS1 HS2,
+        BijectiveEF F -> @homomorphicEF S1 S2 op1 op2 F HG1 HG2 HS1 HS2 -> isomorphicEF F.
 Proof.
     unfold BijectiveEF,isomorphicEF,homomorphicEF.
-    intros S1 S2 op1 op2 F HG1 HG2 Hb Hhom.
+    intros S1 S2 op1 op2 F HG1 HG2 HS1 HS2 Hb Hhom.
     split. exact Hhom.
     pose (BijectiveEF_InjectiveEF _ _ _ Hb) as Hinj.
-    destruct Hb as [G [Hgf Hfg]].
+    destruct Hb as [G (H1UVx & H2UVx & Hgf & Hfg)].
     exists G.
-    split. intros.
-    pose (Hhom (appEF G x) (appEF G y)) as Htemp.
-    repeat rewrite Hfg in Htemp.
-    rewrite <- (Hfg (op2 x y)%Z) in Htemp.
-    apply Hinj in Htemp.
-    symmetry.
-    auto.
-    auto.
+    repeat split; intros; auto.
+    destruct F as [fF UF VF HF].
+    destruct G as [fG UG VG HG].
+    simpl in *.
+    assert (HUGx: UF (fG x)). {
+        rewrite Heq1.
+        apply HG; auto.
+    }
+    assert (HUGy: UF (fG y)). {
+        rewrite Heq1.
+        apply HG; auto.
+    }
+    pose (Hhom (fG x) (fG y) HUGx HUGy) as Htemp.
+    (* repeat rewrite Hfg in Htemp. *)
+    rewrite (Hfg x H) in Htemp.
+    rewrite (Hfg y H0) in Htemp.
+    rewrite <- Htemp.
+    apply Hgf.
+    apply HS1.(op_closed); auto.
 Qed.
 
 (* p.45 命題2.5.4 φ:G1→G2 が群の準同型のとき *)
@@ -1117,11 +1354,12 @@ Qed.
 (* (1) φ(1_{G_1})=1_{G_2} *)
 
 Lemma homomorphicEF_unit :
-    forall G1 G2 op1 op2 Phi HG1 HG2,
-    @homomorphicEF G1 G2 op1 op2 Phi HG1 HG2-> appEF Phi e = e.
+    forall G1 G2 op1 op2 Phi HG1 HG2 HS1 HS2,
+    @homomorphicEF G1 G2 op1 op2 Phi HG1 HG2 HS1 HS2 -> appEF Phi e = e.
 Proof.
     intros. unfold homomorphicEF in H.
-    pose (H e e) as Htemp.
+    destruct HS1.
+    pose (H e e unit_closed0 unit_closed0) as Htemp.
     rewrite (proj1 (op_unit e)) in Htemp. (* 単位元の性質を使う *)
     apply (f_equal (op2 (inv (appEF Phi e)))) in Htemp. (* 左からφ(1)^{-1}をかける *)
     rewrite <- op_assoc in Htemp. (* 結合則で順番を入れ替えて *)
@@ -1134,22 +1372,128 @@ Qed.
 (* (2) x ∈ G_1 ⇒ φ(x^{-1})=φ(x)^{-1} *)
 
 Lemma homomorphicEF_inv:
-    forall G1 G2 op1 op2 Phi H1 H2 x,
-    @homomorphicEF G1 G2 op1 op2 Phi H1 H2 -> appEF Phi (inv x) = inv (appEF Phi x).
+    forall G1 G2 op1 op2 Phi H1 H2 HS1 HS2 x,
+    @homomorphicEF G1 G2 op1 op2 Phi H1 H2 HS1 HS2 -> Phi.(U) x -> appEF Phi (inv x) = inv (appEF Phi x).
 Proof.
     intros.
-    pose (homomorphicEF_unit G1 G2 op1 op2 Phi H1 H2 H) as Hunit.
+    pose (homomorphicEF_unit G1 G2 op1 op2 Phi H1 H2 HS1 HS2 H) as Hunit.
     unfold homomorphicEF in H.
     pose (H x (inv x)) as Htemp.
     rewrite (proj1 (op_inv _)) in Htemp.
     rewrite Hunit in Htemp.
-    apply (f_equal (op2 (! appEF Phi x))) in Htemp.
+    pose (HS1.(inv_closed) _ H0) as Hinv.
+    apply (f_equal (op2 (! appEF Phi x))) in Htemp; auto.
     rewrite <- op_assoc in Htemp.
     rewrite (proj2 (op_inv _)) in Htemp.
     rewrite (proj1 (op_unit _)) in Htemp.
     rewrite (proj2 (op_unit _)) in Htemp.
     symmetry.
     exact Htemp.
+Qed.
+
+(* (3) H < G_2 ⇒ φ^{-1}(H) < G_1 *) (* < は部分群 *)
+Inductive PreImageEF U V (Y:Ensemble V) (F: @EnsembleFun U V) : Ensemble U :=
+  PreImageEF_intro: forall y:V, In _ Y y -> forall x:U, In _ F.(EnsembleFun.U) x -> y = f x -> In _  (PreImageEF U V Y F) x.
+
+Lemma homomorphicEF_preimageEF:
+    forall G1 G2 op1 op2 Phi H1 H2 HS1 HS2 X2,
+    @homomorphicEF G1 G2 op1 op2 Phi H1 H2 HS1 HS2 ->
+    @SubGroup G2 op2 X2 H2 -> @SubGroup G1 op1 (PreImageEF _ _ X2 Phi) H1.
+Proof.
+    intros. split; intros.
+    - destruct H3 as [zx Hzx x HPIzx Heqzx].
+      destruct H4 as [zy Hzy y HPIzy Heqzy].
+      apply PreImageEF_intro with (op2 zx zy); auto.
+      apply op_closed; auto.
+      apply op_closed; auto.
+      unfold homomorphicEF in H.
+      destruct Phi as [fPhi UPhi VPhi HPhi]. simpl in H.
+      set (Heq := H x y HPIzx HPIzy).
+      rewrite Heqzx, Heqzy; auto.
+    - apply PreImageEF_intro with e.
+      + apply unit_closed.
+      + apply unit_closed.
+      + assert (Heq : appEF Phi e = e). {
+          apply homomorphicEF_unit with HS1 HS2; auto.
+        }
+        auto.
+    - destruct H3 as [zx Hzx x HPIzx Heqzx].
+      apply PreImageEF_intro with (inv zx).
+      + apply inv_closed; auto.
+      + apply inv_closed; auto.
+      + assert (Heq: appEF Phi (inv x) = (inv (appEF Phi x))). {
+          apply homomorphicEF_inv with HS1 HS2; auto.
+        }
+        rewrite Heqzx. auto.
+Qed.
+
+(* (4) Ker(φ) < G_1 ∧ Im(φ) < G_2 *)
+
+Inductive KernelEF U V (F: @EnsembleFun U V) {op2} {H: Group V op2}: Ensemble U :=
+    KernelEF_intro: forall x:U, EnsembleFun.U x -> e = f x -> In _ (KernelEF U V F) x.
+
+Lemma homomorphicEF_kernelEF:
+    forall G1 G2 op1 op2 Phi H1 H2 HS1 HS2,
+    @homomorphicEF G1 G2 op1 op2 Phi H1 H2 HS1 HS2 ->
+    SubGroup G1 op1 (KernelEF _ _ Phi).
+Proof.
+    intros. split; intros.
+    - destruct H0 as [zx Hzx Heqzx].
+      destruct H3 as [zy Hzy Heqzy].
+      apply KernelEF_intro.
+      apply op_closed; auto.
+      set (Heq := H zx zy Hzx Hzy).
+      unfold appEF in Heq.
+      rewrite Heq, <- Heqzx, <- Heqzy.
+      rewrite (proj1 (op_unit e)); auto.
+    - apply KernelEF_intro.
+      apply unit_closed.
+      assert (Heq: appEF Phi e = e). {
+        apply homomorphicEF_unit with HS1 HS2; auto.
+      }
+      auto.
+    - destruct H0 as [zx Hzx Heqzx].
+      apply KernelEF_intro.
+      apply inv_closed; auto.
+      assert (Heq: appEF Phi (! zx) = ! appEF Phi zx). {
+        apply homomorphicEF_inv with HS1 HS2; auto.
+      }
+      unfold appEF in Heq.
+      rewrite Heq, <- Heqzx, <- inv_unit; auto.
+Qed.
+
+Inductive ImEF U V (F: @EnsembleFun U V) : Ensemble V :=
+  ImEF_intro: forall x:U, In _ F.(EnsembleFun.U) x -> In _  (ImEF U V F) (f x).
+
+Lemma homomorphicEF_imageEF:
+    forall G1 G2 op1 op2 Phi H1 H2 HS1 HS2,
+    @homomorphicEF G1 G2 op1 op2 Phi H1 H2 HS1 HS2 ->
+    SubGroup G2 op2 (ImEF _ _ Phi).
+Proof.
+    intros. split; intros.
+    - destruct H0 as [x HUx].
+      destruct H3 as [y HUy].
+      assert (Heq: appEF Phi (op1 x y) = op2 (appEF Phi x) (appEF Phi y)). {
+        apply H; auto.
+      }
+      unfold appEF in Heq.
+      rewrite <- Heq.
+      apply ImEF_intro.
+      apply op_closed; auto.
+    - assert (Heq: appEF Phi e = e). {
+        apply homomorphicEF_unit with HS1 HS2; auto.
+      }
+      rewrite <- Heq. unfold appEF.
+      apply ImEF_intro.
+      apply unit_closed.
+    - destruct H0 as [x HUx].
+      assert (Heq: appEF Phi (! x) = ! appEF Phi x). {
+        apply homomorphicEF_inv with HS1 HS2; auto.
+      }
+      unfold appEF in Heq.
+      rewrite <- Heq.
+      apply ImEF_intro.
+      apply inv_closed; auto.
 Qed.
 
 (* TODO *)
