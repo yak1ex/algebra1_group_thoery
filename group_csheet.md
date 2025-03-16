@@ -21,7 +21,7 @@
     1. $X$:順序集合、$S \subset X$で、$x_0$ が $S$ の上界：$x_0 \in X, \forall y \in S, y \leqq x_0$
     2. 極大元$x \in X$：$x \leqq y \Rightarrow y = x$
 * p.15 定理1.3.9 Xが順序集合で、Xの任意の全順序部分集合が上界を持つ $\Rightarrow X$が極大元を持つ
-* p.16 定理1.4.2
+* p.16 定理1.4.2(第2版p.18 定理1.5.2)
     1. $|A| \leqq |B| \land |A| \geqq |B| \Rightarrow |A|=|B|$
     2. $A \rightarrow B$の全射がある $\Rightarrow |A| \geqq |B|$
     3. $|A| \le |B| \oplus |A|=|B| \oplus |A| \ge |B|$
@@ -55,9 +55,9 @@ $f:A\rightarrow B$で
 
 ### 2.5 準同型と同型
 
-* p.41 命題2.5.3 $\phi:G_1\rightarrow G_2$：群の準同型 (1)$\phi(1_{G_1})=1_{G_2}$(2)$\forall x\in G_1, \phi(x^{-1})=\phi(x)^{-1}$(3)$\mathrm{Ker}(\phi),\mathrm{Im}(\phi)$はそれぞれ$G_1,G_2$の部分群
-* p.44 命題2.5.12 $G_1,G_2$：群、$\phi_1, \phi_2: G_1 \rightarrow G_2$：準同型、($G_1 = \langle S\rangle \land \forall x \in S, \phi_1(x) = \phi_2(x)) \Rightarrow \phi_1 = \phi_2$
-* p.44 命題2.5.13 $\phi:G_1 \rightarrow G_2$：準同型ならば、$\phi$ が単射 $\Leftrightarrow \mathrm{Ker}(\phi)=\{1_G\}$
+* p.41 命題2.5.3(第2版p.45 命題2.5.4) $\phi:G_1\rightarrow G_2$：群の準同型 (1)$\phi(1_{G_1})=1_{G_2}$(2)$\forall x\in G_1, \phi(x^{-1})=\phi(x)^{-1}$(3)$\mathrm{Ker}(\phi),\mathrm{Im}(\phi)$はそれぞれ$G_1,G_2$の部分群
+* p.44 命題2.5.12(第2版p.48 命題2.5.14) $G_1,G_2$：群、$\phi_1, \phi_2: G_1 \rightarrow G_2$：準同型、$(G_1 = \langle S\rangle \land \forall x \in S, \phi_1(x) = \phi_2(x)) \Rightarrow \phi_1 = \phi_2$
+* p.44 命題2.5.13(第2版p.49 命題2.5.15) $\phi:G_1 \rightarrow G_2$：準同型ならば、$\phi$ が単射 $\Leftrightarrow \mathrm{Ker}(\phi)=\{1_G\}$
 * p.45 (2.5.17) $i_g : G \rightarrow G, i_g(h) = ghg^{-1}$ とすると $i_g$ は同型(内部自己同型)
 * p.71 演習問題2.5.3(1)：$\phi:G\rightarrow H$：群の準同型、$g\in G, \mathrm{ord}(g)<\infty\Rightarrow\mathrm{ord}(\phi(g))\mid \mathrm{ord}(g)$
 
@@ -69,7 +69,7 @@ $f:A\rightarrow B$で
 
 ### 2.8 正規部分群と剰余群
 
-* p.56 命題2.8.3 $G_1,G_2:$群、$\phi:G_1\rightarrow G_2$が準同型$\Rightarrow \mathrm{Ker}(\phi)\triangleleft G_1$
+* p.56(第2版p.61) 命題2.8.3 $G_1,G_2:$群、$\phi:G_1\rightarrow G_2$が準同型$\Rightarrow \mathrm{Ker}(\phi)\triangleleft G_1$
 * p.57 命題2.8.7 $N\le G$、$G=\langle S\rangle,N =\langle T\rangle,\forall x\in S,\forall y\in T,xyx^{-1}\in N\land x^{-1}yx\in N \Rightarrow N$ は正規部分群。$G$が有限群なら$xyx^{-1}$のときだけで十分
 * p.57 系2.8.8 $G$が群、$S \subset G$のとき、$N=\langle\{xyx^{-1}|x\in G, y\in S\}\rangle$は$S$を含む最小の正規部分群
 * p.58 補題2.8.10 $N\triangleleft G, g\in G\Rightarrow gN=Ng$
@@ -94,6 +94,7 @@ $f:A\rightarrow B$で
 
 ### 4.1 群の作用
 
+* 第2版p.100 命題4.1.12 (群 $G$ が有限集合 $X=\lbrace x_1,\cdots,x_n\rbrace$ に左から作用するとする。このとき $g\cdot x_i=x_{\rho(g)(i)(i=1,\cdots,n)}$ とおく。$\rho(g)$ は $\lbrace1,\cdots,n$ の置換を引き起こし、写像 $\rho:G\rightarrow\mathfrak{S}_n$ を定める。これを $X$ の作用により定まる置換表現という) $\rho:G\rightarrow\mathfrak{S}_n$ は群の準同型
 * p.92 系4.1.21 $G$ が $X$ に作用、 $x,y\in X, (G\cdot x)\cap(G\cdot y)\neq\emptyset\Rightarrow G\cdot y=G\cdot x\land G_y \cong G_x$
 * p.93 命題4.1.23 $G$ が $X$ に作用、$x\in X$ のとき、 $G/G_x\ni gG_x\mapsto gx\in G\cdot x$ は全単射。従って $|G\cdot x|=(G:G_x)$ 、 $|G|\lt\infty$ であれば $|G\cdot x|=|G|/|G_x|$
 * p.95 定理4.1.28 $\mathrm{ord}(G)\lt\infty$ (1) $x\in G\Rightarrow|C(x)|=\frac{|G|}{|Z_G(x)|}, C(x)=\lbrace x\rbrace\Leftrightarrow x\in Z(G)$ (2) $|G|=\sum|C(x)|$

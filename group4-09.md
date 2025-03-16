@@ -104,8 +104,14 @@ $(1\hspace{5mu}2\hspace{5mu}3\hspace{5mu}4\hspace{5mu}5)=(1\hspace{5mu}4\hspace{
 
 #### 4.9.2
 
-1. $A_5$ から $\mathfrak{S}_2,\mathfrak{S}_3,\mathfrak{S}_5$ への置換表現が存在したとする...
-2. $A_5$ が位数 $15,20,30$ の部分群が持たないことを証明せよ
+>p.100 命題4.1.12 (置換表現) $\rho:G\rightarrow\mathfrak{S}_n$ は群の準同型である
+>p.61 命題2.8.3 $G_1,G_2$ が群で、 $\phi:G_1\rightarrow G_2$ が準同型なら、 $\mathrm{Ker}(\phi)$ は $G_1$ の正規部分群である
+>p.115 定義4.3.10 自明でない群 $G$ が正規部分群を持たないなら、 $G$ を単純群という
+>※ $G$ が自分自身か自明以外の正規部分群を持たないなら
+>p.49 命題2.5.15 $\phi:G_1\rightarrow G_2$ が準同型なら、次の(1)(2)は同値である (1) $\phi$ は単射である (2) $\mathrm{Ker}(\phi)=\lbrace1_{G_1}\rbrace$
+
+1. $A_5$ から $\mathfrak{S}_2,\mathfrak{S}_3,\mathfrak{S}_5$ への置換表現が存在したとすると、命題4.1.12より置換表現 $\rho$ は群の準同型となる。命題2.8.3より $\mathrm{Ker}(\phi)$ は $A_5$ の正規部部群となるが、 $A_5$ が単純群であることから $\mathrm{Ker}(\phi)$ は $\lbrace1\rbrace$ あるいは $A_5$ 自身となる。 $\mathrm{Ker}(\phi)=\lbrace1\rbrace$ とすると命題2.5.15より $\phi$ は単射となるが、 $|A_5|=60,|\mathfrak{S}_2|=2,|\mathfrak{S}_3|=6,|\mathfrak{S}_4|=24$ より $|A_5|>|\mathfrak{S}_2|,|\mathfrak{S}_3|,|\mathfrak{S}_4|$ であるから矛盾する。　$\mathrm{Ker}(\phi)=A_5$ の場合は $\phi$ は自明な作用である。以上により、 $A_5$ は $\mathfrak{S}_2,\mathfrak{S}_3,\mathfrak{S}_5$ への自明でない置換表現を持たない。
+2. $A_5$ が位数 $15,20,30$ の部分群 $H$ を持つと仮定し、 $A_5/H$ に対する自然な作用を考えるとそれぞれ $\mathfrak{S}_4,\mathfrak{S}_3,\mathfrak{S}_2$ への置換表現 $\rho$ が存在するはずであるが、(1)より自明な置換表現しか持たない。しかし、元 $x\notin H$ を考えた場合に、$xH\neq H$ となるので自明な表現しか持たないことに矛盾する。よって、 $A_5$ は位数 $15,20,30$ の部分群を持たない。
 
 #### 4.9.3
 
