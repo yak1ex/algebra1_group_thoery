@@ -1,4 +1,5 @@
-Require Import Coq.Sets.Ensembles.
+Require Export Coq.Sets.Ensembles.
+Require Export Coq.Sets.Finite_sets.
 Require Import Coq.Sets.Image.
 Require Import Coq.Logic.FinFun.
 
@@ -12,6 +13,9 @@ Proof.
     set (Hle2 := incl_card_le _ _ _ _ _ HC2 HC1 HR).
     now apply Nat.le_antisymm.
 Qed.
+Print Assumptions Same_set_same_cardinal.
+Print Assumptions incl_card_le.
+(* classic, Extensionality_Ensembles *)
 
 Lemma Same_set_Finite_same_cardinal:
     forall U S1 S2 n,
@@ -25,6 +29,8 @@ Proof.
     pose proof (Same_set_same_cardinal _ _ _ _ _ Hs H1 Hm) as Heq.
     now subst.
 Qed.
+Print Assumptions Same_set_Finite_same_cardinal.
+(* classic, Extensionality_Ensembles *)
 
 Lemma Included_same_cardinal_Same_set:
     forall U S1 S2 n,
@@ -45,6 +51,8 @@ Proof.
         now apply Arith_base.gt_irrefl_stt in Hlt.
       + now subst.
 Qed.
+Print Assumptions Included_same_cardinal_Same_set.
+(* classic, Extensionality_Ensembles *)
 
 Lemma Disjoint_Add:
     forall U S1 S2 x,
@@ -88,6 +96,9 @@ Proof.
         destruct H3 as [x H3L|x H3R]; auto.
         apply (Disjoint_Singleton _ _ _ HR); auto.
 Qed.
+Print Assumptions cardinal_Disjoint_Union.
+Print Assumptions Empty_set_zero_right.
+(* Extensionality_Ensembles *)
 
 Fixpoint LtNat (n: nat): Ensemble nat :=
 match n with

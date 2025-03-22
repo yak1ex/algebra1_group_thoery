@@ -8,7 +8,6 @@ From Coq Require Import Logic.FinFun.
 From Coq Require Import Sets.Image.
 From Coq Require Import Logic.ProofIrrelevance.
 From GROUP Require Import EnsembleFun.
-Import EnsembleFun.
 
 Module Trial1.
 
@@ -694,6 +693,8 @@ Proof.
     apply Finite_downward_closed with (Full_set G); auto.
     apply generated_included.
 Qed.
+Print Assumptions finite_group_finite_order.
+(* classic Extensionality_Ensembles *)
 
 Inductive CycleElementPos G op g {H:Group G op} : G -> Prop :=
 | cycle_element_pos_single: CycleElementPos G op g g
@@ -928,6 +929,7 @@ Proof.
 Qed.
 
 Print Assumptions zcycle_element_group.
+(* proof_irrelevance *)
 Check subset_eq_compat.
 Check guard.
 
@@ -993,6 +995,8 @@ Proof.
       rewrite Nat.add_assoc.
       auto.
 Qed.
+Print Assumptions ncycle_element_group.
+(* proof_irrelevance *)
 
 Fixpoint gpower' {G op} {H:Group G op} (g:G) (p:positive): G :=
   match p with
@@ -1077,7 +1081,7 @@ Proof.
       now rewrite <- op_assoc.
     - simpl.
       now rewrite Pos.add_1_r, gpower'_succ.
-Qed.  
+Qed.
 
 Lemma gpower_pos_sub:
     forall {G op} {H:Group G op} g p q,
@@ -1232,7 +1236,7 @@ Proof.
       rewrite <- op_assoc in HC.
       rewrite (proj1 (op_inv _)) in HC.
       rewrite (proj2 (op_unit _)) in HC.
-      rewrite <- (inv_inv _ _ _ g) in HC.
+      rewrite <- (inv_inv _ g) in HC.
       auto.
 Qed.
 
@@ -1462,13 +1466,10 @@ Proof.
       rewrite Heq, <- Heqzx, <- inv_unit; auto.
 Qed.
 
-Inductive ImEF U V (F: @EnsembleFun U V) : Ensemble V :=
-  ImEF_intro: forall x:U, In _ F.(EnsembleFun.U) x -> In _  (ImEF U V F) (f x).
-
 Lemma homomorphicEF_imageEF:
     forall G1 G2 op1 op2 Phi H1 H2 HS1 HS2,
     @homomorphicEF G1 G2 op1 op2 Phi H1 H2 HS1 HS2 ->
-    SubGroup G2 op2 (ImEF _ _ Phi).
+    SubGroup G2 op2 (ImEF Phi.(U) Phi).
 Proof.
     intros. split; intros.
     - destruct H0 as [x HUx].
@@ -1477,22 +1478,22 @@ Proof.
         apply H; auto.
       }
       unfold appEF in Heq.
-      rewrite <- Heq.
-      apply ImEF_intro.
+      rewrite H4, H5, <-Heq.
+      apply ImEF_intro with (op1 x y); auto;
       apply op_closed; auto.
     - assert (Heq: appEF Phi e = e). {
         apply homomorphicEF_unit with HS1 HS2; auto.
       }
       rewrite <- Heq. unfold appEF.
-      apply ImEF_intro.
+      apply ImEF_intro with e; auto;
       apply unit_closed.
     - destruct H0 as [x HUx].
       assert (Heq: appEF Phi (! x) = ! appEF Phi x). {
         apply homomorphicEF_inv with HS1 HS2; auto.
       }
       unfold appEF in Heq.
-      rewrite <- Heq.
-      apply ImEF_intro.
+      rewrite H3, <- Heq.
+      apply ImEF_intro with (! x); auto;
       apply inv_closed; auto.
 Qed.
 
