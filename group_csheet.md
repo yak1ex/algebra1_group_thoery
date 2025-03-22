@@ -97,7 +97,8 @@ $f:A\rightarrow B$で
 * 第2版p.100 命題4.1.12 (群 $G$ が有限集合 $X=\lbrace x_1,\cdots,x_n\rbrace$ に左から作用するとする。このとき $g\cdot x_i=x_{\rho(g)(i)(i=1,\cdots,n)}$ とおく。$\rho(g)$ は $\lbrace1,\cdots,n$ の置換を引き起こし、写像 $\rho:G\rightarrow\mathfrak{S}_n$ を定める。これを $X$ の作用により定まる置換表現という) $\rho:G\rightarrow\mathfrak{S}_n$ は群の準同型
 * p.92 系4.1.21 $G$ が $X$ に作用、 $x,y\in X, (G\cdot x)\cap(G\cdot y)\neq\emptyset\Rightarrow G\cdot y=G\cdot x\land G_y \cong G_x$
 * p.93 命題4.1.23 $G$ が $X$ に作用、$x\in X$ のとき、 $G/G_x\ni gG_x\mapsto gx\in G\cdot x$ は全単射。従って $|G\cdot x|=(G:G_x)$ 、 $|G|\lt\infty$ であれば $|G\cdot x|=|G|/|G_x|$
-* p.95 定理4.1.28 $\mathrm{ord}(G)\lt\infty$ (1) $x\in G\Rightarrow|C(x)|=\frac{|G|}{|Z_G(x)|}, C(x)=\lbrace x\rbrace\Leftrightarrow x\in Z(G)$ (2) $|G|=\sum|C(x)|$
+* 第2版p.104 定義4.1.27 $H\le G$ (1) $N_G(H)=\lbrace1\in G\mid gHg^{-1}=H\rbrace$ (2) $Z_G(H)=\lbrace g\in G\mid \forall h\in H,gh=hg\rbrace$ (3) $Z_(G)=Z_G(G)$
+* p.95(第2版p.105) 定理4.1.28 $\mathrm{ord}(G)\lt\infty$ (1) $x\in G\Rightarrow|C(x)|=\frac{|G|}{|Z_G(x)|}, C(x)=\lbrace x\rbrace\Leftrightarrow x\in Z(G)$ (2) $|G|=\sum|C(x)|$
 
 ### 4.2 対称群の共役類
 
