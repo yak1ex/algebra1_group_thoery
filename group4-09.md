@@ -165,23 +165,27 @@ $s=4$ と仮定すると、$H$ と共役な $H_1,H_2,H_3,H_4$ をとれる。 $G
 位数 $10$ の元 $j$ があるとき、その元による生成群 $J=\langle j\rangle$ を考えると $|J|=10$ である。
 命題4.5.6より $J$ と共役な部分群の数は $|G|/|N_G(J)|$ である。
 定義より $N_G(J)\supset J$ なので $|N_G(J)|\ge|J|=10$ 。
-一方 $N_G(J)$ は $G$ の部分群であるが、演習問題4.9.2および(2)から $G$ は位数 $12,15,20,30$ の部分群は持たないとしてよい。 $|N_G(J)|=60$ の場合は $N_G(J)=G$ すなわち $J$ が正規部分群の場合となるのでこれも候補とならない。よって、 $|N_G(J)|=10$ となり $J$ と共役な部分群の数は $|G|/|N_G(J)|=60/10=6$ である。
+一方 $N_G(J)$ は $G$ の部分群なので位数は $G$ の位数 $60$ の約数となるが、演習問題4.9.2および(2)から $G$ は位数 $12,15,20,30$ の部分群は持たないとしてよい。 $|N_G(J)|=60$ の場合は $N_G(J)=G$ すなわち $J$ が正規部分群の場合となり $G$ が単純群であることに反するのでこれも候補とならない。よって、 $|N_G(J)|=10$ となり $J$ と共役な部分群の数は $|G|/|N_G(J)|=60/10=6$ である。
 $J$ と共役な部分群それぞれについて少なくとも生成元とその逆元は位数 $10$ の元であり、しかも部分群ごとに異なる(さもなくば巡回群なので部分群全体が一致する)。よって、 $G$ が位数 $10$ の元を持つなら位数 $10$ の元は少なくとも $6\times2=12$ 個存在する。
 次に、シロー $2$ 部分群から $1$ つ選んで $L$ とする。 $|L|=4$ である。定理4.5.7(シローの定理)(4)を用いると、シロー $2$ 部分群の数 $u$ は$u\equiv1\mod 2$ を満たす。 $G$ は単純群なので $G$ 自身か自明なものしか正規部分群を持たないから $u\ne1$ 。 すると $u\ge3$ である。よって少なくとも $3$ つの異なるシロー $2$ 部分群 $L_1,L_2,L_3$ を選ぶことができる。$|L_i|=4$ で、 $3,5,10$ を約数に持たないから $L_i$ の元の位数は $3,5,10$ ではない。 $L_i,L_j(i\ne j)$ を考えると少なくとも $1$ つの元は異なる。よって、位数が $3,5,10$ ではない元として少なくとも $L_1$ の $4$ 個と $L_2,L_3$ からそれぞれ $1$ 個の $6$ 個の元を選ぶことができる。(4)より $G$ の元で $3,5$ ではないものの個数は $16$ 個だが、位数 $10$ の元があるとすると少なくとも $12$ 個あり、これに加えて位数が $3,5,10$ ではない元が少なくとも $6$ 個あるから $12+6\gt16$ となって矛盾する。
 (よって、 $G$ は位数 $10$ の元を持たない)
 ※(3)(4)から残り $4$ 個の元でシロー $2$ 部分群を構成するしかないがそうするとシロー $2$ 部分群が $1$ つだけとなりすなわち正規部分群となる。これは $G$ が単純群であることに矛盾する。
-6. $x\in G$ の位数が $2$ なら $|Z_G(x)|=4$  であることを証明せよ
-7. $H_1\ne H_2$ が $G$ のシロー $2$ 部分群なら $H_1\cap H_2=\lbrace1\rbrace$ であることを証明せよ
-8. $G$ のシロー $2$ 部分群の数は $5$ であることを証明せよ → $G\cong A_5$
-※ここではシローの定理を明示的に使わずとも 4.9.2 から $5$ 以上であることからでも言える
+6. $x\in G$ の位数が $2$ なら $|Z_G(x)|=4$  であることを証明せよ **まだ**
+7. $H_1\ne H_2$ が $G$ のシロー $2$ 部分群なら $H_1\cap H_2=\lbrace1\rbrace$ であることを証明せよ **まだ**
+8. $G$ のシロー $2$ 部分群の数は $5$ であることを証明せよ
+   シロー $2$ 部分群の数を $v$ とする。 $v=1$ とすると、シロー $2$ 部分群が正規部分群となるため、 $G$ が単純群であることに反するため $v\ne1$ 。
+   シロー $2$ 部分群の位数は $4$ なので位数$3,5$以外の元しかない。(7)からシロー $2$ 部分群で共通の要素は単位元のみである。(4)から $G$ の位数が $3,5$ 以外の元の数は $16$ 個なので $(4-1)v+1\le16$ となり、 $v\le5$ である。
+   一方、シロー $2$ 部分群に対する共役による作用を考えると、 $\mathfrak{S}_v$ に対する置換表現を考えることができ、演習問題4.9.2(1)から $v\ne2,3,4$ である。
+   以上より $v=5$ 、すなわち $G$ のシロー $2$ 部分群の数は $5$ である。
+   (よって、(2)より後で $G$ が $|S|=5$ には自明な作用しか持たない(位数 $12$ の部分群を持たない)とした仮定に矛盾するので $G\cong A_5$ となる)
 
-※2. これにより、以下 $G$ は位数 $12 の部分群を持たないと仮定して良い、というのは位数 $12$ の部分群を持つならその剰余類 $5$ 個に対する作用を考えることができるから？
+※2. これにより、以下 $G$ は位数 $12$ の部分群を持たないと仮定して良い、というのは位数 $12$ の部分群を持つならその剰余類 $5$ 個に対する作用を考えることができるから？→Yes
 
 #### 4.9.4 (2)が担当
 
 >p.138 補題4.9.1 $n\ge3$ なら、 $A_n$ は長さ $3$ の巡回置換で生成される。
 >p.107 命題4.2.1 $\sigma$ が有限集合 $X$ の置換なら、共通する元のない巡回置換 $\sigma_1,\cdots,\sigma_m$ で $X$ の元は全てこれらに現れるものがあり $\sigma=\sigma_1\cdots\sigma_m$ と表せる。このとき、 $\sigma_1,\cdots,\sigma_m$ は順序を除いて一意的である。また $1\le i\ne j\le m$ なら、 $\sigma_i\sigma_j=\sigma_j\sigma_i$ である。
->p.149 演習問題4.2.7 偶置換 $\sigma\in\mathfrak{S}_n$ の型を $i_1,\cdots,\_l$ とする。(1) $i_1,\cdots,i_l$ がすべて異なる奇数なら $Z_{\mathfrak{S}_n}(\sigma) = Z_{A_n}(\sigma)$ であることを証明せよ。したがって、 $\sigma$ の $\mathfrak{S}_n$ の共役類は $A_n$ においては元の個数が等しい２つの共役類の和になる。 (2) (1)以外の場合には $[Z_{\mathfrak{S}_n}(\sigma):Z_{A_n}(\sigma)]=2$ であることを証明せよ。したがって、 $\sigma$ の $\mathfrak{S}_n$ における共役類は $A_n$ においても一つの共役類になる。
+>p.149 演習問題4.2.7 偶置換 $\sigma\in\mathfrak{S}_n$ の型を $i_1,\cdots,i_l$ とする。(1) $i_1,\cdots,i_l$ がすべて異なる奇数なら $Z_{\mathfrak{S}_n}(\sigma) = Z_{A_n}(\sigma)$ であることを証明せよ。したがって、 $\sigma$ の $\mathfrak{S}_n$ の共役類は $A_n$ においては元の個数が等しい２つの共役類の和になる。 (2) (1)以外の場合には $[Z_{\mathfrak{S}_n}(\sigma):Z_{A_n}(\sigma)]=2$ であることを証明せよ。したがって、 $\sigma$ の $\mathfrak{S}_n$ における共役類は $A_n$ においても一つの共役類になる。
 
 $n\ge3, n\ne6$ 、 $\phi$ は $A_n$ の自己同型
 
@@ -199,15 +203,29 @@ $n\ge3, n\ne6$ 、 $\phi$ は $A_n$ の自己同型
    $r_{n,k}=\frac{|Z_{\mathfrak{S}_n}(\phi(\sigma))|}{|Z_{\mathfrak{S}_n}(\sigma)|}=\frac{k!(n-3k)!\cdot3^k}{(n-3)!\cdot3}$ と置く。 $|Z_{\mathfrak{S}_n}(\sigma)|=|Z_{\mathfrak{S}_n}(\phi(\sigma))|$ であれば $r_{n,k}=1$ である。
    $r_{n,2}=\frac{18}{3(n-3)(n-4)(n-5)}\le\frac{18}{3\cdot4\cdot3\cdot2}\lt1$ である。
    ここで $\frac{r_{n,k+1}}{r_{n,k}}=\frac{(k+1)!(n-3(k+1))!\cdot3^{k+1}}{k!(n-3k)!\cdot3^k}=\frac{3(k+1)}{(n-3k)(n-3k-1)(n-3k-2)}$ を考えると
-   分母、分子とも正の範囲しか動かないことに注意すれば、 $k$ が増加するにつれ分子は増加、分母は減少するので単調増加する。どこかで $1$ を超えるなら $r_{n,k}$ としては下に凸であり、超えないなら $r_{n,k}$ は単調減少する。
+   分母、分子とも正の範囲しか動かないことに注意すれば、 $k$ が増加するにつれ分子は増加、分母は減少するので単調増加する。どこかで $1$ を超えるなら $r_{n,k}$ としては下に凸であり、超えないなら $r_{n,k}$ は単調減少である。
    $r_{n,2}\lt1$ であることは見たので $k$ の大きい側の境界でも $r_{n,k}\lt1$ であれば対象範囲の全ての $k$ で $r_{n,k}\lt1$ である。 $3k\le n$ の条件が $n$ を $3$ で割ったあまりによって境界が変わることに注意すると
    $n=3k$ のとき $r_{3k,k}=\frac{k!\cdot3^k}{3(3k-3)!}$ で $r_{6,2}=1$ だがこれは $n=6$ のときなので条件外である。
    $k$ から $k+1$ に増加した場合の比 $\frac{r_{3(k+1),k+1}}{r_{3k,k}}=\frac{3(k+1)}{3k(3k-1)(3k-2)}\lt1(k\ge2)$ なので $r_{n,k}$ は $n,k$ が増加するにつれて減少する。 $r_{6,2}=1$ だったので $r_{n,k}\lt1(k\ge3)$ である。
    $n=3k+1$ のとき $r_{3k+1,k}=\frac{k!\cdot3^k}{3(3k-2)!}=\frac{1}{3k-2}\frac{k!\cdot3^k}{3(3k-3)!}=\frac{1}{3k-2}r_{3k,k}\lt1$ である。
    $n=3k+2$ のときも $r_{3k+2,k}=\frac{2k!\cdot3^k}{3(3k-1)!}=\frac{2}{3k-1}\frac{k!\cdot3^k}{3(3k-2)!}=\frac{2}{3k-1}r_{3k+1,k}\lt1$ である。
    以上により、 $r_{n,k}\lt1$ となるので、 $|Z_{\mathfrak{S}_n}(\sigma)|\ne|Z_{\mathfrak{S}_n}(\phi(\sigma))|$ となって矛盾する。したがって、 $\phi(\sigma)$ は長さ $3$ の巡回置換となる。
-   ※ 共役類の要素数の(場合の数の)計算でも同様の結果が導ける(最初そうした)が既存の結果を使った
+   ※ 共役類の要素数の(場合の数の)計算でも同様の結果が導ける
    ※ $n=6,k=2$ だと $18$ で等しくなる
-3. $3\le i\ne j\le n$ なら、 $\phi((1 2 i)),\phi((1 2 j))$ は最初の2つの数字が同じ長さ $3$ の巡回置換であることを証明せよ
-4. $a_1,\cdots,a_n\in\lbrace1,\cdots,n\rbrace$ が存在し、 $\phi((1 2 i))=(a_1 a_2 a_i)(i=3,\cdots,n)$ となることを証明せよ
+3. $3\le i\ne j\le n$ なら、 $\phi((1\hspace{5mu}2\hspace{5mu}i)),\phi((1\hspace{5mu}2\hspace{5mu}j))$ は最初の2つの数字が同じ長さ $3$ の巡回置換であることを証明せよ
+   (2)より $\phi((1\hspace{5mu}2\hspace{5mu}i)),\phi((1\hspace{5mu}2\hspace{5mu}j))$ はともに長さ $3$ の巡回置換である。 $\phi((1\hspace{5mu}2\hspace{5mu}i))=(a\hspace{5mu}b\hspace{5mu}c),\phi((1\hspace{5mu}2\hspace{5mu}j))=(d\hspace{5mu}e\hspace{5mu}f)$ とおく( $a,b,c$ および $d,e,f$ はそれぞれ互いに相異なる)。 $(1\hspace{5mu}2\hspace{5mu}i)(1\hspace{5mu}2\hspace{5mu}j)=(j\hspace{5mu}2)(i\hspace{5mu}1)$ なので $((1\hspace{5mu}2\hspace{5mu}i)(1\hspace{5mu}2\hspace{5mu}j))^2=1_{A_n}$ である。よって、 $\phi(((1\hspace{5mu}2\hspace{5mu}i)(1\hspace{5mu}2\hspace{5mu}j))^2)=(a\hspace{5mu}b\hspace{5mu}c)(d\hspace{5mu}e\hspace{5mu}f)(a\hspace{5mu}b\hspace{5mu}c)(d\hspace{5mu}e\hspace{5mu}f)=1_{A_n}$ となる。以下により、この条件を満たすのは最初の $2$ つの数字が同じ、長さ $3$ の巡回置換の場合となる。
+   1. $\lbrace a,b,c\rbrace\cap\lbrace d,e,f\rbrace=\empty$ の場合、 $(a\hspace{5mu}b\hspace{5mu}c)(d\hspace{5mu}e\hspace{5mu}f)(a\hspace{5mu}b\hspace{5mu}c)(d\hspace{5mu}e\hspace{5mu}f)=(a\hspace{5mu}c\hspace{5mu}b)(d\hspace{5mu}f\hspace{5mu}e)\ne1_{A_n}$ となるので題意を満たさない。
+   2. $\lbrace a,b,c\rbrace\cap\lbrace d,e,f\rbrace$ が $1$ 要素の場合、 $a=d$ として一般性を失わない。このとき $(a\hspace{5mu}b\hspace{5mu}c)(a\hspace{5mu}e\hspace{5mu}f)(a\hspace{5mu}b\hspace{5mu}c)(a\hspace{5mu}e\hspace{5mu}f)=(a\hspace{5mu}f\hspace{5mu}c\hspace{5mu}e\hspace{5mu}b)\ne1_{A_n}$ となるので題意を満たさない。
+   3. $\lbrace a,b,c\rbrace\cap\lbrace d,e,f\rbrace$ が $2$ 要素の場合
+      1. $a=d,b=e$ の場合、 $(a\hspace{5mu}b\hspace{5mu}c)(a\hspace{5mu}b\hspace{5mu}f)(a\hspace{5mu}b\hspace{5mu}c)(a\hspace{5mu}b\hspace{5mu}f)=1_{A_n}$ となり題意を満たす。
+      2. $a=d,b=f$ の場合、 $(a\hspace{5mu}b\hspace{5mu}c)(a\hspace{5mu}e\hspace{5mu}b)(a\hspace{5mu}b\hspace{5mu}c)(a\hspace{5mu}e\hspace{5mu}b)=(a\hspace{5mu}c\hspace{5mu}e)$ となり題意を満たさない。
+   4. $\lbrace a,b,c\rbrace=\lbrace d,e,f\rbrace$ の場合
+      1. $a=d,b=f,c=e$ の場合、 $1_{A_n}=(a\hspace{5mu}b\hspace{5mu}c)(a\hspace{5mu}c\hspace{5mu}b)=\phi((1\hspace{5mu}2\hspace{5mu}i))\phi((1\hspace{5mu}2\hspace{5mu}j))=\phi((1\hspace{5mu}2\hspace{5mu}i)(1\hspace{5mu}2\hspace{5mu}j))$ となり $\phi$ は同型だから $(1\hspace{5mu}2\hspace{5mu}i)(1\hspace{5mu}2\hspace{5mu}j)=1$ となり矛盾するから題意を満たさない。
+      2. $a=d,b=e,c=f$ の場合、 $\phi((1\hspace{5mu}2\hspace{5mu}i))=\phi((1\hspace{5mu}2\hspace{5mu}j))$ で $\phi$ は同型(単射)なので $(1\hspace{5mu}2\hspace{5mu}i)=(1\hspace{5mu}2\hspace{5mu}j)$ となり矛盾するから題意を満たさない。
+4. $a_1,\cdots,a_n\in\lbrace1,\cdots,n\rbrace$ が存在し、 $\phi((1\hspace{5mu}2\hspace{5mu}i))=(a_1\hspace{5mu}a_2\hspace{5mu}a_i)(i=3,\cdots,n)$ となることを証明せよ
+   $n=3$ のとき、 $\phi((1\hspace{5mu}2\hspace{5mu}3))$ は長さ $3$ の巡回置換になるので、 $a_1,a_2,a_3\in\lbrace1,2,3\rbrace$ を使って $\phi((1\hspace{5mu}2\hspace{5mu}3))=(a_1\hspace{5mu}a_2\hspace{5mu}a_3)$ と表せる。
+   $n\ge4$ のとき、帰納法で示す。(3)より $\phi((1\hspace{5mu}2\hspace{5mu}3)),\phi((1\hspace{5mu}2\hspace{5mu}4))$ は最初の $2$ つの数字が同じ、長さ $3$ の巡回置換となる。同じ $2$ つの数字を $a_1,a_2$ とおく。残りについて $(1\hspace{5mu}2\hspace{5mu}3)$ 側を $a_3$ 、 $(1\hspace{5mu}2\hspace{5mu}4)$ 側を $a_4$ とすると $\phi$ は単射なので $a_3\ne a_4$ である。 $i$ 以下について成立しているときに $i+1$ についても $i,i+1$ について同様の議論をすればよい成立することも同様である。
 5. $\sigma\in\mathfrak{S}_n$ が存在して、 $\phi$ は $\sigma$ による内部自己同型の $A_n$ への制限であることを証明せよ
+   $\phi$ が $\sigma$ による内部自己同型の $A_n$ への制限であることを言うためには、 $\forall\tau\in A_n$ で $\phi(\tau)=\sigma\tau\sigma^{-1}$ であることを言えば良い。
+   命題2.5.14より $\forall\tau\in A_n$ についてではなく、 $A_n$ の生成元である $\tau\in\lbrace(1\hspace{5mu}2\hspace{5mu}i)\mid i=3,\dots,n\rbrace$ について $\phi(\tau)=\sigma\tau\sigma^{-1}$ であることを言えば良い。
+   $\sigma(i)=a_i(i=1,\cdots,n)$ と置けば $\sigma\tau\sigma=\sigma(1\hspace{5mu}2\hspace{5mu}i)\sigma^{-1}=(\sigma(1)\hspace{5mu}\sigma(2)\hspace{5mu}\sigma(i))=(a_1\hspace{5mu}a_2\hspace{5mu}a_i)=\phi((1\hspace{5mu}2\hspace{5mu}i))=\phi(\tau)$ よりこれが題意を満たす $\sigma\in\mathfrak{S}_n$ となる。
