@@ -99,7 +99,7 @@ Definition group_op {S op} {G: @Group S op} := op.
 Notation "x <*> y" := (group_op x y) (at level 40, left associativity).
 Notation "! x" := (inv x) (at level 35, right associativity).
 
-Lemma group_cancel_l: forall a b c, a <*> b = a <*> c -> b = c.
+Lemma group_cancel_l: forall {G op} {HG: Group G op} a b c, a <*> b = a <*> c -> b = c.
 Proof.
     intros. apply (f_equal (group_op (! a))) in H.
     repeat rewrite <- op_assoc in H.
@@ -113,7 +113,7 @@ Proof.
     exact H.
 Qed.
 
-Lemma group_cancel_r: forall a b c, a <*> b = c <*> b -> a = c.
+Lemma group_cancel_r: forall {G op} {HG: Group G op} a b c, a <*> b = c <*> b -> a = c.
 Proof.
     intros. apply (f_equal (fun x => group_op x (! b))) in H.
     repeat rewrite op_assoc in H.
@@ -1139,6 +1139,20 @@ Proof.
       apply homomorphic_gpower'.
 Qed.
 
+Lemma gpower_inv:
+    forall {G op} {HG: Group G op} g n, g <^> (- n) = ! (g <^> n).
+Proof.
+    intros.
+    pose proof (homomorphic_gpower g) as Hhom.
+    unfold homomorphic in Hhom.
+    pose proof (Hhom n (-n)%Z).
+    apply group_cancel_l with (g <^> n).
+    unfold group_op.
+    rewrite <- H.
+    rewrite Z.add_opp_diag_r.
+    now rewrite (proj1 (op_inv _)).
+Qed.
+
 Lemma gpower'_unit: forall {G op} {HG:Group G op} p, e = gpower' e p.
 Proof.
     intros. induction p; simpl; repeat rewrite <- IHp; repeat rewrite (proj1 (op_unit _)); auto.
@@ -1206,10 +1220,10 @@ Check cardinal.
 Definition element_order1 G op {H} g ord : Prop := cardinal G (@CycleGroup G op g H) ord.
 
 Definition element_order2 G op {H:Group G op} g ord : Prop :=
-    forall n, n > 0 -> (g <^> Z.of_nat n) = e -> n >= ord.
+    ord > 0 /\ g <^> Z.of_nat ord = e /\ forall n, n > 0 -> (g <^> Z.of_nat n) = e -> ~ n < ord.
 
 Definition element_order3 G op {H:Group G op} g ord: Prop :=
-    (g <^> Z.of_nat ord) = e /\ forall n, n < ord -> (g <^> Z.of_nat n) <> e.
+    ord > 0 /\ (g <^> Z.of_nat ord) = e /\ forall n, 0 < n < ord -> (g <^> Z.of_nat n) <> e.
 
 Definition NormalSubGroup G op {H} N: Prop :=
     (@SubGroup G op N H) /\ (forall g n, In _ N n -> In _ N (g <*> n <*> ! g)).
@@ -1497,6 +1511,154 @@ Proof.
       apply inv_closed; auto.
 Qed.
 
+Lemma gpower_Same_set_lt_nat:
+    forall G op {H:Group G op} g n,
+    n > 0 -> g <^> (Z.of_nat n) = e
+    -> Same_set _ (fun m => exists p, p < n /\ m = g <^> (Z.of_nat p)) (fun m => exists p, m = g <^> p).
+Proof.
+    intros. split; unfold Included, In; intros.
+    - destruct H2 as [p [HL HR]].
+      exists (Z.of_nat p); auto.
+    - destruct H2 as [p Heq].
+      pose proof (gpower_order_plus_mult _ _ (p mod Z.of_nat n) (p / Z.of_nat n) H1).
+      pose proof (Z_div_mod_eq_full p (Z.of_nat n)).
+      rewrite Z.add_comm in H3.
+      rewrite <- H3 in H2.
+      rewrite <- H2 in Heq.
+      assert (Heq': (Z.of_nat (Z.to_nat (p mod Z.of_nat n)%Z)) = (p mod Z.of_nat n)%Z). {
+        apply Z2Nat.id.
+        apply Z.mod_pos_bound.
+        rewrite <- Nat2Z.inj_0.
+        apply inj_lt; auto.
+      }
+      rewrite <- Heq' in Heq.
+      exists (Z.to_nat (p mod Z.of_nat n)); split; auto.
+      rewrite <- (Nat2Z.id n) at 2.
+      pose proof (Nat2Z.is_nonneg n).
+      pose proof (inj_gt _ _ H0).
+      rewrite Nat2Z.inj_0 in H5.
+      pose proof (Z.mod_pos_bound p (Z.of_nat n) (Z.gt_lt _ _ H5)).
+      destruct H6.
+      apply Z2Nat.inj_lt; auto.
+Qed.
+
+Lemma element_order3_full:
+    forall G op {H:Group G op} g ord,
+    element_order3 G op g ord ->
+    forall i j, i < j < ord -> g <^> Z.of_nat i <> g <^> Z.of_nat j.
+Proof.
+    unfold element_order3, not. intros.
+    destruct H0 as (HL & HC & HR).
+    pose proof (Nat.lt_le_incl _ _ (proj1 H1)) as Hij.
+    pose proof (Nat.lt_add_lt_sub_l i j 0) as Hji.
+    rewrite Nat.add_0_r in Hji.
+    pose proof ((proj1 Hji) (proj1 H1)) as Hji'.
+    apply HR with (j - i).
+    - split; auto.
+      destruct i.
+      + rewrite Nat.sub_0_r.
+        apply H1.
+      + pose proof (Nat.lt_0_succ i) as Hi.  
+        pose proof (Nat.sub_lt _ _ Hij Hi) as Hjij.
+        apply Nat.lt_trans with j; auto.
+        apply H1.
+    - pose proof (Nat2Z.inj_sub _ _ Hij) as Heq.
+      rewrite Heq, <- Z.add_opp_r.
+      pose proof (homomorphic_gpower g) as Hhom.
+      unfold homomorphic in Hhom.
+      rewrite Hhom.
+      rewrite gpower_inv, H2.
+      now rewrite (proj1 (op_inv _)).
+Qed.
+
+#[refine]
+Instance gpowerEF {G op} {H: Group G op} g n : (@EnsembleFun nat G) :=
+{
+    f := fun m => gpower g (Z.of_nat m);
+    U := fun m => m < n;
+    V := fun p => exists m, m < n /\ p = g <^> (Z.of_nat m);
+}.
+Proof.
+    intros.
+    exists x; auto.
+Defined.
+
+Lemma gpowerEF_InjectiveEF:
+  forall G op {H:Group G op} g n,
+  element_order3 G op g n -> InjectiveEF (gpowerEF g n).
+Proof.
+  unfold InjectiveEF; intros.
+  pose proof (element_order3_full _ _ _ _ H0).
+  unfold element_order3 in *.
+  destruct H0 as (HL & HC & HR).
+  destruct (x ?= y) eqn:E.
+  - apply Nat.compare_eq; auto.
+  - apply Nat.compare_lt_iff in E.
+    pose proof (H4 x y (conj E H2)) as HCon.
+    contradiction.
+  - apply Nat.compare_gt_iff in E.
+    pose proof (H4 y x (conj E H1)) as HCon.
+    apply eq_sym in H3.
+    contradiction.
+Qed.
+
+Lemma gpowerEF_SurjectiveEF: forall {G op} {H: Group G op} g n,
+  element_order3 G op g n -> SurjectiveEF (gpowerEF g n).
+Proof.
+  intros. unfold SurjectiveEF, V; simpl. intros y [x' [HL HR]].
+  exists x'; auto.
+Qed.
+
+Lemma Same_set_CycleGroup_gpower:
+  forall G op H g, (Same_set _ (@CycleGroup G op g H) (fun m => exists p, m = g <^> p)).
+Proof.
+  unfold Same_set, Included, In, CycleGroup. split; intros.
+  - induction H0.
+    + exists 0%Z. now simpl.
+    + induction H0. exists 1%Z. now simpl.
+    + destruct IHgenerated as [p Heq].
+      exists (-p)%Z.
+      now rewrite gpower_inv, Heq.
+    + destruct IHgenerated as [x' Heqx']. 
+      destruct IHgenerated0 as [y' Heqy'].
+      exists (x' + y')%Z.
+      rewrite Heqx', Heqy'.
+      now rewrite homomorphic_gpower.
+  - destruct H0 as [p Hp].
+    destruct p.
+    + simpl in *. rewrite Hp. apply generated_unit.
+    + generalize dependent x. induction p; intros.
+      * simpl in *. rewrite Hp.
+        pose proof (IHp (gpower' g p) eq_refl) as Hgpp.
+        apply generated_cons.
+        -- apply generated_cons; auto.
+        -- apply generated_single, In_singleton.
+      * simpl in *. rewrite Hp.    
+        pose proof (IHp (gpower' g p) eq_refl) as Hgpp.
+        apply generated_cons; auto.
+      * simpl in *. rewrite Hp.
+        apply generated_single, In_singleton.
+    + generalize dependent x. induction p; intros.
+      * simpl in *. rewrite Hp.
+        pose proof (IHp (! gpower' g p) eq_refl) as Hgpp.
+        rewrite <- inv_op, <- inv_op.
+        apply generated_cons.
+        -- apply generated_inv, generated_single, In_singleton.
+        -- apply generated_cons; auto.
+      * simpl in *. rewrite Hp.
+        pose proof (IHp (! gpower' g p) eq_refl) as Hgpp.
+        rewrite <- inv_op.
+        apply generated_cons; auto.
+      * simpl in *. rewrite Hp.
+        apply generated_inv, generated_single, In_singleton.
+Qed.
+
+Check Same_set_CycleGroup_gpower.
+Check InjectiveEF_preserves_cardinal.
+Check lt_nat_cardinal.
+Check SurjectiveEF_Same_set_ImEF_V.
+Print element_order1.
+
 (* TODO *)
 
 Lemma element_order_1_2 :
@@ -1505,11 +1667,41 @@ Admitted.
 
 Lemma element_order_2_3 :
     forall G op {H} g ord, (@element_order2 G op H g ord) -> (@element_order3 G op H g ord).
-Admitted.
+Proof.
+  unfold element_order2, element_order3, not; intros.
+  destruct H0 as (HL & HC & HR).
+  split; auto.
+  split; auto.
+  intros. destruct H0. apply HR with n; auto.
+Qed.
 
-Lemma element_order_3_1 :
+Lemma element_order_3_1:
     forall G op {H} g ord, (@element_order3 G op H g ord) -> (@element_order1 G op H g ord).
-Admitted.
+Proof.
+  intros.
+  pose proof (gpowerEF_InjectiveEF _ _ _ _ H0).
+  pose proof (gpowerEF_SurjectiveEF _ _ H0).
+  pose proof (SurjectiveEF_Same_set_ImEF_V _ _ _ H2).
+  pose proof (lt_nat_cardinal ord).
+  assert (Hcar: cardinal nat (gpowerEF g ord).(U) ord). {
+    apply Same_set_Finite_same_cardinal with (fun m: nat => m < ord); auto with sets.
+    apply lt_nat_finite.
+  }
+  assert (HInUU: Included nat (gpowerEF g ord).(U) (gpowerEF g ord).(U)). {
+    unfold Included, In. intros; auto.
+  }
+  pose proof (InjectiveEF_preserves_cardinal U _ ord H1 Hcar HInUU).
+  pose proof (Same_set_CycleGroup_gpower _ _ _ g).
+  destruct H0 as [Hord [He Hne]].
+  pose proof (gpower_Same_set_lt_nat _ _ _ _ Hord He).
+  unfold element_order1.
+  apply Same_set_same_cardinal with (fun m : G => exists p : Z, m = g <^> p).
+  apply Same_set_sym; auto.
+  apply Same_set_same_cardinal with (fun p => exists m, m < ord /\ p = g <^> (Z.of_nat m)); auto.
+  apply Same_set_same_cardinal with (ImEF (gpowerEF g ord).(U) (gpowerEF g ord)); auto.
+Qed.
+Print Assumptions element_order_3_1.
+(* classic, Extensionality_Ensembles *)
 
 Lemma cycle_element_subgroup : forall G op g H, (@SubGroup G op (@CycleElement G op g H) H).
 Admitted.

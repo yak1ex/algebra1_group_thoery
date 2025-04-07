@@ -3,7 +3,7 @@ Require Export Coq.Sets.Finite_sets.
 Require Import Coq.Sets.Image.
 Require Import Coq.Logic.FinFun.
 
-Lemma Same_set_same_cardinal:
+Lemma Same_set_same_cardinal_eq:
     forall U S1 S2 n1 n2,
     Same_set U S1 S2 -> cardinal U S1 n1 -> cardinal U S2 n2 -> n1 = n2.
 Proof.
@@ -13,7 +13,7 @@ Proof.
     set (Hle2 := incl_card_le _ _ _ _ _ HC2 HC1 HR).
     now apply Nat.le_antisymm.
 Qed.
-Print Assumptions Same_set_same_cardinal.
+Print Assumptions Same_set_same_cardinal_eq.
 Print Assumptions incl_card_le.
 (* classic, Extensionality_Ensembles *)
 
@@ -26,11 +26,20 @@ Proof.
     destruct H as [HL HR].
     pose proof (Finite_downward_closed _ _ H0 _ HR) as Hfin.
     destruct (finite_cardinal _ _ Hfin) as [m Hm].
-    pose proof (Same_set_same_cardinal _ _ _ _ _ Hs H1 Hm) as Heq.
+    pose proof (Same_set_same_cardinal_eq _ _ _ _ _ Hs H1 Hm) as Heq.
     now subst.
 Qed.
 Print Assumptions Same_set_Finite_same_cardinal.
 (* classic, Extensionality_Ensembles *)
+
+Lemma Same_set_same_cardinal:
+    forall U S1 S2 n,
+    Same_set U S1 S2 -> cardinal U S1 n -> cardinal U S2 n.
+Proof.
+    intros.
+    pose proof (cardinal_finite _ _ _ H0).
+    apply Same_set_Finite_same_cardinal with S1; auto.
+Qed.
 
 Lemma Included_same_cardinal_Same_set:
     forall U S1 S2 n,
@@ -135,6 +144,7 @@ Proof.
     apply HsR, H.
 Qed.
 
+
 Lemma LtNat_finite:
     forall n, Finite_sets.Finite nat (LtNat n).
 Proof.
@@ -142,6 +152,8 @@ Proof.
     - apply Empty_is_finite.
     - apply Add_preserves_Finite; auto.
 Qed.
+Print Assumptions LtNat_finite.
+(* classic, Extensionality_Ensembles *)
 
 Lemma lt_nat_finite:
     forall n, Finite_sets.Finite nat (fun m => m < n).
@@ -152,6 +164,8 @@ Proof.
     pose proof (LtNat_finite n) as HF.
     apply Finite_downward_closed with (LtNat n); auto.
 Qed.
+Print Assumptions lt_nat_finite.
+(* classic, Extensionality_Ensembles *)
 
 Lemma LtNat_cardinal:
     forall n, cardinal nat (LtNat n) n.
@@ -174,3 +188,5 @@ Proof.
     apply LtNat_finite.
     apply LtNat_cardinal.
 Qed.
+Print Assumptions lt_nat_cardinal.
+(* classic, Extensionality_Ensembles *)

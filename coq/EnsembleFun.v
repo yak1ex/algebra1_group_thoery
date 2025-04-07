@@ -61,7 +61,7 @@ Definition InjectiveEF {A B} (F: @EnsembleFun A B) :=
     forall x y, U x -> U y -> f x = f y -> x = y.
 
 Definition SurjectiveEF {A B} (F: @EnsembleFun A B) :=
-    forall y, exists x, U x /\ f x = y.
+    forall y, V y -> exists x, U x /\ f x = y.
    
 Definition BijectiveEF {A B} (F: @EnsembleFun A B) :=
     exists G: (@EnsembleFun B A),
@@ -228,7 +228,7 @@ Qed.
 
 From GROUP Require Export Cardinal.
 
-Lemma InjectiveEF_preserves_cardinal:
+Lemma InjectiveEF_preserves_cardinal':
     forall {X Y} D F n,
     (@InjectiveEF X Y F) -> cardinal _ D n -> Included _ D U ->
     forall n', cardinal _ (ImEF D F) n' -> n' = n.
@@ -273,7 +273,7 @@ Proof.
         subst; auto.
 Qed.
 
-Print Assumptions InjectiveEF_preserves_cardinal.
+Print Assumptions InjectiveEF_preserves_cardinal'.
 (*
 Axioms:
 classic : forall P : Prop, P \/ ~ P
@@ -282,12 +282,53 @@ Extensionality_Ensembles : forall (U : Type) (A B : Ensemble U), Same_set U A B 
 Print Assumptions Same_set_Finite_same_cardinal.
 (* classic, Extensionality_Ensembles *)
 
+Lemma InjectiveEF_preserves_cardinal:
+    forall {X Y} D F n,
+    (@InjectiveEF X Y F) -> cardinal _ D n -> Included _ D U ->
+    cardinal _ (ImEF D F) n.
+Proof.
+    intros.
+    destruct (cardinal_ImEF_intro _ _ _ H0 H1) as [n' Hcar].
+    pose proof (InjectiveEF_preserves_cardinal' _ _ _ H H0 H1 n' Hcar) as Heq.
+    now rewrite <- Heq.
+Qed.
+Print Assumptions InjectiveEF_preserves_cardinal.
+(*
+Axioms:
+classic : forall P : Prop, P \/ ~ P
+Extensionality_Ensembles : forall (U : Type) (A B : Ensemble U), Same_set U A B -> A = B
+*)
+
 Lemma cardinal_decreases_EF:
     forall {X Y} D F n,
-    cardinal X D n -> forall n', cardinal Y (ImEF D F) n' -> n' <= n.
+    cardinal X D n -> Included X D F.(U) -> forall n', cardinal Y (ImEF D F) n' -> n' <= n.
 Proof.
-    intros X Y D F n HcarD n' HcarIm.
-Admitted.
+    intros X Y D F n HcarD HIn n' HcarIm.
+    generalize dependent n'. induction HcarD; intros.
+    - pose proof (ImEF_Empty F).
+      pose proof (card_empty Y).
+      apply Same_set_sym in H.
+      pose proof (Same_set_same_cardinal _ _ _ _ H H0).
+      pose proof (cardinal_unicity _ _ _ H1 _ HcarIm).
+      rewrite <- H2; auto.
+    - destruct n'.
+      apply Nat.lt_le_incl, Nat.lt_0_succ.
+      assert (HInx: In X U x) by apply HIn, Add_intro2.
+      pose proof (ImEF_add A _ _ HInx).
+      pose proof (Same_set_same_cardinal _ _ _ _ H0 HcarIm).
+      assert (HInA: Included X A U) by auto with sets.
+
+      destruct (cardinal_ImEF_intro _ _ _ HcarD HInA) as [n'' Hcarn''].
+      pose proof (IHHcarD HInA _ Hcarn'').
+      pose proof (card_Add_gen _ _ _ _ _ Hcarn'' H1).
+      apply le_n_S in H2.
+      apply Nat.le_trans with (S n''); auto.
+Qed.
+Print Assumptions cardinal_decreases_EF.
+Print Assumptions card_Add_gen.
+(* classic, Extensionality_Ensembles *)
+Print Assumptions cardinal_unicity.
+(* Extensionality_Ensembles *)
 
 Require Import Sets.Constructive_sets.
 
@@ -425,7 +466,7 @@ Proof.
             apply Add_intro1; auto.
           }
           destruct (cardinal_ImEF_intro _ _ _ HCU HInU') as [n'' Hn''].
-          pose proof (InjectiveEF_preserves_cardinal _ _ _ HFInj HCU HInU' _ Hn'') as Heq.
+          pose proof (InjectiveEF_preserves_cardinal' _ _ _ HFInj HCU HInU' _ Hn'') as Heq.
           rewrite <- Heq.
           apply Same_set_Finite_same_cardinal with (ImEF U' F); auto.
           apply cardinal_finite with n''; auto.
@@ -436,3 +477,13 @@ Proof.
 Qed.
 Print Assumptions decidable_eq_BijectiveEF_same_cardinal_UV.
 (* classic, Extensionality_Ensembles *)
+
+Lemma SurjectiveEF_Same_set_ImEF_V:
+  forall A B F, (@SurjectiveEF A B F) -> Same_set _ (ImEF U F) V.
+Proof.
+  unfold SurjectiveEF, Same_set, Included, In; intros; split; intros.
+  - induction H0. rewrite H2. apply ef_welldef; auto.
+  - destruct (H _ H0) as [x' [Hx' Heq]].
+    rewrite <- Heq.
+    apply ImEF_def; auto.
+Qed.
