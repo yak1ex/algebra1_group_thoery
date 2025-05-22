@@ -1653,16 +1653,25 @@ Proof.
         apply generated_inv, generated_single, In_singleton.
 Qed.
 
-Check Same_set_CycleGroup_gpower.
-Check InjectiveEF_preserves_cardinal.
-Check lt_nat_cardinal.
-Check SurjectiveEF_Same_set_ImEF_V.
-Print element_order1.
-
 (* TODO *)
 
 Lemma element_order_1_2 :
     forall G op {H} g ord, (@element_order1 G op H g ord) -> (@element_order2 G op H g ord).
+Proof.
+  unfold element_order1, element_order2; intros.
+  repeat split.
+  - destruct ord.
+    + apply cardinalO_empty in H0.
+      assert (Hin: In _ (CycleGroup G op g) g) by apply generated_single, In_singleton.
+      rewrite H0 in Hin.
+      contradiction Hin.
+    + apply Nat.lt_0_succ.
+  - pose proof (Same_set_CycleGroup_gpower _ _ _ g).
+    pose proof (Same_set_same_cardinal _ _ _ _ H1 H0).
+    admit.
+  - intros.
+    pose proof (Same_set_CycleGroup_gpower _ _ _ g).
+    pose proof (Same_set_same_cardinal _ _ _ _ H3 H0).
 Admitted.
 
 Lemma element_order_2_3 :
