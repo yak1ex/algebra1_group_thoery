@@ -3,10 +3,10 @@ From Coq Require Export Arith.Arith.
 From Coq Require Export PeanoNat.
 From Coq Require Export Arith.EqNat.
 From Coq Require Export Lia. *)
-From Coq Require Export ZArith.
-From Coq Require Import Logic.FinFun.
-From Coq Require Import Sets.Image.
-From Coq Require Import Logic.ProofIrrelevance.
+From Stdlib Require Export ZArith.
+From Stdlib Require Import FinFun.
+From Stdlib Require Import Sets.Image.
+From Stdlib Require Import Logic.ProofIrrelevance.
 From GROUP Require Import EnsembleFun.
 
 Module Trial1.

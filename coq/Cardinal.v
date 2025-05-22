@@ -1,7 +1,7 @@
-Require Export Coq.Sets.Ensembles.
-Require Export Coq.Sets.Finite_sets.
-Require Import Coq.Sets.Image.
-Require Import Coq.Logic.FinFun.
+From Stdlib Require Export Sets.Ensembles.
+From Stdlib Require Export Sets.Finite_sets.
+From Stdlib Require Import Sets.Image.
+From Stdlib Require Import Vectors.FinFun.
 
 Lemma Same_set_same_cardinal_eq:
     forall U S1 S2 n1 n2,
