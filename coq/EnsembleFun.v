@@ -1,6 +1,6 @@
-Require Import List ListDec.
-Require Import Sets.Ensembles.
-From Coq Require Import Sets.Image.
+From Stdlib Require Import List ListDec.
+From Stdlib Require Import Sets.Ensembles.
+From Stdlib Require Import Sets.Image.
 
 Class EnsembleFun {A B} := {
     f: A -> B;
@@ -330,7 +330,7 @@ Print Assumptions card_Add_gen.
 Print Assumptions cardinal_unicity.
 (* Extensionality_Ensembles *)
 
-Require Import Sets.Constructive_sets.
+From Stdlib Require Import Sets.Constructive_sets.
 
 (* Powerset_Classical_facts.add_soustr_1
    In U X x -> Included U (Add U (Subtract U X x) x) X
