@@ -1655,6 +1655,32 @@ Qed.
 
 (* TODO *)
 
+Lemma cardinal_lt_nat_ge_gpower:
+    forall G op {H:Group G op} g n m,
+    cardinal _ (Im _ _ (fun x => x < n) (fun x => g <^> (Z.of_nat x))) m
+    -> ~ n < m.
+Proof.
+  intros.
+  apply Nat.le_ngt.
+  eapply cardinal_decreases.
+  apply (lt_nat_cardinal n).
+  apply H0.
+Qed.
+Print Assumptions cardinal_lt_nat_ge_gpower.
+(* classic, Extensionality_Ensembles *)
+
+Lemma Same_set_im_exists_gpower:
+    forall G op {H:Group G op} n g,
+    Same_set _ (fun m => exists p, p < n /\ m = g <^> (Z.of_nat p)) (Im _ _ (fun x => x < n) (fun x => g <^> (Z.of_nat x))).
+Proof.
+  intros; split; unfold Included, In; intros.
+  - destruct H0 as [p [HL HR]].
+    apply Im_intro with p; auto.
+  - apply Im_inv in H0.
+    destruct H0 as [x0 [HL HR]].
+    exists x0; split; auto.
+Qed.
+
 Lemma element_order_1_2 :
     forall G op {H} g ord, (@element_order1 G op H g ord) -> (@element_order2 G op H g ord).
 Proof.
