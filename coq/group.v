@@ -7,7 +7,11 @@ From Stdlib Require Export ZArith.
 From Stdlib Require Import FinFun.
 From Stdlib Require Import Sets.Image.
 From Stdlib Require Import Logic.ProofIrrelevance.
+From Stdlib Require Import Sets.Integers.
+From Stdlib Require Import Sets.Infinite_sets.
+From Stdlib Require Import Logic.ConstructiveEpsilon.
 From GROUP Require Import EnsembleFun.
+From Stdlib Require Import Sets.Constructive_sets.
 
 Module Trial1.
 
@@ -1653,63 +1657,6 @@ Proof.
         apply generated_inv, generated_single, In_singleton.
 Qed.
 
-(* TODO *)
-
-Lemma cardinal_lt_nat_ge_gpower:
-    forall G op {H:Group G op} g n m,
-    cardinal _ (Im _ _ (fun x => x < n) (fun x => g <^> (Z.of_nat x))) m
-    -> ~ n < m.
-Proof.
-  intros.
-  apply Nat.le_ngt.
-  eapply cardinal_decreases.
-  apply (lt_nat_cardinal n).
-  apply H0.
-Qed.
-Print Assumptions cardinal_lt_nat_ge_gpower.
-(* classic, Extensionality_Ensembles *)
-
-Lemma Same_set_im_exists_gpower:
-    forall G op {H:Group G op} n g,
-    Same_set _ (fun m => exists p, p < n /\ m = g <^> (Z.of_nat p)) (Im _ _ (fun x => x < n) (fun x => g <^> (Z.of_nat x))).
-Proof.
-  intros; split; unfold Included, In; intros.
-  - destruct H0 as [p [HL HR]].
-    apply Im_intro with p; auto.
-  - apply Im_inv in H0.
-    destruct H0 as [x0 [HL HR]].
-    exists x0; split; auto.
-Qed.
-
-Lemma element_order_1_2 :
-    forall G op {H} g ord, (@element_order1 G op H g ord) -> (@element_order2 G op H g ord).
-Proof.
-  unfold element_order1, element_order2; intros.
-  repeat split.
-  - destruct ord.
-    + apply cardinalO_empty in H0.
-      assert (Hin: In _ (CycleGroup G op g) g) by apply generated_single, In_singleton.
-      rewrite H0 in Hin.
-      contradiction Hin.
-    + apply Nat.lt_0_succ.
-  - pose proof (Same_set_CycleGroup_gpower _ _ _ g).
-    pose proof (Same_set_same_cardinal _ _ _ _ H1 H0).
-    admit.
-  - intros.
-    pose proof (Same_set_CycleGroup_gpower _ _ _ g).
-    pose proof (Same_set_same_cardinal _ _ _ _ H3 H0).
-Admitted.
-
-Lemma element_order_2_3 :
-    forall G op {H} g ord, (@element_order2 G op H g ord) -> (@element_order3 G op H g ord).
-Proof.
-  unfold element_order2, element_order3, not; intros.
-  destruct H0 as (HL & HC & HR).
-  split; auto.
-  split; auto.
-  intros. destruct H0. apply HR with n; auto.
-Qed.
-
 Lemma element_order_3_1:
     forall G op {H} g ord, (@element_order3 G op H g ord) -> (@element_order1 G op H g ord).
 Proof.
@@ -1738,12 +1685,284 @@ Qed.
 Print Assumptions element_order_3_1.
 (* classic, Extensionality_Ensembles *)
 
+Lemma cardinal_lt_nat_ge_gpower:
+    forall G op {H:Group G op} g n m,
+    cardinal _ (Im _ _ (fun x => x < n) (fun x => g <^> (Z.of_nat x))) m
+    -> ~ n < m.
+Proof.
+  intros.
+  apply Nat.le_ngt.
+  eapply cardinal_decreases.
+  apply (lt_nat_cardinal n).
+  apply H0.
+Qed.
+Print Assumptions cardinal_lt_nat_ge_gpower.
+(* classic, Extensionality_Ensembles *)
+
+Lemma Same_set_im_exists_gpower':
+    forall G op {H:Group G op} n g,
+    Same_set _ (fun m => exists p, p < n /\ m = g <^> (Z.of_nat p)) (Im _ _ (fun x => x < n) (fun x => g <^> (Z.of_nat x))).
+Proof.
+  intros; split; unfold Included, In; intros.
+  - destruct H0 as [p [HL HR]].
+    apply Im_intro with p; auto.
+  - apply Im_inv in H0.
+    destruct H0 as [x0 [HL HR]].
+    exists x0; split; auto.
+Qed.
+
+Lemma Same_set_im_exists_gpower:
+    forall G op {H:Group G op} g,
+    Same_set _ (fun m => exists p, m = g <^> p) (Im _ _ (Full_set Z) (fun x => g <^> x)).
+Proof.
+  intros; split; unfold Included, In; intros.
+  - destruct H0 as [p HH].
+    apply Im_intro with p; auto.
+    apply Full_intro.
+  - apply Im_inv in H0.
+    destruct H0 as [x0 [HL HR]].
+    now exists x0.
+Qed.
+
+Lemma contrapos: forall P Q, (P -> Q) -> ~Q -> ~P.
+Proof.
+  unfold not. intros. auto.
+Qed.
+
+Lemma infinite_included:
+  forall U X Y, ~ Finite U X -> Included U X Y -> ~ Finite U Y.
+Proof.
+  intros.
+  apply contrapos with (Finite U X); auto.
+  intros.
+  apply Finite_downward_closed with Y; auto.
+Qed.
+Print Assumptions infinite_included.
+(* classic, Extensionality_Ensembles *)
+
+Lemma injective_Nat2Z: injective _ _ Z.of_nat.
+Proof.
+  unfold injective. intros.
+  now apply Nat2Z.inj.
+Qed.
+
+Lemma infinite_Nat2Z: (~ Finite Z (Im nat Z Integers Z.of_nat)).
+Proof.
+  pose proof Integers_infinite as H.
+  revert H.
+  apply contrapos.
+  apply (Pigeonhole_ter _ _ _ _ 0). (* probably library defect *)
+  apply injective_Nat2Z.
+Qed.
+Print Assumptions infinite_Nat2Z.
+(* classic, Extensionality_Ensembles *)
+
+Lemma Included_Nat2Z_Z: Included _ (Im nat Z Integers Z.of_nat) (Full_set Z).
+Proof.
+  unfold Included, In. intros.
+  apply Full_intro.
+Qed.
+
+Lemma infinite_Z: (~ Finite Z (Full_set Z)).
+Proof.
+  pose proof Included_Nat2Z_Z as H.
+  revert H.
+  apply infinite_included.
+  apply infinite_Nat2Z.
+Qed.
+Print Assumptions infinite_Z.
+(* classic, Extensionality_Ensembles *)
+
+Lemma cardinal_gpower_not_injective:
+  forall G op {H:Group G op} g ord,
+  cardinal G (fun m : G => exists p : Z, m = g <^> p) ord
+  -> ~ injective _ _ (fun p => g <^> p).
+Proof.
+  intros.
+  pose proof (Same_set_im_exists_gpower _ _ g).
+  pose proof (Same_set_same_cardinal _ _ _ _ H1 H0).
+  pose proof (cardinal_finite _ _ _ H2).
+  pose proof infinite_Z.
+  apply Pigeonhole_bis with (Full_set Z); auto.
+Qed.
+
+Lemma cardinal_gpower_kernel_nontrivial:
+  forall G op {H:Group G op} g ord,
+  cardinal G (fun m : G => exists p : Z, m = g <^> p) ord
+  -> exists n, (g <^> Z.of_nat n = e /\ n > 0).
+Proof.
+  intros.
+  apply cardinal_gpower_not_injective in H0.
+  apply not_injective_elim in H0.
+  destruct H0 as [x [y [HL HR]]].
+  destruct (x ?= y)%Z eqn:E.
+  - apply Z.compare_eq_iff in E.
+    contradiction.
+  - rewrite Z.compare_lt_iff in E.
+    assert (HH: g <^> (y - x) = e). {
+      rewrite <- Z.add_opp_l.
+      rewrite homomorphic_gpower.
+      rewrite gpower_inv.
+      rewrite HL.
+      apply op_inv.
+    }
+    assert (Hnneg: (0 <= y - x)%Z) by apply Z.le_0_sub, Z.lt_le_incl, E.
+    assert (Hpos: (0 < y - x)%Z) by apply Z.lt_0_sub, E.
+    assert (H0: (0 <= 0)%Z) by apply Z.le_refl.
+    exists (Z.to_nat (y - x)); split.
+    now rewrite (Z2Nat.id _ Hnneg).
+    rewrite <- Z2Nat.inj_0.
+    apply Z2Nat.inj_lt; auto.
+  - rewrite Z.compare_gt_iff in E.
+    assert (HH: g <^> (x - y) = e). {
+      rewrite <- Z.add_opp_r.
+      rewrite homomorphic_gpower.
+      rewrite gpower_inv.
+      rewrite HL.
+      apply op_inv.
+    }
+    assert (Hnneg: (0 <= x - y)%Z) by apply Z.le_0_sub, Z.lt_le_incl, E.
+    assert (Hpos: (0 < x - y)%Z) by apply Z.lt_0_sub, E.
+    assert (H0: (0 <= 0)%Z) by apply Z.le_refl.
+    exists (Z.to_nat (x - y)); split.
+    now rewrite (Z2Nat.id _ Hnneg).
+    rewrite <- Z2Nat.inj_0.
+    apply Z2Nat.inj_lt; auto.
+Qed.
+    
+Definition eq_dec G := forall j k:G, {j=k}+{j<>k}. 
+
+Lemma decidable_eq_G_decidable_in_kernel:
+  forall G op {H:Group G op} g,
+  eq_dec G ->
+  forall n : nat,
+  {g <^> Z.of_nat n = e /\ n > 0} +
+  {~ (g <^> Z.of_nat n = e /\ n > 0)}.
+Proof.
+  intros. unfold gt. pose proof (lt_dec 0 n) as Hlt.
+  destruct (X (g <^> Z.of_nat n) e);
+  destruct Hlt; [left|right|right|right];
+  auto; unfold not; intros; destruct H0; contradiction.
+Qed.
+
+Lemma gpower_kernel_nontrivial_element_order3_exist:
+  forall G op {H:Group G op} g,
+  eq_dec G ->
+  (exists n, (g <^> Z.of_nat n = e /\ n > 0))
+  -> (exists n, n > 0 /\ g <^> Z.of_nat n = e /\ forall x,(0 < x < n -> g <^> Z.of_nat x <> e)).
+Proof.
+  intros.
+  pose proof (decidable_eq_G_decidable_in_kernel G op g X).
+  eapply (epsilon_smallest _ H1) in H0.
+  destruct H0 as [n [[HLL HLR] HR]].
+  exists n; repeat split; auto.
+  - unfold not; intros.
+    pose proof (HR x).
+    pose proof (H3 (conj H2 (proj1 H0))).
+    apply (proj1 (Nat.le_ngt _ _) H4), H0.
+Qed.
+
+Lemma element_order_1_3':
+    forall G op {H} g ord,
+    eq_dec G ->
+    (@element_order1 G op H g ord) -> (@element_order3 G op H g ord).
+Proof.
+  unfold element_order1, element_order3; intros.
+  pose proof (Same_set_CycleGroup_gpower _ _ _ g).
+  pose proof (Same_set_same_cardinal _ _ _ _ H1 H0).
+  pose proof (cardinal_gpower_kernel_nontrivial _ _ _ _ H2).
+  destruct (gpower_kernel_nontrivial_element_order3_exist _ _ g X H3).
+  pose proof (element_order_3_1 _ _ _ _ H4).
+  unfold element_order1 in H5.
+  pose proof (cardinal_unicity _ _ _ H0 _ H5).
+  rewrite H6; auto.
+Qed.
+Print Assumptions element_order_1_3'.
+(* classic, Extensionality_Ensembles *)
+
+Lemma element_order_3_2:
+    forall G op {H} g ord, (@element_order3 G op H g ord) -> (@element_order2 G op H g ord).
+Proof.
+  unfold element_order3, element_order2, not; intros.
+  destruct H0 as (HL & HC & HR).
+  split; auto.
+  split; auto.
+  intros. apply HR with n; auto.
+Qed.
+
+Lemma element_order_2_3:
+    forall G op {H} g ord, (@element_order2 G op H g ord) -> (@element_order3 G op H g ord).
+Proof.
+  unfold element_order2, element_order3, not; intros.
+  destruct H0 as (HL & HC & HR).
+  split; auto.
+  split; auto.
+  intros. destruct H0. apply HR with n; auto.
+Qed.
+
+(* TODO: make use of automation *)
 Lemma cycle_element_subgroup : forall G op g H, (@SubGroup G op (@CycleElement G op g H) H).
-Admitted.
+Proof.
+  intros; split; intros.
+  - destruct H0; destruct H1.
+    + apply cycle_element_pos, cycle_element_pos_pos; auto.
+    + apply cycle_element_pos; rewrite (proj1 (op_unit _)); auto.
+    + apply cycle_element_pos_neg; auto.
+    + apply cycle_element_pos; rewrite (proj2 (op_unit _)); auto.
+    + rewrite (proj1 (op_unit _)); apply cycle_element_unit.
+    + apply cycle_element_neg; rewrite (proj2 (op_unit _)); auto.
+    + apply cycle_element_neg_pos; auto.
+    + apply cycle_element_neg; rewrite (proj1 (op_unit _)); auto.
+    + apply cycle_element_neg, cycle_element_neg_neg; auto.
+  - apply cycle_element_unit.
+  - destruct H0.
+    + apply cycle_element_neg, inv_cycle_element_pos; auto.
+    + rewrite <- inv_unit; apply cycle_element_unit.
+    + apply cycle_element_pos, inv_cycle_element_neg; auto.
+Qed.
+
+(* TODO *)
+
+Lemma coset_injective:
+  forall G op {H:Group G op} K (HK: @SubGroup G op K H) g,
+  injective G G (fun x => g <*> x) /\
+  Same_set _ (Im G G K (fun x => g <*> x)) (LeftCoset G op g K HK).
+Proof.
+  intros; unfold injective; split; intros.
+  - now apply group_cancel_l with g.
+  - unfold Same_set, Included, In; split; intros.
+    + apply Im_inv in H0.
+      destruct H0 as [x0 [HL HR]].
+      rewrite <- HR.
+      now apply LeftCoset_cons.
+    + destruct H0.
+      apply Im_intro with k; auto.
+Qed.
+
+Lemma coset_same_cardinal:
+  forall G op {H:Group G op} K (HK: @SubGroup G op K H) m g n,
+  cardinal _ K m
+  -> cardinal _ (LeftCoset G op g K HK) n
+  -> m = n.
+Proof.
+  intros.
+  destruct (coset_injective _ _ _ _ g) as [HL HR].
+  apply Same_set_sym in HR.
+  pose proof (Same_set_same_cardinal _ _ _ _ HR H1).
+  apply eq_sym.
+  apply (injective_preserves_cardinal _ _ _ _ _ HL H0 _ H2).
+Qed.
+
+(* cardinal_Distjoint_Union *)
+(* Union_absorbs *)
+(* 
+Disjoint _ (LeftCoset G op g1 K HK) (LeftCoset G op g2 K HK)
+\/ Same_set (LeftCoset G op g1 K HK) (LeftCoset G op g2 K HK)
+*)
 
 Lemma element_order_divide_group_order :
-    forall G op {H} K g n m, (@SubGroup G op K H) -> In _ K g ->
-    cardinal _ K n -> (@element_order1 G op H g m) -> Nat.divide m n.
+    forall G op {H} K g n m,
+    cardinal _ G n -> (@element_order1 G op H g m) -> Nat.divide m n.
 Admitted.
 
 End Trial2.
