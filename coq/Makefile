@@ -1,6 +1,8 @@
 COQMFFLAGS := -Q . GROUP  -arg "-w -omega-is-deprecated,-implicit-core-hint-db"
 
-ALLVFILES := group.v EnsembleFun.v Cardinal.v
+ALLVFILES := group21.v group23.v group24.v group25.v group26.v group28.v EnsembleFun.v Cardinal.v CycleGroup.v
+
+all: build proofs.svg
 
 build: Makefile.coq
 	$(MAKE) -f Makefile.coq
@@ -15,3 +17,6 @@ Makefile.coq:
 -include Makefile.coq
 
 .PHONY: build clean
+
+proofs.svg: proofs.dot
+	dot -T svg $^ > $@

@@ -1,0 +1,43 @@
+digraph proofs {
+    rankdir="LR"
+    "element_order_1_3'" -> Same_set_CycleGroup_gpower
+    "element_order_1_3'" -> cardinal_gpower_kernel_nontrivial
+    "element_order_1_3'" -> gpower_kernel_nontrivial_element_order3_exist
+    "element_order_1_3'" -> element_order_3_1
+    gpower_kernel_nontrivial_element_order3_exist -> decidable_eq_G_decidable_in_kernel
+    gpower_kernel_nontrivial_element_order3_exist -> epsilon_smallest
+    epsilon_smallest [color=green]
+    cardinal_gpower_kernel_nontrivial -> cardinal_gpower_not_injective
+    cardinal_gpower_kernel_nontrivial -> homomorphic_gpower
+    cardinal_gpower_kernel_nontrivial -> gpower_inv
+    cardinal_gpower_kernel_nontrivial -> op_inv
+    cardinal_gpower_not_injective -> Same_set_im_exists_gpower
+    cardinal_gpower_not_injective -> Pigeonhole_bis
+    Pigeonhole_bis [color=red]
+    cardinal_gpower_not_injective -> infinite_Z
+    infinite_Z -> Included_Nat2Z_Z
+    infinite_Z -> infinite_included
+    infinite_Z -> infinite_Nat2Z
+    infinite_Nat2Z -> contrapos
+    infinite_Nat2Z -> Pigeonhole_ter
+    Pigeonhole_ter [color=red]
+    infinite_Nat2Z -> injective_Nat2Z
+    infinite_included -> contrapos
+    element_order_3_1 -> gpowerEF_InjectiveEF
+    element_order_3_1 -> gpowerEF_SurjectiveEF
+    element_order_3_1 -> Same_set_CycleGroup_gpower
+    element_order_3_1 -> gpower_Same_set_lt_nat
+    gpower_Same_set_lt_nat -> gpower_order_plus_mult
+    gpower_order_plus_mult -> homomorphic_gpower
+    gpower_order_plus_mult -> "gpower'_mult"
+    gpower_order_plus_mult -> "gpower'_inv"
+    gpower_order_plus_mult -> "gpower'_unit"
+    gpower_order_plus_mult -> inv_unit
+    gpower_order_plus_mult -> inv_inv
+    Same_set_CycleGroup_gpower -> gpower_inv
+    Same_set_CycleGroup_gpower -> homomorphic_gpower
+    Same_set_CycleGroup_gpower -> "generated_*"
+    gpowerEF_InjectiveEF -> element_order3_full
+    element_order3_full -> homomorphic_gpower
+    element_order3_full -> gpower_inv
+}
