@@ -35,3 +35,48 @@ $n,m$ が決まったら一意に決まるの？
 →推移的に作用するので軌道の要素数は頂点の数 $4$ と等しい。安定化群の位数は $3$ なので命題4.1.24から↑が従う
 
 ※本文中には命題4.1.24の記載がないので、安定化群の元に単位元を含むので重複して数えてるのでは？という議論あり
+
+#### 定理4.10.4
+
+##### $g$ が ... という置換を引き起こすなら、... $\rho(T)\supset\langle(2\hspace{5mu}3\hspace{5mu}4)\rangle$ である
+
+$\rho$ が置換表現で $\rho(T)$ が部分群になるから自明では？
+
+
+##### $\mathrm{Ker}(\rho)=\lbrace1\rbrace$ である。したがって、...同型を引き起こす
+
+>p.49 命題2.5.15 $\phi:G_1\rightarrow G_2$ が準同型なら、次の(1)(2)は同値である (1) $\phi$ は単射である (2) $\mathrm{Ker}(\phi)=\lbrace1_{G_1}\rbrace$
+>p.100 命題4.1.12 (置換表現) $\rho:G\rightarrow\mathfrak{S}_n$ は群の準同型である
+
+##### $12\le|\rho(T)|=|\mathrm{Im}(\rho)|=|T|/|\mathrm{Ker}(\rho)|\le12$
+
+$\rho(T)\supset A_4$ なので、 $|\rho(T)|\ge|A_4|=12$
+
+>定理2.10.1(準同型定理)： $\phi:G\rightarrow H$ を軍の準同型とする。 $\pi:G\rightarrow G/\mathrm{Ker}(\phi)$ を自然な準同型とするとき、右図(略)が可換図式となるような準同型 $\psi:G/\mathrm{Ker}(\phi)\rightarrow H$ がただ一つ存在し、 $\psi$ は $G/\mathrm{Ker}(\phi)$ から $\mathrm{Im}(\phi)$ への同型となる。
+
+$|T|=12$
+
+##### (2)
+
+正八面体の面でやる代わりに立方体の頂点で考えたほうがわかりやすいのでは？
+
+#### 補題4.10.5
+
+##### $\cong\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$
+
+$(1\hspace{5mu}2)(4\hspace{5mu}5)(1\hspace{5mu}5)(2\hspace{5mu}4)=(1\hspace{5mu}4)(2\hspace{5mu}5)=(1\hspace{5mu}5)(2\hspace{5mu}4)(1\hspace{5mu}2)(4\hspace{5mu}5)$ なので
+
+##### $|H|$ は $3,4,5$ で割り切れ
+
+長さ $3,5$ の巡回置換があるので位数 $3,5$ の巡回部分群がある
+$\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}$ と同型な部分群の位数は $4$ なので
+
+### 演習問題
+
+#### 4.10.1
+
+立方体の $1$ つの面を固定した場合の回転を考えることで $\rho(\sigma)=(1\hspace{5mu}2)$ となる $\sigma\in O$ をとれる。また対角線を軸とした回転を考えることで $\rho(\tau)=(1\hspace{5mu}2\hspace{5mu}3)$ となる $\tau\in O$ をとることもできる。
+従って $\mathrm{Im}(\rho)\supset\langle(1\hspace{5mu}2)\rangle$ かつ $\mathrm{Im}(\rho)\supset\langle(1\hspace{5mu}2\hspace{5mu}3)\rangle$ となるので、 $|\mathrm{Im}(\rho)|$ は $2,3$ のいずれも約数として持つ必要がある。
+よって、 $6=|\mathfrak{S}_3|\ge|\mathrm{Im}(\rho)|\ge6$ となるから $\mathrm{Im}(\rho)=\mathfrak{S}_3$ となって $\rho$ は全射である。
+
+※補題4.10.3と同じく軌道・安定化群の関係を使って位数 $6$ ということもできそう？置換表現を考えているのですでに作用から離れちゃってる？
