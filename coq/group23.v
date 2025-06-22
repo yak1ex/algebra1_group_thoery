@@ -16,6 +16,8 @@ From GROUP Require Import group21.
 
 Import GROUP.group21.
 
+(* 2.3 部分群と生成元 *)
+
 (* 命題2.3.2 部分群になる必要十分条件 *)
 Class SubGroup S op (X: Ensemble S) {H:Group S op} := {
     op_closed: forall x y, In _ X x -> In _ X y -> In _ X (op x y);

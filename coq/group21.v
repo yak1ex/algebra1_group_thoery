@@ -13,7 +13,7 @@ From Stdlib Require Import Logic.ConstructiveEpsilon.
 From GROUP Require Import EnsembleFun.
 From Stdlib Require Import Sets.Constructive_sets.
 
-(* 2.1節 *)
+(* 2.1 群の定義 *)
 
 (* 定義2.1.1 *)
 (* 教科書では単位元、逆元の存在だけ言って唯一であることを
